@@ -1,10 +1,14 @@
-header {
+.header {
   margin: 0 auto;
   margin-left: 16px;
   margin-right: 16px;
   margin-top: 16px;
   position: fixed;
-  z-index: 2;
+  z-index: 12;
+  color: #9D9AB1;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 .nav {
@@ -13,7 +17,7 @@ header {
 
   a {
     text-decoration: none;
-    color: #4B4B4B;
+    color: #9D9AB1;
   }
 }
 

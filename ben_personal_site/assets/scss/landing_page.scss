@@ -23,5 +23,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+  width: 100vw;
+  font-size: 32px;
+  font-weight: 500;
+  color: #9D9AB1;
+  line-height: 32px;
 
+  .dev {
+    margin-bottom: 55px;
+  }
 }
