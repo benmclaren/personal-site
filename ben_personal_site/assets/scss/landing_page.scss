@@ -12,4 +12,16 @@
 
 .pannels {
   display: flex;
+  height: 100vh;
+  position: relative;
+}
+
+.hero_title {
+  position: fixed;
+  top: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
 }

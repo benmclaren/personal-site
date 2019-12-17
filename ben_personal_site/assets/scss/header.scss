@@ -3,7 +3,8 @@ header {
   margin-left: 16px;
   margin-right: 16px;
   margin-top: 16px;
-  position: absolute;
+  position: fixed;
+  z-index: 2;
 }
 
 .nav {
