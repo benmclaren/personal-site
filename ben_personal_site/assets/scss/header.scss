@@ -1,0 +1,18 @@
+header {
+  margin: 0 auto;
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-top: 16px;
+  position: absolute;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+
+  a {
+    text-decoration: none;
+    color: #4B4B4B;
+  }
+}
+
