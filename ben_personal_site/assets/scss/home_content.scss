@@ -11,3 +11,50 @@
   padding-top: 64px;
   padding-left: 16px;
 }
+
+.info-box {
+  margin-top: 32px;
+  height: 200px;
+  width: 100vw;
+  background-color: #00CECB;
+  display: flex;
+}
+
+.picture-of-me {
+  height: 100%;
+  width: 40%;
+}
+
+.hero-content {
+  height: 100%;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 8px;
+}
+
+.faded-box {
+  background-color: #FAFBFC;
+  height: 200px;
+  width: 50vw;
+  margin: 0 auto;
+  margin-top: 96px;
+  position: relative;
+}
+
+.para-1 {
+  font-size: 14px;
+  max-width: 150px;
+  position: absolute;
+  top: -10%;
+  transform: translateX(-27%);
+}
+
+.para-2 {
+  font-size: 14px;
+  max-width: 150px;
+  position: absolute;
+  bottom: -20%;
+  right: -10%;
+}
