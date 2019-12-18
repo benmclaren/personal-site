@@ -14,17 +14,7 @@ html {
 @import "header.scss";
 @import "landing_page.scss";
 @import url("https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
-
-
-#section2{
-  background-color: #fff;
-  height: 100vh;
-  width: 100vw;
-  z-index: 10;
-  position: relative;
-
-}
-
+@import "home_content.scss"
 
 
 
