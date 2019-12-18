@@ -5,12 +5,21 @@ body {
   font-family: 'Rubik', sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
 @import "header.scss";
 @import "landing_page.scss";
+@import url("https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
 
-.section2{
+
+#section2{
   background-color: #fff;
   height: 100vh;
+  width: 100vw;
   z-index: 10;
   position: relative;
 

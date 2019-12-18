@@ -13,6 +13,7 @@
 .pannels {
   display: flex;
   height: 100vh;
+  width: 100vw;
   position: relative;
 }
 
@@ -33,4 +34,21 @@
   .dev {
     margin-bottom: 55px;
   }
+}
+
+#chevron {
+  text-decoration: none;
+  font-size: 64px;
+  position: fixed;
+  bottom: 16px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  color: #9D9AB1;
+  cursor: pointer;
+}
+
+#chevron:hover {
+  color: red;
 }
