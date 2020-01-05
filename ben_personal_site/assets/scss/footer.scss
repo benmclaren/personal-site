@@ -1,0 +1,34 @@
+.footer {
+  height: 64px;
+  background-color: #00CECB;
+  z-index: 200;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+    p {
+      margin: 0;
+    }
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 16px;
+  margin-left: 16px;
+
+}
+
+.icons {
+  margin-right: 16px;
+
+    i {
+      padding-left: 8px;
+    }
+}
+
+.contact {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 8px;
+}

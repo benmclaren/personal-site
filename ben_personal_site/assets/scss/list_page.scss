@@ -1,0 +1,95 @@
+.wizard-sub-title {
+  font-family: freight-sans-pro, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 65px;
+  padding-top: 50px;
+  padding-bottom: 25px;
+  max-width: 960px;
+  color: #262626;
+  line-height: 70px;
+}
+
+.list-format {
+  max-width: 960px;
+  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 32px;
+  padding-right: 32px;
+  flex: 1 0 auto;
+}
+
+.article-list li {
+  list-style-type: circle;
+  margin-bottom: 20px;
+}
+
+.articles-item {
+  padding-bottom: 30px;
+}
+
+.md-title {
+  list-style-type: none;
+  font-family: freight-sans-pro, sans-serif;
+  font-size: 30px;
+  margin-bottom: 16px 0;
+  color: #0055ff;
+  font-weight: lighter;
+}
+
+.article-list li {
+  text-decoration: none;
+  color: #0055ff;
+}
+
+.article-list a:hover {
+  color: #b3b3b3;
+  transition: 0.2s ease-in;
+}
+
+
+.blog-format li {
+  list-style-type: none;
+}
+
+.blurb {
+  font-family: freight-sans-pro, sans-serif;
+  list-style-type: none;
+  padding-top: 16px;
+  font-weight: 500;
+
+}
+
+.date {
+  font-family: freight-sans-pro, sans-serif;
+  list-style-type: none;
+  padding-top: 16px;
+  font-style: italic;
+  font-weight: 300;
+}
+
+.continue {
+  list-style-type: none;
+  line-height: 32px;
+  font-family: freight-sans-pro, sans-serif;
+}
+
+.continue a {
+  text-decoration: none;
+  color: #0055ff;
+}
+
+.continue a:hover {
+  color: #b3b3b3;
+}
+
+.blog-title {
+  text-decoration: none;
+  color: #3377ff;
+  font-weight: 500;
+}
+
+.blog-title:hover {
+  color: #b3b3b3;
+}
