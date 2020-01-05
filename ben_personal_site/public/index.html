@@ -6,10 +6,10 @@
   <title>Ben McLaren</title>
   
   
-  <link rel="stylesheet" href="http://example.org/css/main.min.css">
+  <link rel="stylesheet" href="/css/main.min.css">
   <link href="https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+  <script src="toggle.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="blogo1.ico" type="image/x-icon">
 </head>
@@ -18,10 +18,9 @@
 <header class="header">
   <div class="nav">
     <a href="../index.html">Ben McLaren</a>
-    <a href="../articles">Articles</a>
+    <a href="/articles">Articles</a>
   </div>
 </header>
-
 
 
 
@@ -45,47 +44,91 @@
     </div>
   </div>
 
+<section class="section-container">
   <section id="section2">
-    <h1 class="heading">
-      Hey, I'm Ben
-    </h1>
+    <div class="header-background">
+    </div>
     <div class="info-box">
-      <div>
-        <img class="cld-responsive" data-src="https://res.cloudinary.com/dy35n8sog/image/upload/v1575543151/vF7dAjDquVCYn1PRRKJ6835Z.jpg" alt=""/>
+      <div class="image-of-me">
+        <img id ="imageme" class="cld-responsive" data-src="https://res.cloudinary.com/dy35n8sog/image/upload/w_auto,c_scale/v1575543151/vF7dAjDquVCYn1PRRKJ6835Z.jpg" alt=""/>
       </div>
       <div class="hero-content">
-        <p>
-          I am a Full-Stack developer from London although my specialism is in UX/UI design and Front-end development.
+        <p class="heading">
+          Hey, I'm Ben
+        </p>
+        <p class="description">
+          I am a Full-Stack developer from London although my specialism is in UX/UI design and Front-end development. Check out my CV.
         </p>
       </div>
     </div>
-    <div class="faded-box">
+
+    <div class="paragraphs">
       <div class="para-1">
         <p>
-          I write articles on code that I publish here with the aim of supporting other developers.
+          In early 2019 I started making my first website and since them my love for desiging and developing led me to the Le Wagon coding bootcamp which I graduated from in December 2019.
         </p>
       </div>
       <div class="para-2">
+        <p>
+          I continue to work on projects and I write articles on code which I publish here with the aim of supporting other developers. I also do some part time teaching work at Le Wagon where I help to support new developers.
+        </p>
+      <div class="para-3">
         <p>
           When I am not coding or perfecting a design I enjoy, making music, boxing and skiing.
         </p>
       </div>
     </div>
-    <div>
-
-    </div>
-
-
   </section>
 
+  <section>
+    <p class="projects-title">
+      Projects
+    </p>
+    <img id ="snowsquad" class="cld-responsive" data-src="https://res.cloudinary.com/dy35n8sog/image/upload/w_auto,c_scale/v1578159116/Screenshot_2020-01-04_at_17.31.39_mkmbsb.png" alt=""/>
+    <p class="project-1-title">
+      SnowSquad
+    </p>
+    <p class="project-1-des">
+      A progressive webapp intended to connect skiers and snowboarders in specific resorts and allow them to create groups and find other like minded people to ski with.
+    </p>
+     <img id ="chalkandsteel" class="cld-responsive" data-src="https://res.cloudinary.com/dy35n8sog/image/upload/w_auto,c_scale/v1578157957/Screenshot_2020-01-04_at_14.43.30_q9rl9y.png" alt=""/>
+    <p class="project-2-title">
+      Chalk and Steel Coaching
+    </p>
+    <p class="project-2-des">
+      Chalk and Steel Coaching is a static created for a personal trainer to showcase his work, pricing and other details.
+    </p>
+
+  </section>
+<section>
 
 
+
+
+<section class="footer">
+  <div class="footer-container">
+    <p>
+      ©benmclaren2020
+    </p>
+    <div class="icons">
+      <i class="fa fa-github"></i>
+      <i class="fa fa-paper-plane"></i>
+      <i class="fa fa-twitter"></i>
+      <i class="fa fa-linkedin"></i>
+    </div>
+  </div>
+</section>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cloudinary-core/2.3.0/cloudinary-core-shrinkwrap.min.js">
+</script>
+<script>
+  var cl = cloudinary.Cloudinary.new({
+    cloud_name: 'dy35n8sog'
+  });
 
-  const cl = cloudinary.Cloudinary.new({ cloud_name: 'dy35n8sog' })
   cl.responsive()
 </script>
+
 </body>
 </html>
 

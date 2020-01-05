@@ -12,7 +12,7 @@
 }
 
 .info-box {
-  background-color: #00CECB;
+  background-color: #F1F0F0;
   display: flex;
   height: 164px;
 }
@@ -78,9 +78,8 @@ padding-right: 16px;
 #snowsquad,
 #chalkandsteel {
   // height: 100%;
-  width: 80%;
-  margin: 0 10%;
-
+  width: 100%;
+  margin: 0 16px;
   background-color: #fff;
 }
 
@@ -103,7 +102,7 @@ padding-right: 16px;
 }
 
 .project-1-des,
-.project-2-des{
+.project-2-des {
   padding-top: 16px;
 }
 

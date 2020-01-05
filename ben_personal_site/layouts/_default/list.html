@@ -1,0 +1,28 @@
+{{ define "main"}}
+<div class="list-format">
+  <div class="blog-format">
+  <h2 class="wizard-sub-title">
+    Articles
+  </h2>
+  <ul class="articles">
+{{ range .Pages}}
+    <li class="articles-item">
+      <h3 class="md-title">
+        <a class="blog-title" href="{{.Permalink}}">{{ .Title }}</a>
+      </h3>
+      <div class="date">
+        {{ .Date.Format "Monday, Jan 2, 2006" }}
+      </div>
+      <div class="blurb">
+        {{ .Params.Excerpt }}
+      </div>
+      <div class="continue">
+        <a href="{{.Permalink}}">continue reading…</a>
+      </div>
+    </li>
+{{ end }}
+      </ul>
+</div>
+
+</div>
+{{ end }}
