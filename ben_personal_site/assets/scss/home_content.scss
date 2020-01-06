@@ -32,6 +32,7 @@
 
 .description {
   padding-top: 16px;
+  max-width: 450px;
 }
 // .header-background {
 //   background-color: #F8F8F8;
@@ -40,10 +41,10 @@
 // }
 
 .image-of-me {
-display: flex;
-justify-content: center;
+text-align: center;
 padding-left: 16px;
 padding-right: 16px;
+
 }
 
 #imageme {
@@ -92,7 +93,7 @@ padding-right: 16px;
   width: 80%;
   margin: 0 10%;
   background-color: #fff;
-  margin-top: 16px;
+  margin-top: 32px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.15);
 }
 
@@ -123,7 +124,7 @@ padding-right: 16px;
 .project-1-des,
 .project-2-des,
 .project-3-des {
-  padding-top: 16px;
+  padding-top: 32px;
 }
 
 .project-3-des {
