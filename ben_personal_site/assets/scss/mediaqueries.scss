@@ -1,0 +1,132 @@
+@media (min-width: 600px) {
+  .info-box {
+    flex-direction: row;
+    height: 350px;
+  }
+
+  #imageme {
+    width: 100%;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .image-of-me {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 180px;
+    max-width: 250px;
+  }
+}
+
+
+@media (min-width: 950px) {
+  .info-box {
+    height: 500px;
+  }
+
+  .image-of-me {
+    max-width: 372px;
+  }
+
+  .description {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  .para-1,
+  .para-2,
+  .para-3,
+  .blog-title,
+  .project-1-des,
+  .project-2-des,
+  .project-3-des {
+    font-size: 18px;
+  }
+
+
+
+  .para-1 {
+    padding-top: 32px;
+  }
+
+  .paragraphs {
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+}
+
+
+@media (min-width: 650px) {
+  .para-1,
+  .para-2,
+  .para-3 {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 300px;
+  }
+
+  .project-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  #flamingo,
+  #chalkandsteel,
+  #snowsquad {
+    min-width: 300px;
+    max-width: 500px;
+    margin: 16px 32px 0 16px;
+  }
+
+  #flamingo {
+    margin-bottom: 48px;
+  }
+
+  .project-1-des,
+  .project-2-des,
+  .project-3-des {
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+
+
+  .header,
+  .projects-title {
+    padding: 0;
+  }
+
+  .nav,
+  .page {
+    margin-left: 64px;
+    margin-right: 64px;
+  }
+
+  .page {
+    max-width: 720px;
+  }
+
+  .list-format {
+    margin-left: 64px;
+    margin-right: 64px;
+    max-width: 470px;
+  }
+
+  .project-1-title,
+  .project-2-title,
+  .project-3-title, {
+    margin :0;
+  }
+
+  .project-section {
+    margin: 0;
+  }
+}

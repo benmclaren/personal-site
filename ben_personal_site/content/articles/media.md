@@ -1,6 +1,6 @@
 ---
-title: "Using media queries to make responsive text"
-date: 2020-01-05T12:38:41Z
+title: "How to use media queries to make responsive text"
+date: 2019-01-29T11:35:33Z
 author: Ben McLaren
 draft: false
 excerpt: "Websites need to look good across a multitude of screens and therefore it is essential that a site is responsive so that a user's experience is not affected by their choice of screen size."

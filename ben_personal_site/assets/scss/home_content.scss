@@ -1,24 +1,38 @@
 
-.section-container {
-  height: 100vh;
-  width: 100vw;
-  z-index: 20;
+#test {
+  height: 43px;
+  margin-top: -43px;
+  display: block;
+  visibility: hidden;
+}
+
+#section-container {
+  height: 100%;
+  width: 100%;
+  z-index: 15;
   background-color: #fff;
   position: relative;
 }
 
 .heading {
+  font-size: 28px;
   font-weight: 700;
+  line-height: 1.2;
 }
 
 .info-box {
   background-color: #F1F0F0;
   display: flex;
-  height: 164px;
+  flex-direction: column-reverse;
+  justify-content:space-evenly;
+  height: 382px;
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 .description {
   padding-top: 16px;
+  max-width: 450px;
 }
 // .header-background {
 //   background-color: #F8F8F8;
@@ -27,25 +41,21 @@
 // }
 
 .image-of-me {
-display:flex;
-flex-direction: column;
-justify-content: center;
+text-align: center;
 padding-left: 16px;
 padding-right: 16px;
+
 }
 
 #imageme {
   border-radius: 50%;
-  width: 78px;
-  height: 78px;
+  width: 50%;
+
 
  }
 
 .hero-content {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  // height: 100%;
   padding-right: 16px;
     p {
       margin-top: 0;
@@ -61,52 +71,62 @@ padding-right: 16px;
 }
 
 .para-1 {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .para-2 {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .projects-title {
-  font-size: 16px;
+  font-size: 28px;
   font-weight: 700;
   padding-left: 16px;
   margin-top: 48px;
+  line-height: 1.2;
 }
 
 #snowsquad,
-#chalkandsteel {
+#chalkandsteel,
+#flamingo {
   // height: 100%;
-  width: 100%;
-  margin: 0 16px;
+  width: 80%;
+  margin: 0 10%;
   background-color: #fff;
+  margin-top: 32px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
 }
 
-#chalkandsteel {
-  padding-top: 48px;
+.project-2-title,
+.project-3-title {
+  padding-top: 32px;
 }
 
 .project-1-title,
 .project-1-des,
 .project-2-title,
-.project-2-des {
+.project-2-des,
+.project-3-title,
+.project-3-des {
   margin: 0 16px;
   z-index: 200;
   background-color: #fff;
 }
 
 .project-1-title,
-.project-2-title {
-  padding-top: 16px;
+.project-2-title,
+.project-3-title {
+  font-size: 16px;
+  font-weight: 700;
+
 }
 
 .project-1-des,
-.project-2-des {
-  padding-top: 16px;
+.project-2-des,
+.project-3-des {
+  padding-top: 32px;
 }
 
-.project-2-des {
+.project-3-des {
   padding-bottom: 48px;
-  background-color: #fff;
 }

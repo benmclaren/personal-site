@@ -1,6 +1,6 @@
 ---
-title: "Making an inline navigation bar with Flexbox"
-date: 2020-01-05T12:38:34Z
+title: "How to make an inline navigation bar with Flexbox"
+date: 2019-02-10T13:07:09Z
 author: Ben McLaren
 draft: false
 excerpt: "One of the key components on my site is the responsive navigation bar. Initially, I had attempted to create this using floats however, I quickly realised that this was not an effective way of constructing this element."
