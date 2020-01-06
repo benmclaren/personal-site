@@ -1,9 +1,9 @@
 ---
 title: "Why I came out of univeristy to focus on coding"
-date: 2020-01-05T12:38:06Z
+date: 2018-12-11T11:34:23Z
 author: Ben McLaren
 draft: false
-excerpt: "One of the most common questions children are asked is 'What do you want to be when you are older?'. In my opinion this is quite a difficult question to answer."
+excerpt: ". In my opinion this is quite a difficult question to answer."
 ---
 
 **_The best decison I could have made_**

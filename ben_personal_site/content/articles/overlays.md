@@ -1,9 +1,9 @@
 ---
 title: "How to apply overlays to images"
-date: 2020-01-05T12:38:49Z
+date: 2019-02-17T10:58:45Z
 author: Ben McLaren
 draft: false
-excerpt: "An overlay seems like it would be something difficult to achieve however, it is actually relatively simple and it can be done with just CSS"
+excerpt: "An overlay seems like it would be something difficult to achieve however, it is actually relatively simple and it can be done with just CSS."
 ---
 
 An overlay seems like it would be something difficult to achieve however, it is actually relatively simple and it can be done with just CSS.

@@ -46,9 +46,14 @@
   justify-content: center;
   width: 100vw;
   color: #1C1C21;
-  cursor: pointer;
+  z-index: 10;
 }
 
-#chevron:hover {
-  color: red;
+#arrow-color:hover {
+  font-size: 36px
+}
+
+#arrow-color {
+  color: #1C1C21;
+  transition: 0.3s;
 }

@@ -1,9 +1,9 @@
 ---
 title: "How to make a Paralax effect"
-date: 2020-01-05T12:38:57Z
+date: 2019-02-19T11:00:16Z
 author: Ben McLaren
 draft: false
-excerpt: "A Paralax effect is an interesting but effective way of displaying content and is quite easy to achieve"
+excerpt: "A Paralax effect is an interesting but effective way of displaying content and is quite easy to achieve."
 ---
 
 **Paralax effect (CSS Only)**
