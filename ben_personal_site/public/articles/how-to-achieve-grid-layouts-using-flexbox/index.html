@@ -31,28 +31,17 @@
   <div class="page-content">
     <p class="page-title"> How to achieve grid layouts using Flexbox </p>
   <p>Flexbox is a very powerful tool and it is one that can be used to create many different layouts.</p>
-
-<p>Let&rsquo;s say that you wish to lay out a selection of images on a page in a grid style. In the past this would have been difficult to achieve inlvolving developers needing to &lsquo;hack&rsquo; their way around it using floats. However, with only a few lines of code flexbox is able to create a grid.</p>
-
-<p><a class="email" href="https://boycefolio.superhi.com/" target="_blank">Click here</a> to see an example site.</p>
-
+<p>Let's say that you wish to lay out a selection of images on a page in a grid style. In the past this would have been difficult to achieve inlvolving developers needing to &lsquo;hack&rsquo; their way around it using floats. However, with only a few lines of code flexbox is able to create a grid.</p>
+<p><!-- raw HTML omitted -->Click here<!-- raw HTML omitted --> to see an example site.</p>
 <p>Firstly, ensure that all the images you wish to be formatted this way are grouped together in a <code>&lt;section&gt;</code>.</p>
-
 <p>Now we can target the photos with a few key properties.</p>
-
-<pre><code class="language-css">display: flex;
-flex-wrap: wrap;
-align-items: center;
-</code></pre>
-
-<p><code>display: Flex;</code>: Specifies that we are using Flexbox and the children become flex items. This will place all the images next to each other on one row across the page.</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">display</span><span style="color:#f92672">:</span> <span style="color:#f92672">flex</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">flex-wrap</span><span style="color:#f92672">:</span> <span style="color:#f92672">wrap</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">align-items</span><span style="color:#f92672">:</span> <span style="color:#f92672">center</span><span style="color:#f92672">;</span>
+</code></pre></div><p><code>display: Flex;</code>: Specifies that we are using Flexbox and the children become flex items. This will place all the images next to each other on one row across the page.</p>
 <p><code>flex-wrap: wrap;</code>: This is required in order to achieve the grid. The property means that the items will now wrap onto a new line once they run out of space on the row.</p>
-
 <p><code>justify-content; center:</code> This will align the grid in the center of the page. Of course you can choose any value for this.</p>
-
 <p>You can use <code>padding</code> or <code>margin</code> to create a gap around each image.</p>
-
 <p>This is very quick and easy way to achieve grid layouts which work well in showcasing images for a portfolio.</p>
 
 </article>

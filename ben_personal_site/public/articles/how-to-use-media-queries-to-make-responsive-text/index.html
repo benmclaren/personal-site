@@ -30,94 +30,69 @@
 <article class="page">
   <div class="page-content">
     <p class="page-title"> How to use media queries to make responsive text </p>
-  
-
-<p>Websites need to look good across a multitude of screens and therfore it is essential that a site is responsive so that a user&rsquo;s experience is not affected by their choice of screen size. I encountered a problem whilst building this site that was causing some of my headers to be cut off of the page when the browser size was reduced. I had previously tried using margins and padding to try and fix this issue however, some research led me to media queries.</p>
-
+  <p>Websites need to look good across a multitude of screens and therfore it is essential that a site is responsive so that a user's experience is not affected by their choice of screen size. I encountered a problem whilst building this site that was causing some of my headers to be cut off of the page when the browser size was reduced. I had previously tried using margins and padding to try and fix this issue however, some research led me to media queries.</p>
 <h3 id="building-mobile-first">Building mobile first</h3>
-
 <p>One of the key principles I follow when building websites is to design for mobile first. I find that it is a lot easier to scale a website up rather than scale it down.</p>
-
-<pre><code class="language-css">.hero-intro  h2 {
-  font-family: freight-sans-pro, sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 70px;
-  padding-top: 50px;
-  padding-bottom: 25px;
-  max-width: 960px;
-  color: #262626;
-  line-height: 70px;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">hero-intro</span>  <span style="color:#f92672">h2</span> {
+  <span style="color:#66d9ef">font-family</span>: freight-sans-pro, <span style="color:#66d9ef">sans-serif</span>;
+  <span style="color:#66d9ef">font-style</span>: <span style="color:#66d9ef">normal</span>;
+  <span style="color:#66d9ef">font-weight</span>: <span style="color:#66d9ef">bold</span>;
+  <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">70</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">padding-top</span>: <span style="color:#ae81ff">50</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">padding-bottom</span>: <span style="color:#ae81ff">25</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">max-width</span>: <span style="color:#ae81ff">960</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#262626</span>;
+  <span style="color:#66d9ef">line-height</span>: <span style="color:#ae81ff">70</span><span style="color:#66d9ef">px</span>;
 }
 
-</code></pre>
-
-<p>Here is the <strong>original</strong> CSS code for my sub-heading on the home page.</p>
-
+</code></pre></div><p>Here is the <strong>original</strong> CSS code for my sub-heading on the home page.</p>
 <p>The key part here is my <code>font-size: 70px;</code>. Once the browser was reduced in size to lower than 440px it was causing some letters to be cut off. In order to fix this, I would need to use a media query. The basic premise is that we want to design the text so that starts smaller and can then grow in size as the scale of the browser window is increased.</p>
-
 <h4 id="syntax">Syntax</h4>
-
-<pre><code class="language-css">@media device type and (rule) {
-  .target class {
-    styling you want to apply;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">@<span style="color:#66d9ef">media</span> <span style="color:#f92672">device</span> <span style="color:#f92672">type</span> <span style="color:#f92672">and</span> <span style="color:#f92672">(</span><span style="color:#f92672">rule</span><span style="color:#f92672">)</span> {
+  .<span style="color:#a6e22e">target</span> <span style="color:#f92672">class</span> {
+    <span style="color:#960050;background-color:#1e0010">s</span><span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">y</span><span style="color:#960050;background-color:#1e0010">l</span><span style="color:#960050;background-color:#1e0010">i</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">g</span> <span style="color:#960050;background-color:#1e0010">y</span><span style="color:#960050;background-color:#1e0010">o</span><span style="color:#960050;background-color:#1e0010">u</span> <span style="color:#960050;background-color:#1e0010">w</span><span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">n</span><span style="color:#960050;background-color:#1e0010">t</span> <span style="color:#960050;background-color:#1e0010">t</span><span style="color:#960050;background-color:#1e0010">o</span> <span style="color:#960050;background-color:#1e0010">a</span><span style="color:#960050;background-color:#1e0010">p</span><span style="color:#960050;background-color:#1e0010">p</span><span style="color:#960050;background-color:#1e0010">l</span><span style="color:#960050;background-color:#1e0010">y</span>;
   }
 }
 
-</code></pre>
-
-<p>This is the basic syntax for a media query.</p>
-
+</code></pre></div><p>This is the basic syntax for a media query.</p>
 <ol>
-<li>Start off with <code>@media</code> <br></li>
-<li>Next specify which device it is. This could be &lsquo;screen&rsquo;, &lsquo;tv&rsquo; etc.. (it is likely in most cases to just specify &lsquo;screen&rsquo;)<br></li>
-<li>You must have the keyword <strong>and</strong><br></li>
-<li>Then apply the rule<br></li>
-<li>Specify the class you are targeting<br></li>
+<li>Start off with <code>@media</code> <!-- raw HTML omitted --></li>
+<li>Next specify which device it is. This could be &lsquo;screen&rsquo;, &lsquo;tv&rsquo; etc.. (it is likely in most cases to just specify &lsquo;screen&rsquo;)<!-- raw HTML omitted --></li>
+<li>You must have the keyword <strong>and</strong><!-- raw HTML omitted --></li>
+<li>Then apply the rule<!-- raw HTML omitted --></li>
+<li>Specify the class you are targeting<!-- raw HTML omitted --></li>
 <li>Indicate the styling that will be applied when the rule is met</li>
 </ol>
-
 <p>Now that you have a basic understanding of the media query syntax, we can apply it to a real example.</p>
-
-<pre><code class="language-css">@media only screen and (min-width: 440px) {
-  .hero-intro h2 {
-    font-size: 70px;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">@<span style="color:#66d9ef">media</span> <span style="color:#f92672">only</span> <span style="color:#f92672">screen</span> <span style="color:#f92672">and</span> <span style="color:#f92672">(</span><span style="color:#f92672">min-width</span><span style="color:#f92672">:</span> <span style="color:#f92672">440px</span><span style="color:#f92672">)</span> {
+  .<span style="color:#a6e22e">hero-intro</span> <span style="color:#f92672">h2</span> {
+    <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">70</span><span style="color:#66d9ef">px</span>;
   }
 }
 
-</code></pre>
-
-<p>This is the media query in order to allow my text to reduce in size as the browser window does.</p>
-
+</code></pre></div><p>This is the media query in order to allow my text to reduce in size as the browser window does.</p>
 <p>As you can see, I specified the device type as &lsquo;screen&rsquo;. I have indentified the condition for when I want my <code>min-width</code> style to be applied. This means that my style will be applied to all screens that are larger than the given value of 440px. I have then targeted the class of <code>.hero-intro 2</code> and written my style <code>font-size: 70px;</code>.</p>
-
 <p><strong>To summarise:</strong> The font-size of 70px is now only being applied to the text when it is displayed on a screen size higher than 440px.</p>
-
 <p>You may have noticed that the two font-sizes are the same. We simply now change the standard font size to a size that we want, in this case 65px.</p>
-
-<pre><code class="language-css">.hero-intro  h2 {
-  font-family: freight-sans-pro, sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 65px;
-  padding-top: 50px;
-  padding-bottom: 25px;
-  max-width: 960px;
-  color: #262626;
-  line-height: 70px;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">hero-intro</span>  <span style="color:#f92672">h2</span> {
+  <span style="color:#66d9ef">font-family</span>: freight-sans-pro, <span style="color:#66d9ef">sans-serif</span>;
+  <span style="color:#66d9ef">font-style</span>: <span style="color:#66d9ef">normal</span>;
+  <span style="color:#66d9ef">font-weight</span>: <span style="color:#66d9ef">bold</span>;
+  <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">65</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">padding-top</span>: <span style="color:#ae81ff">50</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">padding-bottom</span>: <span style="color:#ae81ff">25</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">max-width</span>: <span style="color:#ae81ff">960</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#262626</span>;
+  <span style="color:#66d9ef">line-height</span>: <span style="color:#ae81ff">70</span><span style="color:#66d9ef">px</span>;
 }
 
-@media only screen and (min-width: 440px) {
-  .hero-intro h2 {
-    font-size: 70px;
+@<span style="color:#66d9ef">media</span> <span style="color:#f92672">only</span> <span style="color:#f92672">screen</span> <span style="color:#f92672">and</span> <span style="color:#f92672">(</span><span style="color:#f92672">min-width</span><span style="color:#f92672">:</span> <span style="color:#f92672">440px</span><span style="color:#f92672">)</span> {
+  .<span style="color:#a6e22e">hero-intro</span> <span style="color:#f92672">h2</span> {
+    <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">70</span><span style="color:#66d9ef">px</span>;
   }
 }
-</code></pre>
-
-<p>The full code is above. The starting font size is now 65px and it will now apply the style of <code>font-size: 70px;</code> once the threshold of 440px is crossed.</p>
-
+</code></pre></div><p>The full code is above. The starting font size is now 65px and it will now apply the style of <code>font-size: 70px;</code> once the threshold of 440px is crossed.</p>
 <p>A simple way to look at a media query is to think about how a computer is reading it.</p>
-
 <p>You are saying: &lsquo;Here is the code <strong>BUT</strong> if this condition is met then apply this style. Otherwise, just apply the original styling&rsquo;.</p>
 
 </article>

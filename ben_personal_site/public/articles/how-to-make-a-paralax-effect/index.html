@@ -31,33 +31,23 @@
   <div class="page-content">
     <p class="page-title"> How to make a Paralax effect </p>
   <p><strong>Paralax effect (CSS Only)</strong></p>
-
 <p>A Paralax effect is an interesting but effective way of displaying content and is quite easy to achieve.</p>
-
 <p>In order to explain how to implement this effect I think it is easiet to apply it to a real use case site.</p>
-
-<p><a class="email" href="https://sallyhartportfolio.superhi.com/" target="_blank">Click here</a> to see an example site.</p>
-
+<p><!-- raw HTML omitted -->Click here<!-- raw HTML omitted --> to see an example site.</p>
 <p>The effect we are trying to achieve is actually in fact very simple. It is only one line of code that we need. In order to properly understand, it is important to see how the site is built and how you can achieve the same effect.</p>
-
 <p><strong>Below</strong> we can see the HTML code for the four images displayed on the website.</p>
-
-<pre><code class="language-html">&lt;section class=&quot; image-1&quot;&gt; &lt;/section&gt;
-&lt;section class=&quot; image-2&quot;&gt; &lt;/section&gt;
-&lt;section class=&quot; image-3&quot;&gt; &lt;/section&gt;
-&lt;section class=&quot; image-4&quot;&gt; &lt;/section&gt;
-</code></pre>
-
-<p>Now here is the CSS code. You can see that the section has been targeted. The key part here is the <code>background-attachment: fixed;</code>. This means that the background images are no longer fixed to the section and instead it is fixed to the viewport. This means that as the page is scrolled, the background image is scrolled away with the first pages viewport and replaced by the image attached to Page 2&rsquo;s viewport. This creates the Paralax effect.</p>
-
-<pre><code class="language-css">section {
- height: 100vh;
- background-image: url(sally_1.jpg);
- background-size: cover;
- background-attachment:  fixed;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">section</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34; image-1&#34;</span>&gt; &lt;/<span style="color:#f92672">section</span>&gt;
+&lt;<span style="color:#f92672">section</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34; image-2&#34;</span>&gt; &lt;/<span style="color:#f92672">section</span>&gt;
+&lt;<span style="color:#f92672">section</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34; image-3&#34;</span>&gt; &lt;/<span style="color:#f92672">section</span>&gt;
+&lt;<span style="color:#f92672">section</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34; image-4&#34;</span>&gt; &lt;/<span style="color:#f92672">section</span>&gt;
+</code></pre></div><p>Now here is the CSS code. You can see that the section has been targeted. The key part here is the <code>background-attachment: fixed;</code>. This means that the background images are no longer fixed to the section and instead it is fixed to the viewport. This means that as the page is scrolled, the background image is scrolled away with the first pages viewport and replaced by the image attached to Page 2's viewport. This creates the Paralax effect.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">section</span> {
+ <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">vh</span>;
+ <span style="color:#66d9ef">background-image</span>: url(<span style="color:#e6db74">sally_1.jpg</span>);
+ <span style="color:#66d9ef">background-size</span>: <span style="color:#66d9ef">cover</span>;
+ <span style="color:#66d9ef">background-attachment</span>:  <span style="color:#66d9ef">fixed</span>;
 }
-</code></pre>
-
+</code></pre></div>
 </article>
 
 </div>
