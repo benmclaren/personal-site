@@ -11,5 +11,5 @@ title = "My New Hugo Site"
   publish = "public"
 
 [context.production.environment]
-  HUGO_VERSION = "0.55.6"
+  HUGO_VERSION = "0.52"
   HUGO_ENV = "production"
