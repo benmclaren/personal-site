@@ -6,10 +6,3 @@ title = "My New Hugo Site"
   articles = "/:section/:title/"
   page = "/:title/"
 
-[build]
-  command = "hugo"
-  publish = "public"
-
-[context.production.environment]
-  HUGO_VERSION = "0.52"
-  HUGO_ENV = "production"
