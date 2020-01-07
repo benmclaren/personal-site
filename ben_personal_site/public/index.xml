@@ -17,7 +17,11 @@
       <pubDate>Tue, 19 Feb 2019 11:00:16 +0000</pubDate>
       
       <guid>/articles/how-to-make-a-paralax-effect/</guid>
-      <description>Paralax effect (CSS Only) A Paralax effect is an interesting but effective way of displaying content and is quite easy to achieve. In order to explain how to implement this effect I think it is easiet to apply it to a real use case site. Click here to see an example site. The effect we are trying to achieve is actually in fact very simple. It is only one line of code that we need.</description>
+      <description>Paralax effect (CSS Only)
+A Paralax effect is an interesting but effective way of displaying content and is quite easy to achieve.
+In order to explain how to implement this effect I think it is easiet to apply it to a real use case site.
+Click here to see an example site.
+The effect we are trying to achieve is actually in fact very simple. It is only one line of code that we need.</description>
     </item>
     
     <item>
@@ -26,7 +30,9 @@
       <pubDate>Sun, 17 Feb 2019 10:58:45 +0000</pubDate>
       
       <guid>/articles/how-to-apply-overlays-to-images/</guid>
-      <description>An overlay seems like it would be something difficult to achieve however, it is actually relatively simple and it can be done with just CSS. For this example, let&amp;rsquo;s assume that you wish to overlay text on an image when you hover over it. To do this let&amp;rsquo;s first take a look at some HTML. &amp;lt;section&amp;gt; &amp;lt;div class=&amp;quot;photo&amp;quot; &amp;lt;div class=&amp;quot;overlay&amp;quot;&amp;gt; &amp;lt;h2&amp;gt; some text &amp;lt;/h2&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;img src=&amp;quot;my-image.jpg&amp;quot;&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/section&amp;gt;</description>
+      <description>An overlay seems like it would be something difficult to achieve however, it is actually relatively simple and it can be done with just CSS.
+For this example, let&amp;rsquo;s assume that you wish to overlay text on an image when you hover over it. To do this let&amp;rsquo;s first take a look at some HTML.
+&amp;lt;section&amp;gt; &amp;lt;div class=&amp;quot;photo&amp;quot; &amp;lt;div class=&amp;quot;overlay&amp;quot;&amp;gt; &amp;lt;h2&amp;gt; some text &amp;lt;/h2&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;img src=&amp;quot;my-image.jpg&amp;quot;&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/section&amp;gt;  Above is some simple HTML code for an image contained in a section.</description>
     </item>
     
     <item>
@@ -35,7 +41,8 @@
       <pubDate>Thu, 14 Feb 2019 10:56:16 +0000</pubDate>
       
       <guid>/articles/how-to-achieve-grid-layouts-using-flexbox/</guid>
-      <description>Flexbox is a very powerful tool and it is one that can be used to create layouts as well as responsive navigation bars. Let&amp;rsquo;s say that you wish to lay out a selection of images on a page in a grid style. By default, the browser will stack your images vertically down the page. However, we can easily achieve this effect using Flexbox. Firstly, ensure that all the images you wish to be formatted this way are grouped together in a &amp;lt;section&amp;gt;.</description>
+      <description>Flexbox is a very powerful tool and it is one that can be used to create many different layouts.
+Let&amp;rsquo;s say that you wish to lay out a selection of images on a page in a grid style. In the past this would have been difficult to achieve inlvolving developers needing to &amp;lsquo;hack&amp;rsquo; their way around it using floats. However, with only a few lines of code flexbox is able to create a grid.</description>
     </item>
     
     <item>
@@ -44,8 +51,8 @@
       <pubDate>Sun, 10 Feb 2019 13:07:09 +0000</pubDate>
       
       <guid>/articles/how-to-make-an-inline-navigation-bar-with-flexbox/</guid>
-      <description>One of the key components on my site is the navigation bar. Initially, I had attempted to create this using floats however, I quickly realised that this was not an effective way of constructing this element. It was at this point that I researched Flexbox and how it can be used to make a responsive component. Setting out the HTML 
-&amp;lt;header class=&amp;quot;header&amp;quot;&amp;gt; &amp;lt;ul class=&amp;quot;nav&amp;quot;&amp;gt; &amp;lt;li class=&amp;quot;nav-link&amp;quot;&amp;gt; &amp;lt;a href=&amp;quot;work.html&amp;quot;&amp;gt;Work&amp;lt;/a&amp;gt; &amp;lt;/li&amp;gt; &amp;lt;li class=&amp;quot;nav-link&amp;quot;&amp;gt; &amp;lt;a href=&amp;quot;articles.</description>
+      <description>One of the key components on my site is the navigation bar. Initially, I had attempted to create this using floats however, I quickly realised that this was not an effective way of constructing this element. It was at this point that I researched Flexbox and how it can be used to make a responsive component.
+Setting out the HTML &amp;lt;header class=&amp;quot;header&amp;quot;&amp;gt; &amp;lt;ul class=&amp;quot;nav&amp;quot;&amp;gt; &amp;lt;li class=&amp;quot;nav-link&amp;quot;&amp;gt; &amp;lt;a href=&amp;quot;work.html&amp;quot;&amp;gt;Work&amp;lt;/a&amp;gt; &amp;lt;/li&amp;gt; &amp;lt;li class=&amp;quot;nav-link&amp;quot;&amp;gt; &amp;lt;a href=&amp;quot;articles.</description>
     </item>
     
     <item>

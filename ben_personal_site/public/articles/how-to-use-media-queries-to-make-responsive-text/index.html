@@ -11,6 +11,8 @@
   <script src="toggle.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="blogo1.ico" type="image/x-icon">
+  <meta property="og:image" content="https://res.cloudinary.com/dy35n8sog/image/upload/v1578389845/Screenshot_2020-01-07_at_09.36.47_ehi2dt.png">
+  <link rel="shortcut icon" href="https://res.cloudinary.com/dy35n8sog/image/upload/v1578391731/blogo1_guumr5.ico" type="image/x-icon">
 </head>
 <body>
 
@@ -30,17 +32,11 @@
     <p class="page-title"> How to use media queries to make responsive text </p>
   
 
-<p>Websites need to look good across a multitude of screens and therfore it is essential that a site is responsive so that a user&rsquo;s experience is not affected by their choice of screen size. I encountered a problem whilst building this site that was causing some of my headers to be cut off of the page when the browser size was reduced. I had previously tried using margins and padding to try and fix this issue however, some research led me to media queries.
-<br>
-<br></p>
+<p>Websites need to look good across a multitude of screens and therfore it is essential that a site is responsive so that a user&rsquo;s experience is not affected by their choice of screen size. I encountered a problem whilst building this site that was causing some of my headers to be cut off of the page when the browser size was reduced. I had previously tried using margins and padding to try and fix this issue however, some research led me to media queries.</p>
 
 <h3 id="building-mobile-first">Building mobile first</h3>
 
-<p><br></p>
-
-<p>One of the key principles I follow when building websites is to design for mobile first. I find that it is a lot easier to scale a website up rather than scale it down.
-<br>
-<br></p>
+<p>One of the key principles I follow when building websites is to design for mobile first. I find that it is a lot easier to scale a website up rather than scale it down.</p>
 
 <pre><code class="language-css">.hero-intro  h2 {
   font-family: freight-sans-pro, sans-serif;
@@ -56,18 +52,11 @@
 
 </code></pre>
 
-<p><br></p>
+<p>Here is the <strong>original</strong> CSS code for my sub-heading on the home page.</p>
 
-<p>Here is the <strong>original</strong> CSS code for my sub-heading on the home page.
-<br>
-<br>
-The key part here is my <code>font-size: 70px;</code>. Once the browser was reduced in size to lower than 440px it was causing some letters to be cut off. In order to fix this, I would need to use a media query. The basic premise is that we want to design the text so that starts smaller and can then grow in size as the scale of the browser window is increased.
-<br>
-<br></p>
+<p>The key part here is my <code>font-size: 70px;</code>. Once the browser was reduced in size to lower than 440px it was causing some letters to be cut off. In order to fix this, I would need to use a media query. The basic premise is that we want to design the text so that starts smaller and can then grow in size as the scale of the browser window is increased.</p>
 
 <h4 id="syntax">Syntax</h4>
-
-<p><br></p>
 
 <pre><code class="language-css">@media device type and (rule) {
   .target class {
@@ -77,22 +66,18 @@ The key part here is my <code>font-size: 70px;</code>. Once the browser was redu
 
 </code></pre>
 
-<p><br></p>
+<p>This is the basic syntax for a media query.</p>
 
-<p>This is the basic syntax for a media query.
-<br>
-<br>
-1. Start off with <code>@media</code> <br>
-2. Next specify which device it is. This could be &lsquo;screen&rsquo;, &lsquo;tv&rsquo; etc.. (it is likely in most cases to just specify &lsquo;screen&rsquo;)<br>
-3. You must have the keyword <strong>and</strong><br>
-4. Then apply the rule<br>
-5. Specify the class you are targeting<br>
-6. Indicate the styling that will be applied when the rule is met
-<br>
-<br>
-Now that you have a basic understanding of the media query syntax, we can apply it to a real example.
-<br>
-<br></p>
+<ol>
+<li>Start off with <code>@media</code> <br></li>
+<li>Next specify which device it is. This could be &lsquo;screen&rsquo;, &lsquo;tv&rsquo; etc.. (it is likely in most cases to just specify &lsquo;screen&rsquo;)<br></li>
+<li>You must have the keyword <strong>and</strong><br></li>
+<li>Then apply the rule<br></li>
+<li>Specify the class you are targeting<br></li>
+<li>Indicate the styling that will be applied when the rule is met</li>
+</ol>
+
+<p>Now that you have a basic understanding of the media query syntax, we can apply it to a real example.</p>
 
 <pre><code class="language-css">@media only screen and (min-width: 440px) {
   .hero-intro h2 {
@@ -102,19 +87,13 @@ Now that you have a basic understanding of the media query syntax, we can apply 
 
 </code></pre>
 
-<p><br>
-This is the media query in order to allow my text to reduce in size as the browser window does.
-<br>
-<br>
-As you can see, I specified the device type as &lsquo;screen&rsquo;. I have indentified the condition for when I want my <code>min-width</code> style to be applied. This means that my style will be applied to all screens that are larger than the given value of 440px. I have then targeted the class of <code>.hero-intro 2</code> and written my style <code>font-size: 70px;</code>.
-<br>
-<br>
-<strong>To summarise:</strong> The font-size of 70px is now only being applied to the text when it is displayed on a screen size higher than 440px.
-<br>
-<br>
-You may have noticed that the two font-sizes are the same. We simply now change the standard font size to a size that we want, in this case 65px.
-<br>
-<br></p>
+<p>This is the media query in order to allow my text to reduce in size as the browser window does.</p>
+
+<p>As you can see, I specified the device type as &lsquo;screen&rsquo;. I have indentified the condition for when I want my <code>min-width</code> style to be applied. This means that my style will be applied to all screens that are larger than the given value of 440px. I have then targeted the class of <code>.hero-intro 2</code> and written my style <code>font-size: 70px;</code>.</p>
+
+<p><strong>To summarise:</strong> The font-size of 70px is now only being applied to the text when it is displayed on a screen size higher than 440px.</p>
+
+<p>You may have noticed that the two font-sizes are the same. We simply now change the standard font size to a size that we want, in this case 65px.</p>
 
 <pre><code class="language-css">.hero-intro  h2 {
   font-family: freight-sans-pro, sans-serif;
@@ -135,15 +114,11 @@ You may have noticed that the two font-sizes are the same. We simply now change 
 }
 </code></pre>
 
-<p><br></p>
+<p>The full code is above. The starting font size is now 65px and it will now apply the style of <code>font-size: 70px;</code> once the threshold of 440px is crossed.</p>
 
-<p>The full code is above. The starting font size is now 65px and it will now apply the style of <code>font-size: 70px;</code> once the threshold of 440px is crossed.
-<br>
-<br>
-A simple way to look at a media query is to think about how a computer is reading it.
-<br>
-<br>
-You are saying: &lsquo;Here is the code <strong>BUT</strong> if this condition is met then apply this style. Otherwise, just apply the original styling&rsquo;.</p>
+<p>A simple way to look at a media query is to think about how a computer is reading it.</p>
+
+<p>You are saying: &lsquo;Here is the code <strong>BUT</strong> if this condition is met then apply this style. Otherwise, just apply the original styling&rsquo;.</p>
 
 </article>
 

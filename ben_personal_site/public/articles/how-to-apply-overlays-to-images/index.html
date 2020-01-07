@@ -11,6 +11,8 @@
   <script src="toggle.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="blogo1.ico" type="image/x-icon">
+  <meta property="og:image" content="https://res.cloudinary.com/dy35n8sog/image/upload/v1578389845/Screenshot_2020-01-07_at_09.36.47_ehi2dt.png">
+  <link rel="shortcut icon" href="https://res.cloudinary.com/dy35n8sog/image/upload/v1578391731/blogo1_guumr5.ico" type="image/x-icon">
 </head>
 <body>
 
@@ -30,12 +32,9 @@
     <p class="page-title"> How to apply overlays to images </p>
   
 
-<p>An overlay seems like it would be something difficult to achieve however, it is actually relatively simple and it can be done with just CSS.
-<br>
-<br>
-For this example, let&rsquo;s assume that you wish to overlay text on an image when you hover over it. To do this let&rsquo;s first take a look at some HTML.
-<br>
-<br></p>
+<p>An overlay seems like it would be something difficult to achieve however, it is actually relatively simple and it can be done with just CSS.</p>
+
+<p>For this example, let&rsquo;s assume that you wish to overlay text on an image when you hover over it. To do this let&rsquo;s first take a look at some HTML.</p>
 
 <pre><code class="language-html">&lt;section&gt;
   &lt;div class=&quot;photo&quot;
@@ -49,41 +48,29 @@ For this example, let&rsquo;s assume that you wish to overlay text on an image w
 &lt;/section&gt;
 </code></pre>
 
-<p><br>
-<br>
-Above is some simple HTML code for an image contained in a section. As you can see we have two <code>&lt;div&gt;</code> tags. One has a class of <code>.photo</code> applied to both the image and the text. Within that we have a class of <code>.overlay</code> which targets the text we wish to overlay. That is all the HTML we need.
-<br>
-<br></p>
+<p>Above is some simple HTML code for an image contained in a section. As you can see we have two <code>&lt;div&gt;</code> tags. One has a class of <code>.photo</code> applied to both the image and the text. Within that we have a class of <code>.overlay</code> which targets the text we wish to overlay. That is all the HTML we need.</p>
 
 <h3 id="applying-css">Applying CSS</h3>
 
-<p><br>
-Now, here is where it gets slightly more complicated.
-Firstly we must apply <code>position: relative;</code> to our <code>.photo</code> class. This means that our overlay will be positioned in relation to the parent photo element.
-<br>
-<br>
-Next, we must target the <code>.overlay</code>
-<br>
-<br>
-1. Apply a <code>position: absolute;</code>
--This allows us to position anywhere on the page in relation to the parent element which, in this case is our image.
-<br>
-<br>
-2. We then apply a <code>width: 100%</code> and <code>height:100%</code>. This means that the overlay will fill the whole space of the image when you hover over it.
-<br>
-<br>
-3. Next, we set what we actually want to happen. In this case let&rsquo;s set a <code>background-color</code>.
-<br>
-<br>
-4. Set the <code>opacity: 0;</code> so that it is hidden from view. If you like, you can add a <code>transition</code> to make the effect more subtle.
-<br>
-<br>
-5. We wish to center our text in the middle of the image. To do this we would apply <code>display: flex;</code> <code>justify-content: center;</code> and <code>align-items: center;</code>. If you do not want the text centered in the middle you can simply offset it by using <code>top: left: bottom: right:</code> values.
-<br>
-<br>
-6. Set the <code>z-index: 2;</code> to place the overlay on top.
-<br>
-<br></p>
+<p>Now, here is where it gets slightly more complicated.
+Firstly we must apply <code>position: relative;</code> to our <code>.photo</code> class. This means that our overlay will be positioned in relation to the parent photo element.</p>
+
+<p>Next, we must target the <code>.overlay</code></p>
+
+<ol>
+<li><p>Apply a <code>position: absolute;</code>
+-This allows us to position anywhere on the page in relation to the parent element which, in this case is our image.</p></li>
+
+<li><p>We then apply a <code>width: 100%</code> and <code>height:100%</code>. This means that the overlay will fill the whole space of the image when you hover over it.</p></li>
+
+<li><p>Next, we set what we actually want to happen. In this case let&rsquo;s set a <code>background-color</code>.</p></li>
+
+<li><p>Set the <code>opacity: 0;</code> so that it is hidden from view. If you like, you can add a <code>transition</code> to make the effect more subtle.</p></li>
+
+<li><p>We wish to center our text in the middle of the image. To do this we would apply <code>display: flex;</code> <code>justify-content: center;</code> and <code>align-items: center;</code>. If you do not want the text centered in the middle you can simply offset it by using <code>top: left: bottom: right:</code> values.</p></li>
+
+<li><p>Set the <code>z-index: 2;</code> to place the overlay on top.</p></li>
+</ol>
 
 <pre><code>.overlay {
   position: absolute;
@@ -99,24 +86,18 @@ Next, we must target the <code>.overlay</code>
 }
 </code></pre>
 
-<p><br>
-<em>^Full code</em> <em>(Please note <code>background-color</code> is using rgba values and has an opacity of 85%)</em>
-<br>
-<br>
-Now that the overlay has been specified, we just need to add the CSS to activate the hover effect. See below:
-<br>
-<br></p>
+<p><em>^Full code</em> <em>(Please note <code>background-color</code> is using rgba values and has an opacity of 85%)</em></p>
+
+<p>Now that the overlay has been specified, we just need to add the CSS to activate the hover effect. See below:</p>
 
 <pre><code>.photo:hover .overlay {
   opacity: 1;
 }
 </code></pre>
 
-<p><br>
-The only thing to do from here is to style your text however you wish.
-<br>
-<br>
-When you hover over the image, you should now have an overlay of text and colour.</p>
+<p>The only thing to do from here is to style your text however you wish.</p>
+
+<p>When you hover over the image, you should now have an overlay of text and colour.</p>
 
 </article>
 
