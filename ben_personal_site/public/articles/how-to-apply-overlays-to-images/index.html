@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ben McLaren</title>
+  
+  
+  <link rel="stylesheet" href="/css/main.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="toggle.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="blogo1.ico" type="image/x-icon">
+</head>
+<body>
+
+<header class="header">
+  <div class="nav">
+    <a class="name" href="/index.html">Ben McLaren</a>
+    <a class="link" href="/articles">Articles</a>
+  </div>
+</header>
+
+
+
+
+
+<article class="page">
+  <div class="page-content">
+    <p class="page-title"> How to apply overlays to images </p>
+  
+
+<p>An overlay seems like it would be something difficult to achieve however, it is actually relatively simple and it can be done with just CSS.
+<br>
+<br>
+For this example, let&rsquo;s assume that you wish to overlay text on an image when you hover over it. To do this let&rsquo;s first take a look at some HTML.
+<br>
+<br></p>
+
+<pre><code class="language-html">&lt;section&gt;
+  &lt;div class=&quot;photo&quot;
+    &lt;div class=&quot;overlay&quot;&gt;
+      &lt;h2&gt;
+        some text
+      &lt;/h2&gt;
+    &lt;/div&gt;
+      &lt;img src=&quot;my-image.jpg&quot;&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+
+<p><br>
+<br>
+Above is some simple HTML code for an image contained in a section. As you can see we have two <code>&lt;div&gt;</code> tags. One has a class of <code>.photo</code> applied to both the image and the text. Within that we have a class of <code>.overlay</code> which targets the text we wish to overlay. That is all the HTML we need.
+<br>
+<br></p>
+
+<h3 id="applying-css">Applying CSS</h3>
+
+<p><br>
+Now, here is where it gets slightly more complicated.
+Firstly we must apply <code>position: relative;</code> to our <code>.photo</code> class. This means that our overlay will be positioned in relation to the parent photo element.
+<br>
+<br>
+Next, we must target the <code>.overlay</code>
+<br>
+<br>
+1. Apply a <code>position: absolute;</code>
+-This allows us to position anywhere on the page in relation to the parent element which, in this case is our image.
+<br>
+<br>
+2. We then apply a <code>width: 100%</code> and <code>height:100%</code>. This means that the overlay will fill the whole space of the image when you hover over it.
+<br>
+<br>
+3. Next, we set what we actually want to happen. In this case let&rsquo;s set a <code>background-color</code>.
+<br>
+<br>
+4. Set the <code>opacity: 0;</code> so that it is hidden from view. If you like, you can add a <code>transition</code> to make the effect more subtle.
+<br>
+<br>
+5. We wish to center our text in the middle of the image. To do this we would apply <code>display: flex;</code> <code>justify-content: center;</code> and <code>align-items: center;</code>. If you do not want the text centered in the middle you can simply offset it by using <code>top: left: bottom: right:</code> values.
+<br>
+<br>
+6. Set the <code>z-index: 2;</code> to place the overlay on top.
+<br>
+<br></p>
+
+<pre><code>.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(32, 58, 143, 0.85);
+  opacity: 0;
+  transition: opacity 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+</code></pre>
+
+<p><br>
+<em>^Full code</em> <em>(Please note <code>background-color</code> is using rgba values and has an opacity of 85%)</em>
+<br>
+<br>
+Now that the overlay has been specified, we just need to add the CSS to activate the hover effect. See below:
+<br>
+<br></p>
+
+<pre><code>.photo:hover .overlay {
+  opacity: 1;
+}
+</code></pre>
+
+<p><br>
+The only thing to do from here is to style your text however you wish.
+<br>
+<br>
+When you hover over the image, you should now have an overlay of text and colour.</p>
+
+</article>
+
+</div>
+
+
+  <section class="footer">
+    <div class="footer-container">
+      <p class="contact">
+        Feel free to get in contact
+      </p>
+      <div class="icons">
+        <a href="https://github.com/benmclaren" target="_blank">
+          <i class="fa fa-github"></i>
+        </a>
+
+        <a href="mailto:bmclaren01@gmail.com" target="_blank">
+          <i class="fa fa-paper-plane"></i>
+        </a>
+
+        <a href="https://twitter.com/bybenmclaren" target="_blank">
+          <i class="fa fa-twitter"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/ben-mclaren/" target="_blank">
+          <i class="fa fa-linkedin"></i>
+        </a>
+
+      </div>
+      <p>
+        ©benmclaren2020
+      </p>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cloudinary-core/2.3.0/cloudinary-core-shrinkwrap.min.js">
+  </script>
+  <script>
+    var cl = cloudinary.Cloudinary.new({
+      cloud_name: 'dy35n8sog'
+    });
+
+    cl.responsive()
+  </script>
+
+</body>
+</html>
+

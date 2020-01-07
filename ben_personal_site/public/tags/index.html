@@ -16,49 +16,64 @@
 
 <header class="header">
   <div class="nav">
-    <a href="../index.html">Ben McLaren</a>
-    <a href="/articles">Articles</a>
+    <a class="name" href="/index.html">Ben McLaren</a>
+    <a class="link" href="/articles">Articles</a>
   </div>
 </header>
 
 
 
-<div class="list-format">
+<section class="list-format">
   <div class="blog-format">
-  <h2 class="wizard-sub-title">
+  <p class="wizard-sub-title">
     Articles
-  </h2>
+  </p>
   <ul class="articles">
 
-      </ul>
+  </ul>
 </div>
 
-</div>
-
-
-<section class="footer">
-  <div class="footer-container">
-    <p>
-      ©benmclaren2020
-    </p>
-    <div class="icons">
-      <i class="fa fa-github"></i>
-      <i class="fa fa-paper-plane"></i>
-      <i class="fa fa-twitter"></i>
-      <i class="fa fa-linkedin"></i>
-    </div>
-  </div>
 </section>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/cloudinary-core/2.3.0/cloudinary-core-shrinkwrap.min.js">
-</script>
-<script>
-  var cl = cloudinary.Cloudinary.new({
-    cloud_name: 'dy35n8sog'
-  });
 
-  cl.responsive()
-</script>
+  <section class="footer">
+    <div class="footer-container">
+      <p class="contact">
+        Feel free to get in contact
+      </p>
+      <div class="icons">
+        <a href="https://github.com/benmclaren" target="_blank">
+          <i class="fa fa-github"></i>
+        </a>
+
+        <a href="mailto:bmclaren01@gmail.com" target="_blank">
+          <i class="fa fa-paper-plane"></i>
+        </a>
+
+        <a href="https://twitter.com/bybenmclaren" target="_blank">
+          <i class="fa fa-twitter"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/ben-mclaren/" target="_blank">
+          <i class="fa fa-linkedin"></i>
+        </a>
+
+      </div>
+      <p>
+        ©benmclaren2020
+      </p>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cloudinary-core/2.3.0/cloudinary-core-shrinkwrap.min.js">
+  </script>
+  <script>
+    var cl = cloudinary.Cloudinary.new({
+      cloud_name: 'dy35n8sog'
+    });
+
+    cl.responsive()
+  </script>
 
 </body>
 </html>

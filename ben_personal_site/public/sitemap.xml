@@ -3,13 +3,38 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/articles/blog-post-1/</loc>
-    <lastmod>2020-01-05T12:38:06+00:00</lastmod>
+    <loc>/articles/how-to-make-a-paralax-effect/</loc>
+    <lastmod>2019-02-19T11:00:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/articles/how-to-apply-overlays-to-images/</loc>
+    <lastmod>2019-02-17T10:58:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/articles/how-to-achieve-grid-layouts-using-flexbox/</loc>
+    <lastmod>2019-02-14T10:56:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/articles/how-to-make-an-inline-navigation-bar-with-flexbox/</loc>
+    <lastmod>2019-02-10T13:07:09+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/articles/how-to-use-media-queries-to-make-responsive-text/</loc>
+    <lastmod>2019-01-29T11:35:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/articles/why-i-came-out-of-univeristy-to-focus-on-coding/</loc>
+    <lastmod>2018-12-11T11:34:23+00:00</lastmod>
   </url>
   
   <url>
     <loc>/articles/</loc>
-    <lastmod>2020-01-05T12:38:06+00:00</lastmod>
+    <lastmod>2019-02-19T11:00:16+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -20,7 +45,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2020-01-05T12:38:06+00:00</lastmod>
+    <lastmod>2019-02-19T11:00:16+00:00</lastmod>
     <priority>0</priority>
   </url>
   

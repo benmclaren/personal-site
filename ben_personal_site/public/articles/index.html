@@ -16,64 +16,136 @@
 
 <header class="header">
   <div class="nav">
-    <a href="../index.html">Ben McLaren</a>
-    <a href="/articles">Articles</a>
+    <a class="name" href="/index.html">Ben McLaren</a>
+    <a class="link" href="/articles">Articles</a>
   </div>
 </header>
 
 
 
-<div class="list-format">
+<section class="list-format">
   <div class="blog-format">
-  <h2 class="wizard-sub-title">
+  <p class="wizard-sub-title">
     Articles
-  </h2>
+  </p>
   <ul class="articles">
 
     <li class="articles-item">
-      <h3 class="md-title">
-        <a class="blog-title" href="/articles/blog-post-1/">Blog Post 1</a>
-      </h3>
+      <p class="md-title">
+        <a class="blog-title" href="/articles/how-to-make-a-paralax-effect/">How to make a Paralax effect</a>
+      </p>
       <div class="date">
-        Sunday, Jan 5, 2020
+        19-02-2019
       </div>
       <div class="blurb">
-        One of the most common questions children are asked is &#39;What do you want to be when you are older?&#39;. In my opinion this is quite a difficult question to answer.
-      </div>
-      <div class="continue">
-        <a href="/articles/blog-post-1/">continue reading…</a>
+        A Paralax effect is an interesting but effective way of displaying content and is quite easy to achieve.
       </div>
     </li>
 
-      </ul>
+    <li class="articles-item">
+      <p class="md-title">
+        <a class="blog-title" href="/articles/how-to-apply-overlays-to-images/">How to apply overlays to images</a>
+      </p>
+      <div class="date">
+        17-02-2019
+      </div>
+      <div class="blurb">
+        An overlay seems like it would be something difficult to achieve however, it is actually relatively simple and it can be done with just CSS.
+      </div>
+    </li>
+
+    <li class="articles-item">
+      <p class="md-title">
+        <a class="blog-title" href="/articles/how-to-achieve-grid-layouts-using-flexbox/">How to achieve grid layouts using Flexbox</a>
+      </p>
+      <div class="date">
+        14-02-2019
+      </div>
+      <div class="blurb">
+        Flexbox is a very powerful tool and it is one that can be used to create layouts as well as responsive navigation bars.
+      </div>
+    </li>
+
+    <li class="articles-item">
+      <p class="md-title">
+        <a class="blog-title" href="/articles/how-to-make-an-inline-navigation-bar-with-flexbox/">How to make an inline navigation bar with Flexbox</a>
+      </p>
+      <div class="date">
+        10-02-2019
+      </div>
+      <div class="blurb">
+        One of the key components on my site is the responsive navigation bar. Initially, I had attempted to create this using floats however, I quickly realised that this was not an effective way of constructing this element.
+      </div>
+    </li>
+
+    <li class="articles-item">
+      <p class="md-title">
+        <a class="blog-title" href="/articles/how-to-use-media-queries-to-make-responsive-text/">How to use media queries to make responsive text</a>
+      </p>
+      <div class="date">
+        29-01-2019
+      </div>
+      <div class="blurb">
+        Websites need to look good across a multitude of screens and therefore it is essential that a site is responsive so that a user&#39;s experience is not affected by their choice of screen size.
+      </div>
+    </li>
+
+    <li class="articles-item">
+      <p class="md-title">
+        <a class="blog-title" href="/articles/why-i-came-out-of-univeristy-to-focus-on-coding/">Why I came out of univeristy to focus on coding</a>
+      </p>
+      <div class="date">
+        11-12-2018
+      </div>
+      <div class="blurb">
+        A problem which faces many young people is the path they choose to take after leaving school.
+      </div>
+    </li>
+
+  </ul>
 </div>
 
-</div>
-
-
-<section class="footer">
-  <div class="footer-container">
-    <p>
-      ©benmclaren2020
-    </p>
-    <div class="icons">
-      <i class="fa fa-github"></i>
-      <i class="fa fa-paper-plane"></i>
-      <i class="fa fa-twitter"></i>
-      <i class="fa fa-linkedin"></i>
-    </div>
-  </div>
 </section>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/cloudinary-core/2.3.0/cloudinary-core-shrinkwrap.min.js">
-</script>
-<script>
-  var cl = cloudinary.Cloudinary.new({
-    cloud_name: 'dy35n8sog'
-  });
 
-  cl.responsive()
-</script>
+  <section class="footer">
+    <div class="footer-container">
+      <p class="contact">
+        Feel free to get in contact
+      </p>
+      <div class="icons">
+        <a href="https://github.com/benmclaren" target="_blank">
+          <i class="fa fa-github"></i>
+        </a>
+
+        <a href="mailto:bmclaren01@gmail.com" target="_blank">
+          <i class="fa fa-paper-plane"></i>
+        </a>
+
+        <a href="https://twitter.com/bybenmclaren" target="_blank">
+          <i class="fa fa-twitter"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/ben-mclaren/" target="_blank">
+          <i class="fa fa-linkedin"></i>
+        </a>
+
+      </div>
+      <p>
+        ©benmclaren2020
+      </p>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cloudinary-core/2.3.0/cloudinary-core-shrinkwrap.min.js">
+  </script>
+  <script>
+    var cl = cloudinary.Cloudinary.new({
+      cloud_name: 'dy35n8sog'
+    });
+
+    cl.responsive()
+  </script>
 
 </body>
 </html>

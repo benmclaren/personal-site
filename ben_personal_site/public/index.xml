@@ -6,17 +6,63 @@
     <description>Recent content on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 05 Jan 2020 12:38:06 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 19 Feb 2019 11:00:16 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Blog Post 1</title>
-      <link>/articles/blog-post-1/</link>
-      <pubDate>Sun, 05 Jan 2020 12:38:06 +0000</pubDate>
+      <title>How to make a Paralax effect</title>
+      <link>/articles/how-to-make-a-paralax-effect/</link>
+      <pubDate>Tue, 19 Feb 2019 11:00:16 +0000</pubDate>
       
-      <guid>/articles/blog-post-1/</guid>
+      <guid>/articles/how-to-make-a-paralax-effect/</guid>
+      <description>Paralax effect (CSS Only) A Paralax effect is an interesting but effective way of displaying content and is quite easy to achieve. In order to explain how to implement this effect I think it is easiet to apply it to a real use case site. Click here to see an example site. The effect we are trying to achieve is actually in fact very simple. It is only one line of code that we need.</description>
+    </item>
+    
+    <item>
+      <title>How to apply overlays to images</title>
+      <link>/articles/how-to-apply-overlays-to-images/</link>
+      <pubDate>Sun, 17 Feb 2019 10:58:45 +0000</pubDate>
+      
+      <guid>/articles/how-to-apply-overlays-to-images/</guid>
+      <description>An overlay seems like it would be something difficult to achieve however, it is actually relatively simple and it can be done with just CSS. For this example, let&amp;rsquo;s assume that you wish to overlay text on an image when you hover over it. To do this let&amp;rsquo;s first take a look at some HTML. &amp;lt;section&amp;gt; &amp;lt;div class=&amp;quot;photo&amp;quot; &amp;lt;div class=&amp;quot;overlay&amp;quot;&amp;gt; &amp;lt;h2&amp;gt; some text &amp;lt;/h2&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;img src=&amp;quot;my-image.jpg&amp;quot;&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/section&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>How to achieve grid layouts using Flexbox</title>
+      <link>/articles/how-to-achieve-grid-layouts-using-flexbox/</link>
+      <pubDate>Thu, 14 Feb 2019 10:56:16 +0000</pubDate>
+      
+      <guid>/articles/how-to-achieve-grid-layouts-using-flexbox/</guid>
+      <description>Flexbox is a very powerful tool and it is one that can be used to create layouts as well as responsive navigation bars. Let&amp;rsquo;s say that you wish to lay out a selection of images on a page in a grid style. By default, the browser will stack your images vertically down the page. However, we can easily achieve this effect using Flexbox. Firstly, ensure that all the images you wish to be formatted this way are grouped together in a &amp;lt;section&amp;gt;.</description>
+    </item>
+    
+    <item>
+      <title>How to make an inline navigation bar with Flexbox</title>
+      <link>/articles/how-to-make-an-inline-navigation-bar-with-flexbox/</link>
+      <pubDate>Sun, 10 Feb 2019 13:07:09 +0000</pubDate>
+      
+      <guid>/articles/how-to-make-an-inline-navigation-bar-with-flexbox/</guid>
+      <description>One of the key components on my site is the navigation bar. Initially, I had attempted to create this using floats however, I quickly realised that this was not an effective way of constructing this element. It was at this point that I researched Flexbox and how it can be used to make a responsive component. Setting out the HTML 
+&amp;lt;header class=&amp;quot;header&amp;quot;&amp;gt; &amp;lt;ul class=&amp;quot;nav&amp;quot;&amp;gt; &amp;lt;li class=&amp;quot;nav-link&amp;quot;&amp;gt; &amp;lt;a href=&amp;quot;work.html&amp;quot;&amp;gt;Work&amp;lt;/a&amp;gt; &amp;lt;/li&amp;gt; &amp;lt;li class=&amp;quot;nav-link&amp;quot;&amp;gt; &amp;lt;a href=&amp;quot;articles.</description>
+    </item>
+    
+    <item>
+      <title>How to use media queries to make responsive text</title>
+      <link>/articles/how-to-use-media-queries-to-make-responsive-text/</link>
+      <pubDate>Tue, 29 Jan 2019 11:35:33 +0000</pubDate>
+      
+      <guid>/articles/how-to-use-media-queries-to-make-responsive-text/</guid>
+      <description>Websites need to look good across a multitude of screens and therfore it is essential that a site is responsive so that a user&amp;rsquo;s experience is not affected by their choice of screen size. I encountered a problem whilst building this site that was causing some of my headers to be cut off of the page when the browser size was reduced. I had previously tried using margins and padding to try and fix this issue however, some research led me to media queries.</description>
+    </item>
+    
+    <item>
+      <title>Why I came out of univeristy to focus on coding</title>
+      <link>/articles/why-i-came-out-of-univeristy-to-focus-on-coding/</link>
+      <pubDate>Tue, 11 Dec 2018 11:34:23 +0000</pubDate>
+      
+      <guid>/articles/why-i-came-out-of-univeristy-to-focus-on-coding/</guid>
       <description>The best decison I could have made
 One of the most common questions children are asked is &amp;lsquo;What do you want to be when you are older?&amp;rsquo;. In my opinion this is quite a difficult question to answer. Not many people have a firm idea of what they really want to do. There are of course those who know exactly which career direction they wish to pursue, medicine for example. However, for most of us, finding that one thing that is going to spark your interest and kickstart your career is quite hard to discover.</description>
     </item>

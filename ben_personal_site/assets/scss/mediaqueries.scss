@@ -42,22 +42,32 @@
   .para-2,
   .para-3,
   .blog-title,
+   .project-1-title,
+  .project-2-title,
+  .project-3-title,
   .project-1-des,
   .project-2-des,
-  .project-3-des {
+  .project-3-des,
+  .page {
     font-size: 18px;
   }
-
-
 
   .para-1 {
     padding-top: 32px;
   }
 
   .paragraphs {
+    margin-left: 0px;
+    margin-right: 0px;
     padding-left: 64px;
     padding-right: 64px;
   }
+  .nav,
+  .page {
+    margin-left: 64px !important;
+    margin-right: 64px !important;
+  }
+
 }
 
 
@@ -98,16 +108,15 @@
   }
 
 
-
-  .header,
-  .projects-title {
+// .projects-title
+  .header {
     padding: 0;
+    margin: 0;
   }
 
-  .nav,
-  .page {
-    margin-left: 64px;
-    margin-right: 64px;
+  .nav {
+    margin-left: 16px;
+    margin-right: 16px;
   }
 
   .page {
@@ -120,13 +129,13 @@
     max-width: 470px;
   }
 
-  .project-1-title,
-  .project-2-title,
-  .project-3-title, {
-    margin :0;
-  }
+  // .project-1-title,
+  // .project-2-title,
+  // .project-3-title, {
+  //   margin :0;
+  // }
 
-  .project-section {
-    margin: 0;
-  }
+  // .project-section {
+  //   margin: 0;
+  // }
 }

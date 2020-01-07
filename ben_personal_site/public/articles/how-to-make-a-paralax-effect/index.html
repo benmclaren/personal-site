@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ben McLaren</title>
+  
+  
+  <link rel="stylesheet" href="/css/main.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="toggle.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="blogo1.ico" type="image/x-icon">
+</head>
+<body>
+
+<header class="header">
+  <div class="nav">
+    <a class="name" href="/index.html">Ben McLaren</a>
+    <a class="link" href="/articles">Articles</a>
+  </div>
+</header>
+
+
+
+
+
+<article class="page">
+  <div class="page-content">
+    <p class="page-title"> How to make a Paralax effect </p>
+  <p><strong>Paralax effect (CSS Only)</strong>
+<br>
+<br>
+A Paralax effect is an interesting but effective way of displaying content and is quite easy to achieve.
+<br>
+<br>
+In order to explain how to implement this effect I think it is easiet to apply it to a real use case site.
+<br>
+<a class="email" href="https://sallyhartportfolio.superhi.com/" target="_blank">Click here</a> to see an example site.
+<br>
+<br>
+The effect we are trying to achieve is actually in fact very simple. It is only one line of code that we need. In order to properly understand, it is important to see how the site is built and how you can achieve the same effect.
+<br>
+<br>
+<strong>Below</strong> we can see the HTML code for the four images displayed on the website.
+<br>
+<br></p>
+
+<pre><code class="language-html">&lt;section class=&quot; image-1&quot;&gt; &lt;/section&gt;
+&lt;section class=&quot; image-2&quot;&gt; &lt;/section&gt;
+&lt;section class=&quot; image-3&quot;&gt; &lt;/section&gt;
+&lt;section class=&quot; image-4&quot;&gt; &lt;/section&gt;
+</code></pre>
+
+<p><br>
+Now here is the CSS code. You can see that the section has been targeted. The key part here is the <code>background-attachment: fixed;</code>. This means that the background images are no longer fixed to the section and instead it is fixed to the viewport. This means that as the page is scrolled, the background image is scrolled away with the first pages viewport and replaced by the image attached to Page 2&rsquo;s viewport. This creates the Paralax effect.
+<br>
+<br></p>
+
+<pre><code class="language-css">section {
+ height: 100vh;
+ background-image: url(sally_1.jpg);
+ background-size: cover;
+ background-attachment:  fixed;
+}
+</code></pre>
+
+</article>
+
+</div>
+
+
+  <section class="footer">
+    <div class="footer-container">
+      <p class="contact">
+        Feel free to get in contact
+      </p>
+      <div class="icons">
+        <a href="https://github.com/benmclaren" target="_blank">
+          <i class="fa fa-github"></i>
+        </a>
+
+        <a href="mailto:bmclaren01@gmail.com" target="_blank">
+          <i class="fa fa-paper-plane"></i>
+        </a>
+
+        <a href="https://twitter.com/bybenmclaren" target="_blank">
+          <i class="fa fa-twitter"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/ben-mclaren/" target="_blank">
+          <i class="fa fa-linkedin"></i>
+        </a>
+
+      </div>
+      <p>
+        ©benmclaren2020
+      </p>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cloudinary-core/2.3.0/cloudinary-core-shrinkwrap.min.js">
+  </script>
+  <script>
+    var cl = cloudinary.Cloudinary.new({
+      cloud_name: 'dy35n8sog'
+    });
+
+    cl.responsive()
+  </script>
+
+</body>
+</html>
+
