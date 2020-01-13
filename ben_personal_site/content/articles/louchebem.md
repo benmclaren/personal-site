@@ -1,7 +1,8 @@
 ---
-title: "Louchebem"
+title: "How to make a translator for parisian slang Louchebem"
 date: 2020-01-13T15:00:56Z
 draft: false
+excerpt: "Notes on the Le Wagon Iterators & BLocks Louchebem exercise"
 ---
 
 **Notes on the Le Wagon Iterators & BLocks Louchebem exercise**

@@ -1,8 +1,9 @@
 ---
-title: "Accessing data from Hashes and using methods with Hashes"
+title: "Accessing data and using methods with Hashes"
 date: 2020-01-13T11:25:35Z
 author: Ben McLaren
 draft: false
+excerpt: "Notes on the Le Wagon Hash & Symbols Burger Hash exercise"
 ---
 
 **Notes on the Le Wagon Hash & Symbols Burger Hash exercise**

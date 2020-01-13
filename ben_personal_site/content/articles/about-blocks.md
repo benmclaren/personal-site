@@ -1,8 +1,9 @@
 ---
-title: "About Blocks"
+title: "Using blocks with yield"
 date: 2020-01-13T12:07:53Z
 author: Ben McLaren
 draft: false
+excerpt: "Notes on the Le Wagon Iteratros & Blocks About Blocks exercise"
 ---
 
 **Notes on the Le Wagon Iteratros & Blocks About Blocks exercise**

@@ -1,8 +1,9 @@
 ---
-title: "Splitter"
+title: "How to split arrays"
 date: 2020-01-13T14:16:58Z
 author: Ben McLaren
 draft: false
+excerpt: Notes on the Le Wagon Iteratros & Blocks splitter exercise
 ---
 
 **Notes on the Le Wagon Iteratros & Blocks splitter exercise**
