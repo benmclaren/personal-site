@@ -3,10 +3,10 @@ title: "Making a terminal based shopping cart application"
 date: 2020-01-14T16:56:57Z
 author: Ben McLaren
 draft: false
-excerpt: "Notes on the Le Wagon Symbols & Hash Shopping cart exercise"
+excerpt: "Notes on the Le Wagon Symbols & Hash Shopping Cart exercise"
 ---
 
-**Notes on the Le Wagon Symbols & Hash SHopping cart exercise**
+**Notes on the Le Wagon Symbols & Hash Shopping Cart exercise**
 
 For this exercise we want to build a terminal based app that will allow us to views items in a store, add them to a list and then then return our list with the calculated prices.
 

@@ -3,7 +3,7 @@ title: "How to translate a Roman Numeral into its letter"
 date: 2020-01-14T14:09:27Z
 author: Ben McLaren
 draft: false
-excerpt: "**Notes on the Le Wagon Symbols & Hash Roman to Integer exercise**"
+excerpt: "Notes on the Le Wagon Symbols & Hash Roman to Integer exercise"
 ---
 
 **Notes on the Le Wagon Symbols & Hash Roman to Integer exercise**
@@ -63,7 +63,7 @@ Now we need to create an until loop which will say until the string size returns
 ```ruby
 def roman_to_integer(roman_string)
   number = 0
-  str = roman_string.dup # Clone the string to use destructive method on it.
+  str = roman_string.dup
   until str.size.zero?
     last_two_characters = str.slice(-2, 2)
     if ROMAN_TO_INT.key?(last_two_characters)
