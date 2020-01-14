@@ -10,7 +10,7 @@ excerpt: "Notes on the Le Wagon Iteratros & Blocks About Blocks exercise"
 
 Intoduction to blocks and using yield.
 
-#Timer
+# Timer
 Yield is a Ruby keyword executing the block. It tells the method to execute a block now.
 
 Lets start with a timer method which will simply return the time taken to execute a given block.
@@ -34,7 +34,7 @@ end
 4. Assign the calculation of end_time - start_time to time_taken and return it to get the total time taken.
 
 
-#Achieving `.map` behaviour without using `.map`
+# Achieving `.map` behaviour without using `.map`
 
 ``` ruby
 def my_map(array)
@@ -52,7 +52,7 @@ We then iterate over the array with `.each`. We can then use `yield` to call the
 
 you can then return the new array
 
-#Building HTML tags around content in a block
+# Building HTML tags around content in a block
 
 ```ruby
 def tag(tag_name, attributes = nil)
