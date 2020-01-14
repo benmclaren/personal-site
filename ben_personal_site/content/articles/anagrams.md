@@ -1,19 +1,16 @@
 ---
-title: "Anagrams"
+title: "Converting an array of strings into grouped arrays "
 date: 2020-01-14T16:31:45Z
 author: Ben McLaren
 draft: false
+excerpt: "Notes on the Le Wagon Hash & Symbols Combine Anagrams exercise"
 ---
 
-**Notes on the Le Wagon Hash & Symbols Array to Hash exercise**
+**Notes on the Le Wagon Hash & Symbols Combine Anagrams exercise**
 
-We might want to convert an array into a hash.
+An anagram is a word obtained by rearranging the letters of another word. For example, “SPOT”, “OPTS”, “POTS” and “POST” are an anagram group because they are made up of the same letters.
 
-Here are the constraints that it has:
-
-- If no block is given, then the hash keys should just be integer indexes of elements in the array, converted as Strings.
-
-- If a block is given, call it passing the array index and use what’s returned as the hash key.
+If we have an array of strings we want to turn them into multiple grouped arrays. We need to write a method that groups them into anagram groups and returns the array of groups.
 
 1. First lets define an array which takes one parameter which we will call words.
 
