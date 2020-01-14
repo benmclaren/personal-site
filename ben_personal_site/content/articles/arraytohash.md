@@ -1,8 +1,9 @@
 ---
-title: "Arraytohash"
+title: "Transforming an Array into a Hash"
 date: 2020-01-14T10:19:32Z
 author: Ben McLaren
 draft: false
+excerpt: "Notes on the Le Wagon Hash & Symbols Array to Hash exercise"
 ---
 
 **Notes on the Le Wagon Hash & Symbols Array to Hash exercise**
