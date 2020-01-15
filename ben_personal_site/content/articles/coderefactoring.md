@@ -1,5 +1,5 @@
 ---
-title: "Coderefactoring"
+title: "Refactoring code"
 date: 2020-01-15T15:30:03Z
 author: Ben McLaren
 draft: false
@@ -25,7 +25,7 @@ def hop_hop_hop(number_of_exercises)
   end
 end
 
-hop_hop_hop(6)
+hop_hop_hop(5)
 ```
 This is a piece of ruby code which simply prints out the word 'hop!' and 'One more time...'. However, it is not the most efficient as it can be simplified into a much more readable state.
 
@@ -45,7 +45,7 @@ hop_hop_hop(5)
 ```
 Here, we can use the method, `.upto`. This Iterates the given block, passing in integer values from the initial given value up to and including limit. This is called on an integer, in this case `1` and we give it an argument of `number_of_exercises` which refers to the amount of times the code will run. We also call it with a block which instructs it to print "hop!" the amount of times it is given. This is done by multiplying "hop" by number. It then puts 'One more time...' and the loop ends.
 
-Difference between `puts` and `print` : Both will convert anything to a string and puts will display each item on a new line.
+Difference between `puts` and `print`: Both will convert anything to a string and puts will display each item on a new line.
 
 
 
