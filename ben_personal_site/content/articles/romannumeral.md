@@ -56,7 +56,7 @@ Now we need to create an until loop which will say until the string size returns
 
 2. Then we say if the hash `ROMAN_TO_INT` contains a key with the `last_two_characters` then take number and add and resasign its value to the result of selecting the key's relating to `last_two_characters`. We then call `.chop!` on the string which removes the last character as we do not need it.
 
-3. Our else statement says that for numerals containing one letter we can just look in the hash and grab the key which realtes to the last chracter in the given string.
+3. Our else statement says that for numerals containing one letter we can just look in the hash and grab the key which relates to the last chracter in the given string.
 
 4. Finally we can call `.chop!` on the string to remove the final character.
 

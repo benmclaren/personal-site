@@ -18,12 +18,12 @@ body {
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
-  overflow-y: scroll;
+  // overflow-x: hidden;
+  // overflow-y: scroll;
 }
 
-// pre {
-//   overflow: auto;
-//   overflow-x: scroll;
-//   overflow-wrap: normal;
-// }
+pre {
+  overflow: auto;
+  overflow-x: scroll;
+  overflow-wrap: normal;
+}
