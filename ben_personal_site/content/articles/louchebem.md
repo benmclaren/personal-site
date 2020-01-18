@@ -13,17 +13,17 @@ We want to make a 'translator' that will be able to translate a word into louche
 
 These are the constraints that it has:
 
-**constraint:** any one-letter words like “a” should not be translated
+**Constraint:** Any one-letter words like “a” should not be translated.
 
-**constraint:** for words beginning with consonants (“chat”, “trou”), you’ll have to take the first
+**Constraint:** For words beginning with consonants (“chat”, “trou”), you’ll have to take the first.
 
-**consonant:** group (all the letters before the first vowel) and put it at the end, add an l to the start of the word and add a suffix at the end (“chat” should give “latchem”, or “latchoc”)
+**Constraint:** Group (all the letters before the first vowel) and put it at the end, add an l to the start of the word and add a suffix at the end (“chat” should give “latchem”, or “latchoc”).
 
-**constraint:** words beginning with a vowel are not changed but you should still add an l to the start of the word and a suffix at the end (“atout” should give “latoutoc” or “latoutic”)
+**Constraint:** Words beginning with a vowel are not changed but you should still add an l to the start of the word and a suffix at the end (“atout” should give “latoutoc” or “latoutic”).
 
-**constraint:** the random suffix should be one of these: ["em", "é", "ji", "oc", "ic", "uche", "ès"]
+**Constraint:** The random suffix should be one of these: ["em", "é", "ji", "oc", "ic", "uche", "ès"].
 
-**enhancement:** ideally your program should be able to translate any complicated sentence, regardless of punctuation
+**Enhancement:** Ideally your program should be able to translate any complicated sentence, regardless of punctuation.
 
 For solving this question from scratch what you want to do is first figure out what the “rules” are. The clue in the question is that you need to find the first vowel in a word. We know we want to split the sentence up into words and then those words up into characters and then within those words you want to find the character that is the first vowel. This is the basic idea and what we must follow.
 
@@ -54,13 +54,13 @@ def louchebemize_word(word)
 end
 ```
 
-- Set the suffixes that will be appended to the ends of words. We do this by storing them in an array and then callling `.sample` on the which will pick a random element from the array.
+- Set the suffixes that will be appended to the ends of words. We do this by storing them in an array and then calling `.sample` on the array which will pick a random element from the array.
 
-- Return the word if the word size is equal to one. `.size` will check the length of the word
+- Return the `word` if the word size is equal to one. `.size` will check the length of the word
 
-- We now have an if statement which says that if the first letter is a vowel then we will add an `l` to the beginning and a suffix to the end. This is done by calling the `vowel?` on the first index position in word. This will return true and then we return a string with an l at the front and we interpolate the `#{word}` and then add `#{random_suffix}`.
+- We now have an `if` statement which says that if the first letter is a vowel then we will add an `l` to the beginning and a suffix to the end. This is done by calling the `.vowel?` on the first index position in `word`. This will return true and then we return a string with an 'l' at the front. We interpolate the `#{word}` and then add `#{random_suffix}` at the end.
 
-- Our else statement needs to find where the first vowel is. Say the beginning is from [0] to the first vowel and the end is the first vowel to the total word length. Then it must return a string with all the variables together.
+- Our `else` statement needs to find where the first vowel is. Say the beginning is from [0] to the first vowel and the end is the first vowel to the total word length. Then it must return a string with all the variables together.
 
 ```ruby
 else
@@ -73,7 +73,7 @@ else
 
   - For the `first_vowel_index` we call `.chars` on `word`. This will split up the word into individual elements. `.index` will then assign each letter an index. We can then use a block to say check if the letter is a vowel on each letter by calling the method `vowel?`.
 
-  - We then define the beginning as the first letter in `word` to the `first_vowel_index`. This is done by using the `...`.
+  - We then define the beginning as the first letter in `word` up to the `first_vowel_index`. This is done by using the `...`.
 
   - We then define ending as the `first_vowel_index` to the end of the word. We do this by calling `word.size` which will find the total length of the word.
 
@@ -123,11 +123,11 @@ This method takes one parameter and thats (sentence).
 
 - We begin by defining an empty array of `results_elements`
 
-- Next, we call `.split` on `sentence`. `/\b/` means that it wil split after whole words.
+- Next, we call `.split` on `sentence`. `/\b/` means that it wil split after whole words (ie. on spaces).
 
 - We can iterate over words and then say that if the word is equal to any non word character then append the word into the `results_elements`. `=~`is Ruby's basic pattern-matching operator. When one operand is a regular expression and the other is a string then the regular expression is used as a pattern to match against the string. `/\W/` stands for any non word character.
 
-- Our else statement says that all other words will have the louchembemize method called on them and appended into `result_elements`
+- Our else statement says that all other words will have the `louchembemize` method called on them and appended into `result_elements`
 
 - We can then return the `result_elements.join`. `.join` builds the sentence by joining words with a space in between.
 

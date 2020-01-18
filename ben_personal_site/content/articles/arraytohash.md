@@ -13,7 +13,7 @@ We want to write a method that takes an array as an argument and will convert it
 Our method should do the following:
 
 - If no block is given, then the hash keys should just be integer indexes of elements in the array, converted as Strings.
-- If a block is given, call it passing the array index and use what’s returned as the hash key.
+- If a block is given, call it, passing the array index and use what’s returned as the hash key.
 
 This the code that we would need to perform this.
 ```ruby
@@ -28,14 +28,13 @@ end
 ```
 Lets go through it step by step.
 
-1. Firstly we define our method `array_to_hash` which takes one parameter, an array.
+1. Firstly,  we define our method `array_to_hash` which takes one parameter, an array.
 
 2. We create our hash variable and set it to an empty hash with the `{}`
 
 3. Next, we loop over the array using `.each_with_index`. This takes two arguments, the individual item and will also assign each item an index value.
 
-4.We use a ternary to set the key in both cases. Each case reffering to if a block has been given or not. `block_given?` simply means that it will return true if a block has been given and will subsequently call the block using yield and giving yield the parameter of index. If
-`block_given?` returns false then then index will be converted to a string by calling `.to_s`.
+4.We use a ternary to set the key in both cases. Each case reffering to if a block has been given or not. `block_given?` simply means that it will return true if a block has been given and will subsequently call the block using yield, giving yield the parameter of index. If `block_given?` returns false then the index will be converted to a string by calling `.to_s`.
 
 For example:
 
@@ -45,7 +44,7 @@ array_to_hash([1,2,3]) do
 end
 ```
 
-Here we have called `array_to_hash` with a block so it will return true
+Here we have called `array_to_hash` with a block so it will return true.
 
 However, if we do not call it with a block and instead just give an array as the argument then it will return false.
 

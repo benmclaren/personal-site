@@ -12,7 +12,7 @@ An anagram is a word obtained by rearranging the letters of another word. For ex
 
 If we have an array of strings we want to turn them into multiple grouped arrays. We need to write a method that groups them into anagram groups and returns the array of groups.
 
-1. First lets define an array which takes one parameter which we will call words.
+1. First lets define a method which takes one parameter which we will call words.
 
 ```ruby
 def group_anagrams(words)
@@ -30,8 +30,8 @@ end
 ```
 2. Next, we create our hash, `groups` which has no content inside.
 
-3. We now iterate over the argument, words using `.each`. Next, set a variable of `crash_word` which is equal to downcasing the word, splitting it into seperate characters, sorting them alphabetically and then joining them together.
+3. We now iterate over the argument, words using `.each`. Next, set a variable of `crash_word` which is equal to downcasing the word, splitting it into seperate characters (`.chars`), sorting them alphabetically (`.sort`) and then joining them together (`.join`).
 
 4. Our if statement says that if groups contains the `crash_word` then add `word` into the hash using the `<<` opperator. Else, reassign `crash_word` to the array `word`.
 
-5. groups.values will return a new array which is populated by groups of values from the hash.
+5. `groups.values` will return a new array which is populated by groups of values from the hash.

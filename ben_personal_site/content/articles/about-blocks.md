@@ -46,11 +46,11 @@ def my_map(array)
 end
 ```
 
-As '.map' will create a new array if we are not using we must create this new array ourselves by setting `new_array` to an empty array.
+'.map' will create a new array for us. However, if we are not using `.map` then we must create this new array ourselves by setting `new_array` to an empty array.
 
-We then iterate over the array with `.each`. We can then use `yield` to call the block this time giving it a parameter so that ti will call the block and insert the parameter of name.
+We then iterate over the array with `.each`. We can then use `yield` to call the block this time giving it a parameter so that it will call the block and insert the parameter of `name`.
 
-you can then return the new array
+You can then return the new array.
 
 # Building HTML tags around content in a block
 
@@ -64,16 +64,16 @@ def tag(tag_name, attributes = nil)
   "<#{open_tag}>#{content}</#{tag_name}>"
 end
 ```
-This method takes two parameters `tag_name` and `attributes`. `= nil` means that if no parameter is given then it will assign it to nil.
+This method takes two parameters `tag_name` and `attributes`. `= nil` means that if no parameter is given then it will assign it to nil. You can think of it as being an optionl parameter.
 
-We start by calling `nil?` on atrributes to check if it is nil or if a parameter has been given. It returns a boolean value. We use a ternary operator which says if the value is true ( meaning is it nil) then keep it as nil otherwise grab the first element. The same is applied to `attr_value` but we take the last element instead.
+We start by calling `nil?` on atrributes to check if it is nil or if a parameter has been given. It returns a boolean value. We use a ternary operator which says if the value is true ( meaning it is nil) then keep it as nil otherwise grab the first element. The same logic is applied to `attr_value` but we take the last element instead.
 
-Then we define an `open_tag` which also makes use of a ternary operator. It states that if the attribute is nil then return the `tag_name` only but if not the n=build the following:
+Then we define an `open_tag` which also makes use of a ternary operator. It states that if the attribute is nil then return the `tag_name` only but if not then build the following:
 
 ``` ruby
 "#{tag_name} #{attr_name}=\"#{attr_value}\""
 ```
-We have interploated the tag name and then the attirbute (for example "style"). Then we have an `=` and an interpolation of the attibute value (for example "color: red"). We require the use of the \ in order to use " in the middle of the string. It just eans it ignores the character and does not treat it as string end.
+We have interploated the tag name and then the attirbute (for example "style"). Then we have an `=` and an interpolation of the attibute value (for example "color: red"). We require the use of the \ in order to use " in the middle of the string. It just means it ignores the character and does not treat it as the end of the string.
 
 Then we say that content is = to running the block (yield). Finally we build our HTML code.
 
