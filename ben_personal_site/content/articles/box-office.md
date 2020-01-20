@@ -3,7 +3,7 @@ title: "Iterating over a CSV file to return specific information"
 date: 2020-01-20T19:17:57Z
 author: Ben McLaren
 draft: false
-Excerpt: ""Notes on the Le Wagon Parsing CSV Parsing exercise""
+Excerpt: "Notes on the Le Wagon Parsing CSV Parsing exercise"
 ---
 
 For this challenge we want to implement a `most_successful` method that returns the movies (a certain number passed as a parameter) published prior to a given year and with their associated earnings. The returned list should be an array of movies. Each movie should be represented by a hash with keys: name, year and earnings. Ex: { name: "Avatar", year: 2009, earnings: 760505847 }
