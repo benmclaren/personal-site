@@ -191,6 +191,94 @@ We set `result` as equal to running the `run_game` method and passing in the req
 We lastly have four `puts` statements which return the information from `result` by interpolating the arguments and selecting the relevant keys.
 
 
+**Final code for `longest_word.rb`**
+
+```ruby
+require 'open-uri'
+require 'json'
+
+# 1
+def generate_grid(grid_size)
+  Array.new(grid_size) { ('A'..'Z').to_a.sample }
+end
+
+# 2
+def included?(guess, grid)
+  guess.chars.all? { |letter| guess.count(letter) <= grid.count(letter) }
+end
+
+# 3
+def compute_score(attempt, time_taken)
+  time_taken > 60.0 ? 0 : attempt.size * (1.0 - time_taken / 60.0)
+end
+
+# 4
+def english_word?(word)
+  response = open("https://wagon-dictionary.herokuapp.com/#{word}")
+  json = JSON.parse(response.read)
+  puts json['found']
+end
+
+# 5
+def score_and_message(attempt, grid, time)
+  if included?(attempt.upcase, grid)
+    if english_word?(attempt)
+      score = compute_score(attempt, time)
+      [score, "well done"]
+    else
+      [0, "not an english word"]
+    end
+  else
+    [0, "not in the grid"]
+  end
+end
+
+# 6
+def run_game(attempt, gsrid, start_time, end_time)
+  result = { time: end_time - start_time }
+
+  # result = {
+  #   time: end_time - start_time,
+  #   score: score_and_message(attempt, grid, result[:time]),
+  #   message: score_and_message(attempt, grid, result[:time])
+  # }
+
+  score_and_message = score_and_message(attempt, grid, result[:time])
+  result[:score] = score_and_message.first
+  result[:message] = score_and_message.last
+
+  result
+end
+```
+
+**Final code for `interface.rb`**
+
+```ruby
+require_relative "longest_word"
+
+puts "******** Welcome to the longest word-game!********"
+puts "Here is your grid:"
+grid = generate_grid(9)
+puts grid.join(" ")
+puts "*****************************************************"
+
+puts "What's your best shot?"
+start_time = Time.now
+attempt = gets.chomp
+end_time = Time.now
+
+puts "******** Now your result ********"
+
+result = run_game(attempt, grid, start_time, end_time)
+
+puts "Your word: #{attempt}"
+puts "Time Taken to answer: #{result[:time]}"
+puts "Your score: #{result[:score]}"
+puts "Message: #{result[:message]}"
+
+puts "*****************************************************"
+```
+
 
 
 
