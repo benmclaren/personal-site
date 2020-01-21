@@ -51,7 +51,7 @@ puts grid.join(" ")
 puts "*****************************************************"
 ```
 
-Here, we simply `puts` a few statements to speak to our user. We then create a variable `grid`. This is equal to calling our `generate_grid` method and passing it the value of 9. Therefore the method will provide a sample of 9 numbers.
+Here, we simply `puts` a few statements to speak to our user. We then create a variable `grid`. This is equal to calling our `generate_grid` method and passing it the value of 9. Therefore the method will provide a sample of 9 letters.
 
 We have an important `puts` statement here of `grid.join(" ")`. This will simply join the sample of letters together with a space between all on one line. If we did not have this `.join` method they would display vertically in the terminal.
 
@@ -67,7 +67,7 @@ This method `included?` takes two parameters of `guess` and `grid`.
 
 We call `.chars` on `guess` which will split the guess up into seperate characters. We also call `.all?` which will pass each element to the given block.
 
-In our block we call `.count(letter)` on `guess` with an argument of `letter`. This will count the amount of elements in the array which are equal to `letter`. We check to see if this is less than or equal to (<=) the amount of times `letter` appears in grid.
+In our block we call `.count(letter)` on `guess` with an argument of `letter`. This will count the amount of elements in the array which are equal to `letter`. We check to see if this is less than or equal to (<=) the amount of times `letter` appears in `grid`.
 
 **Working out the score**
 
@@ -97,7 +97,7 @@ We create a variable of `reponse`. This is equal to opening the given site with 
 
 We create another variable called `json`. This is how we will use the JSON API. It allows us to recieve the data from the website. We give it an argument of `response.read`. This allows it to read the infomration but nothing else.
 
-We then return `json['found']`. This will return true or false depening on if the word was found in the dictionary of not.
+We then return `json['found']`. This will return true or false depening on if the word was found in the dictionary or not.
 
 **Getting the user inputs for time and attempt**
 
@@ -236,12 +236,6 @@ end
 # 6
 def run_game(attempt, gsrid, start_time, end_time)
   result = { time: end_time - start_time }
-
-  # result = {
-  #   time: end_time - start_time,
-  #   score: score_and_message(attempt, grid, result[:time]),
-  #   message: score_and_message(attempt, grid, result[:time])
-  # }
 
   score_and_message = score_and_message(attempt, grid, result[:time])
   result[:score] = score_and_message.first
