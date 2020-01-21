@@ -69,7 +69,7 @@ We call `.chars` on `guess` which will split the guess up into seperate characte
 
 In our block we call `.count(letter)` on `guess` with an argument of `letter`. This will count the amount of elements in the array which are equal to `letter`. We check to see if this is less than or equal to (<=) the amount of times `letter` appears in grid.
 
-** Working out the score**
+**Working out the score**
 
 ```ruby
 def compute_score(attempt, time_taken)
