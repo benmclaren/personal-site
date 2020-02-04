@@ -6,11 +6,12 @@ draft: false
 excerpt: "Notes on the Le Wagon Active Record Basics Models challenge"
 ---
 **Notes on the Le Wagon Active Record Basics Models challenge**
+
 We will go through how a small terminal application links together with active record. For this, please refer to the challenge above.
 
 Active Record is simply a pattern found in software that stores data (Database). It features various functions such as `save` and `destroy` as well as instance variables. These are variables which represent columns in the database.
 
-We have three things that enable this app to work. A model, a controller and a view
+We have three things that enable this app to work. A **model**, a **controller** and a **view**
 
 The model is simply where you keep the data and is as simple as defining our class and telling it to use ActiveRecord.
 
@@ -18,7 +19,7 @@ The model is simply where you keep the data and is as simple as defining our cla
 class Post < ActiveRecord::Base
 end
 ```
-The controller is what is what connects the views to the model. The controller know about the model and knows which views to display. The controller will take information from the view which it gets from the user and then be able to update the database. It acts as the middle man between the views (user) and the model (database).
+The controller is what connects the views to the model. The controller know about the model and knows which views to display. The controller will take information from the view which it gets from the user and then be able to update the database. It acts as the middle man between the views (user) and the model (database).
 
 The views is how the user interacts with the application and where information from the database is displayed.
 
@@ -47,8 +48,7 @@ end
 
 Here, we have our view where we have two methods which are contained inside a class called PostsView. This is so that it can link to our model of `Post` and that it knows it is the view.
 
-Our first method is called `display` and takes one parameter. In this method we take posts and use a `.each` iterator to look over the posts. We then display a message to our user which says take the id of the post then put a '.' then have the post title and a '-'. Next we have a ternary operator which says is the post votes are nil then display a '0' but if not then find the correct amount of votes and display that number. The word 'votes' is printed and a '-' which shows the url of the post. This is all data that the user has inputted and its able to find in the database under the table names.
-
+Our first method is called `display` and takes one parameter. In this method we take posts and use a `.each` iterator to look over the posts. We then display a message to our user which says take the id of the post then put a '.' then have the post title and a '-'. Next we have a ternary operator which says; if the post votes are nil then display a '0' but if not then find the correct amount of votes and display that number. The word 'votes' is printed and a '-' which shows the url of the post. This is all data that the user has inputted and its able to find in the database under the table names.
 
 The second method is called 'ask_for'. This also takes one parameter of 'label'. Here we simply puts the 'label' to the user. Then a '>' and finally the users input is taken and saved.
 
@@ -56,7 +56,7 @@ These methods will make more sense once the controller actions have been impleme
 
 **Controller**
 
-This class of PostsController contains all the methods that we need in order for our application to run. We also must include the line `require_relative "../views/posts_view"` as this allows it to access the information in thr view. We give it the path to this file so that it can find it.
+This class of PostsController contains all the methods that we need in order for our application to run. We also must include the line `require_relative "../views/posts_view"` as this allows it to access the information in the view. We give it the path to this file so that it can find it.
 
 1. This first method `initialize` is given to the router and it allows it to create a new view for the user.
 
@@ -79,7 +79,7 @@ end
 
 3. The `create` method allows us to create a new post. We begin by setting two variables of `title` and `url`. The title is equal to going to the view then calling the `ask_for` method and giving it the parameter of `:title` which is specified in the table. The variable `url` is equal to the same as `title` but this time grabbing the `url` information.
 
-We then set `post` as being equal to creating a new post with `Post.new` and then giving it the parameters of title being equal to the title given by the user and specified in our variable `title` and the `url` as the url given by the user as specified in our variable of `url`.
+We then set `post` as being equal to creating a new post with `Post.new` and then giving it two parameters. Title is equal to the title given by the user and specified in our variable `title`. The `url` is the url given by the user as specified in our variable of `url`.
 
 Lastly we save this post to the database with `Post.save.`
 
@@ -93,7 +93,7 @@ def create
 end
 ```
 
-4. The update method allows us to update a post. We begin by assigning `id` to our grabbing the `id` from the view using the `ask_for` method. We also convert this to an integer with `.to_i`.
+4. The update method allows us to update a post. We begin by assigning `id` to the result of grabbing the `id` from the view using the `ask_for` method. We convert this to an integer with `.to_i`.
 
 Next, we assign `post` to finding the relevant post using its id.
 
@@ -134,7 +134,7 @@ end
 
 Again, we can find the `id` and `post` as we have done in the previous two methods.
 
-We can say, if the current amount of posts is equal to nil then `post.votes` should equal 1. However, if votes is not equal to 1 then take `posts.votes` and add 1 to it. We can then save our post with `post.save`
+We can say that if the current amount of posts is equal to nil then `post.votes` should equal 1. However, if votes is not equal to 1 then take `posts.votes` and add 1 to it. We can then save our post with `post.save`
 
 ```ruby
 def upvote
@@ -175,7 +175,7 @@ class PostsController
   end
 
   def update
-    id = ask_for_id
+    id = @view.ask_for(:id).to_
 
     post = Post.find(id)
     title = @view.ask_for(:title)
@@ -186,13 +186,13 @@ class PostsController
   end
 
   def destroy
-    id = ask_for_id
+    id = @view.ask_for(:id).to_
     post = Post.find(id)
     post.destroy
   end
 
   def upvote
-    id = ask_for_id
+    id = @view.ask_for(:id).to_
     post = Post.find(id)
     if post.votes.nil?
       post.votes = 1
@@ -200,13 +200,6 @@ class PostsController
       post.votes += 1
     end
     post.save
-  end
-
-  private
-
-  def ask_for_id
-    # @view.display(Post.all)
-    @view.ask_for(:id).to_i
   end
 end
 ```
@@ -229,7 +222,7 @@ class PostsView
 end
 ```
 
-We could do a small amount of refactoring to this code if you wanted to and that would be to include a method in the cotnroller for finding commonly required items. For example when we require the id we could write a method to do this to avoid repeating ourself.
+We could do a small amount of refactoring to this code. That would be to include a method in the controller for finding commonly required items. For example when we require the id we could write a method to do this to avoid repeating ourself.
 
 ```ruby
 def ask_for_id
@@ -237,4 +230,4 @@ def ask_for_id
 end
 ```
 
-This would be placed at the bottom of the controller under a `private` method. This is basically means that it is not accessible from outside the object. Having a method to find the id is not essential but helps to stick to the convention of not repeating yourself.
+This would be placed at the bottom of the controller under a `private` method. This basically means that it is not accessible from outside the object. Having a method to find the id is not essential but helps to stick to the convention of not repeating yourself.
