@@ -18,7 +18,7 @@ We start off by going to our `application.html.erb` file where we will find the 
 
 The syntax looks like this. The first part is the helper method and the second part is what we want to refer to it as or in other words what content are we targeting. This needs to be written as a symbol as it is something that will be used across the site and won't change.
 
-`content-for, :page_title'
+`content-for, :page_title`
 
 We can then drop it into our `title` tag like this:
 
