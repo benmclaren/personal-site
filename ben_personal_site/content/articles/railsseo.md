@@ -18,17 +18,21 @@ We start off by going to our `application.html.erb` file where we will find the 
 
 The syntax looks like this. The first part is the helper method and the second part is what we want to refer to it as or in other words what content are we targeting. This needs to be written as a symbol as it is something that will be used across the site and won't change.
 
-`content-for, :page_title`
+`content-for, :page_title'
 
 We can then drop it into our `title` tag like this:
 
-`<title> <%= content_for :page_title %> - Bien Reviews </title>`.
+```Ruby
+<title> <%= content_for :page_title %> - Bien Reviews </title>
+```
 
 Now we can go to our views and extract the information that we want from there to be used in the title.
 
 At the top of your view we need another erb (embed ruby) tag. Note that we do not want the `=` present this time as we are not displaying this content in the view, simply extracting information from it.
 
+```Ruby
 <% content_for :page_title, @review.title %>
+```
 
 Then we have our helper of `content_for :page_title` which we wrote earlier followed by a comma. This is where we put what is is we want the title to be. In our case, in our review website we have a title for each review so we want to display this. We can say `@review.title.` This is relating to our model of `Review` and we are grabbing the `title` information for this particular page. Of course this needs to be adapted depending on what content it is you are displaying. Now, each of our review pages will have a title of the specific review in the tab.
 
@@ -41,7 +45,7 @@ Have a look at these two urls for two different music review sites. One is a lot
 
 This first url is not that clear as to what the page is about, you get it might be review but the numbers are ultimately meaningless to the user.
 
-`https://pitchfork.com/reviews/albums/eminem-music-to-be-murdered-by/``
+`https://pitchfork.com/reviews/albums/eminem-music-to-be-murdered-by/`
 
 Take this second url. It is immediately clear as to what it is. Its a review of an album by eninem called music-to-be-murdered-by.
 
