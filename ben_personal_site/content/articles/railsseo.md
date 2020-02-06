@@ -47,7 +47,7 @@ This first url is not that clear as to what the page is about, you get it might 
 
 `https://pitchfork.com/reviews/albums/eminem-music-to-be-murdered-by/`
 
-Take this second url. It is immediately clear as to what it is. Its a review of an album by eninem called music-to-be-murdered-by.
+Take this second url. It is immediately clear as to what it is. It's a review of an album by eninem called music-to-be-murdered-by.
 
 In our model we can override the default URL with a thing called `to_param`. This is deep within rails but we are going to take it out and change it.
 
@@ -60,9 +60,9 @@ end
 ```
 In our example or the review website we can take the `id` of the review and convert it to a string so that we can use it in the url.
 
-Next, we want to add some information. We can do this by using an + sign and we are going to have a "-" here. Then we can have the title of the page we are on. WE can get this using the word `title` which we are able to access as we are inside the model.
+Next, we want to add some information. We can do this by using a '+' sign and we are going to have a "-" here. Then we can have the title of the page we are on. We can get this using the word `title` which we are able to access as we are inside the model.
 
-Now as it stands the url will change to include the title but the spaces will be filled with '%' and it does not look that great. To change this we can change it into a parameter by using  `.parameterize` on the title. What this will do is get rid of the spaces, uppercased letters, slashes etc which makes the URL hard to read and will convert it into a much more friendly and cleaner URL.
+Now, as it stands the url will change to include the title but the spaces will be filled with '%' and it does not look that great. To change this we can change it into a parameter by using  `.parameterize` on the title. What this will do is get rid of the spaces, uppercased letters, slashes etc which makes the URL hard to read and will convert it into a much more friendly and cleaner URL.
 
 ```Ruby
 def to_param
