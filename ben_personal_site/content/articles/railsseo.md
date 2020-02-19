@@ -58,7 +58,7 @@ def to_param
   #code to override will go here
 end
 ```
-In our example or the review website we can take the `id` of the review and convert it to a string so that we can use it in the url.
+In our example of the review website we can take the `id` of the review and convert it to a string so that we can use it in the url.
 
 Next, we want to add some information. We can do this by using a '+' sign and we are going to have a "-" here. Then we can have the title of the page we are on. We can get this using the word `title` which we are able to access as we are inside the model.
 
