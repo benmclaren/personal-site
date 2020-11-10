@@ -1,0 +1,8 @@
+{{ $app := resources.Get "js/app.js" }}
+
+{{ $scripts := slice $app | resources.Concat "app.js" }}
+
+{{ $globalJS := $scripts | resources.Minify | resources.Fingerprint }}
+
+<script src="{{ $globalJS.Permalink }}" integrity="{{ $globalJS.Data.Integrity }}" media="screen" crossorigin="anonymous">
+</script>

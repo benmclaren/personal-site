@@ -1,6 +1,6 @@
 {{ partial "head.html" . }}
 
-<div class="main-container">
+<!-- <div class="main-container"> -->
   {{ partial "header.html" . }}
 
   {{ block "main" . }}
@@ -9,4 +9,5 @@
   {{ end }}
 
   <!-- {{ partial "footer.html" . }} -->
-</div>
+<!-- </div> -->
+{{- partial "scripts.html" . -}}

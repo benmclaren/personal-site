@@ -4,21 +4,21 @@
   height: 48px;
   background-color: var(--main-circle-color);
   border-radius: 50%;
-
 }
 
 .logo {
   position: absolute;
   top: 29px;
-  left: 16px;
+  left: 40px;
   font-weight: 600;
 }
 
-.nav {
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
+  padding-left: 16px;
 }
 
 // hamburger menu
@@ -30,29 +30,77 @@
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  // position: fixed;
 }
 .hamRotate.active {
   transform: rotate(45deg);
 }
 .hamRotate180.active {
-  transform: rotate(180deg);
+  transform: rotate(0deg);
 }
 .line {
   fill:none;
-  transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+  transition: stroke-dasharray 800ms, stroke-dashoffset 800ms;
   stroke:#000;
   stroke-width:5.5;
   stroke-linecap:round;
 }
-.ham1 .top {
-  stroke-dasharray: 40 139;
+
+.ham5 .top {
+  stroke-dasharray: 40 82;
 }
-.ham1 .bottom {
-  stroke-dasharray: 40 180;
+.ham5 .bottom {
+  stroke-dasharray: 40 82;
 }
-.ham1.active .top {
-  stroke-dashoffset: -98px;
+.ham5.active .top {
+  stroke-dasharray: 14 82;
+  stroke-dashoffset: -72px;
 }
-.ham1.active .bottom {
-  stroke-dashoffset: -138px;
+.ham5.active .bottom {
+  stroke-dasharray: 14 82;
+  stroke-dashoffset: -72px;
+}
+
+// offscreen-nav
+.offscreen-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 50vh;
+  height: 100vh;
+  background-color: var(--main-circle-color);
+  color: #fff;
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.nav-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  line-height: 4;
+  padding-right: 128px;
+  font-weight: 500;
+
+}
+
+.home-container {
+  position: relative;
+  z-index: 3;
+  background-color: #fff;
+  min-height: 100vh;
+  transition: 800ms cubic-bezier(0.68,-0.55,0.27,1.55);
+  box-shadow: 0px 1px 0px rgba(17,17,26,0.1), 0px 8px 24px rgba(17,17,26,0.1), 0px 16px 48px rgba(17,17,26,0.1);
+}
+
+.home-container.open {
+  transform: translate(-256px, 0);
+}
+
+.nav-item {
+  text-decoration: none;
+  color: var(--main-text-color);
 }
