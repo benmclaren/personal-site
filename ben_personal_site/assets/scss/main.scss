@@ -6,11 +6,18 @@
 @import "single_page.scss";
 @import "list_page.scss";
 @import "mediaqueries.scss";
+@import "button.scss";
+
 @import url("https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
 
 :root {
   --main-text-color: #303030;
   --main-circle-color: #DFF01F;
+  --mobile-body-text: 16px;
+  --mobile-heading-text: 36px;
+  --mobile-body-line-height: 25.6px;
+  --mobile-sub-heading-text: 24px;
+  --mobile-sub-heading-line-height: 48px;
 }
 
 body {
@@ -19,12 +26,24 @@ body {
   color: var(--main-text-color);
   // font-family: 'Rubik', sans-serif;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+}
+
+* {
+  box-sizing: inherit;
+  transition-property: all;
+  transition-duration: .6s;
+  transition-timing-function: ease;
 }
 
 html {
   scroll-behavior: smooth;
   // overflow-x: hidden;
   // overflow-y: scroll;
+  height: 100%;
+  width: 100%;
 }
 
 pre {
@@ -35,4 +54,10 @@ pre {
 
 .main-container {
   // padding: 0 16px;
+}
+
+h1,
+p {
+  margin: 0;
+  padding: 0;
 }
