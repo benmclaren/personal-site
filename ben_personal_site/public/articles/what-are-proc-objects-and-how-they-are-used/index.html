@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ben McLaren</title>
+  
+  
+  <link rel="stylesheet" href="/css/main.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="blogo1.ico" type="image/x-icon">
+  <meta property="og:image" content="https://res.cloudinary.com/dy35n8sog/image/upload/v1578389845/Screenshot_2020-01-07_at_09.36.47_ehi2dt.png">
+  <link rel="shortcut icon" href="https://res.cloudinary.com/dy35n8sog/image/upload/v1578391731/blogo1_guumr5.ico" type="image/x-icon">
+</head>
+<body>
+
+<header class="header">
+  <div class="nav">
+    <a class="name" href="/index.html">Ben McLaren</a>
+    <a class="link" href="/articles">Articles</a>
+  </div>
+</header>
+
+
+
+
+
+<article class="page">
+  <div class="page-content">
+    <p class="page-title"> What are Proc Objects? and how they are used </p>
+  <p><strong>Notes on the Le Wagon Iteratros &amp; Blocks Storing Blocks in Procs exercise</strong></p>
+<p>A <strong>Proc Object</strong> is an encapsulation of a block of code which can be stored in a variable. In other words you can call them, pass them to other methods and pass them to other proc objects. It differs to <code>yield</code> in the sense that it can be called later as it has stored and remembered the block information. A method that it is called on may also call another method and therfore this block needs to be transferred to the sub method.</p>
+<p>To create a Proc Object you can prefix the last argument in a method with <strong>&amp;</strong>. This will create a Proc Object from the information given in any block passed in.</p>
+<p><strong>Here is an example:</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">tell</span>(who, <span style="color:#f92672">&amp;</span>message_blk)
+  <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span>who<span style="color:#e6db74">}</span><span style="color:#e6db74">, </span><span style="color:#e6db74">#{</span>message_blk<span style="color:#f92672">.</span>call<span style="color:#e6db74">}</span><span style="color:#e6db74">!</span><span style="color:#e6db74">&#34;</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>In this method we give it two arguments, <code>who</code> and <code>&amp;message_blk</code>. The <strong>&amp;</strong> creates a Proc Object meaning that it will now store the infromation of a block passed to it. The method returns a string with <code>who</code> interpolated as well as the block of code which has been called using the <code>.call</code> method.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">tell_mum</span>(<span style="color:#f92672">&amp;</span>message_blk)
+  tell(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">mum</span><span style="color:#e6db74">&#34;</span>, <span style="color:#f92672">&amp;</span>message_blk)
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>This second method <code>tell_mum</code> takes one parameter of <code>&amp;message_blk</code>. The method calls the our previous <code>tell</code> method and passes in the two arguments it requires. &ldquo;mum&rdquo; and the block. This means that the <code>tell</code> method can recieve and use the block specified in the other method and perform the desired action.</p>
+<p><strong>Lets expand on this</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">tell_with_proc</span>(who, message_blk)
+  <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span>who<span style="color:#e6db74">}</span><span style="color:#e6db74">, </span><span style="color:#e6db74">#{</span>message_blk<span style="color:#f92672">.</span>call<span style="color:#e6db74">}</span><span style="color:#e6db74">!</span><span style="color:#e6db74">&#34;</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>The message is now passed as a block as has been previously defined and subseqneutly it can return a string by calling <code>.call</code> on <code>message_block</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">tell_mum_with_proc</span>(message_blk)
+  tell_with_proc(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">mum</span><span style="color:#e6db74">&#34;</span>, message_blk)
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>This final method takes the single <code>message_block</code> parameter and calls the <code>tell_with_proc</code> method. It passes in the two required arguments &ldquo;mum&rdquo; and the block defined by <code>message_block</code>.</p>
+
+</article>
+
+</div>
+
+
+  <section class="footer">
+    <div class="footer-container">
+      <p class="contact">
+        Feel free to get in contact
+      </p>
+      <div class="icons">
+        <a href="https://github.com/benmclaren" target="_blank">
+          <i class="fa fa-github"></i>
+        </a>
+
+        <a href="mailto:bmclaren01@gmail.com" target="_blank">
+          <i class="fa fa-paper-plane"></i>
+        </a>
+
+        <a href="https://twitter.com/bybenmclaren" target="_blank">
+          <i class="fa fa-twitter"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/ben-mclaren/" target="_blank">
+          <i class="fa fa-linkedin"></i>
+        </a>
+
+      </div>
+      <p>
+        ©benmclaren2020
+      </p>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cloudinary-core/2.3.0/cloudinary-core-shrinkwrap.min.js">
+  </script>
+  <script>
+    var cl = cloudinary.Cloudinary.new({
+      cloud_name: 'dy35n8sog'
+    });
+
+    cl.responsive()
+  </script>
+
+</body>
+</html>
+

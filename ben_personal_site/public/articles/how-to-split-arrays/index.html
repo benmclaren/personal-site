@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ben McLaren</title>
+  
+  
+  <link rel="stylesheet" href="/css/main.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="blogo1.ico" type="image/x-icon">
+  <meta property="og:image" content="https://res.cloudinary.com/dy35n8sog/image/upload/v1578389845/Screenshot_2020-01-07_at_09.36.47_ehi2dt.png">
+  <link rel="shortcut icon" href="https://res.cloudinary.com/dy35n8sog/image/upload/v1578391731/blogo1_guumr5.ico" type="image/x-icon">
+</head>
+<body>
+
+<header class="header">
+  <div class="nav">
+    <a class="name" href="/index.html">Ben McLaren</a>
+    <a class="link" href="/articles">Articles</a>
+  </div>
+</header>
+
+
+
+
+
+<article class="page">
+  <div class="page-content">
+    <p class="page-title"> How to split arrays </p>
+  <p><strong>Notes on the Le Wagon Iteratros &amp; Blocks Splitter exercise</strong></p>
+<p>We want to create a splitter method which will take an array and divide it into two groups according to an arbitrary rule. You might want to split by age if we’re talking about a group of people.</p>
+<p>Lets implement a method <code>size_splitter</code> which takes two parameters: an array, and a integer (the size). We will assume that the array only contains words, e.g. Strings, and that the arbitrary rule is to form two groups: the first one with words of the given size (second parameter of the method), and the other group with all the other words.</p>
+<p>The <code>size_splitter</code> method should return an array of two arrays - the two groups defined above - with the contents sorted alphabetically.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">size_splitter</span>(array, size)
+  size_array <span style="color:#f92672">=</span> array<span style="color:#f92672">.</span>select <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>word<span style="color:#f92672">|</span>
+    word<span style="color:#f92672">.</span>length <span style="color:#f92672">==</span> size
+  <span style="color:#66d9ef">end</span>
+  other_array <span style="color:#f92672">=</span> array<span style="color:#f92672">.</span>reject <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>word<span style="color:#f92672">|</span>
+    word<span style="color:#f92672">.</span>length <span style="color:#f92672">==</span> size
+  <span style="color:#66d9ef">end</span>
+  combined_array <span style="color:#f92672">=</span> <span style="color:#f92672">[</span><span style="color:#f92672">]</span>
+  combined_array<span style="color:#f92672">.</span>push(size_array<span style="color:#f92672">.</span>sort, other_array<span style="color:#f92672">.</span>sort)
+  <span style="color:#66d9ef">return</span> combined_array
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>We start by calling the method <code>.select</code> on to the array. The block then check to see if each word in the array is of the length size and if it is it is added to the <code>size_array</code>.</p>
+<p>The other array uses to <code>.reject</code> to add words not equal to the length of size to the array. It bascially rejects words that are equal to size.</p>
+<p>We then set the <code>combined_array</code> to empty and use the ruby method <code>.push</code> to add in each array along with the <code>.sort</code> method which orders them alphabetically.</p>
+<p>In the previous exercise, the abritrary rule was fixed. What if we wanted to let the method caller choose which rule to apply? We can do so with the power of blocks and yield.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">block_splitter</span>(array)
+  true_array <span style="color:#f92672">=</span> array<span style="color:#f92672">.</span>select <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>word<span style="color:#f92672">|</span>
+    <span style="color:#66d9ef">yield</span>(word) <span style="color:#f92672">==</span> <span style="color:#66d9ef">true</span> <span style="color:#f92672">&amp;&amp;</span> word<span style="color:#f92672">.</span>start_with?(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">a</span><span style="color:#e6db74">&#34;</span>)
+  <span style="color:#66d9ef">end</span>
+  other_array <span style="color:#f92672">=</span> array<span style="color:#f92672">.</span>reject <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>word<span style="color:#f92672">|</span>
+    <span style="color:#66d9ef">yield</span>(word) <span style="color:#f92672">==</span> <span style="color:#66d9ef">true</span>
+  <span style="color:#66d9ef">end</span>
+  new_array <span style="color:#f92672">=</span> <span style="color:#f92672">[</span><span style="color:#f92672">]</span>
+  new_array<span style="color:#f92672">.</span>push(true_array, other_array)
+  <span style="color:#66d9ef">return</span> new_array
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>This is the same concept although here we use <code>yield</code> with the parameter of <code>word</code> which allows the user to customzie the rule. This is then checked against whether it is equal to true and also equal to the word starting with an &ldquo;a&rdquo;. The second array then rejects anything which is not true.</p>
+<p>The new_array is created and set to empty and we use <code>.push</code> to both the <code>true_array</code> and the
+<code>other_array</code> into the <code>new_array</code>.</p>
+<p>We then return the <code>new_array</code>.</p>
+
+</article>
+
+</div>
+
+
+  <section class="footer">
+    <div class="footer-container">
+      <p class="contact">
+        Feel free to get in contact
+      </p>
+      <div class="icons">
+        <a href="https://github.com/benmclaren" target="_blank">
+          <i class="fa fa-github"></i>
+        </a>
+
+        <a href="mailto:bmclaren01@gmail.com" target="_blank">
+          <i class="fa fa-paper-plane"></i>
+        </a>
+
+        <a href="https://twitter.com/bybenmclaren" target="_blank">
+          <i class="fa fa-twitter"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/ben-mclaren/" target="_blank">
+          <i class="fa fa-linkedin"></i>
+        </a>
+
+      </div>
+      <p>
+        ©benmclaren2020
+      </p>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cloudinary-core/2.3.0/cloudinary-core-shrinkwrap.min.js">
+  </script>
+  <script>
+    var cl = cloudinary.Cloudinary.new({
+      cloud_name: 'dy35n8sog'
+    });
+
+    cl.responsive()
+  </script>
+
+</body>
+</html>
+

@@ -1,9 +1,12 @@
 {{ partial "head.html" . }}
-{{ partial "header.html" . }}
 
-{{ block "main" . }}
+<div class="main-container">
+  {{ partial "header.html" . }}
+
+  {{ block "main" . }}
 
 
-{{ end }}
+  {{ end }}
 
-{{ partial "footer.html" . }}
+  <!-- {{ partial "footer.html" . }} -->
+</div>

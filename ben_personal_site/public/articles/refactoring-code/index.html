@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ben McLaren</title>
+  
+  
+  <link rel="stylesheet" href="/css/main.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="blogo1.ico" type="image/x-icon">
+  <meta property="og:image" content="https://res.cloudinary.com/dy35n8sog/image/upload/v1578389845/Screenshot_2020-01-07_at_09.36.47_ehi2dt.png">
+  <link rel="shortcut icon" href="https://res.cloudinary.com/dy35n8sog/image/upload/v1578391731/blogo1_guumr5.ico" type="image/x-icon">
+</head>
+<body>
+
+<header class="header">
+  <div class="nav">
+    <a class="name" href="/index.html">Ben McLaren</a>
+    <a class="link" href="/articles">Articles</a>
+  </div>
+</header>
+
+
+
+
+
+<article class="page">
+  <div class="page-content">
+    <p class="page-title"> Refactoring code </p>
+  <p><strong>Notes on the Le Wagon Iterators &amp; Blocks Cleaning your Mess exercise</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">hop_hop_hop</span>(number_of_exercises)
+  <span style="color:#66d9ef">for</span> i <span style="color:#66d9ef">in</span> (<span style="color:#ae81ff">1</span><span style="color:#f92672"></span><span style="color:#f92672">..</span>number_of_exercises) <span style="color:#66d9ef">do</span>
+    counter <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+    <span style="color:#f92672"></span><span style="color:#66d9ef">until</span> counter <span style="color:#f92672">==</span> i
+      print <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">hop! </span><span style="color:#e6db74">&#34;</span>
+      counter <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#f92672"></span><span style="color:#66d9ef">end</span>
+    <span style="color:#66d9ef">unless</span> counter <span style="color:#f92672">!=</span> i
+
+      print <span style="color:#e6db74">&#39;One more time...&#39;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>
+    <span style="color:#66d9ef">end</span>
+
+    counter <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+  <span style="color:#f92672"></span><span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+
+hop_hop_hop(<span style="color:#ae81ff">5</span><span style="color:#f92672"></span>)
+</code></pre></div><p>This is a piece of ruby code which simply prints out the word &lsquo;hop!&rsquo; and &lsquo;One more time&hellip;'. However, it is not the most efficient as it can be simplified into a much more readable state.</p>
+<p>The current code uses a <code>for</code> loop to look through the <code>number_of_exercises</code> for a given range of 1  to the total number of exercises.  It then sets a counter at 0 and says until the counter is equal to the total times specified then it will print out the word &ldquo;hop!&rdquo; and increment the counter by 1. There is also an unless loop inside the <code>for</code> loop which which checks to see if counter is equal to the total number and will continue to print &ldquo;one more time&hellip;&rdquo; until it is. The counter is then reset to 0 for the next exercise</p>
+<p>This can be massively simplifed like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">hop_hop_hop</span>(number_of_exercises)
+  <span style="color:#ae81ff">1</span><span style="color:#f92672"></span><span style="color:#f92672">.</span>upto(number_of_exercises) <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>number<span style="color:#f92672">|</span>
+    print <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">hop! </span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">*</span> number
+    puts <span style="color:#e6db74">&#39;One more time...&#39;</span>
+  <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+
+hop_hop_hop(<span style="color:#ae81ff">5</span><span style="color:#f92672"></span>)
+</code></pre></div><p>Here, we can use the method, <code>.upto</code>. This Iterates over the given block, passing in integer values from the initial given value up to and including the limit. This is called on an integer, in this case <code>1</code> and we give it an argument of <code>number_of_exercises</code> which refers to the amount of times the code will run. We also call it with a block which instructs it to print &ldquo;hop!&rdquo; the amount of times it is given. This is done by multiplying &ldquo;hop&rdquo; by <code>number</code>. It then puts &lsquo;One more time&hellip;&rsquo; and the loop ends.</p>
+<p>Difference between <code>puts</code> and <code>print</code>: Both will convert anything to a string and puts will display each item on a new line.</p>
+
+</article>
+
+</div>
+
+
+  <section class="footer">
+    <div class="footer-container">
+      <p class="contact">
+        Feel free to get in contact
+      </p>
+      <div class="icons">
+        <a href="https://github.com/benmclaren" target="_blank">
+          <i class="fa fa-github"></i>
+        </a>
+
+        <a href="mailto:bmclaren01@gmail.com" target="_blank">
+          <i class="fa fa-paper-plane"></i>
+        </a>
+
+        <a href="https://twitter.com/bybenmclaren" target="_blank">
+          <i class="fa fa-twitter"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/ben-mclaren/" target="_blank">
+          <i class="fa fa-linkedin"></i>
+        </a>
+
+      </div>
+      <p>
+        ©benmclaren2020
+      </p>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cloudinary-core/2.3.0/cloudinary-core-shrinkwrap.min.js">
+  </script>
+  <script>
+    var cl = cloudinary.Cloudinary.new({
+      cloud_name: 'dy35n8sog'
+    });
+
+    cl.responsive()
+  </script>
+
+</body>
+</html>
+

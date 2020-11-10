@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ben McLaren</title>
+  
+  
+  <link rel="stylesheet" href="/css/main.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="blogo1.ico" type="image/x-icon">
+  <meta property="og:image" content="https://res.cloudinary.com/dy35n8sog/image/upload/v1578389845/Screenshot_2020-01-07_at_09.36.47_ehi2dt.png">
+  <link rel="shortcut icon" href="https://res.cloudinary.com/dy35n8sog/image/upload/v1578391731/blogo1_guumr5.ico" type="image/x-icon">
+</head>
+<body>
+
+<header class="header">
+  <div class="nav">
+    <a class="name" href="/index.html">Ben McLaren</a>
+    <a class="link" href="/articles">Articles</a>
+  </div>
+</header>
+
+
+
+
+
+<article class="page">
+  <div class="page-content">
+    <p class="page-title"> How to check anagrams using regex </p>
+  <p><strong>Notes on Le Wagon Regular Expressions Anagrams exercise</strong></p>
+<p>For this exercise we want to write a method that will check if two strings are anagrams.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">anagrams?</span>(a_string, another_string)
+  a_string <span style="color:#f92672">=</span> a_string<span style="color:#f92672">.</span>downcase<span style="color:#f92672">.</span>chars<span style="color:#f92672">.</span>sort<span style="color:#f92672">.</span>join<span style="color:#f92672">.</span>gsub(<span style="color:#e6db74">/</span><span style="color:#e6db74">\</span><span style="color:#e6db74">s+</span><span style="color:#e6db74">/</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">&#34;</span>)<span style="color:#f92672">.</span>gsub(<span style="color:#e6db74">/</span><span style="color:#e6db74">[^0-9a-zA-Z]</span><span style="color:#e6db74">/</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">&#34;</span>)
+  another_string <span style="color:#f92672">=</span> another_string<span style="color:#f92672">.</span>downcase<span style="color:#f92672">.</span>chars<span style="color:#f92672">.</span>sort<span style="color:#f92672">.</span>join<span style="color:#f92672">.</span>gsub(<span style="color:#e6db74">/</span><span style="color:#e6db74">\</span><span style="color:#e6db74">s+</span><span style="color:#e6db74">/</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">&#34;</span>)<span style="color:#f92672">.</span>gsub(<span style="color:#e6db74">/</span><span style="color:#e6db74">[^0-9a-zA-Z]</span><span style="color:#e6db74">/</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">&#34;</span>)
+  <span style="color:#66d9ef">return</span> a_string <span style="color:#f92672">==</span> another_string
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>For this first method we start out with creating two variables. These are called <code>a_string</code> and <code>another_string</code> respectivley. We apply the same logic to both of the given arguments.</p>
+<p>We start by calling:</p>
+<ul>
+<li>
+<p><code>.downcase</code> which will change all uppercase letters to lowercase</p>
+</li>
+<li>
+<p><code>.chars</code> which will return an array of characters from the string. In other words, splits up the word into seperate letters</p>
+</li>
+<li>
+<p><code>.sort</code> which will sort the letters into alphabetical order</p>
+</li>
+<li>
+<p><code>.join</code> which will join the seperate letters together. <code>[ &quot;a&quot;, &quot;b&quot;, &quot;c&quot; ].join #=&gt; &quot;abc&quot;</code></p>
+</li>
+<li>
+<p><code>.gsub</code> will sub out the characters given as the first argument and replace them with the characters given in the second argument. In our example we will sub out any number of whitespace characters and replace them with nothing. This is denoted by the <code>\s</code> standing for whitespace character and <code>+</code> which means that there can be one or more whitespaces. We also call <code>.gsub</code> again and this time we say to sub out any character <strong>except</strong> numbers 0-9, lowercase letters a-z and uppercased letters A-Z. The <code>^</code> denotes the exception.</p>
+</li>
+</ul>
+<p>Now we can return true if <code>a_string</code> is equal to <code>another_string</code></p>
+<p>To demonstrate how this works lets take the example of the word POST and the word SPOT</p>
+<p><code>POST -&gt; ['p', 'o', 's', 't'] -&gt; ['o', 'p', 's', 't'] -&gt; &quot;opst&quot; SPOT -&gt; ['s', 'p', 'o', 't'] -&gt; ['o', 'p', 's', 't'] -&gt; &quot;opst&quot;</code></p>
+<p>This is am anagram because both results have returned in the same order.</p>
+<p><strong>What if we wanted to make our method faster by improving its Time Complexity?</strong> (Time taken to complete a method)</p>
+<p>To do this we might want to use a <code>hash</code>. Lets create a method that will create our hash which we can use to store data inside.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">create_hash</span>(word)
+  word <span style="color:#f92672">=</span> word<span style="color:#f92672">.</span>downcase<span style="color:#f92672">.</span>chars<span style="color:#f92672">.</span>sort<span style="color:#f92672">.</span>join<span style="color:#f92672">.</span>gsub(<span style="color:#e6db74">/</span><span style="color:#e6db74">\</span><span style="color:#e6db74">s+</span><span style="color:#e6db74">/</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">&#34;</span>)<span style="color:#f92672">.</span>gsub(<span style="color:#e6db74">/</span><span style="color:#e6db74">[^0-9a-zA-Z]</span><span style="color:#e6db74">/</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">&#34;</span>)
+  new_hash <span style="color:#f92672">=</span> {}
+  word<span style="color:#f92672">.</span>each_char <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>char<span style="color:#f92672">|</span>
+    <span style="color:#66d9ef">if</span> new_hash<span style="color:#f92672">.</span>key?(char)
+      new_hash<span style="color:#f92672">[</span>char<span style="color:#f92672">]</span> <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#f92672"></span><span style="color:#66d9ef">else</span>
+      new_hash<span style="color:#f92672">[</span>char<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#f92672"></span><span style="color:#66d9ef">end</span>
+  <span style="color:#66d9ef">end</span>
+  <span style="color:#66d9ef">return</span> new_hash<span style="color:#f92672">.</span>values
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>This array takes one argument of <code>word</code>. We can then create a new variable which will be equivilent to downcasing the word and substituting any characters other than letters and numbers. We also set our <code>new_hash</code> to empty <code>{}</code>.</p>
+<ul>
+<li>
+<p>Iterate over <code>word</code> with <code>.each_char</code>. This is just going to pass each character of the word to the block.</p>
+</li>
+<li>
+<p>Then we say if our <code>new_hash</code> contains the key of <code>char</code> we can add 1 to this value stored in our <code>new_hash</code></p>
+</li>
+<li>
+<p>Else, we create a new key of <code>char</code> in our hash.</p>
+</li>
+</ul>
+<p>Finally we return the <code>new_hash.values</code>. This gives us a new array which is populated by groups of values from the hash.</p>
+<p>We need to modify our first method so that we can take advantage of the hash we just created.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">anagrams_on_steroids?</span>(a_string, another_string)
+  a_hash <span style="color:#f92672">=</span> create_hash(a_string)
+  another_hash <span style="color:#f92672">=</span> create_hash(another_string)
+  <span style="color:#66d9ef">return</span> a_hash <span style="color:#f92672">==</span> another_hash
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>Here, we are setting up two variables and calling our <code>create_hash</code> method inside each of them. We give it the required arguments of <code>a_string</code> and <code>another_string</code> respectively. We then return true or false depending on if the <code>a_hash</code> and <code>another_hash</code> variables are the same.</p>
+<p>The flow of this can be confusing so to recap:</p>
+<ul>
+<li>
+<p>If we give the word &lsquo;POST&rsquo; as an argument into <code>create_hash</code> then as its  run for the first time it will reach the <code>if</code> statement and will not be able to find a key of <code>post</code> as the hash is currently empty. It will therefore create a new key of <code>opst</code>. However when <code>create_hash</code> is run a second time with the word <code>SPOT</code> then it will see that there is in fact a key of opst in the hash and it therfore increments its value by 1.</p>
+</li>
+<li>
+<p>When <code>new_hash.values</code> is called then it will display an array with the group of values.</p>
+</li>
+</ul>
+
+</article>
+
+</div>
+
+
+  <section class="footer">
+    <div class="footer-container">
+      <p class="contact">
+        Feel free to get in contact
+      </p>
+      <div class="icons">
+        <a href="https://github.com/benmclaren" target="_blank">
+          <i class="fa fa-github"></i>
+        </a>
+
+        <a href="mailto:bmclaren01@gmail.com" target="_blank">
+          <i class="fa fa-paper-plane"></i>
+        </a>
+
+        <a href="https://twitter.com/bybenmclaren" target="_blank">
+          <i class="fa fa-twitter"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/ben-mclaren/" target="_blank">
+          <i class="fa fa-linkedin"></i>
+        </a>
+
+      </div>
+      <p>
+        ©benmclaren2020
+      </p>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cloudinary-core/2.3.0/cloudinary-core-shrinkwrap.min.js">
+  </script>
+  <script>
+    var cl = cloudinary.Cloudinary.new({
+      cloud_name: 'dy35n8sog'
+    });
+
+    cl.responsive()
+  </script>
+
+</body>
+</html>
+

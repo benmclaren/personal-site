@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ben McLaren</title>
+  
+  
+  <link rel="stylesheet" href="/css/main.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="blogo1.ico" type="image/x-icon">
+  <meta property="og:image" content="https://res.cloudinary.com/dy35n8sog/image/upload/v1578389845/Screenshot_2020-01-07_at_09.36.47_ehi2dt.png">
+  <link rel="shortcut icon" href="https://res.cloudinary.com/dy35n8sog/image/upload/v1578391731/blogo1_guumr5.ico" type="image/x-icon">
+</head>
+<body>
+
+<header class="header">
+  <div class="nav">
+    <a class="name" href="/index.html">Ben McLaren</a>
+    <a class="link" href="/articles">Articles</a>
+  </div>
+</header>
+
+
+
+
+
+<article class="page">
+  <div class="page-content">
+    <p class="page-title"> Converting an array of strings into grouped arrays  </p>
+  <p><strong>Notes on the Le Wagon Hash &amp; Symbols Combine Anagrams exercise</strong></p>
+<p>An anagram is a word obtained by rearranging the letters of another word. For example, “SPOT”, “OPTS”, “POTS” and “POST” are an anagram group because they are made up of the same letters.</p>
+<p>If we have an array of strings we want to turn them into multiple grouped arrays. We need to write a method that groups them into anagram groups and returns the array of groups.</p>
+<ol>
+<li>First lets define a method which takes one parameter which we will call words.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">group_anagrams</span>(words)
+  groups <span style="color:#f92672">=</span> {}
+  words<span style="color:#f92672">.</span>each <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>word<span style="color:#f92672">|</span>
+    crash_word <span style="color:#f92672">=</span> word<span style="color:#f92672">.</span>downcase<span style="color:#f92672">.</span>chars<span style="color:#f92672">.</span>sort<span style="color:#f92672">.</span>join
+    <span style="color:#66d9ef">if</span> groups<span style="color:#f92672">[</span>crash_word<span style="color:#f92672">]</span>
+      groups<span style="color:#f92672">[</span>crash_word<span style="color:#f92672">]</span> <span style="color:#f92672">&lt;&lt;</span> word
+    <span style="color:#66d9ef">else</span>
+      groups<span style="color:#f92672">[</span>crash_word<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#f92672">[</span>word<span style="color:#f92672">]</span>
+    <span style="color:#66d9ef">end</span>
+  <span style="color:#66d9ef">end</span>
+  groups<span style="color:#f92672">.</span>values
+<span style="color:#66d9ef">end</span>
+</code></pre></div><ol start="2">
+<li>
+<p>Next, we create our hash, <code>groups</code> which has no content inside.</p>
+</li>
+<li>
+<p>We now iterate over the argument, words using <code>.each</code>. Next, set a variable of <code>crash_word</code> which is equal to downcasing the word, splitting it into seperate characters (<code>.chars</code>), sorting them alphabetically (<code>.sort</code>) and then joining them together (<code>.join</code>).</p>
+</li>
+<li>
+<p>Our if statement says that if groups contains the <code>crash_word</code> then add <code>word</code> into the hash using the <code>&lt;&lt;</code> opperator. Else, reassign <code>crash_word</code> to the array <code>word</code>.</p>
+</li>
+<li>
+<p><code>groups.values</code> will return a new array which is populated by groups of values from the hash.</p>
+</li>
+</ol>
+
+</article>
+
+</div>
+
+
+  <section class="footer">
+    <div class="footer-container">
+      <p class="contact">
+        Feel free to get in contact
+      </p>
+      <div class="icons">
+        <a href="https://github.com/benmclaren" target="_blank">
+          <i class="fa fa-github"></i>
+        </a>
+
+        <a href="mailto:bmclaren01@gmail.com" target="_blank">
+          <i class="fa fa-paper-plane"></i>
+        </a>
+
+        <a href="https://twitter.com/bybenmclaren" target="_blank">
+          <i class="fa fa-twitter"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/ben-mclaren/" target="_blank">
+          <i class="fa fa-linkedin"></i>
+        </a>
+
+      </div>
+      <p>
+        ©benmclaren2020
+      </p>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cloudinary-core/2.3.0/cloudinary-core-shrinkwrap.min.js">
+  </script>
+  <script>
+    var cl = cloudinary.Cloudinary.new({
+      cloud_name: 'dy35n8sog'
+    });
+
+    cl.responsive()
+  </script>
+
+</body>
+</html>
+

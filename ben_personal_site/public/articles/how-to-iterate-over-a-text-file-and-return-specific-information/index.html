@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ben McLaren</title>
+  
+  
+  <link rel="stylesheet" href="/css/main.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="blogo1.ico" type="image/x-icon">
+  <meta property="og:image" content="https://res.cloudinary.com/dy35n8sog/image/upload/v1578389845/Screenshot_2020-01-07_at_09.36.47_ehi2dt.png">
+  <link rel="shortcut icon" href="https://res.cloudinary.com/dy35n8sog/image/upload/v1578391731/blogo1_guumr5.ico" type="image/x-icon">
+</head>
+<body>
+
+<header class="header">
+  <div class="nav">
+    <a class="name" href="/index.html">Ben McLaren</a>
+    <a class="link" href="/articles">Articles</a>
+  </div>
+</header>
+
+
+
+
+
+<article class="page">
+  <div class="page-content">
+    <p class="page-title"> How to iterate over a text file and return specific information </p>
+  <p><strong>Notes on the Le Wagon Regular Expressions Word Frequency exercise</strong></p>
+<p>For this challenge we are going to be working with text files and building a text analyzer using Hash.</p>
+<p>We want to implement a <code>most_common_words</code> method that returns the number of occurrences of most frequent words in a text file.</p>
+<p>To begin with we need to write a method to load our <code>stop_words</code> file. This is a file which contains all the words that you do noy want to be included. There is no set list of stop words but they are often very common words such as “a”, “the”, “is” etc.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">load_stop_words</span>(stop_words_filename)
+  <span style="color:#66d9ef">File</span><span style="color:#f92672">.</span>open(stop_words_filename, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;</span>)<span style="color:#f92672">.</span>reduce(<span style="color:#f92672">[</span><span style="color:#f92672">]</span>) <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>stop_words, line<span style="color:#f92672">|</span>
+    stop_words <span style="color:#f92672">&lt;&lt;</span> line<span style="color:#f92672">.</span>chomp
+  <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div><ol>
+<li>
+<p>To begin with we define our method which takes one parameter which is <code>stop_words_filename</code>, the name of the file we want to read through.</p>
+</li>
+<li>
+<p>Next, we can use <code>File.open(stop_words_filename, &quot;r&quot;)</code>. This is going to simply allow the method to read this file and access the data inside. <code>&quot;r&quot;</code> stands for &lsquo;read&rsquo;. We also call <code>.reduce</code> on this, passing it an <code>[]</code> as an argument. It then takes two parameters of <code>stop_words, line</code>. Lets go ove how this works as it can be confusing.</p>
+</li>
+</ol>
+<ul>
+<li><code>.reduce</code> requires an inital value and will take two arguments in the block. The <code>[]</code> in <code>.reduce([])</code> sets the initial value. If we do not set a value, it defaults to zero. After that, we have two parameters in the method <code>|stop_words, line|</code>. The first parameter, which we call <code>stop_words</code> is the total that will eventually be returned. The second parameter, which we call <code>line</code> is the current number as we iterate through the document line by line. In other words <code>stop_words</code> is representing our empty array and <code>line</code> is each line in the file that its iterating over.</li>
+</ul>
+<ol start="3">
+<li>This block then simply adds each line to the array with <code>.chomp</code> cutting off unnecessary characters such as white space and line breaks.</li>
+</ol>
+<p>Now, we can write our method to analyize our text.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">most_common_words</span>(filename, stop_words_filename, number_of_word)
+  counter <span style="color:#f92672">=</span> <span style="color:#66d9ef">Hash</span><span style="color:#f92672">.</span>new(<span style="color:#ae81ff">0</span><span style="color:#f92672"></span>)
+
+  stop_words <span style="color:#f92672">=</span> load_stop_words(stop_words_filename)
+
+  <span style="color:#66d9ef">File</span><span style="color:#f92672">.</span>open(filename, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;</span>)<span style="color:#f92672">.</span>each_line <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>line<span style="color:#f92672">|</span>
+    line<span style="color:#f92672">.</span>chomp<span style="color:#f92672">.</span>downcase<span style="color:#f92672">.</span>split(<span style="color:#e6db74">/</span><span style="color:#e6db74">\</span><span style="color:#e6db74">W+</span><span style="color:#e6db74">/</span>)<span style="color:#f92672">.</span>each <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>word<span style="color:#f92672">|</span>
+      counter<span style="color:#f92672">[</span>word<span style="color:#f92672">]</span> <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672"></span><span style="color:#66d9ef">unless</span> stop_words<span style="color:#f92672">.</span>include? word
+    <span style="color:#66d9ef">end</span>
+  <span style="color:#66d9ef">end</span>
+
+  <span style="color:#66d9ef">Hash</span><span style="color:#f92672">[</span>counter<span style="color:#f92672">.</span>sort_by { <span style="color:#f92672">|</span>_, v<span style="color:#f92672">|</span> v }<span style="color:#f92672">.</span>reverse<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672"></span><span style="color:#f92672">..</span>(number_of_word <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span><span style="color:#f92672"></span>)<span style="color:#f92672">]</span><span style="color:#f92672">]</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div><ol>
+<li>
+<p>We begin with defining our method with three arguments. <code>filename, stop_words_filename, number_of_word</code>.</p>
+</li>
+<li>
+<p>We set a variable of <code>counter</code>. This is equal to creating a new hash with <code>Hash.new</code>. The default value of any key in this hash is set to <code>0</code>.</p>
+</li>
+<li>
+<p>Next, we create a new variable of <code>stop_words</code> and this is equal to calling our <code>load_stop_words</code> method with its required argument of <code>stop_words_filename</code>.</p>
+</li>
+<li>
+<p>Now we can open our file which is passed in by the user and iterate over it with <code>.each_line</code>. This will simply iterate over each individual line in the file.</p>
+</li>
+<li>
+<p>Then we say for each line lets remove any whitespace with <code>.chomp</code>, change the words on the line to lowercase with <code>.downcase</code> and then split the line on any non word character with <code>.split(/\W+/)</code>. Finally we iterate over this using <code>.each</code>.</p>
+</li>
+<li>
+<p>Here, we say make a new key of <code>word</code> inside our hash called <code>counter</code>. This means a new key will be created inside hash for each new word it finds. Then we add 1 to this key unless the word is contained within the <code>stop_words</code> file.</p>
+</li>
+<li>
+<p>Lastly, we can use the notation <code>Hash[]</code> which will generate a new hash. Only if it has an array of arrays as an argument. We then call <code>.sort_by</code> on <code>counter</code>. This takes two arguments but we only need the second argument. The <code>_</code> says that we don&rsquo;t care what this is is. Then we say for each element reverse the order from 0 to the last position.</p>
+</li>
+</ol>
+
+</article>
+
+</div>
+
+
+  <section class="footer">
+    <div class="footer-container">
+      <p class="contact">
+        Feel free to get in contact
+      </p>
+      <div class="icons">
+        <a href="https://github.com/benmclaren" target="_blank">
+          <i class="fa fa-github"></i>
+        </a>
+
+        <a href="mailto:bmclaren01@gmail.com" target="_blank">
+          <i class="fa fa-paper-plane"></i>
+        </a>
+
+        <a href="https://twitter.com/bybenmclaren" target="_blank">
+          <i class="fa fa-twitter"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/ben-mclaren/" target="_blank">
+          <i class="fa fa-linkedin"></i>
+        </a>
+
+      </div>
+      <p>
+        ©benmclaren2020
+      </p>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cloudinary-core/2.3.0/cloudinary-core-shrinkwrap.min.js">
+  </script>
+  <script>
+    var cl = cloudinary.Cloudinary.new({
+      cloud_name: 'dy35n8sog'
+    });
+
+    cl.responsive()
+  </script>
+
+</body>
+</html>
+

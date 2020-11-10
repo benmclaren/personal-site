@@ -1,5 +1,5 @@
 ---
-title: "Cookbook"
+title: "Making a basic MVC terminal application"
 date: 2020-04-16T15:09:41+01:00
 author: Ben McLaren
 draft: false

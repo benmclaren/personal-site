@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ben McLaren</title>
+  
+  
+  <link rel="stylesheet" href="/css/main.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="blogo1.ico" type="image/x-icon">
+  <meta property="og:image" content="https://res.cloudinary.com/dy35n8sog/image/upload/v1578389845/Screenshot_2020-01-07_at_09.36.47_ehi2dt.png">
+  <link rel="shortcut icon" href="https://res.cloudinary.com/dy35n8sog/image/upload/v1578391731/blogo1_guumr5.ico" type="image/x-icon">
+</head>
+<body>
+
+<header class="header">
+  <div class="nav">
+    <a class="name" href="/index.html">Ben McLaren</a>
+    <a class="link" href="/articles">Articles</a>
+  </div>
+</header>
+
+
+
+
+
+<article class="page">
+  <div class="page-content">
+    <p class="page-title"> Accessing data and using methods with Hashes </p>
+  <p><strong>Notes on the Le Wagon Hash &amp; Symbols Burger Hash exercise</strong></p>
+<p>Hashes can be confusing at first but once you get your head around them they are relatively straight forward.</p>
+<p>For this exercise we want to build a counter that will add up the amount of calories there are in different items of food.</p>
+<p>To start with we will store the information in a hash which is a more readable way of storing data and works as a sort of database. We store this in a constant as the data will not change and this is denoted by capital letters.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">DISHES_CALORIES</span> <span style="color:#f92672">=</span> {
+  <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Hamburger</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span><span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">250</span><span style="color:#f92672"></span>,
+  <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Cheese Burger</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span><span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">300</span><span style="color:#f92672"></span>,
+  <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Big Mac</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span><span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">540</span><span style="color:#f92672"></span>,
+  <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">McChicken</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span><span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">350</span><span style="color:#f92672"></span>,
+  <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">French Fries</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span><span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">230</span><span style="color:#f92672"></span>,
+  <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Salad</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span><span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">15</span><span style="color:#f92672"></span>,
+  <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Coca Cola</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span><span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">150</span><span style="color:#f92672"></span>,
+  <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Sprite</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span><span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">150</span>
+<span style="color:#f92672"></span>}
+</code></pre></div><p>We have assigned this hash to a constant of <code>DISHES_CALORIES</code>. The <strong>key</strong> is written as a string and the &lsquo;hash rocket&rsquo; (=&gt;) shows us which <strong>value</strong> is associated with each key.</p>
+<p>Lets write a method that will take some parameters and return to us the total amount of calories in the dishes we give it.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">basic_calories_counter</span>(burger, side, beverage)
+  <span style="color:#66d9ef">DISHES_CALORIES</span><span style="color:#f92672">[</span>burger<span style="color:#f92672">]</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">DISHES_CALORIES</span><span style="color:#f92672">[</span>side<span style="color:#f92672">]</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">DISHES_CALORIES</span><span style="color:#f92672">[</span>beverage<span style="color:#f92672">]</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>Here, we have defined a method which takes three parameters which we have given the names &lsquo;burger, side and beverage&rsquo; although they could just as easily be called &lsquo;x, y, z&rsquo;. This is simply a placeholder name.</p>
+<p>The method contains our calculation or concatination for displaying the total amount of calories. We start by targetting the hash <code>DISHES_CALORIES</code> then giving it each parameter using the <code>[]</code>. This is saying look inside the <code>DISHES_CALORIES</code> hash and find the key corresponding with the argument given. We add each item together with the + and this returns the total number of calories. Remember a block will automatically return the last line so there is no need to explicilty write return.</p>
+<p>Lets make this more complex by introducing a second hash but this time it contains meals instead.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">MEALS</span> <span style="color:#f92672">=</span> {
+  <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Happy Meal</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Cheese Burger</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">French Fries</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Coca Cola</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">]</span>,
+  <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Best Of Big Mac</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Big Mac</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">French Fries</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Coca Cola</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">]</span>,
+  <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Best Of Royal Cheese</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span><span style="color:#f92672">&gt;</span> <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">McChicken</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Salad</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Sprite</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">]</span>
+}
+</code></pre></div><p>This hash <code>MEALS</code> is storing meal names as a key and an array of items from the other hash <code>DISHES_CALORIES</code> as the value. We would like to be able to give &lsquo;Happy Meal&rsquo; as a parameter and have it return the correct amount of calories in a happy meal.</p>
+<p>Start by writing a new method.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">calories_counter</span>(orders)
+  counter <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+  <span style="color:#f92672"></span>orders<span style="color:#f92672">.</span>each <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>order<span style="color:#f92672">|</span>
+    <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">DISHES_CALORIES</span><span style="color:#f92672">.</span>key?(order)
+      counter <span style="color:#f92672">+=</span> <span style="color:#66d9ef">DISHES_CALORIES</span><span style="color:#f92672">[</span>order<span style="color:#f92672">]</span>
+    <span style="color:#66d9ef">else</span>
+      counter <span style="color:#f92672">+=</span>basic_calories_counter(<span style="color:#66d9ef">MEALS</span><span style="color:#f92672">[</span>order<span style="color:#f92672">]</span><span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672"></span><span style="color:#f92672">]</span>, <span style="color:#66d9ef">MEALS</span><span style="color:#f92672">[</span>order<span style="color:#f92672">]</span><span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672"></span><span style="color:#f92672">]</span>, <span style="color:#66d9ef">MEALS</span><span style="color:#f92672">[</span>order<span style="color:#f92672">]</span><span style="color:#f92672">[</span><span style="color:#ae81ff">2</span><span style="color:#f92672"></span><span style="color:#f92672">]</span>)
+    <span style="color:#66d9ef">end</span>
+  <span style="color:#66d9ef">end</span>
+  <span style="color:#66d9ef">return</span> counter
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>Lets go through this step by step.</p>
+<ol>
+<li>
+<p>Method name of calories_counter which takes one parameter (orders)</p>
+</li>
+<li>
+<p>Initalize the counter at 0</p>
+</li>
+<li>
+<p>Iterate over the parameter &lsquo;orders&rsquo; using <code>.each</code>. We will use <code>order</code> as our placeholder which represents each individual item given in <code>orders</code>.</p>
+</li>
+<li>
+<p>An <code>if</code> statement where we check to see if <code>DISHES_CALORIES</code> contains a key which it found when it iterated over the <code>orders</code> parameter. We do this by calling the ruby method <code>.key?</code> on the hash name and giving it the parameter of order (representing the individual items in orders.) If this returns true it will add and reasign it to our variable <code>counter</code>. The notation <code>DISHES_CALORIES[order]</code> is us saying look inside the hash and give us the value for each order that we want.</p>
+</li>
+<li>
+<p>The <code>else</code> statement is for any keys that are not contained within <code>DISHES_CALORIES</code>. Here we call the method <code>basic_calories_counter</code> and give it the three parameters it requires. The parameters <code>MEALS[order][0]</code> tell it to look inside MEALS and find the order matching the order it has been given. For example it has been given Happy Meal so it will look like this:</p>
+</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">basic_calories_counter</span>(burger, side, beverage)
+  <span style="color:#66d9ef">DISHES_CALORIES</span>(<span style="color:#66d9ef">MEALS</span><span style="color:#f92672">[</span><span style="color:#66d9ef">Happy</span> <span style="color:#66d9ef">Meal</span><span style="color:#f92672">]</span><span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672"></span><span style="color:#f92672">]</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">DISHES_CALORIES</span>(<span style="color:#66d9ef">MEALS</span><span style="color:#f92672">[</span><span style="color:#66d9ef">Happy</span> <span style="color:#66d9ef">Meal</span><span style="color:#f92672">]</span><span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672"></span><span style="color:#f92672">]</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">DISHES_CALORIES</span>(<span style="color:#66d9ef">MEALS</span><span style="color:#f92672">[</span><span style="color:#66d9ef">Happy</span> <span style="color:#66d9ef">Meal</span><span style="color:#f92672">]</span><span style="color:#f92672">[</span><span style="color:#ae81ff">2</span><span style="color:#f92672"></span><span style="color:#f92672">]</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>The method can now see that it must go to <code>MEALS</code> and find the order and then simply select each item at the given indexes 0, 1 and 2 which refer to items 1, 2 and 3. It is able to access the data for each item because <code>DISHES_CALORIES</code> holds that information.</p>
+<ol start="6">
+<li>We can then return the counter with the total amlunt of calories.</li>
+</ol>
+
+</article>
+
+</div>
+
+
+  <section class="footer">
+    <div class="footer-container">
+      <p class="contact">
+        Feel free to get in contact
+      </p>
+      <div class="icons">
+        <a href="https://github.com/benmclaren" target="_blank">
+          <i class="fa fa-github"></i>
+        </a>
+
+        <a href="mailto:bmclaren01@gmail.com" target="_blank">
+          <i class="fa fa-paper-plane"></i>
+        </a>
+
+        <a href="https://twitter.com/bybenmclaren" target="_blank">
+          <i class="fa fa-twitter"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/ben-mclaren/" target="_blank">
+          <i class="fa fa-linkedin"></i>
+        </a>
+
+      </div>
+      <p>
+        ©benmclaren2020
+      </p>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cloudinary-core/2.3.0/cloudinary-core-shrinkwrap.min.js">
+  </script>
+  <script>
+    var cl = cloudinary.Cloudinary.new({
+      cloud_name: 'dy35n8sog'
+    });
+
+    cl.responsive()
+  </script>
+
+</body>
+</html>
+

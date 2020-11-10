@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ben McLaren</title>
+  
+  
+  <link rel="stylesheet" href="/css/main.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="blogo1.ico" type="image/x-icon">
+  <meta property="og:image" content="https://res.cloudinary.com/dy35n8sog/image/upload/v1578389845/Screenshot_2020-01-07_at_09.36.47_ehi2dt.png">
+  <link rel="shortcut icon" href="https://res.cloudinary.com/dy35n8sog/image/upload/v1578391731/blogo1_guumr5.ico" type="image/x-icon">
+</head>
+<body>
+
+<header class="header">
+  <div class="nav">
+    <a class="name" href="/index.html">Ben McLaren</a>
+    <a class="link" href="/articles">Articles</a>
+  </div>
+</header>
+
+
+
+
+
+<article class="page">
+  <div class="page-content">
+    <p class="page-title"> Getting the hang of Active Record </p>
+  <p><strong>Notes on the Le Wagon Active Record Basics Models challenge</strong></p>
+<p>We will go through how a small terminal application links together with active record. For this, please refer to the challenge above.</p>
+<p>Active Record is simply a pattern found in software that stores data (Database). It features various functions such as <code>save</code> and <code>destroy</code> as well as instance variables. These are variables which represent columns in the database.</p>
+<p>We have three things that enable this app to work. A <strong>model</strong>, a <strong>controller</strong> and a <strong>view</strong></p>
+<p>The model is simply where you keep the data and is as simple as defining our class and telling it to use ActiveRecord.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Post</span> <span style="color:#f92672">&lt;</span> <span style="color:#66d9ef">ActiveRecord</span><span style="color:#f92672">::</span><span style="color:#66d9ef">Base</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>The controller is what connects the views to the model. The controller know about the model and knows which views to display. The controller will take information from the view which it gets from the user and then be able to update the database. It acts as the middle man between the views (user) and the model (database).</p>
+<p>The views is how the user interacts with the application and where information from the database is displayed.</p>
+<p>Now, we have already set up our model with active record. It is important that we set up our database by running the following commands in the terminal.</p>
+<p><code>rake de: create</code>
+<code>rake db: migrate</code></p>
+<p><strong>View</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PostsView</span>
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">display</span>(posts)
+    posts<span style="color:#f92672">.</span>each <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>post<span style="color:#f92672">|</span>
+      puts <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span>post<span style="color:#f92672">.</span>id<span style="color:#e6db74">}</span><span style="color:#e6db74">. </span><span style="color:#e6db74">#{</span>post<span style="color:#f92672">.</span>title<span style="color:#e6db74">}</span><span style="color:#e6db74"> - </span><span style="color:#e6db74">#{</span>post<span style="color:#f92672">.</span>votes<span style="color:#f92672">.</span>nil? ? <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">0</span><span style="color:#e6db74">&#34;</span> : post<span style="color:#f92672">.</span>votes<span style="color:#e6db74">}</span><span style="color:#e6db74"> votes - </span><span style="color:#e6db74">#{</span>post<span style="color:#f92672">.</span>url<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+    <span style="color:#66d9ef">end</span>
+  <span style="color:#66d9ef">end</span>
+
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">ask_for</span>(label)
+    puts <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span>label<span style="color:#e6db74">}</span><span style="color:#e6db74">?</span><span style="color:#e6db74">&#34;</span>
+    puts <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">&gt;</span><span style="color:#e6db74">&#34;</span>
+    gets<span style="color:#f92672">.</span>chomp
+  <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>Here, we have our view where we have two methods which are contained inside a class called PostsView. This is so that it can link to our model of <code>Post</code> and that it knows it is the view.</p>
+<p>Our first method is called <code>display</code> and takes one parameter. In this method we take posts and use a <code>.each</code> iterator to look over the posts. We then display a message to our user which says take the id of the post then put a &lsquo;.&rsquo; then have the post title and a &lsquo;-'. Next we have a ternary operator which says; if the post votes are nil then display a &lsquo;0&rsquo; but if not then find the correct amount of votes and display that number. The word &lsquo;votes&rsquo; is printed and a &lsquo;-&rsquo; which shows the url of the post. This is all data that the user has inputted and its able to find in the database under the table names.</p>
+<p>The second method is called &lsquo;ask_for&rsquo;. This also takes one parameter of &lsquo;label&rsquo;. Here we simply puts the &lsquo;label&rsquo; to the user. Then a &lsquo;&gt;&rsquo; and finally the users input is taken and saved.</p>
+<p>These methods will make more sense once the controller actions have been implemented and real data is given to them.</p>
+<p><strong>Controller</strong></p>
+<p>This class of PostsController contains all the methods that we need in order for our application to run. We also must include the line <code>require_relative &quot;../views/posts_view&quot;</code> as this allows it to access the information in the view. We give it the path to this file so that it can find it.</p>
+<ol>
+<li>This first method <code>initialize</code> is given to the router and it allows it to create a new view for the user.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">require_relative <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">../views/posts_view</span><span style="color:#e6db74">&#34;</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PostsController</span>
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">initialize</span>
+    @view <span style="color:#f92672">=</span> <span style="color:#66d9ef">PostsView</span><span style="color:#f92672">.</span>new
+  <span style="color:#66d9ef">end</span>
+</code></pre></div><ol start="2">
+<li>This next method called <code>index</code> is what allows it to display all of the posts contained within the model. We define a variable called posts and set this as equal to gathering all the posts with <code>Post.all</code>. We can then use an instance variable of view <code>@view</code> and call our method of <code>.display</code> which we defined in our view. We give it the variable of posts which it uses to display all the posts in the format specified in the <code>display</code> method.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">index</span>
+  posts <span style="color:#f92672">=</span> <span style="color:#66d9ef">Post</span><span style="color:#f92672">.</span>all
+  @view<span style="color:#f92672">.</span>display(posts)
+<span style="color:#66d9ef">end</span>
+</code></pre></div><ol start="3">
+<li>The <code>create</code> method allows us to create a new post. We begin by setting two variables of <code>title</code> and <code>url</code>. The title is equal to going to the view then calling the <code>ask_for</code> method and giving it the parameter of <code>:title</code> which is specified in the table. The variable <code>url</code> is equal to the same as <code>title</code> but this time grabbing the <code>url</code> information.</li>
+</ol>
+<p>We then set <code>post</code> as being equal to creating a new post with <code>Post.new</code> and then giving it two parameters. Title is equal to the title given by the user and specified in our variable <code>title</code>. The <code>url</code> is the url given by the user as specified in our variable of <code>url</code>.</p>
+<p>Lastly we save this post to the database with <code>Post.save.</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">create</span>
+  title <span style="color:#f92672">=</span> @view<span style="color:#f92672">.</span>ask_for(<span style="color:#e6db74">:title</span>)
+  url <span style="color:#f92672">=</span> @view<span style="color:#f92672">.</span>ask_for(<span style="color:#e6db74">:url</span>)
+
+  post <span style="color:#f92672">=</span> <span style="color:#66d9ef">Post</span><span style="color:#f92672">.</span>new(<span style="color:#e6db74">title</span>: title, <span style="color:#e6db74">url</span>: url)
+  post<span style="color:#f92672">.</span>save
+<span style="color:#66d9ef">end</span>
+</code></pre></div><ol start="4">
+<li>The update method allows us to update a post. We begin by assigning <code>id</code> to the result of grabbing the <code>id</code> from the view using the <code>ask_for</code> method. We convert this to an integer with <code>.to_i</code>.</li>
+</ol>
+<p>Next, we assign <code>post</code> to finding the relevant post using its id.</p>
+<p><code>title</code> is equal to our <code>ask_for</code> method and this time grabbing the title.</p>
+<p><code>url</code> is equal to our <code>ask_for</code> method and grabbing the <code>url</code>/</p>
+<p>Then we assign the <code>post.title</code> to the title which is provided by the user.</p>
+<p><code>post.url</code> is then assigned to the user provided url.</p>
+<p>Finally, we save the post to the database with post.save</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">update</span>
+  id <span style="color:#f92672">=</span> @view<span style="color:#f92672">.</span>ask_for(<span style="color:#e6db74">:id</span>)<span style="color:#f92672">.</span>to_i
+
+  post <span style="color:#f92672">=</span> <span style="color:#66d9ef">Post</span><span style="color:#f92672">.</span>find(id)
+  title <span style="color:#f92672">=</span> @view<span style="color:#f92672">.</span>ask_for(<span style="color:#e6db74">:title</span>)
+  url <span style="color:#f92672">=</span> @view<span style="color:#f92672">.</span>ask_for(<span style="color:#e6db74">:url</span>)
+  post<span style="color:#f92672">.</span>title <span style="color:#f92672">=</span> title
+  post<span style="color:#f92672">.</span>url <span style="color:#f92672">=</span> url
+  post<span style="color:#f92672">.</span>save
+<span style="color:#66d9ef">end</span>
+</code></pre></div><ol start="5">
+<li>The destroy method is used for removing a post from our database. We begin by finding our id as we did in the update method. Then we assign <code>post</code> to finding a specific post in the Post model with <code>Post.find</code> we pass it the id so that it can find the relevant post. Then we can call <code>.destroy</code> which removes the post from the database.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">destroy</span>
+  id <span style="color:#f92672">=</span> @view<span style="color:#f92672">.</span>ask_for(<span style="color:#e6db74">:id</span>)<span style="color:#f92672">.</span>to_i
+  post <span style="color:#f92672">=</span> <span style="color:#66d9ef">Post</span><span style="color:#f92672">.</span>find(id)
+  post<span style="color:#f92672">.</span>destroy
+<span style="color:#66d9ef">end</span>
+</code></pre></div><ol start="6">
+<li>The upvote method is used for allowing us to add a vote to a particular post which increments by one each time we call this method.</li>
+</ol>
+<p>Again, we can find the <code>id</code> and <code>post</code> as we have done in the previous two methods.</p>
+<p>We can say that if the current amount of posts is equal to nil then <code>post.votes</code> should equal 1. However, if votes is not equal to 1 then take <code>posts.votes</code> and add 1 to it. We can then save our post with <code>post.save</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">upvote</span>
+  id <span style="color:#f92672">=</span> @view<span style="color:#f92672">.</span>ask_for(<span style="color:#e6db74">:id</span>)<span style="color:#f92672">.</span>to_i
+  post <span style="color:#f92672">=</span> <span style="color:#66d9ef">Post</span><span style="color:#f92672">.</span>find(id)
+  <span style="color:#66d9ef">if</span> post<span style="color:#f92672">.</span>votes<span style="color:#f92672">.</span>nil?
+    post<span style="color:#f92672">.</span>votes <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+  <span style="color:#f92672"></span><span style="color:#66d9ef">else</span>
+    post<span style="color:#f92672">.</span>votes <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+  <span style="color:#f92672"></span><span style="color:#66d9ef">end</span>
+  post<span style="color:#f92672">.</span>save
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>That is all the methods we need in the controller for this small app to work.</p>
+<p>Our controller code in full below</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">require_relative <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">../views/posts_view</span><span style="color:#e6db74">&#34;</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PostsController</span>
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">initialize</span>
+    @view <span style="color:#f92672">=</span> <span style="color:#66d9ef">PostsView</span><span style="color:#f92672">.</span>new
+  <span style="color:#66d9ef">end</span>
+
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">index</span>
+    posts <span style="color:#f92672">=</span> <span style="color:#66d9ef">Post</span><span style="color:#f92672">.</span>all
+    @view<span style="color:#f92672">.</span>display(posts)
+  <span style="color:#66d9ef">end</span>
+
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">create</span>
+    title <span style="color:#f92672">=</span> @view<span style="color:#f92672">.</span>ask_for(<span style="color:#e6db74">:title</span>)
+    url <span style="color:#f92672">=</span> @view<span style="color:#f92672">.</span>ask_for(<span style="color:#e6db74">:url</span>)
+
+    post <span style="color:#f92672">=</span> <span style="color:#66d9ef">Post</span><span style="color:#f92672">.</span>new(<span style="color:#e6db74">title</span>: title, <span style="color:#e6db74">url</span>: url)
+    post<span style="color:#f92672">.</span>save
+  <span style="color:#66d9ef">end</span>
+
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">update</span>
+    id <span style="color:#f92672">=</span> @view<span style="color:#f92672">.</span>ask_for(<span style="color:#e6db74">:id</span>)<span style="color:#f92672">.</span>to_
+
+    post <span style="color:#f92672">=</span> <span style="color:#66d9ef">Post</span><span style="color:#f92672">.</span>find(id)
+    title <span style="color:#f92672">=</span> @view<span style="color:#f92672">.</span>ask_for(<span style="color:#e6db74">:title</span>)
+    url <span style="color:#f92672">=</span> @view<span style="color:#f92672">.</span>ask_for(<span style="color:#e6db74">:url</span>)
+    post<span style="color:#f92672">.</span>title <span style="color:#f92672">=</span> title
+    post<span style="color:#f92672">.</span>url <span style="color:#f92672">=</span> url
+    post<span style="color:#f92672">.</span>save
+  <span style="color:#66d9ef">end</span>
+
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">destroy</span>
+    id <span style="color:#f92672">=</span> @view<span style="color:#f92672">.</span>ask_for(<span style="color:#e6db74">:id</span>)<span style="color:#f92672">.</span>to_
+    post <span style="color:#f92672">=</span> <span style="color:#66d9ef">Post</span><span style="color:#f92672">.</span>find(id)
+    post<span style="color:#f92672">.</span>destroy
+  <span style="color:#66d9ef">end</span>
+
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">upvote</span>
+    id <span style="color:#f92672">=</span> @view<span style="color:#f92672">.</span>ask_for(<span style="color:#e6db74">:id</span>)<span style="color:#f92672">.</span>to_
+    post <span style="color:#f92672">=</span> <span style="color:#66d9ef">Post</span><span style="color:#f92672">.</span>find(id)
+    <span style="color:#66d9ef">if</span> post<span style="color:#f92672">.</span>votes<span style="color:#f92672">.</span>nil?
+      post<span style="color:#f92672">.</span>votes <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#f92672"></span><span style="color:#66d9ef">else</span>
+      post<span style="color:#f92672">.</span>votes <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#f92672"></span><span style="color:#66d9ef">end</span>
+    post<span style="color:#f92672">.</span>save
+  <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>Our view code in full below.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PostsView</span>
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">display</span>(posts)
+    posts<span style="color:#f92672">.</span>each <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>post<span style="color:#f92672">|</span>
+      puts <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span>post<span style="color:#f92672">.</span>id<span style="color:#e6db74">}</span><span style="color:#e6db74">. </span><span style="color:#e6db74">#{</span>post<span style="color:#f92672">.</span>title<span style="color:#e6db74">}</span><span style="color:#e6db74"> - </span><span style="color:#e6db74">#{</span>post<span style="color:#f92672">.</span>votes<span style="color:#f92672">.</span>nil? ? <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">0</span><span style="color:#e6db74">&#34;</span> : post<span style="color:#f92672">.</span>votes<span style="color:#e6db74">}</span><span style="color:#e6db74"> votes - </span><span style="color:#e6db74">#{</span>post<span style="color:#f92672">.</span>url<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+    <span style="color:#66d9ef">end</span>
+  <span style="color:#66d9ef">end</span>
+
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">ask_for</span>(label)
+    puts <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span>label<span style="color:#e6db74">}</span><span style="color:#e6db74">?</span><span style="color:#e6db74">&#34;</span>
+    puts <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">&gt;</span><span style="color:#e6db74">&#34;</span>
+    gets<span style="color:#f92672">.</span>chomp
+  <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>We could do a small amount of refactoring to this code. That would be to include a method in the controller for finding commonly required items. For example when we require the id we could write a method to do this to avoid repeating ourself.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">ask_for_id</span>
+  @view<span style="color:#f92672">.</span>ask_for(<span style="color:#e6db74">:id</span>)<span style="color:#f92672">.</span>to_i
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>This would be placed at the bottom of the controller under a <code>private</code> method. This basically means that it is not accessible from outside the object. Having a method to find the id is not essential but helps to stick to the convention of not repeating yourself.</p>
+
+</article>
+
+</div>
+
+
+  <section class="footer">
+    <div class="footer-container">
+      <p class="contact">
+        Feel free to get in contact
+      </p>
+      <div class="icons">
+        <a href="https://github.com/benmclaren" target="_blank">
+          <i class="fa fa-github"></i>
+        </a>
+
+        <a href="mailto:bmclaren01@gmail.com" target="_blank">
+          <i class="fa fa-paper-plane"></i>
+        </a>
+
+        <a href="https://twitter.com/bybenmclaren" target="_blank">
+          <i class="fa fa-twitter"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/ben-mclaren/" target="_blank">
+          <i class="fa fa-linkedin"></i>
+        </a>
+
+      </div>
+      <p>
+        ©benmclaren2020
+      </p>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cloudinary-core/2.3.0/cloudinary-core-shrinkwrap.min.js">
+  </script>
+  <script>
+    var cl = cloudinary.Cloudinary.new({
+      cloud_name: 'dy35n8sog'
+    });
+
+    cl.responsive()
+  </script>
+
+</body>
+</html>
+

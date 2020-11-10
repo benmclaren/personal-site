@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ben McLaren</title>
+  
+  
+  <link rel="stylesheet" href="/css/main.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="blogo1.ico" type="image/x-icon">
+  <meta property="og:image" content="https://res.cloudinary.com/dy35n8sog/image/upload/v1578389845/Screenshot_2020-01-07_at_09.36.47_ehi2dt.png">
+  <link rel="shortcut icon" href="https://res.cloudinary.com/dy35n8sog/image/upload/v1578391731/blogo1_guumr5.ico" type="image/x-icon">
+</head>
+<body>
+
+<header class="header">
+  <div class="nav">
+    <a class="name" href="/index.html">Ben McLaren</a>
+    <a class="link" href="/articles">Articles</a>
+  </div>
+</header>
+
+
+
+
+
+<article class="page">
+  <div class="page-content">
+    <p class="page-title"> How to translate a Roman Numeral into its letter </p>
+  <p><strong>Notes on the Le Wagon Hash &amp; Symbols Roman to Integer exercise</strong></p>
+<p>Lets write a method that will take a Roman numeral and transform it into its integer.</p>
+<p>First let us start with writing out a hash that contains the infromation needed to construct Roman Numerals.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">ROMAN_TO_INT</span> <span style="color:#f92672">=</span> {
+  <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">I</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span><span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span><span style="color:#f92672"></span>,
+  <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">IV</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span><span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">4</span><span style="color:#f92672"></span>,
+  <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">V</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span><span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">5</span><span style="color:#f92672"></span>,
+  <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">IX</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span><span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">9</span><span style="color:#f92672"></span>,
+  <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">X</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span><span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">10</span><span style="color:#f92672"></span>,
+  <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">XL</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span><span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">40</span><span style="color:#f92672"></span>,
+  <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">L</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span><span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">50</span><span style="color:#f92672"></span>,
+  <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">XC</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span><span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">90</span><span style="color:#f92672"></span>,
+  <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">C</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span><span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">100</span><span style="color:#f92672"></span>,
+  <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">CD</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span><span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">400</span><span style="color:#f92672"></span>,
+  <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">D</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span><span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">500</span><span style="color:#f92672"></span>,
+  <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">CM</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span><span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">900</span><span style="color:#f92672"></span>,
+  <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">M</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span><span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1000</span>
+<span style="color:#f92672"></span>}
+</code></pre></div><p>Lets define our method and give it one parameter. We can also initalise our number by setting it to 0. We then duplicate the given string so that we can use destructive methods on it. This is done using the method <code>.dup</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">roman_to_integer</span>(roman_string)
+  number <span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+  <span style="color:#f92672"></span>str <span style="color:#f92672">=</span> roman_string<span style="color:#f92672">.</span>dup
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>Now we need to create an <code>until</code> loop which will say until the string size returns zero we need to run an <code>if</code> statement.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">  <span style="color:#66d9ef">until</span> str<span style="color:#f92672">.</span>size<span style="color:#f92672">.</span>zero?
+    last_two_characters <span style="color:#f92672">=</span> str<span style="color:#f92672">.</span>slice(<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span><span style="color:#f92672"></span>, <span style="color:#ae81ff">2</span><span style="color:#f92672"></span>)
+    <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">ROMAN_TO_INT</span><span style="color:#f92672">.</span>key?(last_two_characters)
+      number <span style="color:#f92672">+=</span> <span style="color:#66d9ef">ROMAN_TO_INT</span><span style="color:#f92672">[</span>last_two_characters<span style="color:#f92672">]</span>
+      str<span style="color:#f92672">.</span>chop!
+    <span style="color:#66d9ef">else</span>
+      number <span style="color:#f92672">+=</span> <span style="color:#66d9ef">ROMAN_TO_INT</span><span style="color:#f92672">[</span>str<span style="color:#f92672">.</span>slice(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672"></span>)<span style="color:#f92672">]</span>
+    <span style="color:#66d9ef">end</span>
+    str<span style="color:#f92672">.</span>chop!
+  <span style="color:#66d9ef">end</span>
+</code></pre></div><ol>
+<li>
+<p>Find the last two characters of the string by calling <code>.slice(-2, 2)</code> on to the string. This means that it will look back two characters from the end and then slice 2 characters forwards. Essentially slicing the last two characters. This will return a new string which we store in <code>last_two_characters</code>.</p>
+</li>
+<li>
+<p>Then we say if the hash <code>ROMAN_TO_INT</code> contains a key with the <code>last_two_characters</code> then take <code>number</code> and add and resasign its value to the result of selecting the key&rsquo;s relating to <code>last_two_characters</code>. We then call <code>.chop!</code> on the string which removes the last character as we do not need it.</p>
+</li>
+<li>
+<p>Our else statement says that for numerals containing one letter we can just look in the hash and grab the key which relates to the last chracter in the given string.</p>
+</li>
+<li>
+<p>Finally we can call <code>.chop!</code> on the string to remove the final character.</p>
+</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">roman_to_integer</span>(roman_string)
+  number <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+  <span style="color:#f92672"></span>str <span style="color:#f92672">=</span> roman_string<span style="color:#f92672">.</span>dup
+  <span style="color:#66d9ef">until</span> str<span style="color:#f92672">.</span>size<span style="color:#f92672">.</span>zero?
+    last_two_characters <span style="color:#f92672">=</span> str<span style="color:#f92672">.</span>slice(<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span><span style="color:#f92672"></span>, <span style="color:#ae81ff">2</span><span style="color:#f92672"></span>)
+    <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">ROMAN_TO_INT</span><span style="color:#f92672">.</span>key?(last_two_characters)
+      number <span style="color:#f92672">+=</span> <span style="color:#66d9ef">ROMAN_TO_INT</span><span style="color:#f92672">[</span>last_two_characters<span style="color:#f92672">]</span>
+      str<span style="color:#f92672">.</span>chop!
+    <span style="color:#66d9ef">else</span>
+      number <span style="color:#f92672">+=</span> <span style="color:#66d9ef">ROMAN_TO_INT</span><span style="color:#f92672">[</span>str<span style="color:#f92672">.</span>slice(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672"></span>)<span style="color:#f92672">]</span>
+    <span style="color:#66d9ef">end</span>
+    str<span style="color:#f92672">.</span>chop!
+  <span style="color:#66d9ef">end</span>
+  number
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>We finish it off by returning number.</p>
+
+</article>
+
+</div>
+
+
+  <section class="footer">
+    <div class="footer-container">
+      <p class="contact">
+        Feel free to get in contact
+      </p>
+      <div class="icons">
+        <a href="https://github.com/benmclaren" target="_blank">
+          <i class="fa fa-github"></i>
+        </a>
+
+        <a href="mailto:bmclaren01@gmail.com" target="_blank">
+          <i class="fa fa-paper-plane"></i>
+        </a>
+
+        <a href="https://twitter.com/bybenmclaren" target="_blank">
+          <i class="fa fa-twitter"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/ben-mclaren/" target="_blank">
+          <i class="fa fa-linkedin"></i>
+        </a>
+
+      </div>
+      <p>
+        ©benmclaren2020
+      </p>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cloudinary-core/2.3.0/cloudinary-core-shrinkwrap.min.js">
+  </script>
+  <script>
+    var cl = cloudinary.Cloudinary.new({
+      cloud_name: 'dy35n8sog'
+    });
+
+    cl.responsive()
+  </script>
+
+</body>
+</html>
+

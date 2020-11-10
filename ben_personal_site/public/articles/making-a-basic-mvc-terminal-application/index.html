@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ben McLaren</title>
+  
+  
+  <link rel="stylesheet" href="/css/main.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="blogo1.ico" type="image/x-icon">
+  <meta property="og:image" content="https://res.cloudinary.com/dy35n8sog/image/upload/v1578389845/Screenshot_2020-01-07_at_09.36.47_ehi2dt.png">
+  <link rel="shortcut icon" href="https://res.cloudinary.com/dy35n8sog/image/upload/v1578391731/blogo1_guumr5.ico" type="image/x-icon">
+</head>
+<body>
+
+<header class="header">
+  <div class="nav">
+    <a class="name" href="/index.html">Ben McLaren</a>
+    <a class="link" href="/articles">Articles</a>
+  </div>
+</header>
+
+
+
+
+
+<article class="page">
+  <div class="page-content">
+    <p class="page-title"> Making a basic MVC terminal application </p>
+  <p>For this challenge we first want to begin with setting up our model. This should always be the first thing we do when making these sorts of programs. For our cookbook we are storing recipes so it makes sense for our model to be a Recipe model</p>
+<h3 id="step-1">Step 1:</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Recipe</span>
+ <span style="color:#66d9ef">attr_reader</span> <span style="color:#e6db74">:name</span>, <span style="color:#e6db74">:description</span>
+
+ <span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">initialize</span>(name, description)
+   @name <span style="color:#f92672">=</span> name
+   @description <span style="color:#f92672">=</span> description
+ <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>Here we have defined our class <code>Recipe</code> and we have initialized it with two instance variables. This is the <code>name</code> and the <code>description</code>. This means that in order to create a new instance of Recipe we will need to provide two pieces of information. A name and a description. We add the attribute reader for name and description so that we can actually access these methods.</p>
+<h3 id="step-2">Step 2:</h3>
+<p>We are storing the recipes we make inside a csv file so that we can access theirs data even after closing the program, otherwise the data would be lost each time. This acts as a sort of database, our repository. In this file we need to define a new class called <code>Cookbook</code> as this is effectively the actual cookbook. Then we need to write some code that allows it to read the csv file and add and remove data.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">require <span style="color:#e6db74">&#39;csv&#39;</span>
+require_relative <span style="color:#e6db74">&#39;recipe&#39;</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Cookbook</span>
+
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">initialize</span>(csv_file)
+    @csv_file <span style="color:#f92672">=</span> csv_file
+    @recipes <span style="color:#f92672">=</span> <span style="color:#f92672">[</span><span style="color:#f92672">]</span>
+    load_csv()
+  <span style="color:#66d9ef">end</span>
+
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">add_recipe</span>(recipe)
+    @recipes <span style="color:#f92672">&lt;&lt;</span> recipe
+    save_csv()
+  <span style="color:#66d9ef">end</span>
+
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">all</span>
+    <span style="color:#66d9ef">return</span> @recipes
+  <span style="color:#66d9ef">end</span>
+
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">remove_recipe</span>(index)
+    @recipes<span style="color:#f92672">.</span>delete_at(index)
+    save_csv()
+  <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>As we are going to use Ruby&rsquo;s built in csv library we firstly need to <code>require 'csv'</code>. We also need to <code>require_relative 'recipe'</code> which allows us to access the local information in our recipe model.</p>
+<p>We make an <code>initialize</code> method where we have two instance variables. <code>@csv_file</code> equal to the csv_file and <code>@recipes</code> equal to an empty array which is where we will store the recipes. We then also call a method <code>load_csv</code> which we will make later and this will simply load the csv file.</p>
+<p>Next we write the three methods needed for the csv file do that we can add a recipe, delete a recipe and list the recipes.</p>
+<p>For adding a recipe we can define a method <code>add_recipe</code>, give it a parameter of (recipe) and in this method we will append the given recipe into our array of <code>@recipes</code>. We can then save it to the csv file with <code>save_csv</code> which we will make later.</p>
+<p>For deleting a recipe we can define a method <code>remove_recipe</code>, give it a parameter of (index) and in this method we will use <code>delete_at</code> the given index before we save it to the csv file with <code>save_csv</code>.</p>
+<p>For listing the recipes we can simply have a method of <code>all</code> and return <code>@recipes</code></p>
+<p>Now, we can make the <code>load_csv</code> and <code>save_csv</code> methods</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">private</span>
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">load_csv</span>
+  <span style="color:#66d9ef">CSV</span><span style="color:#f92672">.</span>foreach(@csv_file) <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>row<span style="color:#f92672">|</span>
+    @recipes <span style="color:#f92672">&lt;&lt;</span> <span style="color:#66d9ef">Recipe</span><span style="color:#f92672">.</span>new(row<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672"></span><span style="color:#f92672">]</span>, row<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672"></span><span style="color:#f92672">]</span>)
+  <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">save_csv</span>
+  <span style="color:#66d9ef">CSV</span><span style="color:#f92672">.</span>open(@csv_file, <span style="color:#e6db74">&#39;wb&#39;</span>) <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>csv<span style="color:#f92672">|</span>
+    @recipes<span style="color:#f92672">.</span>each <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>recipe<span style="color:#f92672">|</span>
+      csv <span style="color:#f92672">&lt;&lt;</span> <span style="color:#f92672">[</span>recipe<span style="color:#f92672">.</span>name, recipe<span style="color:#f92672">.</span>description<span style="color:#f92672">]</span>
+    <span style="color:#66d9ef">end</span>
+  <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>These are private methods which means that they are only used within this class.</p>
+<p><code>load_csv</code> uses the Ruby syntax for loading a csv file by iterating over the csv file with <code>foreach</code> and then appending an instance of the Recipe class into each row of the csv file. As we are giving it both a name and  description we need to say that the name should go in position 0 and description in position 1.</p>
+<p><code>save_csv</code> allows us to save information and we follow the ruby syntax for doing this. We <code>.open</code> on CSV to open the csv file and then within this iteration we iterate using <code>.each</code> and append the recipe name and description into the csv file.</p>
+<h3 id="step-3">Step: 3</h3>
+<p>Now that our model is set up and we have a repository that can access and change data in the csv file we can start working on the controller.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">require_relative <span style="color:#e6db74">&#39;view&#39;</span>
+require_relative <span style="color:#e6db74">&#39;recipe&#39;</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Controller</span>
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">initialize</span>(cookbook)
+    @cookbook <span style="color:#f92672">=</span> cookbook
+    @view <span style="color:#f92672">=</span> <span style="color:#66d9ef">View</span><span style="color:#f92672">.</span>new
+  <span style="color:#66d9ef">end</span>
+
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">list</span>
+    recipes <span style="color:#f92672">=</span> @cookbook<span style="color:#f92672">.</span>all
+    @view<span style="color:#f92672">.</span>display_recipes(recipes)
+  <span style="color:#66d9ef">end</span>
+
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">create</span>
+    name <span style="color:#f92672">=</span> @view<span style="color:#f92672">.</span>ask_user_for_stuff(<span style="color:#e6db74">&#39;name&#39;</span>)
+    description <span style="color:#f92672">=</span> @view<span style="color:#f92672">.</span>ask_user_for_stuff(<span style="color:#e6db74">&#39;description&#39;</span>)
+    recipe <span style="color:#f92672">=</span> <span style="color:#66d9ef">Recipe</span><span style="color:#f92672">.</span>new(name, description)
+    @cookbook<span style="color:#f92672">.</span>add_recipe(recipe)
+  <span style="color:#66d9ef">end</span>
+
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">destroy</span>
+    list()
+    index <span style="color:#f92672">=</span> @view<span style="color:#f92672">.</span>ask_user_for_index
+    @cookbook<span style="color:#f92672">.</span>remove_recipe(index)
+  <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>We need to start off by <code>require_relative</code> for both the view and recipe. This is so the controller can access the information in both.</p>
+<p>We initialize our controller with <code>@cookbook</code> equal to cookbook anf <code>@view</code> equal to <code>View.new</code>. This  instantiates the class and then calls the method <code>initialize</code>.</p>
+<p>We now need a method to list the recipes, add recipes and delete recipes.</p>
+<p><code>list</code> method assigns a variable <code>recipes</code> to calling our <code>.all</code> method in the repository on the <code>@cookbook</code>
+Then we call the view with @view and use the method <code>display_recipes</code> which is in our view. WE give this a value of <code>recipes</code></p>
+<p><code>create</code> method assigns two variables of <code>name</code> and <code>description</code> to the value of accesing the view with <code>@view</code> and using the <code>ask_user_for_stuff</code> method. The parameter is then either <code>name</code> or <code>description</code>. We then have this information and can make a new instance of Recipe with <code>Recipe.new</code>, giving it the name and description from the user. This is equal to the variable recipe. Finally we can use our <code>.add_recipe</code> method in the repository to add it to the csv file.</p>
+<p><code>destroy</code> method first of all calls the <code>list</code> method so the user can see all their recipes. Then it call sthe <code>ask_user_for_index</code> method from the view and assigns this to the variable index. Finally it uses the <code>.remove_recipe</code> on <code>@cookbook</code> which it gives index as a parameter.</p>
+<p>That is our controller complete. We can now make our view so that we can get the user input.</p>
+<h3 id="step-4">Step 4:</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Ruby" data-lang="Ruby"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">View</span>
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">display_recipes</span>(recipes)
+    recipes<span style="color:#f92672">.</span>each_with_index <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>recipe, index<span style="color:#f92672">|</span>
+      puts <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span>index <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#f92672"></span><span style="color:#e6db74">}</span><span style="color:#e6db74"> - </span><span style="color:#e6db74">#{</span>recipe<span style="color:#f92672">.</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74">: </span><span style="color:#e6db74">#{</span>recipe<span style="color:#f92672">.</span>description<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+    <span style="color:#66d9ef">end</span>
+  <span style="color:#66d9ef">end</span>
+
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">ask_user_for_stuff</span>(stuff)
+    puts <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">What is the </span><span style="color:#e6db74">#{</span>stuff<span style="color:#e6db74">}</span><span style="color:#e6db74"> of the recipe?</span><span style="color:#e6db74">&#34;</span>
+    print <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">&gt; </span><span style="color:#e6db74">&#34;</span>
+    gets<span style="color:#f92672">.</span>chomp
+  <span style="color:#66d9ef">end</span>
+
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">ask_user_for_index</span>
+    puts <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">enter a recipe number</span><span style="color:#e6db74">&#34;</span>
+    print <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">&gt; </span><span style="color:#e6db74">&#34;</span>
+    gets<span style="color:#f92672">.</span>chomp<span style="color:#f92672">.</span>to_i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
+  <span style="color:#f92672"></span><span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>We define our class View. We do not need an initialize method as we do not need to save any instance variables when we do <code>.new</code></p>
+<p>The first method we can define is <code>display_recipes</code>. This is called with the parameter of recipes. Then we need to iterate over this with <code>.each_with_index</code>. Then we can puts to the user the index number of the recipe with a +1 to account for the way programming indexes work with a - and then the recipe name and the description of the recipe. We can call <code>.name</code> and <code>.description</code> because these are instance variables of the Recipe class.</p>
+<p>Next we can <code>ask_user_for_stuff</code>. We give it the parameter of <code>stuff</code> which will either be <code>name</code> or <code>description</code>. Then we ask the user for the information and interpolate the variable of stuff. WE grab the user input with <code>gets.chomp</code>.</p>
+<p>We can do the same when we <code>ask_user_for_index</code> but this time we will need t convert the users input to an integer with <code>.to_i</code> and then -1 to account for the index values in arrays.</p>
+<p>We now have a working terminal application</p>
+
+</article>
+
+</div>
+
+
+  <section class="footer">
+    <div class="footer-container">
+      <p class="contact">
+        Feel free to get in contact
+      </p>
+      <div class="icons">
+        <a href="https://github.com/benmclaren" target="_blank">
+          <i class="fa fa-github"></i>
+        </a>
+
+        <a href="mailto:bmclaren01@gmail.com" target="_blank">
+          <i class="fa fa-paper-plane"></i>
+        </a>
+
+        <a href="https://twitter.com/bybenmclaren" target="_blank">
+          <i class="fa fa-twitter"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/ben-mclaren/" target="_blank">
+          <i class="fa fa-linkedin"></i>
+        </a>
+
+      </div>
+      <p>
+        ©benmclaren2020
+      </p>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cloudinary-core/2.3.0/cloudinary-core-shrinkwrap.min.js">
+  </script>
+  <script>
+    var cl = cloudinary.Cloudinary.new({
+      cloud_name: 'dy35n8sog'
+    });
+
+    cl.responsive()
+  </script>
+
+</body>
+</html>
+

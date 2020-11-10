@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ben McLaren</title>
+  
+  
+  <link rel="stylesheet" href="/css/main.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="blogo1.ico" type="image/x-icon">
+  <meta property="og:image" content="https://res.cloudinary.com/dy35n8sog/image/upload/v1578389845/Screenshot_2020-01-07_at_09.36.47_ehi2dt.png">
+  <link rel="shortcut icon" href="https://res.cloudinary.com/dy35n8sog/image/upload/v1578391731/blogo1_guumr5.ico" type="image/x-icon">
+</head>
+<body>
+
+<header class="header">
+  <div class="nav">
+    <a class="name" href="/index.html">Ben McLaren</a>
+    <a class="link" href="/articles">Articles</a>
+  </div>
+</header>
+
+
+
+
+
+<article class="page">
+  <div class="page-content">
+    <p class="page-title"> Search Engine Optimization in Rails </p>
+  <p>SEO is an important but often overlooked aspect of web development. It is essential in ensuring the maximum exposure for your website and good SEO can really improve traffic to your sites.</p>
+<h3 id="dynamic-page-titles">Dynamic page titles</h3>
+<p>Imagine that we have a review website. We might want to have the title of our webpage change depending on which page of our website the user is on.</p>
+<p>Rails has a helper method called <code>content_for</code> that allows us to do just that.</p>
+<p>We start off by going to our <code>application.html.erb</code> file where we will find the <code>head</code> of our webpage. This contains our title. We can add the <code>content_for</code> helper in using embed Ruby tags. We can choose what we call it but it makes sense to call it <code>:page_title</code> as this is what the content is for.</p>
+<p>The syntax looks like this. The first part is the helper method and the second part is what we want to refer to it as or in other words what content are we targeting. This needs to be written as a symbol as it is something that will be used across the site and won&rsquo;t change.</p>
+<p><code>content-for, :page_title</code></p>
+<p>We can then drop it into our <code>title</code> tag like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Ruby" data-lang="Ruby"><span style="color:#f92672">&lt;</span>title<span style="color:#f92672">&gt;</span> <span style="color:#f92672">&lt;</span><span style="color:#f92672">%=</span> content_for <span style="color:#e6db74">:page_title</span> <span style="color:#e6db74">%&gt; - Bien Reviews &lt;/title&gt;</span>
+</code></pre></div><p>Now we can go to our views and extract the information that we want from there to be used in the title.</p>
+<p>At the top of your view we need another erb (embed ruby) tag. Note that we do not want the <code>=</code> present this time as we are not displaying this content in the view, simply extracting information from it.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Ruby" data-lang="Ruby"><span style="color:#f92672">&lt;</span><span style="color:#e6db74">% content_for </span> <span style="color:#e6db74">:page_title</span>, @review<span style="color:#f92672">.</span>title <span style="color:#f92672">%</span><span style="color:#f92672">&gt;</span>
+</code></pre></div><p>Then we have our helper of <code>content_for :page_title</code> which we wrote earlier followed by a comma. This is where we put what is is we want the title to be. In our case, in our review website we have a title for each review so we want to display this. We can say <code>@review.title.</code> This is relating to our model of <code>Review</code> and we are grabbing the <code>title</code> information for this particular page. Of course this needs to be adapted depending on what content it is you are displaying. Now, each of our review pages will have a title of the specific review in the tab.</p>
+<h3 id="improved-urls">Improved URL&rsquo;s</h3>
+<p>Have a look at these two urls for two different music review sites. One is a lot clearer than the other.</p>
+<p><code>http://drownedinsound.com/releases/20498/reviews/4152162</code></p>
+<p>This first url is not that clear as to what the page is about, you get it might be review but the numbers are ultimately meaningless to the user.</p>
+<p><code>https://pitchfork.com/reviews/albums/eminem-music-to-be-murdered-by/</code></p>
+<p>Take this second url. It is immediately clear as to what it is. It&rsquo;s a review of an album by eninem called music-to-be-murdered-by.</p>
+<p>In our model we can override the default URL with a thing called <code>to_param</code>. This is deep within rails but we are going to take it out and change it.</p>
+<p>To do this we can define the method <code>to_param</code> and give it new instructions.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Ruby" data-lang="Ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">to_param</span>
+  <span style="color:#75715e">#code to override will go here</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>In our example of the review website we can take the <code>id</code> of the review and convert it to a string so that we can use it in the url.</p>
+<p>Next, we want to add some information. We can do this by using a &lsquo;+&rsquo; sign and we are going to have a &ldquo;-&rdquo; here. Then we can have the title of the page we are on. We can get this using the word <code>title</code> which we are able to access as we are inside the model.</p>
+<p>Now, as it stands the url will change to include the title but the spaces will be filled with &lsquo;%&rsquo; and it does not look that great. To change this we can change it into a parameter by using  <code>.parameterize</code> on the title. What this will do is get rid of the spaces, uppercased letters, slashes etc which makes the URL hard to read and will convert it into a much more friendly and cleaner URL.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Ruby" data-lang="Ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">to_param</span>
+  id<span style="color:#f92672">.</span>to_s <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">-</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">+</span> title<span style="color:#f92672">.</span>parameterize
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>These small improvements are relatively simple to implement and make a big difference to any website.</p>
+
+</article>
+
+</div>
+
+
+  <section class="footer">
+    <div class="footer-container">
+      <p class="contact">
+        Feel free to get in contact
+      </p>
+      <div class="icons">
+        <a href="https://github.com/benmclaren" target="_blank">
+          <i class="fa fa-github"></i>
+        </a>
+
+        <a href="mailto:bmclaren01@gmail.com" target="_blank">
+          <i class="fa fa-paper-plane"></i>
+        </a>
+
+        <a href="https://twitter.com/bybenmclaren" target="_blank">
+          <i class="fa fa-twitter"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/ben-mclaren/" target="_blank">
+          <i class="fa fa-linkedin"></i>
+        </a>
+
+      </div>
+      <p>
+        ©benmclaren2020
+      </p>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cloudinary-core/2.3.0/cloudinary-core-shrinkwrap.min.js">
+  </script>
+  <script>
+    var cl = cloudinary.Cloudinary.new({
+      cloud_name: 'dy35n8sog'
+    });
+
+    cl.responsive()
+  </script>
+
+</body>
+</html>
+

@@ -6,10 +6,250 @@
     <description>Recent content on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 19 Feb 2019 11:00:16 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 20 Jul 2020 14:24:01 +0100</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Sinatra</title>
+      <link>/articles/sinatra/</link>
+      <pubDate>Mon, 20 Jul 2020 14:24:01 +0100</pubDate>
+      
+      <guid>/articles/sinatra/</guid>
+      <description>We are going to build out a basic MVC application using the Sinatra framework. Sinatra is a Domain Specific Language (DSL) for creating web apps in Ruby. It follows the MVC pattern although in Sinatra&amp;rsquo;s case there is an app.rb file which acts as the controller. The routing is handled by the framework itself. We can write routes in this app.rb file which allows Sinatra to map the URL in the browser to the correct method in the app.</description>
+    </item>
+    
+    <item>
+      <title>Cookbook2</title>
+      <link>/articles/cookbook2/</link>
+      <pubDate>Sun, 19 Apr 2020 14:38:32 +0100</pubDate>
+      
+      <guid>/articles/cookbook2/</guid>
+      <description>We want to build upon our cookbook program by implementing a way for it to search for recipes on the web. Lets establish what we need to do in order for our cookbook to be able to do this.
+ Ask a user for a keyword to search Make an HTTP request to the recipe’s website with our keyword Parse the HTML document to extract the first 5 recipes suggested and store them in an Array Display them in an indexed list Ask the user which recipe they want to import (ask for an index) Add it to the Cookbook  </description>
+    </item>
+    
+    <item>
+      <title>Making a basic MVC terminal application</title>
+      <link>/articles/making-a-basic-mvc-terminal-application/</link>
+      <pubDate>Thu, 16 Apr 2020 15:09:41 +0100</pubDate>
+      
+      <guid>/articles/making-a-basic-mvc-terminal-application/</guid>
+      <description>For this challenge we first want to begin with setting up our model. This should always be the first thing we do when making these sorts of programs. For our cookbook we are storing recipes so it makes sense for our model to be a Recipe model
+Step 1: class Recipe attr_reader :name, :description def initialize(name, description) @name = name @description = description end end Here we have defined our class Recipe and we have initialized it with two instance variables.</description>
+    </item>
+    
+    <item>
+      <title>How to make a horizontal scrollbar that moves as you scroll</title>
+      <link>/articles/how-to-make-a-horizontal-scrollbar-that-moves-as-you-scroll/</link>
+      <pubDate>Sat, 08 Feb 2020 15:31:11 +0000</pubDate>
+      
+      <guid>/articles/how-to-make-a-horizontal-scrollbar-that-moves-as-you-scroll/</guid>
+      <description>We are going to make a scrollbar that will scroll horizontally as the user scrolls vertically down the page. This is a nice feature to have especially on longer pages as you can quickly display to the user how far through an article they are.
+We need to use JQuery for this so make sure that you have imported the JQuery library. See this site as a demonstration of what we are going to build.</description>
+    </item>
+    
+    <item>
+      <title>Search Engine Optimization in Rails</title>
+      <link>/articles/search-engine-optimization-in-rails/</link>
+      <pubDate>Tue, 04 Feb 2020 17:48:45 +0000</pubDate>
+      
+      <guid>/articles/search-engine-optimization-in-rails/</guid>
+      <description>SEO is an important but often overlooked aspect of web development. It is essential in ensuring the maximum exposure for your website and good SEO can really improve traffic to your sites.
+Dynamic page titles Imagine that we have a review website. We might want to have the title of our webpage change depending on which page of our website the user is on.
+Rails has a helper method called content_for that allows us to do just that.</description>
+    </item>
+    
+    <item>
+      <title>Getting the hang of Active Record</title>
+      <link>/articles/getting-the-hang-of-active-record/</link>
+      <pubDate>Fri, 31 Jan 2020 16:23:47 +0000</pubDate>
+      
+      <guid>/articles/getting-the-hang-of-active-record/</guid>
+      <description>Notes on the Le Wagon Active Record Basics Models challenge
+We will go through how a small terminal application links together with active record. For this, please refer to the challenge above.
+Active Record is simply a pattern found in software that stores data (Database). It features various functions such as save and destroy as well as instance variables. These are variables which represent columns in the database.
+We have three things that enable this app to work.</description>
+    </item>
+    
+    <item>
+      <title>How to make a &#39;countdown&#39; style terminal game</title>
+      <link>/articles/how-to-make-a-countdown-style-terminal-game/</link>
+      <pubDate>Mon, 20 Jan 2020 21:02:01 +0000</pubDate>
+      
+      <guid>/articles/how-to-make-a-countdown-style-terminal-game/</guid>
+      <description>Notes on the Le Wagon Parsing Numbers and Letters exercise
+The goal of this challenge is to write a simplified version of the game &amp;lsquo;countdown&amp;rsquo; from the terminal where:
+ You are given a random set of letters. You have to enter the longest english word you can find using only letters in the grid. After typing your answer, you get your score combined with the time you took, and eventually an error message if you failed.</description>
+    </item>
+    
+    <item>
+      <title>Iterating over a CSV file to return specific information</title>
+      <link>/articles/iterating-over-a-csv-file-to-return-specific-information/</link>
+      <pubDate>Mon, 20 Jan 2020 19:17:57 +0000</pubDate>
+      
+      <guid>/articles/iterating-over-a-csv-file-to-return-specific-information/</guid>
+      <description>For this challenge we want to implement a most_successful method that returns the movies (a certain number passed as a parameter) published prior to a given year and with their associated earnings. The returned list should be an array of movies. Each movie should be represented by a hash with keys: name, year and earnings. Ex: { name: &amp;quot;Avatar&amp;quot;, year: 2009, earnings: 760505847 }
+We have been given a CSV file containing the data that we need.</description>
+    </item>
+    
+    <item>
+      <title>Translation</title>
+      <link>/articles/translation/</link>
+      <pubDate>Sun, 19 Jan 2020 16:36:01 +0000</pubDate>
+      
+      <guid>/articles/translation/</guid>
+      <description>We are going to build a simple tool that will be able handle translations by checking to see if they are stored in the hash.
+STRINGS = { home: { intro: { en: &amp;#39;Welcome on Le Wagon&amp;#39;, fr: &amp;#39;Bienvenue sur Le Wagon&amp;#39;, de: &amp;#39;Wilkommen aus Le Wagon&amp;#39; }, content: { explanation: { en: &amp;#39;This is an interesting exercise&amp;#39;, fr: &amp;#39;C\&amp;#39;est un exercice interessant&amp;#39;, de: &amp;#39;Es ist eine interesante Übung&amp;#39; }, goodbye: { en: &amp;#39;Goodbye&amp;#39;, fr: &amp;#39;Au revoir&amp;#39;, de: &amp;#39;Tchüss&amp;#39; } } } } Here, we have our method translation which takes two arguments.</description>
+    </item>
+    
+    <item>
+      <title>Analyzing a database with .match</title>
+      <link>/articles/analyzing-a-database-with-.match/</link>
+      <pubDate>Sun, 19 Jan 2020 14:58:14 +0000</pubDate>
+      
+      <guid>/articles/analyzing-a-database-with-.match/</guid>
+      <description>Notes on the Le Wagon Regular Expressions Provider Grouping exercise
+Let’s say you have a user database with thousands of emails, and you want to analyze them according to their provider.
+We can write a method which will group differnent emails by provider and also a method that will return emails of a certain provider.
+MAIL_REGEX = /@(?&amp;lt;domain&amp;gt;[^\.]+)\./ def group_mails(emails) # TODO: group email by provider emails.select do |email| MAIL_REGEX.match(email) end emails.</description>
+    </item>
+    
+    <item>
+      <title>How to iterate over a text file and return specific information</title>
+      <link>/articles/how-to-iterate-over-a-text-file-and-return-specific-information/</link>
+      <pubDate>Sun, 19 Jan 2020 12:47:29 +0000</pubDate>
+      
+      <guid>/articles/how-to-iterate-over-a-text-file-and-return-specific-information/</guid>
+      <description>Notes on the Le Wagon Regular Expressions Word Frequency exercise
+For this challenge we are going to be working with text files and building a text analyzer using Hash.
+We want to implement a most_common_words method that returns the number of occurrences of most frequent words in a text file.
+To begin with we need to write a method to load our stop_words file. This is a file which contains all the words that you do noy want to be included.</description>
+    </item>
+    
+    <item>
+      <title>How to check anagrams using regex</title>
+      <link>/articles/how-to-check-anagrams-using-regex/</link>
+      <pubDate>Sat, 18 Jan 2020 18:50:03 +0000</pubDate>
+      
+      <guid>/articles/how-to-check-anagrams-using-regex/</guid>
+      <description>Notes on Le Wagon Regular Expressions Anagrams exercise
+For this exercise we want to write a method that will check if two strings are anagrams.
+def anagrams?(a_string, another_string) a_string = a_string.downcase.chars.sort.join.gsub(/\s+/, &amp;#34;&amp;#34;).gsub(/[^0-9a-zA-Z]/, &amp;#34;&amp;#34;) another_string = another_string.downcase.chars.sort.join.gsub(/\s+/, &amp;#34;&amp;#34;).gsub(/[^0-9a-zA-Z]/, &amp;#34;&amp;#34;) return a_string == another_string end For this first method we start out with creating two variables. These are called a_string and another_string respectivley. We apply the same logic to both of the given arguments.</description>
+    </item>
+    
+    <item>
+      <title>Refactoring code</title>
+      <link>/articles/refactoring-code/</link>
+      <pubDate>Wed, 15 Jan 2020 15:30:03 +0000</pubDate>
+      
+      <guid>/articles/refactoring-code/</guid>
+      <description>Notes on the Le Wagon Iterators &amp;amp; Blocks Cleaning your Mess exercise
+def hop_hop_hop(number_of_exercises) for i in (1..number_of_exercises) do counter = 0 until counter == i print &amp;#34;hop! &amp;#34; counter += 1 end unless counter != i print &amp;#39;One more time...&amp;#39; + &amp;#34;\n&amp;#34; end counter = 0 end end hop_hop_hop(5) This is a piece of ruby code which simply prints out the word &amp;lsquo;hop!&amp;rsquo; and &amp;lsquo;One more time&amp;hellip;&#39;. However, it is not the most efficient as it can be simplified into a much more readable state.</description>
+    </item>
+    
+    <item>
+      <title>Making a terminal based shopping cart application</title>
+      <link>/articles/making-a-terminal-based-shopping-cart-application/</link>
+      <pubDate>Tue, 14 Jan 2020 16:56:57 +0000</pubDate>
+      
+      <guid>/articles/making-a-terminal-based-shopping-cart-application/</guid>
+      <description>Notes on the Le Wagon Symbols &amp;amp; Hash Shopping Cart exercise
+For this exercise we want to build a terminal based app that will allow us to views items in a store, add them to a list and then then return our list with the calculated prices.
+The Interface require_relative &amp;#39;store&amp;#39; require_relative &amp;#39;cart&amp;#39; cart = [] puts &amp;#39;Here are the available products:&amp;#39; puts store_items_to_s loop do puts &amp;#39;What do you want to buy?</description>
+    </item>
+    
+    <item>
+      <title>Converting an array of strings into grouped arrays </title>
+      <link>/articles/converting-an-array-of-strings-into-grouped-arrays/</link>
+      <pubDate>Tue, 14 Jan 2020 16:31:45 +0000</pubDate>
+      
+      <guid>/articles/converting-an-array-of-strings-into-grouped-arrays/</guid>
+      <description>Notes on the Le Wagon Hash &amp;amp; Symbols Combine Anagrams exercise
+An anagram is a word obtained by rearranging the letters of another word. For example, “SPOT”, “OPTS”, “POTS” and “POST” are an anagram group because they are made up of the same letters.
+If we have an array of strings we want to turn them into multiple grouped arrays. We need to write a method that groups them into anagram groups and returns the array of groups.</description>
+    </item>
+    
+    <item>
+      <title>How to translate a Roman Numeral into its letter</title>
+      <link>/articles/how-to-translate-a-roman-numeral-into-its-letter/</link>
+      <pubDate>Tue, 14 Jan 2020 14:09:27 +0000</pubDate>
+      
+      <guid>/articles/how-to-translate-a-roman-numeral-into-its-letter/</guid>
+      <description>Notes on the Le Wagon Hash &amp;amp; Symbols Roman to Integer exercise
+Lets write a method that will take a Roman numeral and transform it into its integer.
+First let us start with writing out a hash that contains the infromation needed to construct Roman Numerals.
+ROMAN_TO_INT = { &amp;#34;I&amp;#34; =&amp;gt; 1, &amp;#34;IV&amp;#34; =&amp;gt; 4, &amp;#34;V&amp;#34; =&amp;gt; 5, &amp;#34;IX&amp;#34; =&amp;gt; 9, &amp;#34;X&amp;#34; =&amp;gt; 10, &amp;#34;XL&amp;#34; =&amp;gt; 40, &amp;#34;L&amp;#34; =&amp;gt; 50, &amp;#34;XC&amp;#34; =&amp;gt; 90, &amp;#34;C&amp;#34; =&amp;gt; 100, &amp;#34;CD&amp;#34; =&amp;gt; 400, &amp;#34;D&amp;#34; =&amp;gt; 500, &amp;#34;CM&amp;#34; =&amp;gt; 900, &amp;#34;M&amp;#34; =&amp;gt; 1000 } Lets define our method and give it one parameter.</description>
+    </item>
+    
+    <item>
+      <title>What are Proc Objects? and how they are used</title>
+      <link>/articles/what-are-proc-objects-and-how-they-are-used/</link>
+      <pubDate>Tue, 14 Jan 2020 11:23:38 +0000</pubDate>
+      
+      <guid>/articles/what-are-proc-objects-and-how-they-are-used/</guid>
+      <description>Notes on the Le Wagon Iteratros &amp;amp; Blocks Storing Blocks in Procs exercise
+A Proc Object is an encapsulation of a block of code which can be stored in a variable. In other words you can call them, pass them to other methods and pass them to other proc objects. It differs to yield in the sense that it can be called later as it has stored and remembered the block information.</description>
+    </item>
+    
+    <item>
+      <title>Transforming an Array into a Hash</title>
+      <link>/articles/transforming-an-array-into-a-hash/</link>
+      <pubDate>Tue, 14 Jan 2020 10:19:32 +0000</pubDate>
+      
+      <guid>/articles/transforming-an-array-into-a-hash/</guid>
+      <description>Notes on the Le Wagon Hash &amp;amp; Symbols Array to Hash exercise
+We want to write a method that takes an array as an argument and will convert it into a hash.
+Our method should do the following:
+ If no block is given, then the hash keys should just be integer indexes of elements in the array, converted as Strings. If a block is given, call it, passing the array index and use what’s returned as the hash key.</description>
+    </item>
+    
+    <item>
+      <title>How to make a translator for parisian slang Louchebem</title>
+      <link>/articles/how-to-make-a-translator-for-parisian-slang-louchebem/</link>
+      <pubDate>Mon, 13 Jan 2020 15:00:56 +0000</pubDate>
+      
+      <guid>/articles/how-to-make-a-translator-for-parisian-slang-louchebem/</guid>
+      <description>Notes on the Le Wagon Iterators &amp;amp; BLocks Louchebem exercise
+Louchébem is a type of French slang that was originally spoken by Parisian butchers. Very simply, you take a normal French word like “PATRON”. You take the first consonant group (letters before the first vowel), and replace it with an “L”. Then, you put that first consonant group at the end of the word, followed by one of the louchebem suffixes, e.</description>
+    </item>
+    
+    <item>
+      <title>How to split arrays</title>
+      <link>/articles/how-to-split-arrays/</link>
+      <pubDate>Mon, 13 Jan 2020 14:16:58 +0000</pubDate>
+      
+      <guid>/articles/how-to-split-arrays/</guid>
+      <description>Notes on the Le Wagon Iteratros &amp;amp; Blocks Splitter exercise
+We want to create a splitter method which will take an array and divide it into two groups according to an arbitrary rule. You might want to split by age if we’re talking about a group of people.
+Lets implement a method size_splitter which takes two parameters: an array, and a integer (the size). We will assume that the array only contains words, e.</description>
+    </item>
+    
+    <item>
+      <title>Using blocks with yield</title>
+      <link>/articles/using-blocks-with-yield/</link>
+      <pubDate>Mon, 13 Jan 2020 12:07:53 +0000</pubDate>
+      
+      <guid>/articles/using-blocks-with-yield/</guid>
+      <description>Notes on the Le Wagon Iteratros &amp;amp; Blocks About Blocks exercise
+Intoduction to blocks and using yield.
+Timer Yield is a Ruby keyword executing the block. It tells the method to execute a block now.
+Lets start with a timer method which will simply return the time taken to execute a given block.
+def timer_for start_time = Time.now yield end_time = Time.now time_taken = end_time - start_time return time_taken end   We start by setting start_time to the current time by using Time.</description>
+    </item>
+    
+    <item>
+      <title>Accessing data and using methods with Hashes</title>
+      <link>/articles/accessing-data-and-using-methods-with-hashes/</link>
+      <pubDate>Mon, 13 Jan 2020 11:25:35 +0000</pubDate>
+      
+      <guid>/articles/accessing-data-and-using-methods-with-hashes/</guid>
+      <description>Notes on the Le Wagon Hash &amp;amp; Symbols Burger Hash exercise
+Hashes can be confusing at first but once you get your head around them they are relatively straight forward.
+For this exercise we want to build a counter that will add up the amount of calories there are in different items of food.
+To start with we will store the information in a hash which is a more readable way of storing data and works as a sort of database.</description>
+    </item>
     
     <item>
       <title>How to make a Paralax effect</title>
@@ -31,7 +271,7 @@ The effect we are trying to achieve is actually in fact very simple. It is only 
       
       <guid>/articles/how-to-apply-overlays-to-images/</guid>
       <description>An overlay seems like it would be something difficult to achieve however, it is actually relatively simple and it can be done with just CSS.
-For this example, let&#39;s assume that you wish to overlay text on an image when you hover over it. To do this let&#39;s first take a look at some HTML.
+For this example, let&amp;rsquo;s assume that you wish to overlay text on an image when you hover over it. To do this let&amp;rsquo;s first take a look at some HTML.
 &amp;lt;section&amp;gt; &amp;lt;div class=&amp;#34;photo&amp;#34; &amp;lt;div class=&amp;#34;overlay&amp;#34;&amp;gt; &amp;lt;h2&amp;gt; some text &amp;lt;/h2&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;img src=&amp;#34;my-image.jpg&amp;#34;&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/section&amp;gt; Above is some simple HTML code for an image contained in a section.</description>
     </item>
     
@@ -42,7 +282,7 @@ For this example, let&#39;s assume that you wish to overlay text on an image whe
       
       <guid>/articles/how-to-achieve-grid-layouts-using-flexbox/</guid>
       <description>Flexbox is a very powerful tool and it is one that can be used to create many different layouts.
-Let&#39;s say that you wish to lay out a selection of images on a page in a grid style. In the past this would have been difficult to achieve inlvolving developers needing to &amp;lsquo;hack&amp;rsquo; their way around it using floats. However, with only a few lines of code flexbox is able to create a grid.</description>
+Let&amp;rsquo;s say that you wish to lay out a selection of images on a page in a grid style. In the past this would have been difficult to achieve inlvolving developers needing to &amp;lsquo;hack&amp;rsquo; their way around it using floats. However, with only a few lines of code flexbox is able to create a grid.</description>
     </item>
     
     <item>
@@ -61,7 +301,7 @@ Setting out the HTML &amp;lt;header class=&amp;#34;header&amp;#34;&amp;gt; &amp;
       <pubDate>Tue, 29 Jan 2019 11:35:33 +0000</pubDate>
       
       <guid>/articles/how-to-use-media-queries-to-make-responsive-text/</guid>
-      <description>Websites need to look good across a multitude of screens and therfore it is essential that a site is responsive so that a user&#39;s experience is not affected by their choice of screen size. I encountered a problem whilst building this site that was causing some of my headers to be cut off of the page when the browser size was reduced. I had previously tried using margins and padding to try and fix this issue however, some research led me to media queries.</description>
+      <description>Websites need to look good across a multitude of screens and therfore it is essential that a site is responsive so that a user&amp;rsquo;s experience is not affected by their choice of screen size. I encountered a problem whilst building this site that was causing some of my headers to be cut off of the page when the browser size was reduced. I had previously tried using margins and padding to try and fix this issue however, some research led me to media queries.</description>
     </item>
     
     <item>

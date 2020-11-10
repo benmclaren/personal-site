@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ben McLaren</title>
+  
+  
+  <link rel="stylesheet" href="/css/main.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="blogo1.ico" type="image/x-icon">
+  <meta property="og:image" content="https://res.cloudinary.com/dy35n8sog/image/upload/v1578389845/Screenshot_2020-01-07_at_09.36.47_ehi2dt.png">
+  <link rel="shortcut icon" href="https://res.cloudinary.com/dy35n8sog/image/upload/v1578391731/blogo1_guumr5.ico" type="image/x-icon">
+</head>
+<body>
+
+<header class="header">
+  <div class="nav">
+    <a class="name" href="/index.html">Ben McLaren</a>
+    <a class="link" href="/articles">Articles</a>
+  </div>
+</header>
+
+
+
+
+
+<article class="page">
+  <div class="page-content">
+    <p class="page-title"> Analyzing a database with .match </p>
+  <p><strong>Notes on the Le Wagon Regular Expressions Provider Grouping exercise</strong></p>
+<p>Let’s say you have a user database with thousands of emails, and you want to analyze them according to their provider.</p>
+<p>We can write a method which will group differnent emails by provider and also a method that will return emails of a certain provider.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">MAIL_REGEX</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">/</span><span style="color:#e6db74">@(?&lt;domain&gt;[^</span><span style="color:#e6db74">\</span><span style="color:#e6db74">.]+)</span><span style="color:#e6db74">\</span><span style="color:#e6db74">.</span><span style="color:#e6db74">/</span>
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">group_mails</span>(emails)
+  <span style="color:#75715e"># TODO: group email by provider</span>
+  emails<span style="color:#f92672">.</span>select <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>email<span style="color:#f92672">|</span>
+    <span style="color:#66d9ef">MAIL_REGEX</span><span style="color:#f92672">.</span>match(email)
+  <span style="color:#66d9ef">end</span>
+  emails<span style="color:#f92672">.</span>group_by <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>email<span style="color:#f92672">|</span>
+    <span style="color:#66d9ef">MAIL_REGEX</span><span style="color:#f92672">.</span>match(email)<span style="color:#f92672">[</span><span style="color:#e6db74">:domain</span><span style="color:#f92672">]</span>
+  <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div><ol>
+<li>
+<p>To start we need to make a regex that will check to see if the email is valid. We have also specified a goup name of <code>&lt;domain&gt;</code>. This refers to the group inside the <code>()</code>. This will match any string with <code>@</code> then any characters and a <code>.</code>.</p>
+</li>
+<li>
+<p>We define a method of <code>group_mails</code> which takes one parameter of <code>emails</code>.</p>
+</li>
+<li>
+<p>Now, we can iterate over the emails given to us as an argument using <code>.select</code>. This will return an array containing all the elements which match the criteria. In this case we call <code>.match</code> on <code>MAIL_REGEX</code> and pass it an argument of <code>email</code> This will check to see if email matches with the regex.</p>
+</li>
+<li>
+<p>We then perform a second iteration using <code>.group_by</code>. This will return a hash where the keys are the result from executing the block and the values are arrays of elements that correspond to each key. In other words the keys will be the domain names and the values are the array of elements which match the domain name.</p>
+</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">provider?</span>(email, provider)
+  <span style="color:#75715e"># TODO: return true if email is of given provider</span>
+  match <span style="color:#f92672">=</span> <span style="color:#66d9ef">MAIL_REGEX</span><span style="color:#f92672">.</span>match(email)
+  <span style="color:#66d9ef">if</span> match<span style="color:#f92672">[</span><span style="color:#e6db74">:domain</span><span style="color:#f92672">]</span> <span style="color:#f92672">==</span> provider
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
+  <span style="color:#66d9ef">else</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
+  <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>To return true if an email is of a given provider, we can define a new method of <code>provider?</code> and this willtake two arguments; an <code>email</code> and a <code>provider</code></p>
+<ol>
+<li>
+<p>Firstly, we assign the result of calling <code>.match</code> on the <code>MAIL_REGEX</code> to the variable <code>match</code>.</p>
+</li>
+<li>
+<p>We can then say if its true that the domain part of the regex matches the provider then return true. However, if not then it returns false.</p>
+</li>
+</ol>
+
+</article>
+
+</div>
+
+
+  <section class="footer">
+    <div class="footer-container">
+      <p class="contact">
+        Feel free to get in contact
+      </p>
+      <div class="icons">
+        <a href="https://github.com/benmclaren" target="_blank">
+          <i class="fa fa-github"></i>
+        </a>
+
+        <a href="mailto:bmclaren01@gmail.com" target="_blank">
+          <i class="fa fa-paper-plane"></i>
+        </a>
+
+        <a href="https://twitter.com/bybenmclaren" target="_blank">
+          <i class="fa fa-twitter"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/ben-mclaren/" target="_blank">
+          <i class="fa fa-linkedin"></i>
+        </a>
+
+      </div>
+      <p>
+        ©benmclaren2020
+      </p>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cloudinary-core/2.3.0/cloudinary-core-shrinkwrap.min.js">
+  </script>
+  <script>
+    var cl = cloudinary.Cloudinary.new({
+      cloud_name: 'dy35n8sog'
+    });
+
+    cl.responsive()
+  </script>
+
+</body>
+</html>
+

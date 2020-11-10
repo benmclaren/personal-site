@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ben McLaren</title>
+  
+  
+  <link rel="stylesheet" href="/css/main.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="blogo1.ico" type="image/x-icon">
+  <meta property="og:image" content="https://res.cloudinary.com/dy35n8sog/image/upload/v1578389845/Screenshot_2020-01-07_at_09.36.47_ehi2dt.png">
+  <link rel="shortcut icon" href="https://res.cloudinary.com/dy35n8sog/image/upload/v1578391731/blogo1_guumr5.ico" type="image/x-icon">
+</head>
+<body>
+
+<header class="header">
+  <div class="nav">
+    <a class="name" href="/index.html">Ben McLaren</a>
+    <a class="link" href="/articles">Articles</a>
+  </div>
+</header>
+
+
+
+
+
+<article class="page">
+  <div class="page-content">
+    <p class="page-title"> Using blocks with yield </p>
+  <p><strong>Notes on the Le Wagon Iteratros &amp; Blocks About Blocks exercise</strong></p>
+<p>Intoduction to blocks and using yield.</p>
+<h1 id="timer">Timer</h1>
+<p>Yield is a Ruby keyword executing the block. It tells the method to execute a block now.</p>
+<p>Lets start with a timer method which will simply return the time taken to execute a given block.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">timer_for</span>
+  start_time <span style="color:#f92672">=</span> <span style="color:#66d9ef">Time</span><span style="color:#f92672">.</span>now
+  <span style="color:#66d9ef">yield</span>
+  end_time <span style="color:#f92672">=</span> <span style="color:#66d9ef">Time</span><span style="color:#f92672">.</span>now
+  time_taken <span style="color:#f92672">=</span> end_time <span style="color:#f92672">-</span> start_time
+  <span style="color:#66d9ef">return</span> time_taken
+<span style="color:#66d9ef">end</span>
+</code></pre></div><ol>
+<li>
+<p>We start by setting start_time to the current time by using <code>Time.now</code>.</p>
+</li>
+<li>
+<p>Use the keyword &lsquo;Yield&rsquo; to tell the method to run the block now</p>
+</li>
+<li>
+<p>Set end_time to <code>Time.now</code></p>
+</li>
+<li>
+<p>Assign the calculation of end_time - start_time to time_taken and return it to get the total time taken.</p>
+</li>
+</ol>
+<h1 id="achieving-map-behaviour-without-using-map">Achieving <code>.map</code> behaviour without using <code>.map</code></h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">my_map</span>(array)
+  new_array <span style="color:#f92672">=</span> <span style="color:#f92672">[</span><span style="color:#f92672">]</span>
+  array<span style="color:#f92672">.</span>each <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>name<span style="color:#f92672">|</span>
+    new_array <span style="color:#f92672">&lt;&lt;</span> <span style="color:#66d9ef">yield</span>(name)
+  <span style="color:#66d9ef">end</span>
+  <span style="color:#66d9ef">return</span> new_array
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>&lsquo;.map&rsquo; will create a new array for us. However, if we are not using <code>.map</code> then we must create this new array ourselves by setting <code>new_array</code> to an empty array.</p>
+<p>We then iterate over the array with <code>.each</code>. We can then use <code>yield</code> to call the block this time giving it a parameter so that it will call the block and insert the parameter of <code>name</code>.</p>
+<p>You can then return the new array.</p>
+<h1 id="building-html-tags-around-content-in-a-block">Building HTML tags around content in a block</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">tag</span>(tag_name, attributes <span style="color:#f92672">=</span> <span style="color:#66d9ef">nil</span>)
+  attr_name <span style="color:#f92672">=</span> attributes<span style="color:#f92672">.</span>nil? ? <span style="color:#66d9ef">nil</span> : attributes<span style="color:#f92672">.</span>first
+  attr_value <span style="color:#f92672">=</span> attributes<span style="color:#f92672">.</span>nil? ? <span style="color:#66d9ef">nil</span> : attributes<span style="color:#f92672">.</span>last
+
+  open_tag <span style="color:#f92672">=</span> attributes<span style="color:#f92672">.</span>nil? ? tag_name : <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span>tag_name<span style="color:#e6db74">}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">#{</span>attr_name<span style="color:#e6db74">}</span><span style="color:#e6db74">=</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">#{</span>attr_value<span style="color:#e6db74">}</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">&#34;</span>
+  content <span style="color:#f92672">=</span> <span style="color:#66d9ef">yield</span>
+  <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">&lt;</span><span style="color:#e6db74">#{</span>open_tag<span style="color:#e6db74">}</span><span style="color:#e6db74">&gt;</span><span style="color:#e6db74">#{</span>content<span style="color:#e6db74">}</span><span style="color:#e6db74">&lt;/</span><span style="color:#e6db74">#{</span>tag_name<span style="color:#e6db74">}</span><span style="color:#e6db74">&gt;</span><span style="color:#e6db74">&#34;</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>This method takes two parameters <code>tag_name</code> and <code>attributes</code>. <code>= nil</code> means that if no parameter is given then it will assign it to nil. You can think of it as being an optionl parameter.</p>
+<p>We start by calling <code>nil?</code> on atrributes to check if it is nil or if a parameter has been given. It returns a boolean value. We use a ternary operator which says if the value is true ( meaning it is nil) then keep it as nil otherwise grab the first element. The same logic is applied to <code>attr_value</code> but we take the last element instead.</p>
+<p>Then we define an <code>open_tag</code> which also makes use of a ternary operator. It states that if the attribute is nil then return the <code>tag_name</code> only but if not then build the following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span>tag_name<span style="color:#e6db74">}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">#{</span>attr_name<span style="color:#e6db74">}</span><span style="color:#e6db74">=</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">#{</span>attr_value<span style="color:#e6db74">}</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">&#34;</span>
+</code></pre></div><p>We have interploated the tag name and then the attirbute (for example &ldquo;style&rdquo;). Then we have an <code>=</code> and an interpolation of the attibute value (for example &ldquo;color: red&rdquo;). We require the use of the \ in order to use &quot; in the middle of the string. It just means it ignores the character and does not treat it as the end of the string.</p>
+<p>Then we say that content is = to running the block (yield). Finally we build our HTML code.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">&lt;</span><span style="color:#e6db74">#{</span>open_tag<span style="color:#e6db74">}</span><span style="color:#e6db74">&gt;</span><span style="color:#e6db74">#{</span>content<span style="color:#e6db74">}</span><span style="color:#e6db74">&lt;/</span><span style="color:#e6db74">#{</span>tag_name<span style="color:#e6db74">}</span><span style="color:#e6db74">&gt;</span><span style="color:#e6db74">&#34;</span>
+</code></pre></div><p>We interpoloate each part to make the HTML code, adding in essential characters where needed.This is returned as a string.</p>
+
+</article>
+
+</div>
+
+
+  <section class="footer">
+    <div class="footer-container">
+      <p class="contact">
+        Feel free to get in contact
+      </p>
+      <div class="icons">
+        <a href="https://github.com/benmclaren" target="_blank">
+          <i class="fa fa-github"></i>
+        </a>
+
+        <a href="mailto:bmclaren01@gmail.com" target="_blank">
+          <i class="fa fa-paper-plane"></i>
+        </a>
+
+        <a href="https://twitter.com/bybenmclaren" target="_blank">
+          <i class="fa fa-twitter"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/ben-mclaren/" target="_blank">
+          <i class="fa fa-linkedin"></i>
+        </a>
+
+      </div>
+      <p>
+        ©benmclaren2020
+      </p>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cloudinary-core/2.3.0/cloudinary-core-shrinkwrap.min.js">
+  </script>
+  <script>
+    var cl = cloudinary.Cloudinary.new({
+      cloud_name: 'dy35n8sog'
+    });
+
+    cl.responsive()
+  </script>
+
+</body>
+</html>
+

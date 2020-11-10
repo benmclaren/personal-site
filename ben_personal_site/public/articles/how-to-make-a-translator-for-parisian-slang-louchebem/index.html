@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ben McLaren</title>
+  
+  
+  <link rel="stylesheet" href="/css/main.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="blogo1.ico" type="image/x-icon">
+  <meta property="og:image" content="https://res.cloudinary.com/dy35n8sog/image/upload/v1578389845/Screenshot_2020-01-07_at_09.36.47_ehi2dt.png">
+  <link rel="shortcut icon" href="https://res.cloudinary.com/dy35n8sog/image/upload/v1578391731/blogo1_guumr5.ico" type="image/x-icon">
+</head>
+<body>
+
+<header class="header">
+  <div class="nav">
+    <a class="name" href="/index.html">Ben McLaren</a>
+    <a class="link" href="/articles">Articles</a>
+  </div>
+</header>
+
+
+
+
+
+<article class="page">
+  <div class="page-content">
+    <p class="page-title"> How to make a translator for parisian slang Louchebem </p>
+  <p><strong>Notes on the Le Wagon Iterators &amp; BLocks Louchebem exercise</strong></p>
+<p>Louchébem is a type of French slang that was originally spoken by Parisian butchers. Very simply, you take a normal French word like “PATRON”. You take the first consonant group (letters before the first vowel), and replace it with an “L”. Then, you put that first consonant group at the end of the word, followed by one of the louchebem suffixes, e.g. -EM. So “PATRON” becomes “LATRONPEM”.</p>
+<p>We want to make a &lsquo;translator&rsquo; that will be able to translate a word into louchebem.</p>
+<p>These are the constraints that it has:</p>
+<p><strong>Constraint:</strong> Any one-letter words like “a” should not be translated.</p>
+<p><strong>Constraint:</strong> For words beginning with consonants (“chat”, “trou”), you’ll have to take the first.</p>
+<p><strong>Constraint:</strong> Group (all the letters before the first vowel) and put it at the end, add an l to the start of the word and add a suffix at the end (“chat” should give “latchem”, or “latchoc”).</p>
+<p><strong>Constraint:</strong> Words beginning with a vowel are not changed but you should still add an l to the start of the word and a suffix at the end (“atout” should give “latoutoc” or “latoutic”).</p>
+<p><strong>Constraint:</strong> The random suffix should be one of these: [&ldquo;em&rdquo;, &ldquo;é&rdquo;, &ldquo;ji&rdquo;, &ldquo;oc&rdquo;, &ldquo;ic&rdquo;, &ldquo;uche&rdquo;, &ldquo;ès&rdquo;].</p>
+<p><strong>Enhancement:</strong> Ideally your program should be able to translate any complicated sentence, regardless of punctuation.</p>
+<p>For solving this question from scratch what you want to do is first figure out what the “rules” are. The clue in the question is that you need to find the first vowel in a word. We know we want to split the sentence up into words and then those words up into characters and then within those words you want to find the character that is the first vowel. This is the basic idea and what we must follow.</p>
+<p>It can be overwhelming at first but once you break it down it becomes much easier to get your head around.</p>
+<ol>
+<li>We start by telling the program what a vowel is. This is the most important part of louchebem.</li>
+</ol>
+<p>Lets write a method called <code>vowel</code> which takes one parameter of &lsquo;letter&rsquo;</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">vowel?</span>(letter)
+  <span style="color:#e6db74">%w[</span><span style="color:#e6db74">a e i o u</span><span style="color:#e6db74">]</span><span style="color:#f92672">.</span>include? letter
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p><code>%w</code> simply means that we are writing an array and using spaces between elements instead of commas. We then call <code>.include?</code> which will return a true or false if letter contains one of these letters (vowels).</p>
+<ol start="2">
+<li>Then write a method where we define the different suffixes and also tell it to not translate one letter words. It takes one parameter, <code>word</code>.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">louchebemize_word</span>(word)
+  random_suffix <span style="color:#f92672">=</span> <span style="color:#e6db74">%w[</span><span style="color:#e6db74">em é ji oc ic uche ès</span><span style="color:#e6db74">]</span><span style="color:#f92672">.</span>sample
+  <span style="color:#66d9ef">return</span> word <span style="color:#66d9ef">if</span> word<span style="color:#f92672">.</span>size <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672"></span><span style="color:#75715e"># do not translate one-letter word</span>
+
+  <span style="color:#66d9ef">if</span> vowel? word<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672"></span><span style="color:#f92672">]</span>
+    <span style="color:#75715e"># word beginning with vowel</span>
+    <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">l</span><span style="color:#e6db74">#{</span>word<span style="color:#e6db74">}</span><span style="color:#e6db74">#{</span>random_suffix<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#75715e"># word beginning with vowel</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div><ul>
+<li>
+<p>Set the suffixes that will be appended to the ends of words. We do this by storing them in an array and then calling <code>.sample</code> on the array which will pick a random element from the array.</p>
+</li>
+<li>
+<p>Return the <code>word</code> if the word size is equal to one. <code>.size</code> will check the length of the word</p>
+</li>
+<li>
+<p>We now have an <code>if</code> statement which says that if the first letter is a vowel then we will add an <code>l</code> to the beginning and a suffix to the end. This is done by calling the <code>.vowel?</code> on the first index position in <code>word</code>. This will return true and then we return a string with an &lsquo;l&rsquo; at the front. We interpolate the <code>#{word}</code> and then add <code>#{random_suffix}</code> at the end.</p>
+</li>
+<li>
+<p>Our <code>else</code> statement needs to find where the first vowel is. Say the beginning is from [0] to the first vowel and the end is the first vowel to the total word length. Then it must return a string with all the variables together.</p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">else</span>
+  first_vowel_index <span style="color:#f92672">=</span> word<span style="color:#f92672">.</span>chars<span style="color:#f92672">.</span>index { <span style="color:#f92672">|</span>letter<span style="color:#f92672">|</span> vowel? letter }
+  beginning <span style="color:#f92672">=</span> word<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672"></span><span style="color:#f92672">...</span>first_vowel_index<span style="color:#f92672">]</span>
+  ending <span style="color:#f92672">=</span> word<span style="color:#f92672">[</span>first_vowel_index<span style="color:#f92672">...</span>word<span style="color:#f92672">.</span>size<span style="color:#f92672">]</span>
+  <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">l</span><span style="color:#e6db74">#{</span>ending<span style="color:#e6db74">}</span><span style="color:#e6db74">#{</span>beginning<span style="color:#e6db74">}</span><span style="color:#e6db74">#{</span>random_suffix<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+  <span style="color:#66d9ef">end</span>
+</code></pre></div><ul>
+<li>
+<p>For the <code>first_vowel_index</code> we call <code>.chars</code> on <code>word</code>. This will split up the word into individual elements. <code>.index</code> will then assign each letter an index. We can then use a block to say check if the letter is a vowel on each letter by calling the method <code>vowel?</code>.</p>
+</li>
+<li>
+<p>We then define the beginning as the first letter in <code>word</code> up to the <code>first_vowel_index</code>. This is done by using the <code>...</code>.</p>
+</li>
+<li>
+<p>We then define ending as the <code>first_vowel_index</code> to the end of the word. We do this by calling <code>word.size</code> which will find the total length of the word.</p>
+</li>
+</ul>
+<p>-From here we can use interpolation to build the string.</p>
+<p><code>&quot;l#{ending}#{beginning}#{random_suffix}&quot;</code></p>
+<p>Attach an <code>l</code> to the front and interpolate the ending, then beginning, then suffix.</p>
+<p>Here is the full method below</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">louchebemize_word</span>(word)
+  random_suffix <span style="color:#f92672">=</span> <span style="color:#e6db74">%w[</span><span style="color:#e6db74">em é ji oc ic uche ès</span><span style="color:#e6db74">]</span><span style="color:#f92672">.</span>sample
+  <span style="color:#66d9ef">return</span> word <span style="color:#66d9ef">if</span> word<span style="color:#f92672">.</span>size <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672"></span><span style="color:#75715e"># do not translate one-letter word</span>
+
+  <span style="color:#66d9ef">if</span> vowel? word<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672"></span><span style="color:#f92672">]</span>
+    <span style="color:#75715e"># word beginning with vowel</span>
+    <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">l</span><span style="color:#e6db74">#{</span>word<span style="color:#e6db74">}</span><span style="color:#e6db74">#{</span>random_suffix<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#75715e"># word beginning with vowel</span>
+  <span style="color:#66d9ef">else</span>
+    <span style="color:#75715e"># word beginning with 1 or more consonants</span>
+    first_vowel_index <span style="color:#f92672">=</span> word<span style="color:#f92672">.</span>chars<span style="color:#f92672">.</span>index { <span style="color:#f92672">|</span>letter<span style="color:#f92672">|</span> vowel? letter }
+    beginning <span style="color:#f92672">=</span> word<span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672"></span><span style="color:#f92672">...</span>first_vowel_index<span style="color:#f92672">]</span>
+    ending <span style="color:#f92672">=</span> word<span style="color:#f92672">[</span>first_vowel_index<span style="color:#f92672">...</span>word<span style="color:#f92672">.</span>size<span style="color:#f92672">]</span>
+    <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">l</span><span style="color:#e6db74">#{</span>ending<span style="color:#e6db74">}</span><span style="color:#e6db74">#{</span>beginning<span style="color:#e6db74">}</span><span style="color:#e6db74">#{</span>random_suffix<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+  <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>It is important to remember that the test file only uses one method when it runs the test and that will be our final method <code>louchebemize</code>. In the test file it <code>requires louchebemize</code> This allows it to access this method.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">louchebemize</span>(sentence)
+  result_elements <span style="color:#f92672">=</span> <span style="color:#f92672">[</span><span style="color:#f92672">]</span>
+  words <span style="color:#f92672">=</span> sentence<span style="color:#f92672">.</span>split(<span style="color:#e6db74">/</span><span style="color:#e6db74">\</span><span style="color:#e6db74">b</span><span style="color:#e6db74">/</span>)
+  words<span style="color:#f92672">.</span>each <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>word<span style="color:#f92672">|</span>
+    <span style="color:#66d9ef">if</span> word <span style="color:#f92672">=~</span> <span style="color:#e6db74">/</span><span style="color:#e6db74">\</span><span style="color:#e6db74">W</span><span style="color:#e6db74">/</span>
+      result_elements <span style="color:#f92672">&lt;&lt;</span> word
+    <span style="color:#66d9ef">else</span>
+      result_elements <span style="color:#f92672">&lt;&lt;</span> louchebemize_word(word)
+    <span style="color:#66d9ef">end</span>
+  <span style="color:#66d9ef">end</span>
+  <span style="color:#66d9ef">return</span> result_elements<span style="color:#f92672">.</span>join
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>This method takes one parameter and thats (sentence).</p>
+<ul>
+<li>
+<p>We begin by defining an empty array of <code>results_elements</code></p>
+</li>
+<li>
+<p>Next, we call <code>.split</code> on <code>sentence</code>. <code>/\b/</code> means that it wil split after whole words (ie. on spaces).</p>
+</li>
+<li>
+<p>We can iterate over words and then say that if the word is equal to any non word character then append the word into the <code>results_elements</code>. <code>=~</code>is Ruby&rsquo;s basic pattern-matching operator. When one operand is a regular expression and the other is a string then the regular expression is used as a pattern to match against the string. <code>/\W/</code> stands for any non word character.</p>
+</li>
+<li>
+<p>Our else statement says that all other words will have the <code>louchembemize</code> method called on them and appended into <code>result_elements</code></p>
+</li>
+<li>
+<p>We can then return the <code>result_elements.join</code>. <code>.join</code> builds the sentence by joining words with a space in between.</p>
+</li>
+</ul>
+
+</article>
+
+</div>
+
+
+  <section class="footer">
+    <div class="footer-container">
+      <p class="contact">
+        Feel free to get in contact
+      </p>
+      <div class="icons">
+        <a href="https://github.com/benmclaren" target="_blank">
+          <i class="fa fa-github"></i>
+        </a>
+
+        <a href="mailto:bmclaren01@gmail.com" target="_blank">
+          <i class="fa fa-paper-plane"></i>
+        </a>
+
+        <a href="https://twitter.com/bybenmclaren" target="_blank">
+          <i class="fa fa-twitter"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/ben-mclaren/" target="_blank">
+          <i class="fa fa-linkedin"></i>
+        </a>
+
+      </div>
+      <p>
+        ©benmclaren2020
+      </p>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cloudinary-core/2.3.0/cloudinary-core-shrinkwrap.min.js">
+  </script>
+  <script>
+    var cl = cloudinary.Cloudinary.new({
+      cloud_name: 'dy35n8sog'
+    });
+
+    cl.responsive()
+  </script>
+
+</body>
+</html>
+

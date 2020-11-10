@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ben McLaren</title>
+  
+  
+  <link rel="stylesheet" href="/css/main.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="blogo1.ico" type="image/x-icon">
+  <meta property="og:image" content="https://res.cloudinary.com/dy35n8sog/image/upload/v1578389845/Screenshot_2020-01-07_at_09.36.47_ehi2dt.png">
+  <link rel="shortcut icon" href="https://res.cloudinary.com/dy35n8sog/image/upload/v1578391731/blogo1_guumr5.ico" type="image/x-icon">
+</head>
+<body>
+
+<header class="header">
+  <div class="nav">
+    <a class="name" href="/index.html">Ben McLaren</a>
+    <a class="link" href="/articles">Articles</a>
+  </div>
+</header>
+
+
+
+
+
+<article class="page">
+  <div class="page-content">
+    <p class="page-title"> Translation </p>
+  <p>We are going to build a simple tool that will be able handle translations by checking to see if they are stored in the hash.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">STRINGS</span> <span style="color:#f92672">=</span> {
+  <span style="color:#e6db74">home</span>: {
+    <span style="color:#e6db74">intro</span>: {
+      <span style="color:#e6db74">en</span>: <span style="color:#e6db74">&#39;Welcome on Le Wagon&#39;</span>,
+      <span style="color:#e6db74">fr</span>: <span style="color:#e6db74">&#39;Bienvenue sur Le Wagon&#39;</span>,
+      <span style="color:#e6db74">de</span>: <span style="color:#e6db74">&#39;Wilkommen aus Le Wagon&#39;</span>
+    },
+    <span style="color:#e6db74">content</span>: {
+      <span style="color:#e6db74">explanation</span>: {
+        <span style="color:#e6db74">en</span>: <span style="color:#e6db74">&#39;This is an interesting exercise&#39;</span>,
+        <span style="color:#e6db74">fr</span>: <span style="color:#e6db74">&#39;C\&#39;est un exercice interessant&#39;</span>,
+        <span style="color:#e6db74">de</span>: <span style="color:#e6db74">&#39;Es ist eine interesante Übung&#39;</span>
+      },
+      <span style="color:#e6db74">goodbye</span>: {
+        <span style="color:#e6db74">en</span>: <span style="color:#e6db74">&#39;Goodbye&#39;</span>,
+        <span style="color:#e6db74">fr</span>: <span style="color:#e6db74">&#39;Au revoir&#39;</span>,
+        <span style="color:#e6db74">de</span>: <span style="color:#e6db74">&#39;Tchüss&#39;</span>
+      }
+    }
+  }
+}
+</code></pre></div><p>Here, we have our method <code>translation</code> which takes two arguments.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">translation</span>(a_string, a_language <span style="color:#f92672">=</span> <span style="color:#e6db74">:en</span>)
+  <span style="color:#75715e">#code here</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>The first argument is a string that describes the path through the keys separated by a dot (we assume no dots in keys), and the second argument is the language, which falls back to &lsquo;en&rsquo; as a default if one is either not provided or does not exist.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">translation(<span style="color:#e6db74">&#39;home.intro&#39;</span>, <span style="color:#e6db74">&#39;fr&#39;</span>) <span style="color:#75715e"># =&gt; &#39;Bienvenue sur Le Wagon&#39;</span>
+</code></pre></div><p>Here is our method which is able to return the correct translation from the hash.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">translation</span>(a_string, a_language <span style="color:#f92672">=</span> <span style="color:#e6db74">:en</span>)
+  keys <span style="color:#f92672">=</span> a_string<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">.</span><span style="color:#e6db74">&#34;</span>)
+  translation <span style="color:#f92672">=</span> <span style="color:#66d9ef">STRINGS</span>
+  keys<span style="color:#f92672">.</span>each <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>key<span style="color:#f92672">|</span>
+    translation <span style="color:#f92672">=</span> translation<span style="color:#f92672">[</span>key<span style="color:#f92672">.</span>to_sym<span style="color:#f92672">]</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">&#34;</span> <span style="color:#66d9ef">if</span> translation<span style="color:#f92672">.</span>nil?
+  <span style="color:#66d9ef">end</span>
+  <span style="color:#66d9ef">return</span> translation<span style="color:#f92672">[</span>a_language<span style="color:#f92672">.</span>to_sym<span style="color:#f92672">]</span> <span style="color:#f92672">||</span> translation<span style="color:#f92672">[</span><span style="color:#e6db74">:en</span><span style="color:#f92672">]</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div><ol>
+<li>
+<p>We start with calling <code>.split(&quot;.&quot;)</code> on the <code>a_string</code> passed in as an argument. The result of this is assigned to <code>keys</code>. This will give us an array of strings which have been seperated on the &ldquo;.&quot;.</p>
+</li>
+<li>
+<p>Next we assign our hash of srtings to the variable <code>translation</code></p>
+</li>
+<li>
+<p>We can now iterate over our new created array, <code>keys</code> using <code>.each</code>. For each <code>key</code> we say <code>translation</code> (our hash) is equal to adding a key to the hash and calling <code>.to_sym</code> to transform it into a symbol. We return <code>&quot;&quot;</code> if <code>translation</code> is not found. In other words, it does not have a relevant key.</p>
+</li>
+<li>
+<p>Finally, we return one of two options. Option one being it was able to find a translation for the key. Or we return option 2 which is no key was found and therefore it will revert back to english.</p>
+</li>
+</ol>
+
+</article>
+
+</div>
+
+
+  <section class="footer">
+    <div class="footer-container">
+      <p class="contact">
+        Feel free to get in contact
+      </p>
+      <div class="icons">
+        <a href="https://github.com/benmclaren" target="_blank">
+          <i class="fa fa-github"></i>
+        </a>
+
+        <a href="mailto:bmclaren01@gmail.com" target="_blank">
+          <i class="fa fa-paper-plane"></i>
+        </a>
+
+        <a href="https://twitter.com/bybenmclaren" target="_blank">
+          <i class="fa fa-twitter"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/ben-mclaren/" target="_blank">
+          <i class="fa fa-linkedin"></i>
+        </a>
+
+      </div>
+      <p>
+        ©benmclaren2020
+      </p>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cloudinary-core/2.3.0/cloudinary-core-shrinkwrap.min.js">
+  </script>
+  <script>
+    var cl = cloudinary.Cloudinary.new({
+      cloud_name: 'dy35n8sog'
+    });
+
+    cl.responsive()
+  </script>
+
+</body>
+</html>
+

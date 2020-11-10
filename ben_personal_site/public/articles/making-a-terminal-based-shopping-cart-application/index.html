@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ben McLaren</title>
+  
+  
+  <link rel="stylesheet" href="/css/main.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="blogo1.ico" type="image/x-icon">
+  <meta property="og:image" content="https://res.cloudinary.com/dy35n8sog/image/upload/v1578389845/Screenshot_2020-01-07_at_09.36.47_ehi2dt.png">
+  <link rel="shortcut icon" href="https://res.cloudinary.com/dy35n8sog/image/upload/v1578391731/blogo1_guumr5.ico" type="image/x-icon">
+</head>
+<body>
+
+<header class="header">
+  <div class="nav">
+    <a class="name" href="/index.html">Ben McLaren</a>
+    <a class="link" href="/articles">Articles</a>
+  </div>
+</header>
+
+
+
+
+
+<article class="page">
+  <div class="page-content">
+    <p class="page-title"> Making a terminal based shopping cart application </p>
+  <p><strong>Notes on the Le Wagon Symbols &amp; Hash Shopping Cart exercise</strong></p>
+<p>For this exercise we want to build a terminal based app that will allow us to views items in a store, add them to a list and then then return our list with the calculated prices.</p>
+<h1 id="the-interface">The Interface</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">require_relative <span style="color:#e6db74">&#39;store&#39;</span>
+require_relative <span style="color:#e6db74">&#39;cart&#39;</span>
+
+
+cart <span style="color:#f92672">=</span> <span style="color:#f92672">[</span><span style="color:#f92672">]</span>
+
+puts <span style="color:#e6db74">&#39;Here are the available products:&#39;</span>
+puts store_items_to_s
+
+
+<span style="color:#66d9ef">loop</span> <span style="color:#66d9ef">do</span>
+
+  puts <span style="color:#e6db74">&#39;What do you want to buy?&#39;</span>
+  product <span style="color:#f92672">=</span> gets<span style="color:#f92672">.</span>chomp<span style="color:#f92672">.</span>downcase
+
+
+  <span style="color:#66d9ef">break</span> <span style="color:#66d9ef">if</span> product <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;&#39;</span>
+
+  <span style="color:#66d9ef">if</span> product_in_store?(product)
+    add_to_cart(cart, product)
+  <span style="color:#66d9ef">else</span>
+
+    puts <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">We don&#39;t have any </span><span style="color:#e6db74">#{</span>product<span style="color:#e6db74">}</span><span style="color:#e6db74"> in store, sorry!</span><span style="color:#e6db74">&#34;</span>
+  <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+
+
+puts <span style="color:#e6db74">&#39;Here is your order:&#39;</span>
+
+puts cart_to_s(cart)
+
+total <span style="color:#f92672">=</span> cart_total_price(cart, store_items)
+puts <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Total price: </span><span style="color:#e6db74">#{</span>total<span style="color:#e6db74">}</span><span style="color:#e6db74">€</span><span style="color:#e6db74">&#34;</span>
+</code></pre></div><p>The interface has been given to us. All we need to do is to initalize <code>cart</code> as an empty an array so we can push items into it.</p>
+<p>We have two <code>puts</code> statements which talk to our users and also display the available store items by calling the method <code>store_items_to_s</code></p>
+<p>We next have a loop which will ask what product they want and get the user answer using <code>gets.chomp</code>. It will break if the answer is empty.</p>
+<p>An if statement checks to see if the product is in store and if it is it adds it to cart otherwise it <code>puts</code> an error message.</p>
+<p>It then displays the cart and total price by calling the <code>cart_total_price(cart, store_items)</code> method and passing in the correct arguments.</p>
+<h1 id="cart">Cart</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">add_to_cart</span>(cart, product)
+
+  cart <span style="color:#f92672">&lt;&lt;</span> product
+<span style="color:#66d9ef">end</span>
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">cart_to_s</span>(cart)
+
+  cart<span style="color:#f92672">.</span>join(<span style="color:#e6db74">&#39;, &#39;</span>)
+<span style="color:#66d9ef">end</span>
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">cart_total_price</span>(cart, store_items)
+
+  total <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+  <span style="color:#f92672"></span>cart<span style="color:#f92672">.</span>each <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>cart_item<span style="color:#f92672">|</span>
+    total <span style="color:#f92672">+=</span> store_items<span style="color:#f92672">[</span>cart_item<span style="color:#f92672">]</span> <span style="color:#66d9ef">if</span> store_items<span style="color:#f92672">[</span>cart_item<span style="color:#f92672">]</span>
+  <span style="color:#66d9ef">end</span>
+  <span style="color:#66d9ef">return</span> total
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>Here we have the three methods which are called.</p>
+<ul>
+<li>
+<p><code>add_to_cart</code> = simpy adds the product into the cart with the &laquo; (append) opperator.</p>
+</li>
+<li>
+<p><code>cart_to_s</code> = joins the items in the cart and seperates them with a comma.</p>
+</li>
+<li>
+<p><code>cart_total_price</code> = We set the total to 0. Then we iterate with <code>.each</code> and add and reassign to <code>total</code> the result of reading the <code>cart_item</code> in the <code>store_items</code> hash but only if it&rsquo;s true that the <code>store_items</code> contain the <code>cart_item</code>.</p>
+</li>
+</ul>
+<p>The <code>total</code> is then returned.</p>
+<h1 id="store">Store</h1>
+<p><em>This file contains methods related to your store and its supplies.</em>
+<em>You should complete it according to the instructions in the TODO comments</em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">store_items</span>
+  store <span style="color:#f92672">=</span> {
+    <span style="color:#e6db74">&#39;meat&#39;</span>        <span style="color:#f92672">=</span><span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">7</span><span style="color:#f92672"></span>,
+    <span style="color:#e6db74">&#39;potatoes&#39;</span>    <span style="color:#f92672">=</span><span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">2</span><span style="color:#f92672"></span>,
+    <span style="color:#e6db74">&#39;rice&#39;</span>        <span style="color:#f92672">=</span><span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span><span style="color:#f92672"></span>,
+    <span style="color:#e6db74">&#39;vegetables&#39;</span>  <span style="color:#f92672">=</span><span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">5</span><span style="color:#f92672"></span>,
+    <span style="color:#e6db74">&#39;yogurts&#39;</span>     <span style="color:#f92672">=</span><span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">2</span>
+  <span style="color:#f92672"></span>}
+
+  <span style="color:#66d9ef">return</span> store
+<span style="color:#66d9ef">end</span>
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">product_in_store?</span>(product)
+  store_items<span style="color:#f92672">.</span>key?(product)
+<span style="color:#66d9ef">end</span>
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">price_of_product</span>(product)
+  store_items<span style="color:#f92672">[</span>product<span style="color:#f92672">]</span>
+<span style="color:#66d9ef">end</span>
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">store_items_to_s</span>
+  items <span style="color:#f92672">=</span> <span style="color:#f92672">[</span><span style="color:#f92672">]</span>
+  store_items<span style="color:#f92672">.</span>each <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>store_item, price<span style="color:#f92672">|</span>
+    items <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">- </span><span style="color:#e6db74">#{</span>store_item<span style="color:#e6db74">}</span><span style="color:#e6db74">: </span><span style="color:#e6db74">#{</span>price<span style="color:#e6db74">}</span><span style="color:#e6db74"> €</span><span style="color:#e6db74">&#34;</span>
+  <span style="color:#66d9ef">end</span>
+
+  items<span style="color:#f92672">.</span>join(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+<span style="color:#66d9ef">end</span>
+</code></pre></div><ul>
+<li>
+<p><code>store_items</code> is a method that will simply return the items in the store and their prices. It is stored as a hash. This is called in the interface when it lists the items out.</p>
+</li>
+<li>
+<p><code>product_in_store?</code> takes one parameter of product, being the item the user types in. It then checks this against the hash to see if it exists. This is done with the <code>.key?</code> method.</p>
+</li>
+<li>
+<p><code>price_of_product</code> takes one parameter of product, being the item the user types in. It grabs the value of the product from the hash with the notation <code>store_items[product]</code>. (Check in the &lsquo;store_items&rsquo; to find it and get its price).</p>
+</li>
+<li>
+<p><code>store_items_to_s</code> does not take a parameter. It sets an empty array of items and interates over <code>store_items</code> with <code>.each</code>. It then appends the individual item and its associated price to the items array, using the append (<code>&lt;&lt;</code>) opperator.</p>
+</li>
+</ul>
+<p>Finally the items array has <code>.join</code> called on it which joins the items together and includeds a line break after each one which is denoted by <code>(&quot;\n&quot;)</code>.</p>
+
+</article>
+
+</div>
+
+
+  <section class="footer">
+    <div class="footer-container">
+      <p class="contact">
+        Feel free to get in contact
+      </p>
+      <div class="icons">
+        <a href="https://github.com/benmclaren" target="_blank">
+          <i class="fa fa-github"></i>
+        </a>
+
+        <a href="mailto:bmclaren01@gmail.com" target="_blank">
+          <i class="fa fa-paper-plane"></i>
+        </a>
+
+        <a href="https://twitter.com/bybenmclaren" target="_blank">
+          <i class="fa fa-twitter"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/ben-mclaren/" target="_blank">
+          <i class="fa fa-linkedin"></i>
+        </a>
+
+      </div>
+      <p>
+        ©benmclaren2020
+      </p>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cloudinary-core/2.3.0/cloudinary-core-shrinkwrap.min.js">
+  </script>
+  <script>
+    var cl = cloudinary.Cloudinary.new({
+      cloud_name: 'dy35n8sog'
+    });
+
+    cl.responsive()
+  </script>
+
+</body>
+</html>
+

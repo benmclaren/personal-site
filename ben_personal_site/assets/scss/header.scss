@@ -1,47 +1,57 @@
-.header {
-  margin: 0 auto;
-  padding-left: 16px;
-  padding-right: 16px;
-  position: fixed;
-  z-index: 50;
-  color: #1C1C21;
-  top: 0;
-  left: 0;
-  right: 0;
-  font-size: 16px;
-  background-color: #fff;
-  height: 43px;
-  border-bottom: 0.5px solid rgba(58, 58, 58, 0.55);
+// navigation
+.main-yellow-spot {
+  width: 48px;
+  height: 48px;
+  background-color: #DFF01F;
+  border-radius: 50%;
+
 }
 
-.name {
-  transition: 0.3s;
-  font-weight: 700;
-  letter-spacing: -1px;
-}
-
-.name:hover {
-  letter-spacing: 3px;
-}
-
-.link {
-  transition: 0.3s;
-  border-bottom: 1px solid #fff;
-}
-
-.link:hover {
-
-  border-bottom: 1px solid #1C1C20;
+.logo {
+  position: absolute;
+  top: 29px;
+  left: 16px;
 }
 
 .nav {
   display: flex;
   justify-content: space-between;
-  padding-top: 12px;
-
-  a {
-    text-decoration: none;
-    color: #1C1C21;
-  }
+  align-items: center;
+  position: relative;
 }
 
+// hamburger menu
+.ham {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 400ms;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.hamRotate.active {
+  transform: rotate(45deg);
+}
+.hamRotate180.active {
+  transform: rotate(180deg);
+}
+.line {
+  fill:none;
+  transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+  stroke:#000;
+  stroke-width:5.5;
+  stroke-linecap:round;
+}
+.ham1 .top {
+  stroke-dasharray: 40 139;
+}
+.ham1 .bottom {
+  stroke-dasharray: 40 180;
+}
+.ham1.active .top {
+  stroke-dashoffset: -98px;
+}
+.ham1.active .bottom {
+  stroke-dashoffset: -138px;
+}

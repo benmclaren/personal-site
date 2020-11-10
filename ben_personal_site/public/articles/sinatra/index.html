@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ben McLaren</title>
+  
+  
+  <link rel="stylesheet" href="/css/main.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="blogo1.ico" type="image/x-icon">
+  <meta property="og:image" content="https://res.cloudinary.com/dy35n8sog/image/upload/v1578389845/Screenshot_2020-01-07_at_09.36.47_ehi2dt.png">
+  <link rel="shortcut icon" href="https://res.cloudinary.com/dy35n8sog/image/upload/v1578391731/blogo1_guumr5.ico" type="image/x-icon">
+</head>
+<body>
+
+<header class="header">
+  <div class="nav">
+    <a class="name" href="/index.html">Ben McLaren</a>
+    <a class="link" href="/articles">Articles</a>
+  </div>
+</header>
+
+
+
+
+
+<article class="page">
+  <div class="page-content">
+    <p class="page-title"> Sinatra </p>
+  <p>We are going to build out a basic MVC application using the Sinatra framework. Sinatra is a Domain Specific Language (DSL) for creating web apps in Ruby. It follows the MVC pattern although in Sinatra&rsquo;s case there is an <code>app.rb</code> file which acts as the controller. The routing is handled by the framework itself. We can write routes in this <code>app.rb</code> file which allows Sinatra to map the URL in the browser to the correct method in the <code>app.rb</code> file.</p>
+<p>###So how does Sinatra work in practice?</p>
+<p>Let&rsquo;s assume that you have a basic project started which displays posts and has the ability to add a post. There are two models. A Post model and a User Model. The user model will have many posts and posts will belong to a user. We also have a database with some posts for us to display.</p>
+<p>###Adding first routes to <code>app.rb</code></p>
+<p>Inside of the <code>app.rb</code> file we can start writing our first route. We want to display all the posts on our homepage. Firstly, we can set up a new method which will be a <code>get</code> request which is used to request data. We want to set its path to the route of the site, so the route can be left as simply a <code>/</code>. We then need to grab all the posts from our database and can do this by using the <code>.all</code> method on our Post class. This is what we end up with:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Ruby" data-lang="Ruby">get <span style="color:#e6db74">&#39;/&#39;</span> <span style="color:#66d9ef">do</span>
+  <span style="color:#75715e"># 1. fetch posts from database</span>
+  posts <span style="color:#f92672">=</span> <span style="color:#66d9ef">Post</span><span style="color:#f92672">.</span>all
+  <span style="color:#75715e"># 2. Store these posts in an instance variable</span>
+  @posts <span style="color:#f92672">=</span> posts
+  erb <span style="color:#e6db74">:posts</span> <span style="color:#75715e"># Do not remove this line</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>Now, that we have set up the correct method in the <code>app.rb</code> file we need to actually display them on our page.</p>
+<p>For this, we can create a <code>posts.erb</code> file inside our views.</p>
+<p>This is the homepage of our site and where we need to display the posts. To do this we need to iterate over our <code>@posts</code> variable which we made in the controller method and then display what bots of data we want.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Ruby" data-lang="Ruby"><span style="color:#f92672">&lt;</span>ul<span style="color:#f92672">&gt;</span>
+  <span style="color:#f92672">&lt;</span><span style="color:#e6db74">% @posts.each </span> <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>post<span style="color:#f92672">|</span> <span style="color:#e6db74">%&gt;
+</span><span style="color:#e6db74">    &lt;li&gt;</span>
+      <span style="color:#f92672">&lt;</span>a href<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">&lt;%= post.url %&gt;</span><span style="color:#e6db74">&#34;</span> target<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">_blank</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">&lt;</span><span style="color:#f92672">%=</span> post<span style="color:#f92672">.</span>name <span style="color:#e6db74">%&gt;&lt;/a&gt;</span>
+    <span style="color:#f92672">&lt;</span><span style="color:#e6db74">/</span><span style="color:#e6db74">li&gt;
+</span><span style="color:#e6db74">  &lt;% end %&gt;
+</span><span style="color:#e6db74">&lt;</span><span style="color:#e6db74">/u</span>l<span style="color:#f92672">&gt;</span>
+</code></pre></div><p>We create an unordered list so that we can show them nicely. We iterate over our posts using <code>.each</code> and then on each line of our list we take the post url and the post name and display them. In this case they are also been made as a link.</p>
+<p>####What if we wanted to reorder our posts so that they were shown in order of how many votes they have?</p>
+<p>We can use something called scopes to do this. There is no need to worry about the most technical definition of scopes as often they are complicated. In simpler terms, all a scope is, is a method which you specify in the model and then you can call this method on instances of your model. For example, we want a method to reorder our posts.</p>
+<p>In our Post model we can say:</p>
+<p><code>scope :by_most_popular, -&gt; { order(votes: :desc) }</code></p>
+<p>We define that we are writing a scope and then we give the method a name, in this case <code>by_most_popular</code>. Next, we have a comma followed by an arrow. Now, we say what this method does. We are going to order something so we use the word order, which ruby understands. Then we say what we want to order. We want to order our <code>votes</code> by a descending order. It knows about votes as this is specified in the schema and <code>:desc</code> is built in to ruby and its how we say &lsquo;descending order&rsquo;.</p>
+<p>Now that we have made our scope we can add this into our method we just made. You can see that we can simply chain it with other methods, so now it grabs all posts and then orders them using our <code>by_most_popular</code> method.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Ruby" data-lang="Ruby">get <span style="color:#e6db74">&#39;/&#39;</span> <span style="color:#66d9ef">do</span>
+  <span style="color:#75715e"># 1. fetch posts from database</span>
+  <span style="color:#75715e"># Calling the scope method defined in the model to order then in descending order</span>
+  posts <span style="color:#f92672">=</span> <span style="color:#66d9ef">Post</span><span style="color:#f92672">.</span>all<span style="color:#f92672">.</span>by_most_popular
+  <span style="color:#75715e"># 2. Store these posts in an instance variable</span>
+  @posts <span style="color:#f92672">=</span> posts
+
+  erb <span style="color:#e6db74">:posts</span> <span style="color:#75715e"># Do not remove this line</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div><h3 id="adding-in-complexity">Adding in complexity</h3>
+<p>In order to add in the ability to create a post, we need to add in a new route to <code>app.rb</code>. We are still on the homepage so we the route of our post can remain as <code>/</code>, exactly like the last method. However, this time, we are making a post request. This is what we use when we want to send data to a server.</p>
+<p>Ultimately we will have a form on the homepage where the user can input the details of the post they want to add and then in our method we will grab these details and use them to create a new post.</p>
+<p>Let&rsquo;s start with the method.</p>
+<p>We define a new instance variable equal <code>@post</code> which is equal to creating a new post with <code>Post.new</code></p>
+<p>Then we target the name of the new post with <code>@post.name</code> and assign this to <code>params[:name]</code>. Params is something which we will have access to once the input types the data in the form. The params are contained inside a hash and they will have a name and a url in them as this is whats required to make a new post. Therefore we can grab the url by doing the same as we did for the name but switching out the word name for url.</p>
+<p>The post also needs a user so we will assign it to the first user in our database.</p>
+<p>Lastly, we save it, using the <code>.save</code> method.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Ruby" data-lang="Ruby">  post <span style="color:#e6db74">&#39;/&#39;</span> <span style="color:#66d9ef">do</span>
+    @post <span style="color:#f92672">=</span> <span style="color:#66d9ef">Post</span><span style="color:#f92672">.</span>new
+    @post<span style="color:#f92672">.</span>name <span style="color:#f92672">=</span> params<span style="color:#f92672">[</span><span style="color:#e6db74">:name</span><span style="color:#f92672">]</span>
+    @post<span style="color:#f92672">.</span>url <span style="color:#f92672">=</span> params<span style="color:#f92672">[</span><span style="color:#e6db74">:url</span><span style="color:#f92672">]</span>
+    @post<span style="color:#f92672">.</span>user <span style="color:#f92672">=</span> <span style="color:#66d9ef">User</span><span style="color:#f92672">.</span>first
+    @post<span style="color:#f92672">.</span>save
+  <span style="color:#66d9ef">end</span>
+</code></pre></div><p>We have grabbed all the data and saved the post but we need to do something with this post.</p>
+<p>Still inside the method, we can write an if statement.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Ruby" data-lang="Ruby">  <span style="color:#66d9ef">if</span> @post<span style="color:#f92672">.</span>save
+    redirect to(<span style="color:#e6db74">&#39;/&#39;</span>)
+  <span style="color:#66d9ef">else</span>
+    erb <span style="color:#e6db74">:new_post</span>
+  <span style="color:#66d9ef">end</span>
+</code></pre></div><p>This says if the post successfully saves then redirect to the homepage. If it does not save then redirect to another page. This other page could just be a page where you show the error as to why it did not work.</p>
+<p>The method is now set up but we need to add the form in on the homepage to be able to add a post.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Ruby" data-lang="Ruby">  <span style="color:#f92672">&lt;</span>form action<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">/</span><span style="color:#e6db74">&#34;</span> method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">POST</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;</span>label <span style="color:#66d9ef">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">name</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#66d9ef">Post</span> name<span style="color:#f92672">&lt;</span><span style="color:#e6db74">/</span><span style="color:#e6db74">label&gt;
+</span><span style="color:#e6db74">    &lt;input type=&#34;text&#34; name=&#34;name&#34; value=&#34;&lt;%= params[:name] %&gt;&#34;</span><span style="color:#e6db74">/</span><span style="color:#f92672">&gt;</span>
+
+    <span style="color:#f92672">&lt;</span>label <span style="color:#66d9ef">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">url</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#66d9ef">URL</span><span style="color:#f92672">&lt;</span><span style="color:#e6db74">/</span><span style="color:#e6db74">label&gt;
+</span><span style="color:#e6db74">    &lt;input type=&#34;text&#34; name=&#34;url&#34; value=&#34;&lt;%= params[:url] %&gt;&#34;</span><span style="color:#e6db74">/</span><span style="color:#f92672">&gt;</span>
+
+    <span style="color:#f92672">&lt;</span>input type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">submit</span><span style="color:#e6db74">&#34;</span> value<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Add</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">/</span><span style="color:#f92672">&gt;</span>
+  <span style="color:#f92672">&lt;</span><span style="color:#e6db74">/</span><span style="color:#e6db74">form&gt;
+</span></code></pre></div><p>We create an HTML form on our homepage.</p>
+<p>The action of the form is the path where the submit button is going to go to.
+we also define the method type which is a POST</p>
+<p>Once the user has entered the values we have access to them in the params
+and we can grab the name and the url from the params and assign that as the value.</p>
+<p>The last thing to do to allow our post to be created is to add a line to our home get method.</p>
+<p><code>@post = Post.new</code></p>
+<p>This should be added at the bottom of our get method so that once the data is collected by the form, a new post is generated by the post method then the get method can use that instance variable <code>@post</code> and create a new post with it.</p>
+<h4 id="adding-ability-to-vote">Adding ability to vote</h4>
+<p>The final feature we will introduce is the ability to upvote a post. Much like submitting a post, we will need to write a new method to handle what happens when a user clicks on vote and will also need to introduce something into our view which the user can interact with.</p>
+<p>Let&rsquo;s start by writing out the method in the <code>app.rb</code> file.</p>
+<p>This time we want to use a PUT method.</p>
+
+</article>
+
+</div>
+
+
+  <section class="footer">
+    <div class="footer-container">
+      <p class="contact">
+        Feel free to get in contact
+      </p>
+      <div class="icons">
+        <a href="https://github.com/benmclaren" target="_blank">
+          <i class="fa fa-github"></i>
+        </a>
+
+        <a href="mailto:bmclaren01@gmail.com" target="_blank">
+          <i class="fa fa-paper-plane"></i>
+        </a>
+
+        <a href="https://twitter.com/bybenmclaren" target="_blank">
+          <i class="fa fa-twitter"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/ben-mclaren/" target="_blank">
+          <i class="fa fa-linkedin"></i>
+        </a>
+
+      </div>
+      <p>
+        ©benmclaren2020
+      </p>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cloudinary-core/2.3.0/cloudinary-core-shrinkwrap.min.js">
+  </script>
+  <script>
+    var cl = cloudinary.Cloudinary.new({
+      cloud_name: 'dy35n8sog'
+    });
+
+    cl.responsive()
+  </script>
+
+</body>
+</html>
+

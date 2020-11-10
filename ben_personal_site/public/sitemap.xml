@@ -4,16 +4,126 @@
   
   <url>
     <loc>/articles/</loc>
-    <lastmod>2019-02-19T11:00:16+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/articles/how-to-make-a-paralax-effect/</loc>
-    <lastmod>2019-02-19T11:00:16+00:00</lastmod>
+    <lastmod>2020-07-20T14:24:01+01:00</lastmod>
   </url>
   
   <url>
     <loc>/</loc>
+    <lastmod>2020-07-20T14:24:01+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/articles/sinatra/</loc>
+    <lastmod>2020-07-20T14:24:01+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/articles/cookbook2/</loc>
+    <lastmod>2020-04-19T14:38:32+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/articles/making-a-basic-mvc-terminal-application/</loc>
+    <lastmod>2020-04-16T15:09:41+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/articles/how-to-make-a-horizontal-scrollbar-that-moves-as-you-scroll/</loc>
+    <lastmod>2020-02-08T15:31:11+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/articles/search-engine-optimization-in-rails/</loc>
+    <lastmod>2020-02-04T17:48:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/articles/getting-the-hang-of-active-record/</loc>
+    <lastmod>2020-01-31T16:23:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/articles/how-to-make-a-countdown-style-terminal-game/</loc>
+    <lastmod>2020-01-20T21:02:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/articles/iterating-over-a-csv-file-to-return-specific-information/</loc>
+    <lastmod>2020-01-20T19:17:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/articles/translation/</loc>
+    <lastmod>2020-01-19T16:36:01+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/articles/analyzing-a-database-with-.match/</loc>
+    <lastmod>2020-01-19T14:58:14+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/articles/how-to-iterate-over-a-text-file-and-return-specific-information/</loc>
+    <lastmod>2020-01-19T12:47:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/articles/how-to-check-anagrams-using-regex/</loc>
+    <lastmod>2020-01-18T18:50:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/articles/refactoring-code/</loc>
+    <lastmod>2020-01-15T15:30:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/articles/making-a-terminal-based-shopping-cart-application/</loc>
+    <lastmod>2020-01-14T16:56:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/articles/converting-an-array-of-strings-into-grouped-arrays/</loc>
+    <lastmod>2020-01-14T16:31:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/articles/how-to-translate-a-roman-numeral-into-its-letter/</loc>
+    <lastmod>2020-01-14T14:09:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/articles/what-are-proc-objects-and-how-they-are-used/</loc>
+    <lastmod>2020-01-14T11:23:38+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/articles/transforming-an-array-into-a-hash/</loc>
+    <lastmod>2020-01-14T10:19:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/articles/how-to-make-a-translator-for-parisian-slang-louchebem/</loc>
+    <lastmod>2020-01-13T15:00:56+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/articles/how-to-split-arrays/</loc>
+    <lastmod>2020-01-13T14:16:58+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/articles/using-blocks-with-yield/</loc>
+    <lastmod>2020-01-13T12:07:53+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/articles/accessing-data-and-using-methods-with-hashes/</loc>
+    <lastmod>2020-01-13T11:25:35+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/articles/how-to-make-a-paralax-effect/</loc>
     <lastmod>2019-02-19T11:00:16+00:00</lastmod>
   </url>
   

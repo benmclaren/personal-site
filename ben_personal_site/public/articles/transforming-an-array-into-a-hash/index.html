@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ben McLaren</title>
+  
+  
+  <link rel="stylesheet" href="/css/main.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="blogo1.ico" type="image/x-icon">
+  <meta property="og:image" content="https://res.cloudinary.com/dy35n8sog/image/upload/v1578389845/Screenshot_2020-01-07_at_09.36.47_ehi2dt.png">
+  <link rel="shortcut icon" href="https://res.cloudinary.com/dy35n8sog/image/upload/v1578391731/blogo1_guumr5.ico" type="image/x-icon">
+</head>
+<body>
+
+<header class="header">
+  <div class="nav">
+    <a class="name" href="/index.html">Ben McLaren</a>
+    <a class="link" href="/articles">Articles</a>
+  </div>
+</header>
+
+
+
+
+
+<article class="page">
+  <div class="page-content">
+    <p class="page-title"> Transforming an Array into a Hash </p>
+  <p><strong>Notes on the Le Wagon Hash &amp; Symbols Array to Hash exercise</strong></p>
+<p>We want to write a method that takes an array as an argument and will convert it into a hash.</p>
+<p>Our method should do the following:</p>
+<ul>
+<li>If no block is given, then the hash keys should just be integer indexes of elements in the array, converted as Strings.</li>
+<li>If a block is given, call it, passing the array index and use what’s returned as the hash key.</li>
+</ul>
+<p>This the code that we would need to perform this.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">array_to_hash</span>(array)
+  hash <span style="color:#f92672">=</span> {}                                        <span style="color:#f92672">*</span>create empty hash<span style="color:#f92672">*</span>
+  array<span style="color:#f92672">.</span>each_with_index <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>item, index<span style="color:#f92672">|</span>           <span style="color:#f92672">*</span><span style="color:#66d9ef">loop</span> over array<span style="color:#f92672">*</span>
+    key <span style="color:#f92672">=</span> block_given? ? <span style="color:#66d9ef">yield</span>(index) : index<span style="color:#f92672">.</span>to_s <span style="color:#f92672">*</span>ternary to set the key <span style="color:#66d9ef">in</span> both cases<span style="color:#f92672">*</span>
+    hash<span style="color:#f92672">[</span>key<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> item                               <span style="color:#f92672">*</span>set the <span style="color:#66d9ef">new</span> key<span style="color:#f92672">/</span>value pair<span style="color:#f92672">*</span>
+  <span style="color:#66d9ef">end</span>
+  <span style="color:#66d9ef">return</span> hash                                      <span style="color:#f92672">*</span><span style="color:#66d9ef">return</span> built hash<span style="color:#f92672">*</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>Lets go through it step by step.</p>
+<ol>
+<li>
+<p>Firstly,  we define our method <code>array_to_hash</code> which takes one parameter, an array.</p>
+</li>
+<li>
+<p>We create our hash variable and set it to an empty hash with the <code>{}</code></p>
+</li>
+<li>
+<p>Next, we loop over the array using <code>.each_with_index</code>. This takes two arguments, the individual item and will also assign each item an index value.</p>
+</li>
+</ol>
+<p>4.We use a ternary to set the key in both cases. Each case reffering to if a block has been given or not. <code>block_given?</code> simply means that it will return true if a block has been given and will subsequently call the block using yield, giving yield the parameter of index. If <code>block_given?</code> returns false then the index will be converted to a string by calling <code>.to_s</code>.</p>
+<p>For example:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">array_to_hash(<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672"></span>,<span style="color:#ae81ff">2</span><span style="color:#f92672"></span>,<span style="color:#ae81ff">3</span><span style="color:#f92672"></span><span style="color:#f92672">]</span>) <span style="color:#66d9ef">do</span>
+  <span style="color:#75715e"># code here</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>Here we have called <code>array_to_hash</code> with a block so it will return true.</p>
+<p>However, if we do not call it with a block and instead just give an array as the argument then it will return false.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">array_to_hash(<span style="color:#f92672">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672"></span>,<span style="color:#ae81ff">2</span><span style="color:#f92672"></span>,<span style="color:#ae81ff">3</span><span style="color:#f92672"></span><span style="color:#f92672">]</span>)
+</code></pre></div><p>The results of this are then assigned to the variable <code>key</code>.</p>
+<ol start="5">
+<li>Finally, we can update our hash with the new content. This is done by selecting our current empty hash, selecting all of the keys using the [] notation and then assigning them to the various items that we have.</li>
+</ol>
+<p><code>hash[key] = item</code></p>
+<p>We then return the hash.</p>
+
+</article>
+
+</div>
+
+
+  <section class="footer">
+    <div class="footer-container">
+      <p class="contact">
+        Feel free to get in contact
+      </p>
+      <div class="icons">
+        <a href="https://github.com/benmclaren" target="_blank">
+          <i class="fa fa-github"></i>
+        </a>
+
+        <a href="mailto:bmclaren01@gmail.com" target="_blank">
+          <i class="fa fa-paper-plane"></i>
+        </a>
+
+        <a href="https://twitter.com/bybenmclaren" target="_blank">
+          <i class="fa fa-twitter"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/ben-mclaren/" target="_blank">
+          <i class="fa fa-linkedin"></i>
+        </a>
+
+      </div>
+      <p>
+        ©benmclaren2020
+      </p>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cloudinary-core/2.3.0/cloudinary-core-shrinkwrap.min.js">
+  </script>
+  <script>
+    var cl = cloudinary.Cloudinary.new({
+      cloud_name: 'dy35n8sog'
+    });
+
+    cl.responsive()
+  </script>
+
+</body>
+</html>
+

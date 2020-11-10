@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ben McLaren</title>
+  
+  
+  <link rel="stylesheet" href="/css/main.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="blogo1.ico" type="image/x-icon">
+  <meta property="og:image" content="https://res.cloudinary.com/dy35n8sog/image/upload/v1578389845/Screenshot_2020-01-07_at_09.36.47_ehi2dt.png">
+  <link rel="shortcut icon" href="https://res.cloudinary.com/dy35n8sog/image/upload/v1578391731/blogo1_guumr5.ico" type="image/x-icon">
+</head>
+<body>
+
+<header class="header">
+  <div class="nav">
+    <a class="name" href="/index.html">Ben McLaren</a>
+    <a class="link" href="/articles">Articles</a>
+  </div>
+</header>
+
+
+
+
+
+<article class="page">
+  <div class="page-content">
+    <p class="page-title"> How to make a horizontal scrollbar that moves as you scroll </p>
+  <p>We are going to make a scrollbar that will scroll horizontally as the user scrolls vertically down the page. This is a nice feature to have especially on longer pages as you can quickly display to the user how far through an article they are.</p>
+<p>We need to use JQuery for this so make sure that you have imported the JQuery library. See this site as a demonstration of what we are going to build. <a href="https://interior-weekly-237.superhi.com/">Example Site</a></p>
+<p><strong>To start, let&rsquo;s set out our HTML</strong></p>
+<p>We only require two divs.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-HTML" data-lang="HTML">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;progress&#34;</span>&gt;
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;bar&#34;</span>&gt;
+  &lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+</code></pre></div><p>The div with the class <code>progress</code> will be fixed to the top of our screen and will always be visible as we scroll. Inside of this we have a div with the class <code>bar</code>. This is going to be for the actual bar itself which we will move as we scroll.</p>
+<p><strong>Set up our CSS</strong></p>
+<p>For our first <code>progress</code> div we need to fix its position to the top of the page using <code>position: fixed;</code> and <code>top: 0;</code>, <code>left: 0;</code>. Then we need to give it a width of 100% so that it stretches across the page.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-CSS" data-lang="CSS">.<span style="color:#a6e22e">progress</span> {
+  <span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">fixed</span>;
+  <span style="color:#66d9ef">top</span>: <span style="color:#ae81ff">0</span>;
+  <span style="color:#66d9ef">left</span>: <span style="color:#ae81ff">0</span>;
+  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
+}
+</code></pre></div><p>The <code>bar</code> div is the one we will modify and therefore we need to position it at the top of our page but this time give it a width of 0 as this is what we will change with javascript. We also need to give it a height and a color so that we can see it.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-CSS" data-lang="CSS">.<span style="color:#a6e22e">bar</span> {
+  <span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">absolute</span>;
+  <span style="color:#66d9ef">top</span>: <span style="color:#ae81ff">0</span>;
+  <span style="color:#66d9ef">left</span>: <span style="color:#ae81ff">0</span>;
+  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">0</span>;
+  <span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">3</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">background-color</span>: <span style="color:#66d9ef">blue</span>;
+}
+</code></pre></div><ol>
+<li>We start by defining a function that says, on scroll, run the following code. We can do this by using the <code>$</code> sign to select the <code>document</code> then say on scroll perform the function.</li>
+</ol>
+<p>Inside our function we can set a variable called <code>pixelsFromTop</code>. This is equal to us calling the <code>scrollTop</code> method on the entire document. The scrollTop method gives us back a pixel value for how far it is to the top from our current scroll position.</p>
+<p>We also need to set the <code>documentHeight</code> and <code>windowHeight</code> so that our scroll bar has some measurements to use. We can again use the <code>$</code> to select the document and window respectively and use the method <code>.height</code> to find their heights. The document refers to the entire webpage where as the window refers to the viewable area at that current time.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">$</span>(document).<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;scroll&#39;</span>, <span style="color:#66d9ef">function</span>() {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">pixelsFromTop</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$</span>(document).<span style="color:#a6e22e">scrollTop</span>()
+
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">documentHeight</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$</span>(document).<span style="color:#a6e22e">height</span>()
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">windowHeight</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$</span>(window).<span style="color:#a6e22e">height</span>()    
+})  
+</code></pre></div><ol start="2">
+<li>Now we need to figure out how far down the page we have scrolled. To do this we need to make some calculations.</li>
+</ol>
+<p>We can add in two more variables. The first is the difference. This is equal to the the result of subtracting the document height from the window height.</p>
+<p>Next, we need to get a percentage value so that we can adjust the width of the scroll bar accordingly. To do this we can divide the amount of pixels we are from the top of our document by the height of the current window. This is then multiplied to achieve a percentage value.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">$</span>(document).<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;scroll&#39;</span>, <span style="color:#66d9ef">function</span>() {
+
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">pixelsFromTop</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$</span>(document).<span style="color:#a6e22e">scrollTop</span>()
+
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">documentHeight</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$</span>(document).<span style="color:#a6e22e">height</span>()
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">windowHeight</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$</span>(window).<span style="color:#a6e22e">height</span>()          
+
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">difference</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">documentHeight</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">windowHeight</span>
+
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">percentage</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">pixelsFromTop</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">difference</span>
+})
+</code></pre></div><ol start="3">
+<li>The final step is to add in some code to actually alter our width value on the progress bar. We can select the class of <code>.bar</code> and then tell it to find a css property called <code>width</code> (using .css). Then we say change the width to be our <code>percentage</code> value. However, we need to add in a <code>+ '%'</code>. This is in order to tell it to use a percentage value and not a pixel value which it assumes you are using by default.</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">  <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;.bar&#39;</span>).<span style="color:#a6e22e">css</span>(<span style="color:#e6db74">&#39;width&#39;</span>, <span style="color:#a6e22e">percentage</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;%&#39;</span>)  
+</code></pre></div><p>The full code below</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">$</span>(document).<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;scroll&#39;</span>, <span style="color:#66d9ef">function</span>() {
+
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">pixelsFromTop</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$</span>(document).<span style="color:#a6e22e">scrollTop</span>()
+
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">documentHeight</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$</span>(document).<span style="color:#a6e22e">height</span>()
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">windowHeight</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$</span>(window).<span style="color:#a6e22e">height</span>()          
+
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">difference</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">documentHeight</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">windowHeight</span>
+
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">percentage</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">pixelsFromTop</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">difference</span>
+
+
+  <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;.bar&#39;</span>).<span style="color:#a6e22e">css</span>(<span style="color:#e6db74">&#39;width&#39;</span>, <span style="color:#a6e22e">percentage</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;%&#39;</span>)  
+})  
+</code></pre></div><p>And that&rsquo;s it! You now have a beautiful scroll bar at the top of your page.</p>
+
+</article>
+
+</div>
+
+
+  <section class="footer">
+    <div class="footer-container">
+      <p class="contact">
+        Feel free to get in contact
+      </p>
+      <div class="icons">
+        <a href="https://github.com/benmclaren" target="_blank">
+          <i class="fa fa-github"></i>
+        </a>
+
+        <a href="mailto:bmclaren01@gmail.com" target="_blank">
+          <i class="fa fa-paper-plane"></i>
+        </a>
+
+        <a href="https://twitter.com/bybenmclaren" target="_blank">
+          <i class="fa fa-twitter"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/ben-mclaren/" target="_blank">
+          <i class="fa fa-linkedin"></i>
+        </a>
+
+      </div>
+      <p>
+        ©benmclaren2020
+      </p>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cloudinary-core/2.3.0/cloudinary-core-shrinkwrap.min.js">
+  </script>
+  <script>
+    var cl = cloudinary.Cloudinary.new({
+      cloud_name: 'dy35n8sog'
+    });
+
+    cl.responsive()
+  </script>
+
+</body>
+</html>
+

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ben McLaren</title>
+  
+  
+  <link rel="stylesheet" href="/css/main.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="blogo1.ico" type="image/x-icon">
+  <meta property="og:image" content="https://res.cloudinary.com/dy35n8sog/image/upload/v1578389845/Screenshot_2020-01-07_at_09.36.47_ehi2dt.png">
+  <link rel="shortcut icon" href="https://res.cloudinary.com/dy35n8sog/image/upload/v1578391731/blogo1_guumr5.ico" type="image/x-icon">
+</head>
+<body>
+
+<header class="header">
+  <div class="nav">
+    <a class="name" href="/index.html">Ben McLaren</a>
+    <a class="link" href="/articles">Articles</a>
+  </div>
+</header>
+
+
+
+
+
+<article class="page">
+  <div class="page-content">
+    <p class="page-title"> How to make a &#39;countdown&#39; style terminal game </p>
+  <p><strong>Notes on the Le Wagon Parsing Numbers and Letters exercise</strong></p>
+<p>The goal of this challenge is to write a simplified version of the game &lsquo;countdown&rsquo; from the terminal where:</p>
+<ul>
+<li>You are given a random set of letters.</li>
+<li>You have to enter the longest english word you can find using only letters in the grid.</li>
+<li>After typing your answer, you get your score combined with the time you took, and eventually an error message if you failed.</li>
+</ul>
+<p>This exercise is easily seen as being overwhelming at first but if we break it down into stages it will become much clearer.</p>
+<p>We have two files for this. The first file is our file &lsquo;longest_word.rb&rsquo; where we will define all our methods needed to build this mini game. Our second file is our <code>interface.rb</code>. This is where we will interact with the user and get their input.</p>
+<p>As we go through this challenge we will write a method and then introduce the code required in the interface asscoiated with the method.</p>
+<p><strong>Set up</strong></p>
+<p>To start with we need to put these at the start of our <code>longest_word.rb</code> file</p>
+<ul>
+<li><code>require 'open-uri'</code> -&gt; Allows it to open an http, https or ftp URL as though it were a file.</li>
+<li><code>require 'json'</code> -&gt; It provides an API for parsing JSON</li>
+</ul>
+<p>We need a <code>require_relative &quot;longest_word&quot;</code> at the top of our <code>interface.rb</code> file so that it can access the methods in the <code>longest_word.rb</code> file.</p>
+<p><strong>Generating the sample of numbers</strong></p>
+<p>Lets write a method which will create the list of letters that our user is able to pick from.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">generate_grid</span>(grid_size)
+   Array<span style="color:#f92672">.</span>new(grid_size) { (<span style="color:#e6db74">&#39;A&#39;</span><span style="color:#f92672">..</span><span style="color:#e6db74">&#39;Z&#39;</span>)<span style="color:#f92672">.</span>to_a<span style="color:#f92672">.</span>sample }
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>Here, we create a new array with <code>Array.new</code>. We give it an argument of <code>grid_size</code> and pass it a block to populate the array with. In this block we give it a range of capital letters from A-Z which we call <code>.to_a</code> on in order to transform it into an array. We also call <code>.sample</code> which will take a sample of <code>grid_size</code> letters from this range. In other words whatever number is given as the <code>grid_size</code> correlates to the amount of letters it will sample.</p>
+<p>We can now implement our first <code>interface.rb</code> logic which will interract with this method.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">puts <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">******** Welcome to the longest word-game!********</span><span style="color:#e6db74">&#34;</span>
+puts <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Here is your grid:</span><span style="color:#e6db74">&#34;</span>
+grid <span style="color:#f92672">=</span> generate_grid(<span style="color:#ae81ff">9</span><span style="color:#f92672"></span>)
+puts grid<span style="color:#f92672">.</span>join(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74"> </span><span style="color:#e6db74">&#34;</span>)
+puts <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">*****************************************************</span><span style="color:#e6db74">&#34;</span>
+</code></pre></div><p>Here, we simply <code>puts</code> a few statements to speak to our user. We then create a variable <code>grid</code>. This is equal to calling our <code>generate_grid</code> method and passing it the value of 9. Therefore the method will provide a sample of 9 letters.</p>
+<p>We have an important <code>puts</code> statement here of <code>grid.join(&quot; &quot;)</code>. This will simply join the sample of letters together with a space between all on one line. If we did not have this <code>.join</code> method they would display vertically in the terminal.</p>
+<p><strong>Checking to see if guess is included</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">included?</span>(guess, grid)
+  guess<span style="color:#f92672">.</span>chars<span style="color:#f92672">.</span>all? { <span style="color:#f92672">|</span>letter<span style="color:#f92672">|</span> guess<span style="color:#f92672">.</span>count(letter) <span style="color:#f92672">&lt;</span><span style="color:#f92672">=</span> grid<span style="color:#f92672">.</span>count(letter) }
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>This method <code>included?</code> takes two parameters of <code>guess</code> and <code>grid</code>.</p>
+<p>We call <code>.chars</code> on <code>guess</code> which will split the guess up into seperate characters. We also call <code>.all?</code> which will pass each element to the given block.</p>
+<p>In our block we call <code>.count(letter)</code> on <code>guess</code> with an argument of <code>letter</code>. This will count the amount of elements in the array which are equal to <code>letter</code>. We check to see if this is less than or equal to (&lt;=) the amount of times <code>letter</code> appears in <code>grid</code>.</p>
+<p><strong>Working out the score</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">compute_score</span>(attempt, time_taken)
+  time_taken <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">60</span><span style="color:#f92672"></span><span style="color:#f92672">.</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">?</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672"></span>: attempt<span style="color:#f92672">.</span>size <span style="color:#f92672">*</span> (<span style="color:#ae81ff">1</span><span style="color:#f92672"></span><span style="color:#f92672">.</span><span style="color:#ae81ff">0</span> <span style="color:#f92672"></span><span style="color:#f92672">-</span> time_taken <span style="color:#f92672">/</span> <span style="color:#ae81ff">60</span><span style="color:#f92672"></span><span style="color:#f92672">.</span><span style="color:#ae81ff">0</span><span style="color:#f92672"></span>)
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>This method <code>compute_score</code> takes two parameters of <code>attempt</code> and <code>time_taken</code>.</p>
+<p>Using a ternary operator here, we say is <code>time_taken</code> greater than 60 seconds. If it is then the score will be equal to 0. However, if it is, then perform this calculation. We say the size of the attempt (how many letters the user picked) multiplied by the sum of doing <code>(1.0 - time_taken / 60.0)</code>.</p>
+<p><strong>Checking to see if it is an english word</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">english_word?</span>(word)
+  response <span style="color:#f92672">=</span> open(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">https://wagon-dictionary.herokuapp.com/</span><span style="color:#e6db74">#{</span>word<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+  json <span style="color:#f92672">=</span> <span style="color:#66d9ef">JSON</span><span style="color:#f92672">.</span>parse(response<span style="color:#f92672">.</span>read)
+  <span style="color:#66d9ef">return</span> json<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;found&#39;</span><span style="color:#f92672">]</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>This method <code>english_word?</code> takes one parameter of <code>word</code>.</p>
+<p>We create a variable of <code>reponse</code>. This is equal to opening the given site with the <code>word</code> interpolated at the end. We use the <code>open</code> command for this.</p>
+<p>We create another variable called <code>json</code>. This is how we will use the JSON API. It allows us to recieve the data from the website. We give it an argument of <code>response.read</code>. This allows it to read the infomration but nothing else.</p>
+<p>We then return <code>json['found']</code>. This will return true or false depening on if the word was found in the dictionary or not.</p>
+<p><strong>Getting the user inputs for time and attempt</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">puts <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">What&#39;s your best shot?</span><span style="color:#e6db74">&#34;</span>
+start_time <span style="color:#f92672">=</span> <span style="color:#66d9ef">Time</span><span style="color:#f92672">.</span>now
+attempt <span style="color:#f92672">=</span> gets<span style="color:#f92672">.</span>chomp
+end_time <span style="color:#f92672">=</span> <span style="color:#66d9ef">Time</span><span style="color:#f92672">.</span>now
+</code></pre></div><p>We start with a <code>puts</code> statement which ask the user a question</p>
+<p>We then make three variables</p>
+<ul>
+<li>
+<p><code>start_time</code> which is equal to the time this starts</p>
+</li>
+<li>
+<p><code>attempt</code> which is equal to the input entered by the user</p>
+</li>
+<li>
+<p><code>end_time</code> which is equal to the time after this process has finished.</p>
+</li>
+</ul>
+<p><strong>Check to see if letters are included and if its an english word</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">score_and_message</span>(attempt, grid, time)
+  <span style="color:#66d9ef">if</span> included?(attempt<span style="color:#f92672">.</span>upcase, grid)
+    <span style="color:#66d9ef">if</span> english_word?(attempt)
+      score <span style="color:#f92672">=</span> compute_score(attempt, time)
+      <span style="color:#f92672">[</span>score, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">well done</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">]</span>
+    <span style="color:#66d9ef">else</span>
+      <span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672"></span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">not an english word</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">]</span>
+    <span style="color:#66d9ef">end</span>
+  <span style="color:#66d9ef">else</span>
+    <span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672"></span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">not in the grid</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">]</span>
+  <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>This method <code>score_and_message</code> this takes three parameters of <code>attempt</code>, <code>grid</code> and <code>time</code>.</p>
+<p>We start with an <code>if</code> statement which runs the method we wrote earlier <code>included?</code>. It passes it the required two variables of <code>attempt</code> and <code>grid</code>. We call <code>.upcase</code> on <code>attempt</code> in order to ensure the letters are all in capitals.</p>
+<p>Inside this <code>if</code> statement we check to see if it is an english word by calling the <code>english_word?</code>method and giving it the argument of <code>attempt</code> (the users guess). We then create a variable called <code>score</code> which is equal to running the <code>compute_score</code> method. We give it the arguments of <code>attempt</code> and <code>time</code>. From this we generate an array. Inside this array we have the score in the first position and the message &ldquo;well done&rdquo; in the last position. Our else statement (If its not an english word) generates an array with <code>0</code> as the score and <code>&quot;not an english word&quot;</code> as the message.</p>
+<p>The else statement for if it is inside the grid or not also generates an array which contains a <code>0</code> as the score and <code>&quot;not in the grid&quot;</code> as the message.</p>
+<p><strong>Final method to run the game</strong></p>
+<p>Our final method is the method that brings everything together so that we can play our game.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">run_game</span>(attempt, grid, start_time, end_time)
+  result <span style="color:#f92672">=</span> { <span style="color:#e6db74">time</span>: end_time <span style="color:#f92672">-</span> start_time }
+
+  score_and_message <span style="color:#f92672">=</span> score_and_message(attempt, grid, result<span style="color:#f92672">[</span><span style="color:#e6db74">:time</span><span style="color:#f92672">]</span>)
+  result<span style="color:#f92672">[</span><span style="color:#e6db74">:score</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> score_and_message<span style="color:#f92672">.</span>first
+  result<span style="color:#f92672">[</span><span style="color:#e6db74">:message</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> score_and_message<span style="color:#f92672">.</span>last
+
+  result
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>This method of <code>run_game</code> takes three parameters of <code>attempt</code>, <code>grid</code>, <code>start_time</code> and <code>end_time</code></p>
+<p>We start by creating a hash called <code>result</code>. Inside this hash we have one key of <code>time:</code> and its value of <code>end_time - start_time</code>.</p>
+<p>We then add a new key into our hash which is called <code>result[:score]</code>. This is equal to running the <code>score_and_message</code> method and selecting the first element in the returned array (the score).</p>
+<p>We add another key into our hash which is called <code>result[:message]</code>. This is equal to his is equal to running the <code>score_and_message</code> method and selecting the last element in the returned array (the message).</p>
+<p>We end by returning result which included all this data.</p>
+<p><strong>Displaying result to the user</strong></p>
+<p>Our last thing needed for the interface is how we display this information to the user.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">puts <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">******** Now your result ********</span><span style="color:#e6db74">&#34;</span>
+
+result <span style="color:#f92672">=</span> run_game(attempt, grid, start_time, end_time)
+
+puts <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Your word: </span><span style="color:#e6db74">#{</span>attempt<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+puts <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Time Taken to answer: </span><span style="color:#e6db74">#{</span>result<span style="color:#f92672">[</span><span style="color:#e6db74">:time</span><span style="color:#f92672">]</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+puts <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Your score: </span><span style="color:#e6db74">#{</span>result<span style="color:#f92672">[</span><span style="color:#e6db74">:score</span><span style="color:#f92672">]</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+puts <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Message: </span><span style="color:#e6db74">#{</span>result<span style="color:#f92672">[</span><span style="color:#e6db74">:message</span><span style="color:#f92672">]</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+
+puts <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">*****************************************************</span><span style="color:#e6db74">&#34;</span>
+</code></pre></div><p>We set <code>result</code> as equal to running the <code>run_game</code> method and passing in the required variables.</p>
+<p>We lastly have four <code>puts</code> statements which return the information from <code>result</code> by interpolating the arguments and selecting the relevant keys.</p>
+<p><strong>Final code for <code>longest_word.rb</code></strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">require <span style="color:#e6db74">&#39;open-uri&#39;</span>
+require <span style="color:#e6db74">&#39;json&#39;</span>
+
+<span style="color:#75715e"># 1</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">generate_grid</span>(grid_size)
+  Array<span style="color:#f92672">.</span>new(grid_size) { (<span style="color:#e6db74">&#39;A&#39;</span><span style="color:#f92672">..</span><span style="color:#e6db74">&#39;Z&#39;</span>)<span style="color:#f92672">.</span>to_a<span style="color:#f92672">.</span>sample }
+<span style="color:#66d9ef">end</span>
+
+<span style="color:#75715e"># 2</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">included?</span>(guess, grid)
+  guess<span style="color:#f92672">.</span>chars<span style="color:#f92672">.</span>all? { <span style="color:#f92672">|</span>letter<span style="color:#f92672">|</span> guess<span style="color:#f92672">.</span>count(letter) <span style="color:#f92672">&lt;</span><span style="color:#f92672">=</span> grid<span style="color:#f92672">.</span>count(letter) }
+<span style="color:#66d9ef">end</span>
+
+<span style="color:#75715e"># 3</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">compute_score</span>(attempt, time_taken)
+  time_taken <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">60</span><span style="color:#f92672"></span><span style="color:#f92672">.</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">?</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672"></span>: attempt<span style="color:#f92672">.</span>size <span style="color:#f92672">*</span> (<span style="color:#ae81ff">1</span><span style="color:#f92672"></span><span style="color:#f92672">.</span><span style="color:#ae81ff">0</span> <span style="color:#f92672"></span><span style="color:#f92672">-</span> time_taken <span style="color:#f92672">/</span> <span style="color:#ae81ff">60</span><span style="color:#f92672"></span><span style="color:#f92672">.</span><span style="color:#ae81ff">0</span><span style="color:#f92672"></span>)
+<span style="color:#66d9ef">end</span>
+
+<span style="color:#75715e"># 4</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">english_word?</span>(word)
+  response <span style="color:#f92672">=</span> open(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">https://wagon-dictionary.herokuapp.com/</span><span style="color:#e6db74">#{</span>word<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+  json <span style="color:#f92672">=</span> <span style="color:#66d9ef">JSON</span><span style="color:#f92672">.</span>parse(response<span style="color:#f92672">.</span>read)
+  puts json<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;found&#39;</span><span style="color:#f92672">]</span>
+<span style="color:#66d9ef">end</span>
+
+<span style="color:#75715e"># 5</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">score_and_message</span>(attempt, grid, time)
+  <span style="color:#66d9ef">if</span> included?(attempt<span style="color:#f92672">.</span>upcase, grid)
+    <span style="color:#66d9ef">if</span> english_word?(attempt)
+      score <span style="color:#f92672">=</span> compute_score(attempt, time)
+      <span style="color:#f92672">[</span>score, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">well done</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">]</span>
+    <span style="color:#66d9ef">else</span>
+      <span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672"></span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">not an english word</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">]</span>
+    <span style="color:#66d9ef">end</span>
+  <span style="color:#66d9ef">else</span>
+    <span style="color:#f92672">[</span><span style="color:#ae81ff">0</span><span style="color:#f92672"></span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">not in the grid</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">]</span>
+  <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+
+<span style="color:#75715e"># 6</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">run_game</span>(attempt, gsrid, start_time, end_time)
+  result <span style="color:#f92672">=</span> { <span style="color:#e6db74">time</span>: end_time <span style="color:#f92672">-</span> start_time }
+
+  score_and_message <span style="color:#f92672">=</span> score_and_message(attempt, grid, result<span style="color:#f92672">[</span><span style="color:#e6db74">:time</span><span style="color:#f92672">]</span>)
+  result<span style="color:#f92672">[</span><span style="color:#e6db74">:score</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> score_and_message<span style="color:#f92672">.</span>first
+  result<span style="color:#f92672">[</span><span style="color:#e6db74">:message</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> score_and_message<span style="color:#f92672">.</span>last
+
+  result
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p><strong>Final code for <code>interface.rb</code></strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">require_relative <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">longest_word</span><span style="color:#e6db74">&#34;</span>
+
+puts <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">******** Welcome to the longest word-game!********</span><span style="color:#e6db74">&#34;</span>
+puts <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Here is your grid:</span><span style="color:#e6db74">&#34;</span>
+grid <span style="color:#f92672">=</span> generate_grid(<span style="color:#ae81ff">9</span><span style="color:#f92672"></span>)
+puts grid<span style="color:#f92672">.</span>join(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74"> </span><span style="color:#e6db74">&#34;</span>)
+puts <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">*****************************************************</span><span style="color:#e6db74">&#34;</span>
+
+puts <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">What&#39;s your best shot?</span><span style="color:#e6db74">&#34;</span>
+start_time <span style="color:#f92672">=</span> <span style="color:#66d9ef">Time</span><span style="color:#f92672">.</span>now
+attempt <span style="color:#f92672">=</span> gets<span style="color:#f92672">.</span>chomp
+end_time <span style="color:#f92672">=</span> <span style="color:#66d9ef">Time</span><span style="color:#f92672">.</span>now
+
+puts <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">******** Now your result ********</span><span style="color:#e6db74">&#34;</span>
+
+result <span style="color:#f92672">=</span> run_game(attempt, grid, start_time, end_time)
+
+puts <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Your word: </span><span style="color:#e6db74">#{</span>attempt<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+puts <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Time Taken to answer: </span><span style="color:#e6db74">#{</span>result<span style="color:#f92672">[</span><span style="color:#e6db74">:time</span><span style="color:#f92672">]</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+puts <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Your score: </span><span style="color:#e6db74">#{</span>result<span style="color:#f92672">[</span><span style="color:#e6db74">:score</span><span style="color:#f92672">]</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+puts <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Message: </span><span style="color:#e6db74">#{</span>result<span style="color:#f92672">[</span><span style="color:#e6db74">:message</span><span style="color:#f92672">]</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+
+puts <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">*****************************************************</span><span style="color:#e6db74">&#34;</span>
+</code></pre></div>
+</article>
+
+</div>
+
+
+  <section class="footer">
+    <div class="footer-container">
+      <p class="contact">
+        Feel free to get in contact
+      </p>
+      <div class="icons">
+        <a href="https://github.com/benmclaren" target="_blank">
+          <i class="fa fa-github"></i>
+        </a>
+
+        <a href="mailto:bmclaren01@gmail.com" target="_blank">
+          <i class="fa fa-paper-plane"></i>
+        </a>
+
+        <a href="https://twitter.com/bybenmclaren" target="_blank">
+          <i class="fa fa-twitter"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/ben-mclaren/" target="_blank">
+          <i class="fa fa-linkedin"></i>
+        </a>
+
+      </div>
+      <p>
+        ©benmclaren2020
+      </p>
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cloudinary-core/2.3.0/cloudinary-core-shrinkwrap.min.js">
+  </script>
+  <script>
+    var cl = cloudinary.Cloudinary.new({
+      cloud_name: 'dy35n8sog'
+    });
+
+    cl.responsive()
+  </script>
+
+</body>
+</html>
+
