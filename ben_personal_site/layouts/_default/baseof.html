@@ -1,7 +1,10 @@
 {{ partial "head.html" . }}
 
-<!-- <div class="main-container"> -->
+{{ partial "offscreen-nav.html" . }}
+
+<div class="home-container">
   {{ partial "header.html" . }}
+
 
   {{ block "main" . }}
 
@@ -9,5 +12,5 @@
   {{ end }}
 
   <!-- {{ partial "footer.html" . }} -->
-<!-- </div> -->
+</div>
 {{- partial "scripts.html" . -}}
