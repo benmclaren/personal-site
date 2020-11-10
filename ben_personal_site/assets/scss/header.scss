@@ -2,7 +2,7 @@
 .main-yellow-spot {
   width: 48px;
   height: 48px;
-  background-color: #DFF01F;
+  background-color: var(--main-circle-color);
   border-radius: 50%;
 
 }
@@ -11,6 +11,7 @@
   position: absolute;
   top: 29px;
   left: 16px;
+  font-weight: 600;
 }
 
 .nav {

@@ -8,12 +8,17 @@
 @import "mediaqueries.scss";
 @import url("https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
 
+:root {
+  --main-text-color: #303030;
+  --main-circle-color: #DFF01F;
+}
 
 body {
   margin: 0;
   padding: 0;
-  color: #1C1C20;
-  font-family: 'Rubik', sans-serif;
+  color: var(--main-text-color);
+  // font-family: 'Rubik', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 html {
