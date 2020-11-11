@@ -1,0 +1,83 @@
+// .work-square {
+//   margin-left: auto;
+//   margin-right: auto;
+//   background-color: #dcfffd;
+//   margin-top: 48px;
+//   height: 50vw;
+//   width: 80vw;
+//   max-height: 500px;
+//   max-width: 960px;
+//   border-radius: 25px;
+// }
+//
+// .work-square-text {
+//   -webkit-text-stroke-width: 1px;
+//   -webkit-text-stroke-color: black;
+//   -webkit-text-fill-color: white;
+//   font-size: 34px;
+//   line-height: 40.8px;
+//   max-width: 1184px;
+//   overflow-wrap: break-word;
+//   position: absolute;
+// }
+//
+// .work-hero-container {
+//   position: relative;
+// }
+
+.skills {
+  background-color: #dcfffd;
+  padding: 4rem 6rem;
+  border-radius: 25px;
+  /* hack to adjust white space between box and text */
+  border: solid 60px white;
+  // adjust border width for desktop styling
+}
+
+.skills-text {
+  font-size: 34px;
+  font-weight: 700;
+  overflow-wrap: break-word;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  -webkit-text-fill-color: transparent;
+  /* this is the magic */
+  width: 90vw !important;
+  margin-left: 45% !important;
+  transform: translateX(-45%) !important;
+}
+
+/* utils */
+.wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 6rem;
+  padding-right: 6rem;
+  max-width: 1200;
+}
+
+.projects a {
+  text-decoration: none;
+  color: var(--main-text-color);
+  font-size: 24px;
+  line-height: 48px;
+}
+
+.secondary-grey-spot {
+  width: 48px;
+  height: 48px;
+  background-color: var(--secondary-circle-color);
+  border-radius: 50%;
+}
+
+.project-container {
+  display: flex;
+  margin-top: 64px;
+}
+
+.project-title {
+  top: 29px;
+  left: 40px;
+  font-weight: 600;
+  transform: translateX(-25px) !important;
+}

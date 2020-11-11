@@ -1,0 +1,30 @@
+{{ define "main"}}
+
+<div class="main-wrapper">
+  <div class="hero-text">
+    <h1>Recent work.</h1>
+  </div>
+  <div class="skills">
+    <p class="skills-text">
+      HTML/CSS/Javascript/RubyOnRails/Hugo/Github/Git/Figma/
+        JQuery/GSAP/SQL/Neflify/Heroku/UX/UI.
+    </p>
+  </div>
+
+  {{ range .Pages}}
+
+  <div class="projects">
+    <div class="project-container">
+      <div class="secondary-grey-spot">
+      </div>
+      <a class="project-title" href="{{.Permalink}}">{{ .Title }}</a>
+    </div>
+  </div>
+
+
+  {{ end }}
+</div>
+
+
+
+{{ end }}
