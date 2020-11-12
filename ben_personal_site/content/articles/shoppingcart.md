@@ -2,7 +2,7 @@
 title: "Making a terminal based shopping cart application"
 date: 2020-01-14T16:56:57Z
 author: Ben McLaren
-draft: false
+draft: true
 excerpt: "Notes on the Le Wagon Hash & Symbols Shopping Cart exercise"
 ---
 
@@ -135,12 +135,3 @@ end
 - `store_items_to_s` does not take a parameter. It sets an empty array of items and interates over `store_items` with `.each`. It then appends the individual item and its associated price to the items array, using the append (`<<`) opperator.
 
 Finally the items array has `.join` called on it which joins the items together and includeds a line break after each one which is denoted by `("\n")`.
-
-
-
-
-
-
-
-
-

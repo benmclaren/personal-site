@@ -2,7 +2,7 @@
 title: "Converting an array of strings into grouped arrays "
 date: 2020-01-14T16:31:45Z
 author: Ben McLaren
-draft: false
+draft: true
 excerpt: "Notes on the Le Wagon Hash & Symbols Combine Anagrams exercise"
 ---
 

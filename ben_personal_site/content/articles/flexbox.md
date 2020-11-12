@@ -1,5 +1,5 @@
 ---
-title: "How to make an inline navigation bar with Flexbox"
+title: "An Inline navigation bar"
 date: 2019-02-10T13:07:09Z
 author: Ben McLaren
 draft: false

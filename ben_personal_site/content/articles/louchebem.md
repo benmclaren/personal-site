@@ -1,5 +1,5 @@
 ---
-title: "How to make a translator for parisian slang Louchebem"
+title: "Parisian slang translator"
 date: 2020-01-13T15:00:56Z
 draft: false
 excerpt: "Notes on the Le Wagon Iterators & BLocks Louchebem exercise"
@@ -130,19 +130,3 @@ This method takes one parameter and thats (sentence).
 - Our else statement says that all other words will have the `louchembemize` method called on them and appended into `result_elements`
 
 - We can then return the `result_elements.join`. `.join` builds the sentence by joining words with a space in between.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -2,7 +2,7 @@
 title: "Iterating over a CSV file to return specific information"
 date: 2020-01-20T19:17:57Z
 author: Ben McLaren
-draft: false
+draft: true
 Excerpt: "Notes on the Le Wagon Parsing CSV Parsing exercise"
 ---
 
@@ -56,18 +56,3 @@ end
 1. We start by creating a new variable called `all_movies`. This is equal to calling the `load_movies` method with its required arguments.
 
 2. We can now use the method `.max_by`. This method will return the the object with the maximum value that is specified in the block. We say for every `movie` grab the earnings using the notation `movie[:earnings]`.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

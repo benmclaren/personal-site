@@ -1,12 +1,16 @@
 {{ define "main" }}
 
     <div class="main-wrapper">
-      <h1 class="hero-text">{{ .Title }}</h1>
+      <h1 class="hero-text">
+        <a href="https://remote.cards/" target="_blank">{{ .Title }}</a>
+      </h1>
 
-      {{ .Params.excerpt }}
+      <div class="project-intro">
+        {{ .Params.excerpt }}
+      </div>
 
       <div class="project-image-container">
-        <img id="project-image" class="cld-responsive" data-src="https://res.cloudinary.com/dy35n8sog/image/upload/w_auto,c_scale/{{ .Params.image }}" alt=""/>
+        <img id="project-image" class="cld-responsive" data-src="https://res.cloudinary.com/dy35n8sog/image/upload/w_auto,c_scale/{{ .Params.image }}" alt="website cover photo"/>
       </div>
 
       <div class="project-content">

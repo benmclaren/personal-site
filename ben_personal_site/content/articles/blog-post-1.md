@@ -1,5 +1,5 @@
 ---
-title: "Why I came out of univeristy to focus on coding"
+title: "Why why why?"
 date: 2018-12-11T11:34:23Z
 author: Ben McLaren
 draft: false

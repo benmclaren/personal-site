@@ -1,5 +1,5 @@
 ---
-title: "Accessing data and using methods with Hashes"
+title: "Ruby hash basics"
 date: 2020-01-13T11:25:35Z
 author: Ben McLaren
 draft: false
@@ -87,9 +87,3 @@ end
 The method can now see that it must go to `MEALS` and find the order and then simply select each item at the given indexes 0, 1 and 2 which refer to items 1, 2 and 3. It is able to access the data for each item because `DISHES_CALORIES` holds that information.
 
 6. We can then return the counter with the total amlunt of calories.
-
-
-
-
-
-

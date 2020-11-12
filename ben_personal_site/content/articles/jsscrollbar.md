@@ -1,5 +1,5 @@
 ---
-title: "How to make a horizontal scrollbar that moves as you scroll"
+title: "Horizontal scrollbars"
 date: 2020-02-08T15:31:11Z
 author: Ben McLaren
 draft: false

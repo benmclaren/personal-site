@@ -1,5 +1,5 @@
 ---
-title: "How to translate a Roman Numeral into its letter"
+title: "Roman Numeral translation"
 date: 2020-01-14T14:09:27Z
 author: Ben McLaren
 draft: false
@@ -78,18 +78,3 @@ def roman_to_integer(roman_string)
 end
 ```
 We finish it off by returning number.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

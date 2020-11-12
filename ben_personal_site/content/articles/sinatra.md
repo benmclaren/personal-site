@@ -2,7 +2,7 @@
 title: "Sinatra"
 date: 2020-07-20T14:24:01+01:00
 author: Ben McLaren
-draft: false
+draft: true
 ---
 
 We are going to build out a basic MVC application using the Sinatra framework. Sinatra is a Domain Specific Language (DSL) for creating web apps in Ruby. It follows the MVC pattern although in Sinatra's case there is an `app.rb` file which acts as the controller. The routing is handled by the framework itself. We can write routes in this `app.rb` file which allows Sinatra to map the URL in the browser to the correct method in the `app.rb` file.
@@ -139,4 +139,4 @@ The final feature we will introduce is the ability to upvote a post. Much like s
 
 Let's start by writing out the method in the `app.rb` file.
 
-This time we want to use a PUT method. 
+This time we want to use a PUT method.
