@@ -3,14 +3,15 @@
     <div class="main-wrapper">
       <h1 class="hero-text">{{ .Title }}</h1>
 
+      {{ .Params.excerpt }}
+
       <div class="project-image-container">
-        <img id="project-image" class="cld-responsive" data-src="https://res.cloudinary.com/dy35n8sog/image/upload/w_auto,c_scale/v1605111880/Screenshot_2020-11-11_at_16.24.15_s3zmim.png" alt=""/>
+        <img id="project-image" class="cld-responsive" data-src="https://res.cloudinary.com/dy35n8sog/image/upload/w_auto,c_scale/{{ .Params.image }}" alt=""/>
       </div>
 
-
-
-
-      {{ .Content }}
+      <div class="project-content">
+        {{ .Content }}
+      </div>
 
     </div>
 
