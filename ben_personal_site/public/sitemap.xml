@@ -3,32 +3,47 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/articles/</loc>
-    <lastmod>2020-07-20T14:24:01+01:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/</loc>
-    <lastmod>2020-07-20T14:24:01+01:00</lastmod>
+    <lastmod>2020-11-11T14:49:01+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/articles/sinatra/</loc>
-    <lastmod>2020-07-20T14:24:01+01:00</lastmod>
+    <loc>/work/remotecards/</loc>
+    <lastmod>2020-11-11T14:49:01+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/articles/cookbook2/</loc>
-    <lastmod>2020-04-19T14:38:32+01:00</lastmod>
+    <loc>/work/</loc>
+    <lastmod>2020-11-11T14:49:01+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/articles/making-a-basic-mvc-terminal-application/</loc>
-    <lastmod>2020-04-16T15:09:41+01:00</lastmod>
+    <loc>/work/flamingo/</loc>
+    <lastmod>2020-11-11T14:48:54+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/articles/how-to-make-a-horizontal-scrollbar-that-moves-as-you-scroll/</loc>
+    <loc>/work/wrcdesign/</loc>
+    <lastmod>2020-11-11T14:48:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/work/chalkandsteel/</loc>
+    <lastmod>2020-11-11T14:48:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/work/snowsquad/</loc>
+    <lastmod>2020-11-11T14:47:53+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/articles/</loc>
+    <lastmod>2020-02-08T15:31:11+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/articles/horizontal-scrollbars/</loc>
     <lastmod>2020-02-08T15:31:11+00:00</lastmod>
   </url>
   
@@ -43,13 +58,8 @@
   </url>
   
   <url>
-    <loc>/articles/how-to-make-a-countdown-style-terminal-game/</loc>
+    <loc>/articles/terminal-games/</loc>
     <lastmod>2020-01-20T21:02:01+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/articles/iterating-over-a-csv-file-to-return-specific-information/</loc>
-    <lastmod>2020-01-20T19:17:57+00:00</lastmod>
   </url>
   
   <url>
@@ -63,37 +73,17 @@
   </url>
   
   <url>
-    <loc>/articles/how-to-iterate-over-a-text-file-and-return-specific-information/</loc>
-    <lastmod>2020-01-19T12:47:29+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/articles/how-to-check-anagrams-using-regex/</loc>
     <lastmod>2020-01-18T18:50:03+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/articles/refactoring-code/</loc>
-    <lastmod>2020-01-15T15:30:03+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/articles/making-a-terminal-based-shopping-cart-application/</loc>
-    <lastmod>2020-01-14T16:56:57+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/articles/converting-an-array-of-strings-into-grouped-arrays/</loc>
-    <lastmod>2020-01-14T16:31:45+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/articles/how-to-translate-a-roman-numeral-into-its-letter/</loc>
+    <loc>/articles/roman-numeral-translation/</loc>
     <lastmod>2020-01-14T14:09:27+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/articles/what-are-proc-objects-and-how-they-are-used/</loc>
+    <loc>/articles/what-are-proc-objects/</loc>
     <lastmod>2020-01-14T11:23:38+00:00</lastmod>
   </url>
   
@@ -103,7 +93,7 @@
   </url>
   
   <url>
-    <loc>/articles/how-to-make-a-translator-for-parisian-slang-louchebem/</loc>
+    <loc>/articles/parisian-slang-translator/</loc>
     <lastmod>2020-01-13T15:00:56+00:00</lastmod>
   </url>
   
@@ -118,7 +108,7 @@
   </url>
   
   <url>
-    <loc>/articles/accessing-data-and-using-methods-with-hashes/</loc>
+    <loc>/articles/ruby-hash-basics/</loc>
     <lastmod>2020-01-13T11:25:35+00:00</lastmod>
   </url>
   
@@ -133,22 +123,22 @@
   </url>
   
   <url>
-    <loc>/articles/how-to-achieve-grid-layouts-using-flexbox/</loc>
+    <loc>/articles/grid-layouts-with-flexbox/</loc>
     <lastmod>2019-02-14T10:56:16+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/articles/how-to-make-an-inline-navigation-bar-with-flexbox/</loc>
+    <loc>/articles/an-inline-navigation-bar/</loc>
     <lastmod>2019-02-10T13:07:09+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/articles/how-to-use-media-queries-to-make-responsive-text/</loc>
+    <loc>/articles/making-responsive-text/</loc>
     <lastmod>2019-01-29T11:35:33+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/articles/why-i-came-out-of-univeristy-to-focus-on-coding/</loc>
+    <loc>/articles/why-why-why/</loc>
     <lastmod>2018-12-11T11:34:23+00:00</lastmod>
   </url>
   

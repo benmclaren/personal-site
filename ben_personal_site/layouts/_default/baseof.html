@@ -5,11 +5,11 @@
 <div class="home-container">
   {{ partial "header.html" . }}
 
+    {{ block "main" . }}
 
-  {{ block "main" . }}
 
+    {{ end }}
 
-  {{ end }}
 
   {{ partial "footer.html" . }}
 </div>

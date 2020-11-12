@@ -6,46 +6,17 @@
     <description>Recent content in Articles on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Jul 2020 14:24:01 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 08 Feb 2020 15:31:11 +0000</lastBuildDate>
     
 	<atom:link href="/articles/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Sinatra</title>
-      <link>/articles/sinatra/</link>
-      <pubDate>Mon, 20 Jul 2020 14:24:01 +0100</pubDate>
-      
-      <guid>/articles/sinatra/</guid>
-      <description>We are going to build out a basic MVC application using the Sinatra framework. Sinatra is a Domain Specific Language (DSL) for creating web apps in Ruby. It follows the MVC pattern although in Sinatra&amp;rsquo;s case there is an app.rb file which acts as the controller. The routing is handled by the framework itself. We can write routes in this app.rb file which allows Sinatra to map the URL in the browser to the correct method in the app.</description>
-    </item>
-    
-    <item>
-      <title>Cookbook2</title>
-      <link>/articles/cookbook2/</link>
-      <pubDate>Sun, 19 Apr 2020 14:38:32 +0100</pubDate>
-      
-      <guid>/articles/cookbook2/</guid>
-      <description>We want to build upon our cookbook program by implementing a way for it to search for recipes on the web. Lets establish what we need to do in order for our cookbook to be able to do this.
- Ask a user for a keyword to search Make an HTTP request to the recipe’s website with our keyword Parse the HTML document to extract the first 5 recipes suggested and store them in an Array Display them in an indexed list Ask the user which recipe they want to import (ask for an index) Add it to the Cookbook  </description>
-    </item>
-    
-    <item>
-      <title>Making a basic MVC terminal application</title>
-      <link>/articles/making-a-basic-mvc-terminal-application/</link>
-      <pubDate>Thu, 16 Apr 2020 15:09:41 +0100</pubDate>
-      
-      <guid>/articles/making-a-basic-mvc-terminal-application/</guid>
-      <description>For this challenge we first want to begin with setting up our model. This should always be the first thing we do when making these sorts of programs. For our cookbook we are storing recipes so it makes sense for our model to be a Recipe model
-Step 1: class Recipe attr_reader :name, :description def initialize(name, description) @name = name @description = description end end Here we have defined our class Recipe and we have initialized it with two instance variables.</description>
-    </item>
-    
-    <item>
-      <title>How to make a horizontal scrollbar that moves as you scroll</title>
-      <link>/articles/how-to-make-a-horizontal-scrollbar-that-moves-as-you-scroll/</link>
+      <title>Horizontal scrollbars</title>
+      <link>/articles/horizontal-scrollbars/</link>
       <pubDate>Sat, 08 Feb 2020 15:31:11 +0000</pubDate>
       
-      <guid>/articles/how-to-make-a-horizontal-scrollbar-that-moves-as-you-scroll/</guid>
+      <guid>/articles/horizontal-scrollbars/</guid>
       <description>We are going to make a scrollbar that will scroll horizontally as the user scrolls vertically down the page. This is a nice feature to have especially on longer pages as you can quickly display to the user how far through an article they are.
 We need to use JQuery for this so make sure that you have imported the JQuery library. See this site as a demonstration of what we are going to build.</description>
     </item>
@@ -74,24 +45,14 @@ We have three things that enable this app to work.</description>
     </item>
     
     <item>
-      <title>How to make a &#39;countdown&#39; style terminal game</title>
-      <link>/articles/how-to-make-a-countdown-style-terminal-game/</link>
+      <title>Terminal games</title>
+      <link>/articles/terminal-games/</link>
       <pubDate>Mon, 20 Jan 2020 21:02:01 +0000</pubDate>
       
-      <guid>/articles/how-to-make-a-countdown-style-terminal-game/</guid>
+      <guid>/articles/terminal-games/</guid>
       <description>Notes on the Le Wagon Parsing Numbers and Letters exercise
 The goal of this challenge is to write a simplified version of the game &amp;lsquo;countdown&amp;rsquo; from the terminal where:
  You are given a random set of letters. You have to enter the longest english word you can find using only letters in the grid. After typing your answer, you get your score combined with the time you took, and eventually an error message if you failed.</description>
-    </item>
-    
-    <item>
-      <title>Iterating over a CSV file to return specific information</title>
-      <link>/articles/iterating-over-a-csv-file-to-return-specific-information/</link>
-      <pubDate>Mon, 20 Jan 2020 19:17:57 +0000</pubDate>
-      
-      <guid>/articles/iterating-over-a-csv-file-to-return-specific-information/</guid>
-      <description>For this challenge we want to implement a most_successful method that returns the movies (a certain number passed as a parameter) published prior to a given year and with their associated earnings. The returned list should be an array of movies. Each movie should be represented by a hash with keys: name, year and earnings. Ex: { name: &amp;quot;Avatar&amp;quot;, year: 2009, earnings: 760505847 }
-We have been given a CSV file containing the data that we need.</description>
     </item>
     
     <item>
@@ -117,18 +78,6 @@ MAIL_REGEX = /@(?&amp;lt;domain&amp;gt;[^\.]+)\./ def group_mails(emails) # TODO
     </item>
     
     <item>
-      <title>How to iterate over a text file and return specific information</title>
-      <link>/articles/how-to-iterate-over-a-text-file-and-return-specific-information/</link>
-      <pubDate>Sun, 19 Jan 2020 12:47:29 +0000</pubDate>
-      
-      <guid>/articles/how-to-iterate-over-a-text-file-and-return-specific-information/</guid>
-      <description>Notes on the Le Wagon Regular Expressions Word Frequency exercise
-For this challenge we are going to be working with text files and building a text analyzer using Hash.
-We want to implement a most_common_words method that returns the number of occurrences of most frequent words in a text file.
-To begin with we need to write a method to load our stop_words file. This is a file which contains all the words that you do noy want to be included.</description>
-    </item>
-    
-    <item>
       <title>How to check anagrams using regex</title>
       <link>/articles/how-to-check-anagrams-using-regex/</link>
       <pubDate>Sat, 18 Jan 2020 18:50:03 +0000</pubDate>
@@ -140,43 +89,11 @@ def anagrams?(a_string, another_string) a_string = a_string.downcase.chars.sort.
     </item>
     
     <item>
-      <title>Refactoring code</title>
-      <link>/articles/refactoring-code/</link>
-      <pubDate>Wed, 15 Jan 2020 15:30:03 +0000</pubDate>
-      
-      <guid>/articles/refactoring-code/</guid>
-      <description>Notes on the Le Wagon Iterators &amp;amp; Blocks Cleaning your Mess exercise
-def hop_hop_hop(number_of_exercises) for i in (1..number_of_exercises) do counter = 0 until counter == i print &amp;#34;hop! &amp;#34; counter += 1 end unless counter != i print &amp;#39;One more time...&amp;#39; + &amp;#34;\n&amp;#34; end counter = 0 end end hop_hop_hop(5) This is a piece of ruby code which simply prints out the word &amp;lsquo;hop!&amp;rsquo; and &amp;lsquo;One more time&amp;hellip;&#39;. However, it is not the most efficient as it can be simplified into a much more readable state.</description>
-    </item>
-    
-    <item>
-      <title>Making a terminal based shopping cart application</title>
-      <link>/articles/making-a-terminal-based-shopping-cart-application/</link>
-      <pubDate>Tue, 14 Jan 2020 16:56:57 +0000</pubDate>
-      
-      <guid>/articles/making-a-terminal-based-shopping-cart-application/</guid>
-      <description>Notes on the Le Wagon Symbols &amp;amp; Hash Shopping Cart exercise
-For this exercise we want to build a terminal based app that will allow us to views items in a store, add them to a list and then then return our list with the calculated prices.
-The Interface require_relative &amp;#39;store&amp;#39; require_relative &amp;#39;cart&amp;#39; cart = [] puts &amp;#39;Here are the available products:&amp;#39; puts store_items_to_s loop do puts &amp;#39;What do you want to buy?</description>
-    </item>
-    
-    <item>
-      <title>Converting an array of strings into grouped arrays </title>
-      <link>/articles/converting-an-array-of-strings-into-grouped-arrays/</link>
-      <pubDate>Tue, 14 Jan 2020 16:31:45 +0000</pubDate>
-      
-      <guid>/articles/converting-an-array-of-strings-into-grouped-arrays/</guid>
-      <description>Notes on the Le Wagon Hash &amp;amp; Symbols Combine Anagrams exercise
-An anagram is a word obtained by rearranging the letters of another word. For example, “SPOT”, “OPTS”, “POTS” and “POST” are an anagram group because they are made up of the same letters.
-If we have an array of strings we want to turn them into multiple grouped arrays. We need to write a method that groups them into anagram groups and returns the array of groups.</description>
-    </item>
-    
-    <item>
-      <title>How to translate a Roman Numeral into its letter</title>
-      <link>/articles/how-to-translate-a-roman-numeral-into-its-letter/</link>
+      <title>Roman Numeral translation</title>
+      <link>/articles/roman-numeral-translation/</link>
       <pubDate>Tue, 14 Jan 2020 14:09:27 +0000</pubDate>
       
-      <guid>/articles/how-to-translate-a-roman-numeral-into-its-letter/</guid>
+      <guid>/articles/roman-numeral-translation/</guid>
       <description>Notes on the Le Wagon Hash &amp;amp; Symbols Roman to Integer exercise
 Lets write a method that will take a Roman numeral and transform it into its integer.
 First let us start with writing out a hash that contains the infromation needed to construct Roman Numerals.
@@ -184,11 +101,11 @@ ROMAN_TO_INT = { &amp;#34;I&amp;#34; =&amp;gt; 1, &amp;#34;IV&amp;#34; =&amp;gt;
     </item>
     
     <item>
-      <title>What are Proc Objects? and how they are used</title>
-      <link>/articles/what-are-proc-objects-and-how-they-are-used/</link>
+      <title>What are Proc Objects?</title>
+      <link>/articles/what-are-proc-objects/</link>
       <pubDate>Tue, 14 Jan 2020 11:23:38 +0000</pubDate>
       
-      <guid>/articles/what-are-proc-objects-and-how-they-are-used/</guid>
+      <guid>/articles/what-are-proc-objects/</guid>
       <description>Notes on the Le Wagon Iteratros &amp;amp; Blocks Storing Blocks in Procs exercise
 A Proc Object is an encapsulation of a block of code which can be stored in a variable. In other words you can call them, pass them to other methods and pass them to other proc objects. It differs to yield in the sense that it can be called later as it has stored and remembered the block information.</description>
     </item>
@@ -206,11 +123,11 @@ Our method should do the following:
     </item>
     
     <item>
-      <title>How to make a translator for parisian slang Louchebem</title>
-      <link>/articles/how-to-make-a-translator-for-parisian-slang-louchebem/</link>
+      <title>Parisian slang translator</title>
+      <link>/articles/parisian-slang-translator/</link>
       <pubDate>Mon, 13 Jan 2020 15:00:56 +0000</pubDate>
       
-      <guid>/articles/how-to-make-a-translator-for-parisian-slang-louchebem/</guid>
+      <guid>/articles/parisian-slang-translator/</guid>
       <description>Notes on the Le Wagon Iterators &amp;amp; BLocks Louchebem exercise
 Louchébem is a type of French slang that was originally spoken by Parisian butchers. Very simply, you take a normal French word like “PATRON”. You take the first consonant group (letters before the first vowel), and replace it with an “L”. Then, you put that first consonant group at the end of the word, followed by one of the louchebem suffixes, e.</description>
     </item>
@@ -240,11 +157,11 @@ def timer_for start_time = Time.now yield end_time = Time.now time_taken = end_t
     </item>
     
     <item>
-      <title>Accessing data and using methods with Hashes</title>
-      <link>/articles/accessing-data-and-using-methods-with-hashes/</link>
+      <title>Ruby hash basics</title>
+      <link>/articles/ruby-hash-basics/</link>
       <pubDate>Mon, 13 Jan 2020 11:25:35 +0000</pubDate>
       
-      <guid>/articles/accessing-data-and-using-methods-with-hashes/</guid>
+      <guid>/articles/ruby-hash-basics/</guid>
       <description>Notes on the Le Wagon Hash &amp;amp; Symbols Burger Hash exercise
 Hashes can be confusing at first but once you get your head around them they are relatively straight forward.
 For this exercise we want to build a counter that will add up the amount of calories there are in different items of food.
@@ -276,40 +193,40 @@ For this example, let&amp;rsquo;s assume that you wish to overlay text on an ima
     </item>
     
     <item>
-      <title>How to achieve grid layouts using Flexbox</title>
-      <link>/articles/how-to-achieve-grid-layouts-using-flexbox/</link>
+      <title>Grid layouts with Flexbox</title>
+      <link>/articles/grid-layouts-with-flexbox/</link>
       <pubDate>Thu, 14 Feb 2019 10:56:16 +0000</pubDate>
       
-      <guid>/articles/how-to-achieve-grid-layouts-using-flexbox/</guid>
+      <guid>/articles/grid-layouts-with-flexbox/</guid>
       <description>Flexbox is a very powerful tool and it is one that can be used to create many different layouts.
 Let&amp;rsquo;s say that you wish to lay out a selection of images on a page in a grid style. In the past this would have been difficult to achieve inlvolving developers needing to &amp;lsquo;hack&amp;rsquo; their way around it using floats. However, with only a few lines of code flexbox is able to create a grid.</description>
     </item>
     
     <item>
-      <title>How to make an inline navigation bar with Flexbox</title>
-      <link>/articles/how-to-make-an-inline-navigation-bar-with-flexbox/</link>
+      <title>An Inline navigation bar</title>
+      <link>/articles/an-inline-navigation-bar/</link>
       <pubDate>Sun, 10 Feb 2019 13:07:09 +0000</pubDate>
       
-      <guid>/articles/how-to-make-an-inline-navigation-bar-with-flexbox/</guid>
+      <guid>/articles/an-inline-navigation-bar/</guid>
       <description>One of the key components on my site is the navigation bar. Initially, I had attempted to create this using floats however, I quickly realised that this was not an effective way of constructing this element. It was at this point that I researched Flexbox and how it can be used to make a responsive component.
 Setting out the HTML &amp;lt;header class=&amp;#34;header&amp;#34;&amp;gt; &amp;lt;ul class=&amp;#34;nav&amp;#34;&amp;gt; &amp;lt;li class=&amp;#34;nav-link&amp;#34;&amp;gt; &amp;lt;a href=&amp;#34;work.html&amp;#34;&amp;gt;Work&amp;lt;/a&amp;gt; &amp;lt;/li&amp;gt; &amp;lt;li class=&amp;#34;nav-link&amp;#34;&amp;gt; &amp;lt;a href=&amp;#34;articles.</description>
     </item>
     
     <item>
-      <title>How to use media queries to make responsive text</title>
-      <link>/articles/how-to-use-media-queries-to-make-responsive-text/</link>
+      <title>Making responsive text</title>
+      <link>/articles/making-responsive-text/</link>
       <pubDate>Tue, 29 Jan 2019 11:35:33 +0000</pubDate>
       
-      <guid>/articles/how-to-use-media-queries-to-make-responsive-text/</guid>
+      <guid>/articles/making-responsive-text/</guid>
       <description>Websites need to look good across a multitude of screens and therfore it is essential that a site is responsive so that a user&amp;rsquo;s experience is not affected by their choice of screen size. I encountered a problem whilst building this site that was causing some of my headers to be cut off of the page when the browser size was reduced. I had previously tried using margins and padding to try and fix this issue however, some research led me to media queries.</description>
     </item>
     
     <item>
-      <title>Why I came out of univeristy to focus on coding</title>
-      <link>/articles/why-i-came-out-of-univeristy-to-focus-on-coding/</link>
+      <title>Why why why?</title>
+      <link>/articles/why-why-why/</link>
       <pubDate>Tue, 11 Dec 2018 11:34:23 +0000</pubDate>
       
-      <guid>/articles/why-i-came-out-of-univeristy-to-focus-on-coding/</guid>
+      <guid>/articles/why-why-why/</guid>
       <description>The best decison I could have made
 One of the most common questions children are asked is &amp;lsquo;What do you want to be when you are older?&#39;. In my opinion this is quite a difficult question to answer. Not many people have a firm idea of what they really want to do. There are of course those who know exactly which career direction they wish to pursue, medicine for example. However, for most of us, finding that one thing that is going to spark your interest and kickstart your career is quite hard to discover.</description>
     </item>

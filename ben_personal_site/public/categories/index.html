@@ -18,8 +18,8 @@
 
 <div class="offscreen-nav">
   <div class="nav-text">
-    <a href="/work/" class="nav-item">Work</a>
-    <a href="#" class="nav-item">Articles</a>
+    <a href="javascript:delay('/work')" class="nav-item">Work</a>
+    <a href="javascript:delay('/articles')" class="nav-item">Articles</a>
     <a href="#" class="nav-item">Contact</a>
   </div>
 </div>
@@ -29,7 +29,7 @@
     <header class="navbar">
     <div class="logo-wrapper">
       <div class="logo">
-        <a href="#">@bybenmclaren</a>
+        <a href="/">@bybenmclaren</a>
       </div>
       <div class="main-yellow-spot">
       </div>
@@ -48,19 +48,20 @@
   </header>
 
 
+    
+<div id="swup" class="main-wrapper transition-fade">
+  <div class="hero-text">
+    <h1>Articles.</h1>
+  </div>
 
-  
-<section class="list-format">
   <div class="blog-format">
-  <p class="wizard-sub-title">
-    Articles
-  </p>
-  <ul class="articles">
+    <ul class="articles">
+      
+    </ul>
+  </div>
 
-  </ul>
 </div>
 
-</section>
 
 
     <div class="footer">
@@ -93,17 +94,25 @@
 </body>
 </html>
 
-</div>
+</div><script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>  
 
 
 
 
 
-<script src="/app.min.6078194e38f3e3de6dfd2ece17ba4c06ed85bebf111e9c1c16c70f1c432dfd57.js" integrity="sha256-YHgZTjjz495t/S7OF7pMBu2Fvr8RHpwcFscPHEMt/Vc=" media="screen" crossorigin="anonymous">
+
+
+
+
+<script src="/app.min.86dd09baa494bab7ed889b11935ffef3d3a014f48fad554d9265dfdad0d177de.js" integrity="sha256-ht0JuqSUurftiJsRk1/&#43;89OgFPSPrVVNkmXf2tDRd94=" media="screen" crossorigin="anonymous">
 </script>
+
+
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cloudinary-core/2.3.0/cloudinary-core-shrinkwrap.min.js">
 </script>
+
 <script>
   const cl = cloudinary.Cloudinary.new({
     cloud_name: 'dy35n8sog'
