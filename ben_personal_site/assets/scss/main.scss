@@ -23,7 +23,7 @@
 
 html.is-animating .transition-fade {
   opacity: 1;
-  transform: translateY(100%);
+  transform: translateX(-100%);
 }
 
 html.is-leaving .transition-fade {
@@ -78,7 +78,7 @@ pre {
 }
 
 h1,
-p {
+ {
   margin: 0;
   padding: 0;
 }
