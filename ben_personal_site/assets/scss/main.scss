@@ -5,10 +5,10 @@
 @import "footer.scss";
 @import "single_page.scss";
 @import "list_page.scss";
-@import "mediaqueries.scss";
 @import "button.scss";
 @import "work_list.scss";
 @import "work_single_page.scss";
+@import "mediaqueries.scss";
 
 
 
@@ -55,7 +55,6 @@ body {
 * {
   box-sizing: inherit;
   transition-property: all;
-  transition-duration: .6s;
   transition-timing-function: ease;
 }
 

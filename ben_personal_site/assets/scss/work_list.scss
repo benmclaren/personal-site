@@ -81,3 +81,13 @@
   font-weight: 600;
   transform: translateX(-25px) !important;
 }
+
+.projects {
+  transition: .2s;
+}
+
+.projects:hover {
+  .secondary-grey-spot {
+    background-color: var(--main-circle-color);
+  }
+}

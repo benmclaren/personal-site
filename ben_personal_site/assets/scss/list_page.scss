@@ -2,6 +2,12 @@
   padding: 0px;
 }
 
+.article-container:hover {
+  .secondary-grey-spot {
+    background-color: var(--main-circle-color);
+  }
+}
+
 .articles-item {
   padding-bottom: 56px;
 }
@@ -35,10 +41,9 @@
   line-height: 48px;
 }
 
-
-
 .article-container {
   display: flex;
+  transition: .2s;
 }
 
 .article-title {

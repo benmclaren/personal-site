@@ -6,22 +6,26 @@
   border-radius: 50%;
 }
 
+.logo-wrapper {
+  position: relative;
+}
+
 .logo {
   position: absolute;
-  top: 29px;
-  left: 40px;
+  top: 12px;
+  left: 24px;
   font-weight: 600;
 }
 
 .logo a:hover {
   letter-spacing: 2px;
-  // transition: 800ms cubic-bezier(0.77,0,0.18,1);
-  transition: 500ms cubic-bezier(0.68,-0.55,0.27,1.55);
 }
 
 .logo a {
   text-decoration: none;
+  font-size: 18px;
   color: var(--main-text-color);
+  transition: 500ms cubic-bezier(0.68,-0.55,0.27,1.55);
 }
 
 .navbar {
@@ -115,4 +119,22 @@
 .nav-item {
   text-decoration: none;
   color: var(--main-text-color);
+}
+
+.desktop-nav {
+  display: none;
+  transition: 0.2s !important;
+}
+
+.desktop-nav a {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--main-text-color);
+}
+
+
+.desktop-nav a:hover {
+  border-bottom: 4px solid var(--main-circle-color);
+
 }

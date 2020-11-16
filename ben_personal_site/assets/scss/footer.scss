@@ -14,15 +14,10 @@
   display: flex;
   justify-content: space-evenly;
   margin-top: 24px;
-
   a {
     cursor: pointer;
   }
 
-}
-
-svg:hover {
-  fill: var(--main-circle-color);
 }
 
 .footer p {
