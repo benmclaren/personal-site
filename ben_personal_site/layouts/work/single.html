@@ -1,0 +1,34 @@
+{{ define "main" }}
+
+    <div id="swup" class="main-wrapper transition-fade">
+      <h1 class="hero-text">
+        <a href="{{ .Params.link }}" target="_blank">{{ .Title }}</a>
+      </h1>
+
+      <div class="project-intro">
+        {{ .Params.excerpt }}
+      </div>
+
+      <div class="project-image-container">
+        <img id="project-image"
+        sizes="(min-width: 30em) 28em, 100vw"
+        srcset="https://res.cloudinary.com/dy35n8sog/image/upload/w_auto,c_scale/{{ .Params.image }} 256w,
+                https://res.cloudinary.com/dy35n8sog/image/upload/w_auto,c_scale/{{ .Params.image }} 512w,
+                https://res.cloudinary.com/dy35n8sog/image/upload/w_auto,c_scale/{{ .Params.image }} 768w,
+                https://res.cloudinary.com/dy35n8sog/image/upload/w_auto,c_scale/{{ .Params.image }} 1024w,
+                https://res.cloudinary.com/dy35n8sog/image/upload/w_auto,c_scale/{{ .Params.image }} 1280w"
+        src="  https://res.cloudinary.com/dy35n8sog/image/upload/w_auto,c_scale/{{ .Params.image }}"
+        alt />
+
+        <!-- class="cld-responsive" data-src="https://res.cloudinary.com/dy35n8sog/image/upload/w_auto,c_scale/{{ .Params.image }}" alt="website cover photo"/> -->
+      </div>
+
+      <div class="project-content">
+        {{ .Content }}
+      </div>
+
+    </div>
+
+
+
+{{ end }}

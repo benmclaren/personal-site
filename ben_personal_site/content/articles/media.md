@@ -1,5 +1,5 @@
 ---
-title: "How to use media queries to make responsive text"
+title: "Making responsive text"
 date: 2019-01-29T11:35:33Z
 author: Ben McLaren
 draft: false

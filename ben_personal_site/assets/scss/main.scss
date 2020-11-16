@@ -5,25 +5,79 @@
 @import "footer.scss";
 @import "single_page.scss";
 @import "list_page.scss";
+@import "button.scss";
+@import "work_list.scss";
+@import "work_single_page.scss";
 @import "mediaqueries.scss";
+
+
+
 @import url("https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
 
+.transition-fade {
+  transition: 500ms;
+  opacity: 1;
+  transform: translateX(0);
+  transform-origin: center bottom;
+}
+
+html.is-animating .transition-fade {
+  opacity: 1;
+  transform: translateX(-100%);
+}
+
+html.is-leaving .transition-fade {
+  opacity: 0;
+}
+
+:root {
+  --main-text-color: #303030;
+  --main-circle-color: #DFF01F;
+  --mobile-body-text: 16px;
+  --mobile-heading-text: 36px;
+  --mobile-body-line-height: 25.6px;
+  --mobile-sub-heading-text: 24px;
+  --mobile-sub-heading-line-height: 48px;
+  --secondary-circle-color: #EDEEF2;
+}
 
 body {
   margin: 0;
   padding: 0;
-  color: #1C1C20;
-  font-family: 'Rubik', sans-serif;
+  color: var(--main-text-color);
+  // font-family: 'Rubik', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+}
+
+* {
+  box-sizing: inherit;
+  transition-property: all;
+  transition-timing-function: ease;
 }
 
 html {
   scroll-behavior: smooth;
   // overflow-x: hidden;
   // overflow-y: scroll;
+  height: 100%;
+  width: 100%;
 }
 
 pre {
   overflow: auto;
   overflow-x: scroll;
   overflow-wrap: normal;
+}
+
+.main-container {
+  // padding: 0 16px;
+}
+
+h1,
+ {
+  margin: 0;
+  padding: 0;
 }

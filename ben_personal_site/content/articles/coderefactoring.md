@@ -2,7 +2,7 @@
 title: "Refactoring code"
 date: 2020-01-15T15:30:03Z
 author: Ben McLaren
-draft: false
+draft: true
 excerpt: "Notes on the Le Wagon Iterators & Blocks Cleaning your Mess exercise"
 ---
 
@@ -46,25 +46,3 @@ hop_hop_hop(5)
 Here, we can use the method, `.upto`. This Iterates over the given block, passing in integer values from the initial given value up to and including the limit. This is called on an integer, in this case `1` and we give it an argument of `number_of_exercises` which refers to the amount of times the code will run. We also call it with a block which instructs it to print "hop!" the amount of times it is given. This is done by multiplying "hop" by `number`. It then puts 'One more time...' and the loop ends.
 
 Difference between `puts` and `print`: Both will convert anything to a string and puts will display each item on a new line.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

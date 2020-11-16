@@ -1,109 +1,59 @@
 {{ define "main" }}
 
-  <section class="pannels">
-    <div class="left-pannel">
+<div id="swup" class="main-wrapper transition-fade">
+  <div class="hero-section">
+    <div class="hero-intro">
+      <div class="hero-text">
+        <h1>Hello, I'm Ben.</h1>
+        <p>a <strong>Freelance Developer</strong> and <strong>Designer</strong> in London</p>
+      </div>
+      <p class="bio-text">I specialize in front-end development, UX/UI Design and drinking large quantities of tea.</p>
+      <p class="bio-text">I believe in sharing as much knowldege as possible and crafting beautiful experiences. I also teach @LeWagon where I help aspiring new developers realise their potential. </p>
     </div>
-    <div class="right-pannel">
+    <div class="hero-image">
+      <!-- <img id ="imageme" class="cld-responsive" data-src="https://res.cloudinary.com/dy35n8sog/image/upload/v1605022078/me_qtidgc.jpg" alt=""/> -->
+
+      <img id ="imageme"
+          sizes="(max-width: 500px) 181px, 100vw"
+          srcset="https://res.cloudinary.com/dy35n8sog/image/upload/f_auto,q_100,w_200/v1605022078/me_qtidgc.jpg 256w,
+                  https://res.cloudinary.com/dy35n8sog/image/upload/f_auto,q_100,w_250/v1605022078/me_qtidgc.jpg 512w,
+                  https://res.cloudinary.com/dy35n8sog/image/upload/f_auto,q_100,w_322/v1605022078/me_qtidgc.jpg 900w"
+          src="https://res.cloudinary.com/dy35n8sog/image/upload/f_auto,q_100,w_512/v1605022078/me_qtidgc.jpg"
+          alt />
     </div>
-    <div id="chevron">
-    <a href="#test" >
-      <i class="fa fa-chevron-circle-down" id="arrow-color"></i>
+  </div>
+
+
+  <h2 class="home-sub-heading">I make stuff for the internet</h2>
+  <div class="about">
+    <div class="about-section-1">
+      <p class="about-title">Development</p>
+      <p class="about-description">I start from the ground up combining my love for design with my knowldege of development to create bespoke online experiences. I use a range of technolgies including  Hugo on which this site is built.</p>
+      <p class="about-title">Design</p>
+      <p class="about-description">I am a self taught designer and love to experiemnt with new systems and designs. I use Figma and  post my work  to my dribble @bybenmclaren. </p>
+    </div>
+    <div class="about-section-2">
+      <p class="about-title">Teaching</p>
+      <p class="about-description">I have found that helping others really helps fuel my passion for code. Teaching @LeWagon means I get to work with students from all over the world and help them towards their goals. </p>
+      <p class="about-title">What else?</p>
+      <p class="about-description">When I am not  looking for a USB C adapter I like to make music with Logic Pro X, keep active by playing rugby and continue my mission to get to a conversational level in as many langauges as possible. </p>
+    </div>
+  </div>
+
+  <!-- <div class="button-container">
+    <div class="button">
+      <a href="##">My CV</a>
+    </div>
+  </div> -->
+  <div class="button-container">
+    <a href="https://res.cloudinary.com/dy35n8sog/image/upload/v1578320280/developer-cv_w9duq5.pdf" target="_blank" class="btn">
+      <svg>
+        <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+      </svg>
+      My CV
     </a>
   </div>
-  </section>
 
-  <div class="hero_title">
-    <div class='dev'>
-      < DEVELOPER >.
-    </div>
-    <div class="des">
-      DESIGNER.
-    </div>
-  </div>
-
-<span id="test">
-</span>
-<section id="section-container">
-  <!-- <section id="section2"> -->
-<!--     <div class="header-background">
-    </div> -->
-    <div class="info-box">
-      <div class="image-of-me">
-        <img id ="imageme" class="cld-responsive" data-src="https://res.cloudinary.com/dy35n8sog/image/upload/v1575543151/vF7dAjDquVCYn1PRRKJ6835Z.jpg" alt=""/>
-      </div>
-      <div class="hero-content">
-        <p class="heading">
-          Design. Code. Create.
-        </p>
-        <p class="description">
-          Hey, I'm Ben and I am a Full-Stack developer from London although my specialism is in UX/UI design and Front-end development. Check out my CV <a href="https://res.cloudinary.com/dy35n8sog/image/upload/v1578320280/developer-cv_w9duq5.pdf" target="_blank">here</a>.
-        </p>
-      </div>
-    </div>
-
-    <div class="paragraphs">
-      <div class="para-1">
-        <p>
-          In early 2019 I started making my first website and since then my love for desiging and developing led me to the Le Wagon coding bootcamp which I graduated from in December 2019.
-        </p>
-      </div>
-      <div class="para-2">
-        <p>
-          I continue to work on projects and I write <a href="/articles">articles</a> on code which I publish here with the aim of supporting other developers. I also do some part time teaching work at Le Wagon where I help to support new developers.
-        </p>
-      <div class="para-3">
-        <p>
-          When I am not coding or perfecting a design I enjoy, making music, boxing and skiing.
-        </p>
-      </div>
-    </div>
-  <!-- </section> -->
-
-  <section class="project-section">
-    <p class="projects-title">
-      Projects
-    </p>
-    <p class="project-1-title">
-      SnowSquad
-    </p>
-    <div class="project-container">
-     <img id ="snowsquad" class="cld-responsive" data-src="https://res.cloudinary.com/dy35n8sog/image/upload/w_auto,c_scale/v1578159116/Screenshot_2020-01-04_at_17.31.39_mkmbsb.png" alt=""/>
-      <p class="project-1-des">
-        A progressive webapp intended to connect skiers and snowboarders in specific resorts and allow them to create groups and find other like minded people to ski with. This was a group project built using Ruby on Rails.
-              <br>
-      <br><a href="https://www.snowsquad.io/" target="_blank">View site</a>
-      </p>
-
-    </div>
-
-    <p class="project-2-title">
-      Chalk and Steel Coaching
-    </p>
-    <div class="project-container">
-      <img id ="chalkandsteel" class="cld-responsive" data-src="https://res.cloudinary.com/dy35n8sog/image/upload/w_auto,c_scale/v1578157957/Screenshot_2020-01-04_at_14.43.30_q9rl9y.png" alt=""/>
-      <p class="project-2-des">
-        Chalk and Steel Coaching is a static site created for a personal trainer to showcase his work, pricing and other details. This was a paid freelance project built using HTML, CSS and Javascript.
-        <br>
-        <br><a href="https://www.chalkandsteelcoaching.com/" target="_blank">View site</a>
-      </p>
-
-    </div>
-
-    <p class="project-3-title">
-      Flamingo
-    </p>
-    <div class="project-container">
-      <img id ="flamingo" class="cld-responsive" data-src="https://res.cloudinary.com/dy35n8sog/image/upload/w_auto,c_scale/v1578308425/Screenshot_2020-01-06_at_10.59.20_kancsj.png" alt=""/>
-      <p class="project-3-des">
-        A home renting app which allows users to search and book homes around the world. Users can also sign up as a host and list their own property on the site. This was a group project built using Ruby on Rails.
-              <br>
-      <br><a href="https://flamingo-319.herokuapp.com/" target="_blank">View site</a>
-      </p>
-
-    </div>
-  </section>
-</section>
-
+</div>
 
 {{ end }}
-

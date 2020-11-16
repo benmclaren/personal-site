@@ -1,5 +1,5 @@
 ---
-title: "How to achieve grid layouts using Flexbox"
+title: "Grid layouts with Flexbox"
 date: 2019-02-14T10:56:16Z
 author: Ben McLaren
 draft: false

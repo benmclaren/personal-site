@@ -6,10 +6,167 @@
     <description>Recent content in Articles on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 19 Feb 2019 11:00:16 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 08 Feb 2020 15:31:11 +0000</lastBuildDate>
     
 	<atom:link href="/articles/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Horizontal scrollbars</title>
+      <link>/articles/horizontal-scrollbars/</link>
+      <pubDate>Sat, 08 Feb 2020 15:31:11 +0000</pubDate>
+      
+      <guid>/articles/horizontal-scrollbars/</guid>
+      <description>We are going to make a scrollbar that will scroll horizontally as the user scrolls vertically down the page. This is a nice feature to have especially on longer pages as you can quickly display to the user how far through an article they are.
+We need to use JQuery for this so make sure that you have imported the JQuery library. See this site as a demonstration of what we are going to build.</description>
+    </item>
+    
+    <item>
+      <title>Search Engine Optimization in Rails</title>
+      <link>/articles/search-engine-optimization-in-rails/</link>
+      <pubDate>Tue, 04 Feb 2020 17:48:45 +0000</pubDate>
+      
+      <guid>/articles/search-engine-optimization-in-rails/</guid>
+      <description>SEO is an important but often overlooked aspect of web development. It is essential in ensuring the maximum exposure for your website and good SEO can really improve traffic to your sites.
+Dynamic page titles Imagine that we have a review website. We might want to have the title of our webpage change depending on which page of our website the user is on.
+Rails has a helper method called content_for that allows us to do just that.</description>
+    </item>
+    
+    <item>
+      <title>Getting the hang of Active Record</title>
+      <link>/articles/getting-the-hang-of-active-record/</link>
+      <pubDate>Fri, 31 Jan 2020 16:23:47 +0000</pubDate>
+      
+      <guid>/articles/getting-the-hang-of-active-record/</guid>
+      <description>Notes on the Le Wagon Active Record Basics Models challenge
+We will go through how a small terminal application links together with active record. For this, please refer to the challenge above.
+Active Record is simply a pattern found in software that stores data (Database). It features various functions such as save and destroy as well as instance variables. These are variables which represent columns in the database.
+We have three things that enable this app to work.</description>
+    </item>
+    
+    <item>
+      <title>Terminal games</title>
+      <link>/articles/terminal-games/</link>
+      <pubDate>Mon, 20 Jan 2020 21:02:01 +0000</pubDate>
+      
+      <guid>/articles/terminal-games/</guid>
+      <description>Notes on the Le Wagon Parsing Numbers and Letters exercise
+The goal of this challenge is to write a simplified version of the game &amp;lsquo;countdown&amp;rsquo; from the terminal where:
+ You are given a random set of letters. You have to enter the longest english word you can find using only letters in the grid. After typing your answer, you get your score combined with the time you took, and eventually an error message if you failed.</description>
+    </item>
+    
+    <item>
+      <title>Translation</title>
+      <link>/articles/translation/</link>
+      <pubDate>Sun, 19 Jan 2020 16:36:01 +0000</pubDate>
+      
+      <guid>/articles/translation/</guid>
+      <description>We are going to build a simple tool that will be able handle translations by checking to see if they are stored in the hash.
+STRINGS = { home: { intro: { en: &amp;#39;Welcome on Le Wagon&amp;#39;, fr: &amp;#39;Bienvenue sur Le Wagon&amp;#39;, de: &amp;#39;Wilkommen aus Le Wagon&amp;#39; }, content: { explanation: { en: &amp;#39;This is an interesting exercise&amp;#39;, fr: &amp;#39;C\&amp;#39;est un exercice interessant&amp;#39;, de: &amp;#39;Es ist eine interesante Übung&amp;#39; }, goodbye: { en: &amp;#39;Goodbye&amp;#39;, fr: &amp;#39;Au revoir&amp;#39;, de: &amp;#39;Tchüss&amp;#39; } } } } Here, we have our method translation which takes two arguments.</description>
+    </item>
+    
+    <item>
+      <title>Analyzing a database with .match</title>
+      <link>/articles/analyzing-a-database-with-.match/</link>
+      <pubDate>Sun, 19 Jan 2020 14:58:14 +0000</pubDate>
+      
+      <guid>/articles/analyzing-a-database-with-.match/</guid>
+      <description>Notes on the Le Wagon Regular Expressions Provider Grouping exercise
+Let’s say you have a user database with thousands of emails, and you want to analyze them according to their provider.
+We can write a method which will group differnent emails by provider and also a method that will return emails of a certain provider.
+MAIL_REGEX = /@(?&amp;lt;domain&amp;gt;[^\.]+)\./ def group_mails(emails) # TODO: group email by provider emails.select do |email| MAIL_REGEX.match(email) end emails.</description>
+    </item>
+    
+    <item>
+      <title>How to check anagrams using regex</title>
+      <link>/articles/how-to-check-anagrams-using-regex/</link>
+      <pubDate>Sat, 18 Jan 2020 18:50:03 +0000</pubDate>
+      
+      <guid>/articles/how-to-check-anagrams-using-regex/</guid>
+      <description>Notes on Le Wagon Regular Expressions Anagrams exercise
+For this exercise we want to write a method that will check if two strings are anagrams.
+def anagrams?(a_string, another_string) a_string = a_string.downcase.chars.sort.join.gsub(/\s+/, &amp;#34;&amp;#34;).gsub(/[^0-9a-zA-Z]/, &amp;#34;&amp;#34;) another_string = another_string.downcase.chars.sort.join.gsub(/\s+/, &amp;#34;&amp;#34;).gsub(/[^0-9a-zA-Z]/, &amp;#34;&amp;#34;) return a_string == another_string end For this first method we start out with creating two variables. These are called a_string and another_string respectivley. We apply the same logic to both of the given arguments.</description>
+    </item>
+    
+    <item>
+      <title>Roman Numeral translation</title>
+      <link>/articles/roman-numeral-translation/</link>
+      <pubDate>Tue, 14 Jan 2020 14:09:27 +0000</pubDate>
+      
+      <guid>/articles/roman-numeral-translation/</guid>
+      <description>Notes on the Le Wagon Hash &amp;amp; Symbols Roman to Integer exercise
+Lets write a method that will take a Roman numeral and transform it into its integer.
+First let us start with writing out a hash that contains the infromation needed to construct Roman Numerals.
+ROMAN_TO_INT = { &amp;#34;I&amp;#34; =&amp;gt; 1, &amp;#34;IV&amp;#34; =&amp;gt; 4, &amp;#34;V&amp;#34; =&amp;gt; 5, &amp;#34;IX&amp;#34; =&amp;gt; 9, &amp;#34;X&amp;#34; =&amp;gt; 10, &amp;#34;XL&amp;#34; =&amp;gt; 40, &amp;#34;L&amp;#34; =&amp;gt; 50, &amp;#34;XC&amp;#34; =&amp;gt; 90, &amp;#34;C&amp;#34; =&amp;gt; 100, &amp;#34;CD&amp;#34; =&amp;gt; 400, &amp;#34;D&amp;#34; =&amp;gt; 500, &amp;#34;CM&amp;#34; =&amp;gt; 900, &amp;#34;M&amp;#34; =&amp;gt; 1000 } Lets define our method and give it one parameter.</description>
+    </item>
+    
+    <item>
+      <title>What are Proc Objects?</title>
+      <link>/articles/what-are-proc-objects/</link>
+      <pubDate>Tue, 14 Jan 2020 11:23:38 +0000</pubDate>
+      
+      <guid>/articles/what-are-proc-objects/</guid>
+      <description>Notes on the Le Wagon Iteratros &amp;amp; Blocks Storing Blocks in Procs exercise
+A Proc Object is an encapsulation of a block of code which can be stored in a variable. In other words you can call them, pass them to other methods and pass them to other proc objects. It differs to yield in the sense that it can be called later as it has stored and remembered the block information.</description>
+    </item>
+    
+    <item>
+      <title>Transforming an Array into a Hash</title>
+      <link>/articles/transforming-an-array-into-a-hash/</link>
+      <pubDate>Tue, 14 Jan 2020 10:19:32 +0000</pubDate>
+      
+      <guid>/articles/transforming-an-array-into-a-hash/</guid>
+      <description>Notes on the Le Wagon Hash &amp;amp; Symbols Array to Hash exercise
+We want to write a method that takes an array as an argument and will convert it into a hash.
+Our method should do the following:
+ If no block is given, then the hash keys should just be integer indexes of elements in the array, converted as Strings. If a block is given, call it, passing the array index and use what’s returned as the hash key.</description>
+    </item>
+    
+    <item>
+      <title>Parisian slang translator</title>
+      <link>/articles/parisian-slang-translator/</link>
+      <pubDate>Mon, 13 Jan 2020 15:00:56 +0000</pubDate>
+      
+      <guid>/articles/parisian-slang-translator/</guid>
+      <description>Notes on the Le Wagon Iterators &amp;amp; BLocks Louchebem exercise
+Louchébem is a type of French slang that was originally spoken by Parisian butchers. Very simply, you take a normal French word like “PATRON”. You take the first consonant group (letters before the first vowel), and replace it with an “L”. Then, you put that first consonant group at the end of the word, followed by one of the louchebem suffixes, e.</description>
+    </item>
+    
+    <item>
+      <title>How to split arrays</title>
+      <link>/articles/how-to-split-arrays/</link>
+      <pubDate>Mon, 13 Jan 2020 14:16:58 +0000</pubDate>
+      
+      <guid>/articles/how-to-split-arrays/</guid>
+      <description>Notes on the Le Wagon Iteratros &amp;amp; Blocks Splitter exercise
+We want to create a splitter method which will take an array and divide it into two groups according to an arbitrary rule. You might want to split by age if we’re talking about a group of people.
+Lets implement a method size_splitter which takes two parameters: an array, and a integer (the size). We will assume that the array only contains words, e.</description>
+    </item>
+    
+    <item>
+      <title>Using blocks with yield</title>
+      <link>/articles/using-blocks-with-yield/</link>
+      <pubDate>Mon, 13 Jan 2020 12:07:53 +0000</pubDate>
+      
+      <guid>/articles/using-blocks-with-yield/</guid>
+      <description>Notes on the Le Wagon Iteratros &amp;amp; Blocks About Blocks exercise
+Intoduction to blocks and using yield.
+Timer Yield is a Ruby keyword executing the block. It tells the method to execute a block now.
+Lets start with a timer method which will simply return the time taken to execute a given block.
+def timer_for start_time = Time.now yield end_time = Time.now time_taken = end_time - start_time return time_taken end   We start by setting start_time to the current time by using Time.</description>
+    </item>
+    
+    <item>
+      <title>Ruby hash basics</title>
+      <link>/articles/ruby-hash-basics/</link>
+      <pubDate>Mon, 13 Jan 2020 11:25:35 +0000</pubDate>
+      
+      <guid>/articles/ruby-hash-basics/</guid>
+      <description>Notes on the Le Wagon Hash &amp;amp; Symbols Burger Hash exercise
+Hashes can be confusing at first but once you get your head around them they are relatively straight forward.
+For this exercise we want to build a counter that will add up the amount of calories there are in different items of food.
+To start with we will store the information in a hash which is a more readable way of storing data and works as a sort of database.</description>
+    </item>
     
     <item>
       <title>How to make a Paralax effect</title>
@@ -31,45 +188,45 @@ The effect we are trying to achieve is actually in fact very simple. It is only 
       
       <guid>/articles/how-to-apply-overlays-to-images/</guid>
       <description>An overlay seems like it would be something difficult to achieve however, it is actually relatively simple and it can be done with just CSS.
-For this example, let&#39;s assume that you wish to overlay text on an image when you hover over it. To do this let&#39;s first take a look at some HTML.
+For this example, let&amp;rsquo;s assume that you wish to overlay text on an image when you hover over it. To do this let&amp;rsquo;s first take a look at some HTML.
 &amp;lt;section&amp;gt; &amp;lt;div class=&amp;#34;photo&amp;#34; &amp;lt;div class=&amp;#34;overlay&amp;#34;&amp;gt; &amp;lt;h2&amp;gt; some text &amp;lt;/h2&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;img src=&amp;#34;my-image.jpg&amp;#34;&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/section&amp;gt; Above is some simple HTML code for an image contained in a section.</description>
     </item>
     
     <item>
-      <title>How to achieve grid layouts using Flexbox</title>
-      <link>/articles/how-to-achieve-grid-layouts-using-flexbox/</link>
+      <title>Grid layouts with Flexbox</title>
+      <link>/articles/grid-layouts-with-flexbox/</link>
       <pubDate>Thu, 14 Feb 2019 10:56:16 +0000</pubDate>
       
-      <guid>/articles/how-to-achieve-grid-layouts-using-flexbox/</guid>
+      <guid>/articles/grid-layouts-with-flexbox/</guid>
       <description>Flexbox is a very powerful tool and it is one that can be used to create many different layouts.
-Let&#39;s say that you wish to lay out a selection of images on a page in a grid style. In the past this would have been difficult to achieve inlvolving developers needing to &amp;lsquo;hack&amp;rsquo; their way around it using floats. However, with only a few lines of code flexbox is able to create a grid.</description>
+Let&amp;rsquo;s say that you wish to lay out a selection of images on a page in a grid style. In the past this would have been difficult to achieve inlvolving developers needing to &amp;lsquo;hack&amp;rsquo; their way around it using floats. However, with only a few lines of code flexbox is able to create a grid.</description>
     </item>
     
     <item>
-      <title>How to make an inline navigation bar with Flexbox</title>
-      <link>/articles/how-to-make-an-inline-navigation-bar-with-flexbox/</link>
+      <title>An Inline navigation bar</title>
+      <link>/articles/an-inline-navigation-bar/</link>
       <pubDate>Sun, 10 Feb 2019 13:07:09 +0000</pubDate>
       
-      <guid>/articles/how-to-make-an-inline-navigation-bar-with-flexbox/</guid>
+      <guid>/articles/an-inline-navigation-bar/</guid>
       <description>One of the key components on my site is the navigation bar. Initially, I had attempted to create this using floats however, I quickly realised that this was not an effective way of constructing this element. It was at this point that I researched Flexbox and how it can be used to make a responsive component.
 Setting out the HTML &amp;lt;header class=&amp;#34;header&amp;#34;&amp;gt; &amp;lt;ul class=&amp;#34;nav&amp;#34;&amp;gt; &amp;lt;li class=&amp;#34;nav-link&amp;#34;&amp;gt; &amp;lt;a href=&amp;#34;work.html&amp;#34;&amp;gt;Work&amp;lt;/a&amp;gt; &amp;lt;/li&amp;gt; &amp;lt;li class=&amp;#34;nav-link&amp;#34;&amp;gt; &amp;lt;a href=&amp;#34;articles.</description>
     </item>
     
     <item>
-      <title>How to use media queries to make responsive text</title>
-      <link>/articles/how-to-use-media-queries-to-make-responsive-text/</link>
+      <title>Making responsive text</title>
+      <link>/articles/making-responsive-text/</link>
       <pubDate>Tue, 29 Jan 2019 11:35:33 +0000</pubDate>
       
-      <guid>/articles/how-to-use-media-queries-to-make-responsive-text/</guid>
-      <description>Websites need to look good across a multitude of screens and therfore it is essential that a site is responsive so that a user&#39;s experience is not affected by their choice of screen size. I encountered a problem whilst building this site that was causing some of my headers to be cut off of the page when the browser size was reduced. I had previously tried using margins and padding to try and fix this issue however, some research led me to media queries.</description>
+      <guid>/articles/making-responsive-text/</guid>
+      <description>Websites need to look good across a multitude of screens and therfore it is essential that a site is responsive so that a user&amp;rsquo;s experience is not affected by their choice of screen size. I encountered a problem whilst building this site that was causing some of my headers to be cut off of the page when the browser size was reduced. I had previously tried using margins and padding to try and fix this issue however, some research led me to media queries.</description>
     </item>
     
     <item>
-      <title>Why I came out of univeristy to focus on coding</title>
-      <link>/articles/why-i-came-out-of-univeristy-to-focus-on-coding/</link>
+      <title>Why why why?</title>
+      <link>/articles/why-why-why/</link>
       <pubDate>Tue, 11 Dec 2018 11:34:23 +0000</pubDate>
       
-      <guid>/articles/why-i-came-out-of-univeristy-to-focus-on-coding/</guid>
+      <guid>/articles/why-why-why/</guid>
       <description>The best decison I could have made
 One of the most common questions children are asked is &amp;lsquo;What do you want to be when you are older?&#39;. In my opinion this is quite a difficult question to answer. Not many people have a firm idea of what they really want to do. There are of course those who know exactly which career direction they wish to pursue, medicine for example. However, for most of us, finding that one thing that is going to spark your interest and kickstart your career is quite hard to discover.</description>
     </item>

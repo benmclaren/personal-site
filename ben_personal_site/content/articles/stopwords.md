@@ -2,7 +2,7 @@
 title: "How to iterate over a text file and return specific information"
 date: 2020-01-19T12:47:29Z
 author: Ben McLaren
-draft: false
+draft: true
 excerpt: "Notes on the Le Wagon Regular Expressions Word Frequency exercise"
 ---
 
@@ -59,17 +59,3 @@ end
 6. Here, we say make a new key of `word` inside our hash called `counter`. This means a new key will be created inside hash for each new word it finds. Then we add 1 to this key unless the word is contained within the `stop_words` file.
 
 7. Lastly, we can use the notation `Hash[]` which will generate a new hash. Only if it has an array of arrays as an argument. We then call `.sort_by` on `counter`. This takes two arguments but we only need the second argument. The `_` says that we don't care what this is is. Then we say for each element reverse the order from 0 to the last position.
-
-
-
-
-
-
-
-
-
-
-
-
-
-

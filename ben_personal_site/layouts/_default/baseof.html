@@ -1,9 +1,16 @@
 {{ partial "head.html" . }}
-{{ partial "header.html" . }}
 
-{{ block "main" . }}
+{{ partial "offscreen-nav.html" . }}
+
+<div class="home-container">
+  {{ partial "header.html" . }}
+
+    {{ block "main" . }}
 
 
-{{ end }}
+    {{ end }}
 
-{{ partial "footer.html" . }}
+
+  {{ partial "footer.html" . }}
+</div>
+{{ partial "scripts.html" . }}

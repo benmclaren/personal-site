@@ -1,5 +1,5 @@
 ---
-title: "What are Proc Objects? and how they are used"
+title: "What are Proc Objects?"
 date: 2020-01-14T11:23:38Z
 author: Ben McLaren
 draft: false
@@ -47,18 +47,3 @@ def tell_mum_with_proc(message_blk)
 end
 ```
 This final method takes the single `message_block` parameter and calls the `tell_with_proc` method. It passes in the two required arguments "mum" and the block defined by `message_block`.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

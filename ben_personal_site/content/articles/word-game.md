@@ -1,5 +1,5 @@
 ---
-title: "How to make a 'countdown' style terminal game"
+title: "Terminal games"
 date: 2020-01-20T21:02:01Z
 author: Ben McLaren
 draft: false
@@ -272,20 +272,3 @@ puts "Message: #{result[:message]}"
 
 puts "*****************************************************"
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,0 +1,25 @@
+.project-image-container {
+  max-width: 1183px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 48px;
+}
+
+#project-image {
+  width: 100%;
+}
+
+.project-content {
+  margin-top: 48px;
+}
+
+.project-intro {
+  font-size: var(--mobile-sub-heading-text);
+  margin-top: 48px;
+  font-weight: 200;
+}
+
+.hero-text a {
+  color: var(--main-text-color);
+  text-decoration: none;
+}

@@ -1,8 +1,8 @@
 ---
-title: "Cookbook"
+title: "Making a basic MVC terminal application"
 date: 2020-04-16T15:09:41+01:00
 author: Ben McLaren
-draft: false
+draft: true
 excerpt: "Notes on Le Wagon cookbook day 1"
 ---
  For this challenge we first want to begin with setting up our model. This should always be the first thing we do when making these sorts of programs. For our cookbook we are storing recipes so it makes sense for our model to be a Recipe model
