@@ -19,7 +19,8 @@
 }
 
 #imageme {
-  height: 181px;
+  min-height: 181px;
+  max-height: 322px;
   border-radius: 50%;
   margin-top: 32px;
   text-align: center;

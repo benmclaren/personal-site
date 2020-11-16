@@ -2,7 +2,6 @@
 console.log('app.js is linked');
 
 
-
 const hamburger = document.querySelector(".ham");
 const mainContainerTag = document.querySelector(".home-container");
 
