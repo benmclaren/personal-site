@@ -1,5 +1,5 @@
 ---
-title: "How to apply overlays to images"
+title: "Image Overlays"
 date: 2019-02-17T10:58:45Z
 author: Ben McLaren
 draft: false

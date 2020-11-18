@@ -1,5 +1,5 @@
 ---
-title: "Search Engine Optimization in Rails"
+title: "SEO in Rails"
 date: 2020-02-04T17:48:45Z
 author: Ben McLaren
 draft: false

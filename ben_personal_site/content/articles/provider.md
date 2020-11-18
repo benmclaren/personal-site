@@ -1,5 +1,5 @@
 ---
-title: "Analyzing a database with .match"
+title: "Analyzing databases"
 date: 2020-01-19T14:58:14Z
 author: Ben McLaren
 draft: false
@@ -49,19 +49,3 @@ To return true if an email is of a given provider, we can define a new method of
 1. Firstly, we assign the result of calling `.match` on the `MAIL_REGEX` to the variable `match`.
 
 2. We can then say if its true that the domain part of the regex matches the provider then return true. However, if not then it returns false.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

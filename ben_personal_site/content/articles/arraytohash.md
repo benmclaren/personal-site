@@ -1,5 +1,5 @@
 ---
-title: "Transforming an Array into a Hash"
+title: "An Array to a Hash"
 date: 2020-01-14T10:19:32Z
 author: Ben McLaren
 draft: false
@@ -59,12 +59,3 @@ The results of this are then assigned to the variable `key`.
 `hash[key] = item`
 
 We then return the hash.
-
-
-
-
-
-
-
-
-
