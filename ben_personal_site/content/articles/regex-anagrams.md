@@ -1,5 +1,5 @@
 ---
-title: "How to check anagrams using regex"
+title: "Playing with Regex"
 date: 2020-01-18T18:50:03Z
 author: Ben McLaren
 draft: false
@@ -89,18 +89,3 @@ The flow of this can be confusing so to recap:
 - If we give the word 'POST' as an argument into `create_hash` then as its  run for the first time it will reach the `if` statement and will not be able to find a key of `post` as the hash is currently empty. It will therefore create a new key of `opst`. However when `create_hash` is run a second time with the word `SPOT` then it will see that there is in fact a key of opst in the hash and it therfore increments its value by 1.
 
 - When `new_hash.values` is called then it will display an array with the group of values.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

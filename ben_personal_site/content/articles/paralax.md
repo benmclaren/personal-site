@@ -1,5 +1,5 @@
 ---
-title: "How to make a Paralax effect"
+title: "The Paralax effect"
 date: 2019-02-19T11:00:16Z
 author: Ben McLaren
 draft: false

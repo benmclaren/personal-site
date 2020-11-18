@@ -1,5 +1,5 @@
 ---
-title: "Getting the hang of Active Record"
+title: "Working with Active Record"
 date: 2020-01-31T16:23:47Z
 author: Ben McLaren
 draft: false
