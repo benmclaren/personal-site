@@ -2,58 +2,58 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Works on Ben McLaren - Freelance Developer</title>
-    <link>/work/</link>
+    <link>https://benmclaren.xyz/work/</link>
     <description>Recent content in Works on Ben McLaren - Freelance Developer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 11 Nov 2020 14:49:01 +0000</lastBuildDate>
     
-	<atom:link href="/work/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://benmclaren.xyz/work/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Remote.cards</title>
-      <link>/work/remotecards/</link>
+      <link>https://benmclaren.xyz/work/remotecards/</link>
       <pubDate>Wed, 11 Nov 2020 14:49:01 +0000</pubDate>
       
-      <guid>/work/remotecards/</guid>
+      <guid>https://benmclaren.xyz/work/remotecards/</guid>
       <description>I built this alongside my brother Harry. The coronavirus outbreak meant that a lot of people in service industries were left stuck at home and having to turn to offering their services online over zoom or other live streaming platforms.
 The idea is that you create a custom card, then share it with your friends on social media. It’s a bit of fun whilst we’re all stuck at home.</description>
     </item>
     
     <item>
       <title>Flamingo.com</title>
-      <link>/work/flamingo/</link>
+      <link>https://benmclaren.xyz/work/flamingo/</link>
       <pubDate>Wed, 11 Nov 2020 14:48:54 +0000</pubDate>
       
-      <guid>/work/flamingo/</guid>
+      <guid>https://benmclaren.xyz/work/flamingo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>WRC design</title>
-      <link>/work/wrcdesign/</link>
+      <link>https://benmclaren.xyz/work/wrcdesign/</link>
       <pubDate>Wed, 11 Nov 2020 14:48:40 +0000</pubDate>
       
-      <guid>/work/wrcdesign/</guid>
+      <guid>https://benmclaren.xyz/work/wrcdesign/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ChalkandSteel.com</title>
-      <link>/work/chalkandsteel/</link>
+      <link>https://benmclaren.xyz/work/chalkandsteel/</link>
       <pubDate>Wed, 11 Nov 2020 14:48:17 +0000</pubDate>
       
-      <guid>/work/chalkandsteel/</guid>
+      <guid>https://benmclaren.xyz/work/chalkandsteel/</guid>
       <description></description>
     </item>
     
     <item>
       <title>SnowSquad.io</title>
-      <link>/work/snowsquad/</link>
+      <link>https://benmclaren.xyz/work/snowsquad/</link>
       <pubDate>Wed, 11 Nov 2020 14:47:53 +0000</pubDate>
       
-      <guid>/work/snowsquad/</guid>
+      <guid>https://benmclaren.xyz/work/snowsquad/</guid>
       <description></description>
     </item>
     
