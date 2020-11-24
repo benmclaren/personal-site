@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/contact/contact/</loc>
+    <lastmod>2020-11-16T11:30:13+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/contact/</loc>
     <lastmod>2020-11-16T11:30:13+00:00</lastmod>
   </url>
@@ -53,12 +58,12 @@
   </url>
   
   <url>
-    <loc>/articles/search-engine-optimization-in-rails/</loc>
+    <loc>/articles/seo-in-rails/</loc>
     <lastmod>2020-02-04T17:48:45+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/articles/getting-the-hang-of-active-record/</loc>
+    <loc>/articles/working-with-active-record/</loc>
     <lastmod>2020-01-31T16:23:47+00:00</lastmod>
   </url>
   
@@ -73,12 +78,12 @@
   </url>
   
   <url>
-    <loc>/articles/analyzing-a-database-with-.match/</loc>
+    <loc>/articles/analyzing-databases/</loc>
     <lastmod>2020-01-19T14:58:14+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/articles/how-to-check-anagrams-using-regex/</loc>
+    <loc>/articles/playing-with-regex/</loc>
     <lastmod>2020-01-18T18:50:03+00:00</lastmod>
   </url>
   
@@ -93,7 +98,7 @@
   </url>
   
   <url>
-    <loc>/articles/transforming-an-array-into-a-hash/</loc>
+    <loc>/articles/an-array-to-a-hash/</loc>
     <lastmod>2020-01-14T10:19:32+00:00</lastmod>
   </url>
   
@@ -118,17 +123,17 @@
   </url>
   
   <url>
-    <loc>/articles/how-to-make-a-paralax-effect/</loc>
+    <loc>/articles/the-paralax-effect/</loc>
     <lastmod>2019-02-19T11:00:16+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/articles/how-to-apply-overlays-to-images/</loc>
+    <loc>/articles/image-overlays/</loc>
     <lastmod>2019-02-17T10:58:45+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/articles/grid-layouts-with-flexbox/</loc>
+    <loc>/articles/flexbox-grid-layouts/</loc>
     <lastmod>2019-02-14T10:56:16+00:00</lastmod>
   </url>
   

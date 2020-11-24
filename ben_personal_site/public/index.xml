@@ -13,10 +13,10 @@
     
     <item>
       <title>Contact</title>
-      <link>/contact/</link>
+      <link>/contact/contact/</link>
       <pubDate>Mon, 16 Nov 2020 11:30:13 +0000</pubDate>
       
-      <guid>/contact/</guid>
+      <guid>/contact/contact/</guid>
       <description>Work with me, or just say Hi What do I do? Front-end + Design
 I design and build websites from the ground up. My focus lies within front-end development and content driven static sites. I also love animating things and bringing content to life to create a beautiful and seamless user experience.
 My tools of choice for this lie in the realm of “Jamstack” utilizing HTML, CSS and Javascript. I will often pair this with a static site generator such as Hugo as I have done for this site.</description>
@@ -33,7 +33,7 @@ The idea is that you create a custom card, then share it with your friends on so
     </item>
     
     <item>
-      <title>Flamingo</title>
+      <title>Flamingo.com</title>
       <link>/work/flamingo/</link>
       <pubDate>Wed, 11 Nov 2020 14:48:54 +0000</pubDate>
       
@@ -51,7 +51,7 @@ The idea is that you create a custom card, then share it with your friends on so
     </item>
     
     <item>
-      <title>ChalkandSteel</title>
+      <title>ChalkandSteel.com</title>
       <link>/work/chalkandsteel/</link>
       <pubDate>Wed, 11 Nov 2020 14:48:17 +0000</pubDate>
       
@@ -60,7 +60,7 @@ The idea is that you create a custom card, then share it with your friends on so
     </item>
     
     <item>
-      <title>SnowSquad</title>
+      <title>SnowSquad.io</title>
       <link>/work/snowsquad/</link>
       <pubDate>Wed, 11 Nov 2020 14:47:53 +0000</pubDate>
       
@@ -79,22 +79,22 @@ We need to use JQuery for this so make sure that you have imported the JQuery li
     </item>
     
     <item>
-      <title>Search Engine Optimization in Rails</title>
-      <link>/articles/search-engine-optimization-in-rails/</link>
+      <title>SEO in Rails</title>
+      <link>/articles/seo-in-rails/</link>
       <pubDate>Tue, 04 Feb 2020 17:48:45 +0000</pubDate>
       
-      <guid>/articles/search-engine-optimization-in-rails/</guid>
+      <guid>/articles/seo-in-rails/</guid>
       <description>SEO is an important but often overlooked aspect of web development. It is essential in ensuring the maximum exposure for your website and good SEO can really improve traffic to your sites.
 Dynamic page titles Imagine that we have a review website. We might want to have the title of our webpage change depending on which page of our website the user is on.
 Rails has a helper method called content_for that allows us to do just that.</description>
     </item>
     
     <item>
-      <title>Getting the hang of Active Record</title>
-      <link>/articles/getting-the-hang-of-active-record/</link>
+      <title>Working with Active Record</title>
+      <link>/articles/working-with-active-record/</link>
       <pubDate>Fri, 31 Jan 2020 16:23:47 +0000</pubDate>
       
-      <guid>/articles/getting-the-hang-of-active-record/</guid>
+      <guid>/articles/working-with-active-record/</guid>
       <description>Notes on the Le Wagon Active Record Basics Models challenge
 We will go through how a small terminal application links together with active record. For this, please refer to the challenge above.
 Active Record is simply a pattern found in software that stores data (Database). It features various functions such as save and destroy as well as instance variables. These are variables which represent columns in the database.
@@ -123,11 +123,11 @@ STRINGS = { home: { intro: { en: &amp;#39;Welcome on Le Wagon&amp;#39;, fr: &amp
     </item>
     
     <item>
-      <title>Analyzing a database with .match</title>
-      <link>/articles/analyzing-a-database-with-.match/</link>
+      <title>Analyzing databases</title>
+      <link>/articles/analyzing-databases/</link>
       <pubDate>Sun, 19 Jan 2020 14:58:14 +0000</pubDate>
       
-      <guid>/articles/analyzing-a-database-with-.match/</guid>
+      <guid>/articles/analyzing-databases/</guid>
       <description>Notes on the Le Wagon Regular Expressions Provider Grouping exercise
 Let’s say you have a user database with thousands of emails, and you want to analyze them according to their provider.
 We can write a method which will group differnent emails by provider and also a method that will return emails of a certain provider.
@@ -135,11 +135,11 @@ MAIL_REGEX = /@(?&amp;lt;domain&amp;gt;[^\.]+)\./ def group_mails(emails) # TODO
     </item>
     
     <item>
-      <title>How to check anagrams using regex</title>
-      <link>/articles/how-to-check-anagrams-using-regex/</link>
+      <title>Playing with Regex</title>
+      <link>/articles/playing-with-regex/</link>
       <pubDate>Sat, 18 Jan 2020 18:50:03 +0000</pubDate>
       
-      <guid>/articles/how-to-check-anagrams-using-regex/</guid>
+      <guid>/articles/playing-with-regex/</guid>
       <description>Notes on Le Wagon Regular Expressions Anagrams exercise
 For this exercise we want to write a method that will check if two strings are anagrams.
 def anagrams?(a_string, another_string) a_string = a_string.downcase.chars.sort.join.gsub(/\s+/, &amp;#34;&amp;#34;).gsub(/[^0-9a-zA-Z]/, &amp;#34;&amp;#34;) another_string = another_string.downcase.chars.sort.join.gsub(/\s+/, &amp;#34;&amp;#34;).gsub(/[^0-9a-zA-Z]/, &amp;#34;&amp;#34;) return a_string == another_string end For this first method we start out with creating two variables. These are called a_string and another_string respectivley. We apply the same logic to both of the given arguments.</description>
@@ -168,11 +168,11 @@ A Proc Object is an encapsulation of a block of code which can be stored in a va
     </item>
     
     <item>
-      <title>Transforming an Array into a Hash</title>
-      <link>/articles/transforming-an-array-into-a-hash/</link>
+      <title>An Array to a Hash</title>
+      <link>/articles/an-array-to-a-hash/</link>
       <pubDate>Tue, 14 Jan 2020 10:19:32 +0000</pubDate>
       
-      <guid>/articles/transforming-an-array-into-a-hash/</guid>
+      <guid>/articles/an-array-to-a-hash/</guid>
       <description>Notes on the Le Wagon Hash &amp;amp; Symbols Array to Hash exercise
 We want to write a method that takes an array as an argument and will convert it into a hash.
 Our method should do the following:
@@ -226,11 +226,11 @@ To start with we will store the information in a hash which is a more readable w
     </item>
     
     <item>
-      <title>How to make a Paralax effect</title>
-      <link>/articles/how-to-make-a-paralax-effect/</link>
+      <title>The Paralax effect</title>
+      <link>/articles/the-paralax-effect/</link>
       <pubDate>Tue, 19 Feb 2019 11:00:16 +0000</pubDate>
       
-      <guid>/articles/how-to-make-a-paralax-effect/</guid>
+      <guid>/articles/the-paralax-effect/</guid>
       <description>Paralax effect (CSS Only)
 A Paralax effect is an interesting but effective way of displaying content and is quite easy to achieve.
 In order to explain how to implement this effect I think it is easiet to apply it to a real use case site.
@@ -239,22 +239,22 @@ The effect we are trying to achieve is actually in fact very simple. It is only 
     </item>
     
     <item>
-      <title>How to apply overlays to images</title>
-      <link>/articles/how-to-apply-overlays-to-images/</link>
+      <title>Image Overlays</title>
+      <link>/articles/image-overlays/</link>
       <pubDate>Sun, 17 Feb 2019 10:58:45 +0000</pubDate>
       
-      <guid>/articles/how-to-apply-overlays-to-images/</guid>
+      <guid>/articles/image-overlays/</guid>
       <description>An overlay seems like it would be something difficult to achieve however, it is actually relatively simple and it can be done with just CSS.
 For this example, let&amp;rsquo;s assume that you wish to overlay text on an image when you hover over it. To do this let&amp;rsquo;s first take a look at some HTML.
 &amp;lt;section&amp;gt; &amp;lt;div class=&amp;#34;photo&amp;#34; &amp;lt;div class=&amp;#34;overlay&amp;#34;&amp;gt; &amp;lt;h2&amp;gt; some text &amp;lt;/h2&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;img src=&amp;#34;my-image.jpg&amp;#34;&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/section&amp;gt; Above is some simple HTML code for an image contained in a section.</description>
     </item>
     
     <item>
-      <title>Grid layouts with Flexbox</title>
-      <link>/articles/grid-layouts-with-flexbox/</link>
+      <title>Flexbox grid layouts</title>
+      <link>/articles/flexbox-grid-layouts/</link>
       <pubDate>Thu, 14 Feb 2019 10:56:16 +0000</pubDate>
       
-      <guid>/articles/grid-layouts-with-flexbox/</guid>
+      <guid>/articles/flexbox-grid-layouts/</guid>
       <description>Flexbox is a very powerful tool and it is one that can be used to create many different layouts.
 Let&amp;rsquo;s say that you wish to lay out a selection of images on a page in a grid style. In the past this would have been difficult to achieve inlvolving developers needing to &amp;lsquo;hack&amp;rsquo; their way around it using floats. However, with only a few lines of code flexbox is able to create a grid.</description>
     </item>

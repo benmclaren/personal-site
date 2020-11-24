@@ -58,61 +58,15 @@
 <div id="swup" class="main-wrapper transition-fade">
 
     <div class="page-content">
-      <p class="page-title"> Using blocks with yield </p>
-      <p><strong>Notes on the Le Wagon Iteratros &amp; Blocks About Blocks exercise</strong></p>
-<p>Intoduction to blocks and using yield.</p>
-<h1 id="timer">Timer</h1>
-<p>Yield is a Ruby keyword executing the block. It tells the method to execute a block now.</p>
-<p>Lets start with a timer method which will simply return the time taken to execute a given block.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">timer_for</span>
-  start_time <span style="color:#f92672">=</span> <span style="color:#66d9ef">Time</span><span style="color:#f92672">.</span>now
-  <span style="color:#66d9ef">yield</span>
-  end_time <span style="color:#f92672">=</span> <span style="color:#66d9ef">Time</span><span style="color:#f92672">.</span>now
-  time_taken <span style="color:#f92672">=</span> end_time <span style="color:#f92672">-</span> start_time
-  <span style="color:#66d9ef">return</span> time_taken
-<span style="color:#66d9ef">end</span>
-</code></pre></div><ol>
-<li>
-<p>We start by setting start_time to the current time by using <code>Time.now</code>.</p>
-</li>
-<li>
-<p>Use the keyword &lsquo;Yield&rsquo; to tell the method to run the block now</p>
-</li>
-<li>
-<p>Set end_time to <code>Time.now</code></p>
-</li>
-<li>
-<p>Assign the calculation of end_time - start_time to time_taken and return it to get the total time taken.</p>
-</li>
-</ol>
-<h1 id="achieving-map-behaviour-without-using-map">Achieving <code>.map</code> behaviour without using <code>.map</code></h1>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">my_map</span>(array)
-  new_array <span style="color:#f92672">=</span> <span style="color:#f92672">[</span><span style="color:#f92672">]</span>
-  array<span style="color:#f92672">.</span>each <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>name<span style="color:#f92672">|</span>
-    new_array <span style="color:#f92672">&lt;&lt;</span> <span style="color:#66d9ef">yield</span>(name)
-  <span style="color:#66d9ef">end</span>
-  <span style="color:#66d9ef">return</span> new_array
-<span style="color:#66d9ef">end</span>
-</code></pre></div><p>&lsquo;.map&rsquo; will create a new array for us. However, if we are not using <code>.map</code> then we must create this new array ourselves by setting <code>new_array</code> to an empty array.</p>
-<p>We then iterate over the array with <code>.each</code>. We can then use <code>yield</code> to call the block this time giving it a parameter so that it will call the block and insert the parameter of <code>name</code>.</p>
-<p>You can then return the new array.</p>
-<h1 id="building-html-tags-around-content-in-a-block">Building HTML tags around content in a block</h1>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">tag</span>(tag_name, attributes <span style="color:#f92672">=</span> <span style="color:#66d9ef">nil</span>)
-  attr_name <span style="color:#f92672">=</span> attributes<span style="color:#f92672">.</span>nil? ? <span style="color:#66d9ef">nil</span> : attributes<span style="color:#f92672">.</span>first
-  attr_value <span style="color:#f92672">=</span> attributes<span style="color:#f92672">.</span>nil? ? <span style="color:#66d9ef">nil</span> : attributes<span style="color:#f92672">.</span>last
-
-  open_tag <span style="color:#f92672">=</span> attributes<span style="color:#f92672">.</span>nil? ? tag_name : <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span>tag_name<span style="color:#e6db74">}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">#{</span>attr_name<span style="color:#e6db74">}</span><span style="color:#e6db74">=</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">#{</span>attr_value<span style="color:#e6db74">}</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">&#34;</span>
-  content <span style="color:#f92672">=</span> <span style="color:#66d9ef">yield</span>
-  <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">&lt;</span><span style="color:#e6db74">#{</span>open_tag<span style="color:#e6db74">}</span><span style="color:#e6db74">&gt;</span><span style="color:#e6db74">#{</span>content<span style="color:#e6db74">}</span><span style="color:#e6db74">&lt;/</span><span style="color:#e6db74">#{</span>tag_name<span style="color:#e6db74">}</span><span style="color:#e6db74">&gt;</span><span style="color:#e6db74">&#34;</span>
-<span style="color:#66d9ef">end</span>
-</code></pre></div><p>This method takes two parameters <code>tag_name</code> and <code>attributes</code>. <code>= nil</code> means that if no parameter is given then it will assign it to nil. You can think of it as being an optionl parameter.</p>
-<p>We start by calling <code>nil?</code> on atrributes to check if it is nil or if a parameter has been given. It returns a boolean value. We use a ternary operator which says if the value is true ( meaning it is nil) then keep it as nil otherwise grab the first element. The same logic is applied to <code>attr_value</code> but we take the last element instead.</p>
-<p>Then we define an <code>open_tag</code> which also makes use of a ternary operator. It states that if the attribute is nil then return the <code>tag_name</code> only but if not then build the following:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span>tag_name<span style="color:#e6db74">}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">#{</span>attr_name<span style="color:#e6db74">}</span><span style="color:#e6db74">=</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">#{</span>attr_value<span style="color:#e6db74">}</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">&#34;</span>
-</code></pre></div><p>We have interploated the tag name and then the attirbute (for example &ldquo;style&rdquo;). Then we have an <code>=</code> and an interpolation of the attibute value (for example &ldquo;color: red&rdquo;). We require the use of the \ in order to use &quot; in the middle of the string. It just means it ignores the character and does not treat it as the end of the string.</p>
-<p>Then we say that content is = to running the block (yield). Finally we build our HTML code.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">&lt;</span><span style="color:#e6db74">#{</span>open_tag<span style="color:#e6db74">}</span><span style="color:#e6db74">&gt;</span><span style="color:#e6db74">#{</span>content<span style="color:#e6db74">}</span><span style="color:#e6db74">&lt;/</span><span style="color:#e6db74">#{</span>tag_name<span style="color:#e6db74">}</span><span style="color:#e6db74">&gt;</span><span style="color:#e6db74">&#34;</span>
-</code></pre></div><p>We interpoloate each part to make the HTML code, adding in essential characters where needed.This is returned as a string.</p>
+      <p class="page-title"> Contact </p>
+      <h2 id="work-with-me-or-just-say-hi">Work with me, or just say Hi</h2>
+<h3 id="what-do-i-do">What do I do?</h3>
+<p>Front-end + Design</p>
+<p>I design and build websites from the ground up. My focus lies within front-end development and content driven static sites. I also love animating things and bringing content to life to create a beautiful and seamless user experience.</p>
+<p>My tools of choice for this lie in the realm of “Jamstack” utilizing HTML, CSS and Javascript. I will often pair this with a static site generator such as Hugo as I have done for this site. This allows for very fast and accessible websites</p>
+<p>Back-end</p>
+<p>It is not out of scope for me to do back-end development if your project requires. I would turn to Ruby on Rails. A robust framework for creating fully responsive web applications capable of handling user driven content. I also have a team of developers I can call upon for larger scale applications that may require a small team.</p>
+<p>If this sounds interesting to you or you would like to know more feel free to get in touch below. :)</p>
 
     </div>
 
