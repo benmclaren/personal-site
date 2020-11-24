@@ -2,7 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Ben McLaren - Freelance Developer</title>
+  <!-- <title>Ben McLaren - Freelance Developer</title> -->
+
+  {{ if .IsHome -}}
+    <title>{{ .Site.Title }}</title>
+  {{- else -}}
+    <title>{{ .Title }} | {{ .Site.Title }}</title>
+  {{- end }}
+
   {{ $cssOpts := (dict "targetPath" "css/main.css" ) }}
   {{ $styles := resources.Get "scss/main.scss" | toCSS $cssOpts | minify }}
   <link rel="stylesheet" href="{{ $styles.Permalink }}">

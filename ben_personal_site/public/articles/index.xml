@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Articles on My New Hugo Site</title>
+    <title>Articles on Ben McLaren - Freelance Developer</title>
     <link>/articles/</link>
-    <description>Recent content in Articles on My New Hugo Site</description>
+    <description>Recent content in Articles on Ben McLaren - Freelance Developer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 08 Feb 2020 15:31:11 +0000</lastBuildDate>

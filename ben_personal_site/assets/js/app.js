@@ -1,5 +1,5 @@
 
-console.log('app.js is linked');
+
 
 
 const hamburger = document.querySelector(".ham");
@@ -20,6 +20,5 @@ navItem.forEach((link) => {
   link.addEventListener("click", function () {
     mainContainerTag.classList.toggle("open");
     hamburger.classList.toggle("active");
-    console.log("triggers");
   })
 })

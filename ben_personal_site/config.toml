@@ -1,6 +1,6 @@
 baseURL = "/"
 languageCode = "en-us"
-title = "My New Hugo Site"
+title = "Ben McLaren - Freelance Developer"
 
 [permalinks]
   articles = "/:section/:title/"
