@@ -11,4 +11,4 @@ I built this alongside my brother [Harry](https://harrycresswell.com/). The coro
 
 This project is built using [Hugo](https://gohugo.io/), our favourite static site generator and base for many of my front-end websites. This is combined with HTML, CSS and Javascript to create a simple but clean design that prioritises its form and ease of use for the user.
 
-Do feel free to check it out and create your own cards
+Do feel free to check it out and create your own cards.
