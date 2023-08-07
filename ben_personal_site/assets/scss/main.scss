@@ -15,7 +15,7 @@
 @import url("https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
 
 .transition-fade {
-  transition: 500ms;
+  transition: 250ms;
   opacity: 1;
   transform: translateX(0);
   transform-origin: center bottom;
@@ -33,7 +33,7 @@ html.is-leaving .transition-fade {
 
 :root {
   --main-text-color: #303030;
-  --main-circle-color: #DFF01F;
+  --main-circle-color: #fff75e;
   --mobile-body-text: 16px;
   --mobile-heading-text: 36px;
   --mobile-body-line-height: 25.6px;
@@ -71,10 +71,6 @@ pre {
   overflow: auto;
   overflow-x: scroll;
   overflow-wrap: normal;
-}
-
-.main-container {
-  // padding: 0 16px;
 }
 
 h1,
