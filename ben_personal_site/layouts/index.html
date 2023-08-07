@@ -1,59 +1,62 @@
 {{ define "main" }}
 
-<div id="swup" class="main-wrapper transition-fade">
-  <div class="hero-section">
-    <div class="hero-intro">
-      <div class="hero-text">
-        <h1>Hello, I'm Ben.</h1>
-        <p>a <strong>Full-stack Developer</strong> and <strong>Designer</strong> in London</p>
+<div id="swup" class="transition-fade">
+  <div class="main-wrapper">
+    <div class="hero-section">
+      <div class="hero-intro">
+        <div class="hero-text">
+          <h1>Hello, I'm Ben.</h1>
+          <p>a <strong>Full-stack Developer</strong> and <strong>Designer</strong> in London</p>
+        </div>
+        <p class="bio-text">I specialize in front-end development, UX/UI Design and drinking large quantities of tea.</p>
+        <p class="bio-text">I believe in sharing as much knowldege as possible and crafting beautiful experiences. I also teach @LeWagon where I help aspiring new developers realise their potential. </p>
       </div>
-      <p class="bio-text">I specialize in front-end development, UX/UI Design and drinking large quantities of tea.</p>
-      <p class="bio-text">I believe in sharing as much knowldege as possible and crafting beautiful experiences. I also teach @LeWagon where I help aspiring new developers realise their potential. </p>
-    </div>
-    <div class="hero-image">
-      <!-- <img id ="imageme" class="cld-responsive" data-src="https://res.cloudinary.com/dy35n8sog/image/upload/v1605022078/me_qtidgc.jpg" alt=""/> -->
+      <div class="hero-image">
+        <!-- <img id ="imageme" class="cld-responsive" data-src="https://res.cloudinary.com/dy35n8sog/image/upload/v1605022078/me_qtidgc.jpg" alt=""/> -->
 
-      <img id ="imageme"
-          sizes="(max-width: 500px) 181px, 100vw"
-          srcset="https://res.cloudinary.com/dy35n8sog/image/upload/f_auto,q_100,w_200/v1605022078/me_qtidgc.jpg 256w,
-                  https://res.cloudinary.com/dy35n8sog/image/upload/f_auto,q_100,w_250/v1605022078/me_qtidgc.jpg 512w,
-                  https://res.cloudinary.com/dy35n8sog/image/upload/f_auto,q_100,w_322/v1605022078/me_qtidgc.jpg 900w"
-          src="https://res.cloudinary.com/dy35n8sog/image/upload/f_auto,q_100,w_512/v1605022078/me_qtidgc.jpg"
-          alt />
+        <img id ="imageme"
+            sizes="(max-width: 500px) 181px, 100vw"
+            srcset="https://res.cloudinary.com/dy35n8sog/image/upload/f_auto,q_100,w_200/v1605022078/me_qtidgc.jpg 256w,
+                    https://res.cloudinary.com/dy35n8sog/image/upload/f_auto,q_100,w_250/v1605022078/me_qtidgc.jpg 512w,
+                    https://res.cloudinary.com/dy35n8sog/image/upload/f_auto,q_100,w_322/v1605022078/me_qtidgc.jpg 900w"
+            src="https://res.cloudinary.com/dy35n8sog/image/upload/f_auto,q_100,w_512/v1605022078/me_qtidgc.jpg"
+            alt />
+      </div>
     </div>
   </div>
-
-
-  <h2 class="home-sub-heading">I make stuff for the internet</h2>
-  <div class="about">
-    <div class="about-section-1">
-      <p class="about-title">Development</p>
-      <p class="about-description">I start from the ground up combining my love for design with my knowldege of development to create bespoke online experiences. I use a range of technolgies including Hugo on which this site is built.</p>
-      <p class="about-title">Design</p>
-      <p class="about-description">I am a self taught designer and love to experiemnt with new systems and designs. I use Figma and  post my work  to my dribble @bybenmclaren. </p>
+    <div class="home-sub-section">
+      <div class="main-wrapper">
+        <h2 class="home-sub-heading">I make stuff for the internet</h2>
+        <div class="about">
+          <div class="about-section-1">
+            <p class="about-title">Development</p>
+            <p class="about-description">I start from the ground up combining my love for design with my knowldege of development to create bespoke online experiences. I use a range of technolgies including Hugo on which this site is built.</p>
+            <p class="about-title">Design</p>
+            <p class="about-description">I am a self taught designer and love to experiemnt with new systems and designs. I use Figma and  post my work  to my dribble @bybenmclaren. </p>
+          </div>
+          <div class="about-section-2">
+            <p class="about-title">Teaching</p>
+            <p class="about-description">I have found that helping others really helps fuel my passion for code. Teaching @LeWagon means I get to work with students from all over the world and help them towards their goals. </p>
+            <p class="about-title">What else?</p>
+            <p class="about-description">When I am not  looking for a USB C adapter I like to make music with Logic Pro X, keep active by playing rugby and continue my mission to get to a conversational level in as many langauges as possible. </p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="about-section-2">
-      <p class="about-title">Teaching</p>
-      <p class="about-description">I have found that helping others really helps fuel my passion for code. Teaching @LeWagon means I get to work with students from all over the world and help them towards their goals. </p>
-      <p class="about-title">What else?</p>
-      <p class="about-description">When I am not  looking for a USB C adapter I like to make music with Logic Pro X, keep active by playing rugby and continue my mission to get to a conversational level in as many langauges as possible. </p>
-    </div>
-  </div>
 
-  <!-- <div class="button-container">
-    <div class="button">
-      <a href="##">My CV</a>
-    </div>
-  </div> -->
-  <div class="button-container">
-    <a href="https://res.cloudinary.com/dy35n8sog/image/upload/v1578320280/developer-cv_w9duq5.pdf" target="_blank" class="btn">
-      <svg>
-        <rect x="0" y="0" fill="none" width="100%" height="100%"/>
-      </svg>
-      CV
-    </a>
-  </div>
-
+    <!-- <div class="button-container">
+      <div class="button">
+        <a href="##">My CV</a>
+      </div>
+    </div> -->
+    {{/*  <div class="button-container">
+      <a href="https://res.cloudinary.com/dy35n8sog/image/upload/v1691424508/CV-august-23_umwppg.pdf" target="_blank" class="btn">
+        <svg>
+          <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+        </svg>
+        CV
+      </a>
+    </div>  */}}
 </div>
 
 {{ end }}
