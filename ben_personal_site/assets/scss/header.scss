@@ -135,9 +135,13 @@
   color: var(--main-text-color);
 }
 
+.work-title {
+  border-bottom: 4px solid black;
+}
 
 .desktop-nav a:hover,
 .work-title:hover,
-.article-title:hover {
+.article-title:hover,
+.project-title:hover {
   border-bottom: 4px solid var(--main-circle-color);
 }
