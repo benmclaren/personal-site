@@ -5,20 +5,23 @@
     <h1>Projects.</h1>
   </div>
 
-  {{ range .Pages}}
+  <div class="blog-format">
+    {{ range .Pages}}
 
-  <div class="projects">
-    <div class="project-container">
-      <a class="project-title" href="{{.Permalink}}">{{ .Title }}</a>
+    <div class="projects">
+      <div class="project-container">
+        <a class="project-title" href="{{.Permalink}}">{{ .Title }}</a>
+      </div>
     </div>
-  </div>
-  <div class="blurb">
-    {{ .Params.Excerpt }}
-  </div>
+    <div class="blurb date">
+      {{ .Params.Excerpt }}
+    </div>
 
 
-  {{ end }}
-</div>
+    {{ end }}
+  </div>
+
+  </div>
 
 
 
