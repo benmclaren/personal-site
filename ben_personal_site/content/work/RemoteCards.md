@@ -3,7 +3,7 @@ title: 'Remote cards'
 date: 2020-11-11T14:49:01Z
 author: Ben McLaren
 draft: false
-image: 'v1605111880/Screenshot_2020-11-11_at_16.24.15_s3zmim.png'
+# image: 'v1605111880/Screenshot_2020-11-11_at_16.24.15_s3zmim.png'
 excerpt: 'A side project designed to allow many people now working from home to promote their remote events.'
 link: https://remotecards.netlify.app/
 ---
