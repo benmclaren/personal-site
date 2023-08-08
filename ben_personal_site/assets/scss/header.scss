@@ -17,8 +17,10 @@
   font-weight: 600;
 }
 
-.logo a:hover {
-  letter-spacing: 2px;
+@media(hover: hover) and (pointer: fine) {
+  .logo a:hover {
+    letter-spacing: 2px;
+  }
 }
 
 .logo a {
@@ -133,8 +135,13 @@
   color: var(--main-text-color);
 }
 
+.work-title {
+  border-bottom: 4px solid black;
+}
 
 .desktop-nav a:hover,
-.work-title:hover {
+.work-title:hover,
+.article-title:hover,
+.project-title:hover {
   border-bottom: 4px solid var(--main-circle-color);
 }

@@ -2,28 +2,26 @@
 
 <div id="swup" class="main-wrapper transition-fade">
   <div class="hero-text">
-    <h1>Recent work.</h1>
+    <h1>Projects.</h1>
   </div>
-  {{/*  <div class="skills">
-    <p class="skills-text">
-      HTML/CSS/Javascript/RubyOnRails/Hugo/Github/Git/Figma/
-        JQuery/GSAP/SQL/Neflify/Heroku/UX/UI.
-    </p>
-  </div>  */}}
 
-  {{ range .Pages}}
+  <div class="blog-format">
+    {{ range .Pages}}
 
-  <div class="projects">
-    <div class="project-container">
-      <div class="secondary-grey-spot">
+    <div class="projects">
+      <div class="project-container">
+        <a class="project-title" href="{{.Permalink}}">{{ .Title }}</a>
       </div>
-      <a class="project-title" href="{{.Permalink}}">{{ .Title }}</a>
     </div>
+    <div class="blurb date">
+      {{ .Params.Excerpt }}
+    </div>
+
+
+    {{ end }}
   </div>
 
-
-  {{ end }}
-</div>
+  </div>
 
 
 

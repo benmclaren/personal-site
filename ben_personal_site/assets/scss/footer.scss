@@ -16,8 +16,12 @@
   // margin-top: 24px;
   a {
     cursor: pointer;
+    color: var(--main-text-color);
+    text-decoration: none;
   }
-
+  a:hover {
+    text-decoration: underline;
+  }
 }
 
 .footer p {

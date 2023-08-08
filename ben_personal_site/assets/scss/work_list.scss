@@ -72,14 +72,13 @@
 
 .project-container {
   display: flex;
-  margin-bottom: 64px;
 }
 
 .project-title {
   top: 29px;
   left: 40px;
   font-weight: 600;
-  transform: translateX(-25px) !important;
+  border-bottom: 4px solid transparent;
 }
 
 .projects {
