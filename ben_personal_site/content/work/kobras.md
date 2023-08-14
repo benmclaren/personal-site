@@ -1,5 +1,5 @@
 ---
-title: 'Kobra Kards'
+title: 'Kobras FC Store'
 date: 2023-08-08T16:19:59+01:00
 author: Ben McLaren
 draft: false
