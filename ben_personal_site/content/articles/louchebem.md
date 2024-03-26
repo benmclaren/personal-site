@@ -1,8 +1,8 @@
 ---
-title: "Parisian slang translator"
+title: 'Parisian slang translator'
 date: 2020-01-13T15:00:56Z
-draft: false
-excerpt: "Notes on the Le Wagon Iterators & BLocks Louchebem exercise"
+draft: true
+excerpt: 'Notes on the Le Wagon Iterators & BLocks Louchebem exercise'
 ---
 
 **Notes on the Le Wagon Iterators & BLocks Louchebem exercise**
@@ -38,10 +38,10 @@ def vowel?(letter)
   %w[a e i o u].include? letter
 end
 ```
+
 `%w` simply means that we are writing an array and using spaces between elements instead of commas. We then call `.include?` which will return a true or false if letter contains one of these letters (vowels).
 
 2. Then write a method where we define the different suffixes and also tell it to not translate one letter words. It takes one parameter, `word`.
-
 
 ```ruby
 def louchebemize_word(word)
@@ -71,17 +71,17 @@ else
   end
 ```
 
-  - For the `first_vowel_index` we call `.chars` on `word`. This will split up the word into individual elements. `.index` will then assign each letter an index. We can then use a block to say check if the letter is a vowel on each letter by calling the method `vowel?`.
+- For the `first_vowel_index` we call `.chars` on `word`. This will split up the word into individual elements. `.index` will then assign each letter an index. We can then use a block to say check if the letter is a vowel on each letter by calling the method `vowel?`.
 
-  - We then define the beginning as the first letter in `word` up to the `first_vowel_index`. This is done by using the `...`.
+- We then define the beginning as the first letter in `word` up to the `first_vowel_index`. This is done by using the `...`.
 
-  - We then define ending as the `first_vowel_index` to the end of the word. We do this by calling `word.size` which will find the total length of the word.
+- We then define ending as the `first_vowel_index` to the end of the word. We do this by calling `word.size` which will find the total length of the word.
 
-  -From here we can use interpolation to build the string.
+-From here we can use interpolation to build the string.
 
-  `"l#{ending}#{beginning}#{random_suffix}"`
+`"l#{ending}#{beginning}#{random_suffix}"`
 
-  Attach an `l` to the front and interpolate the ending, then beginning, then suffix.
+Attach an `l` to the front and interpolate the ending, then beginning, then suffix.
 
 Here is the full method below
 
@@ -119,6 +119,7 @@ def louchebemize(sentence)
   return result_elements.join
 end
 ```
+
 This method takes one parameter and thats (sentence).
 
 - We begin by defining an empty array of `results_elements`

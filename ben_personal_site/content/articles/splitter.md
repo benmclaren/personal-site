@@ -1,8 +1,8 @@
 ---
-title: "How to split arrays"
+title: 'How to split arrays'
 date: 2020-01-13T14:16:58Z
 author: Ben McLaren
-draft: false
+draft: true
 excerpt: Notes on the Le Wagon Iteratros & Blocks Splitter exercise
 ---
 
@@ -14,7 +14,7 @@ Lets implement a method `size_splitter` which takes two parameters: an array, an
 
 The `size_splitter` method should return an array of two arrays - the two groups defined above - with the contents sorted alphabetically.
 
-``` ruby
+```ruby
   def size_splitter(array, size)
   size_array = array.select do |word|
     word.length == size
@@ -34,9 +34,7 @@ The other array uses to `.reject` to add words not equal to the length of size t
 
 We then set the `combined_array` to empty and use the ruby method `.push` to add in each array along with the `.sort` method which orders them alphabetically.
 
-
 In the previous exercise, the abritrary rule was fixed. What if we wanted to let the method caller choose which rule to apply? We can do so with the power of blocks and yield.
-
 
 ```ruby
 def block_splitter(array)
@@ -51,20 +49,10 @@ def block_splitter(array)
   return new_array
 end
 ```
+
 This is the same concept although here we use `yield` with the parameter of `word` which allows the user to customzie the rule. This is then checked against whether it is equal to true and also equal to the word starting with an "a". The second array then rejects anything which is not true.
 
 The new_array is created and set to empty and we use `.push` to both the `true_array` and the
 `other_array` into the `new_array`.
 
 We then return the `new_array`.
-
-
-
-
-
-
-
-
-
-
-

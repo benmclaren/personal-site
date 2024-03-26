@@ -1,10 +1,11 @@
 ---
-title: "Working with Active Record"
+title: 'Working with Active Record'
 date: 2020-01-31T16:23:47Z
 author: Ben McLaren
-draft: false
-excerpt: "Notes on the Le Wagon Active Record Basics Models challenge"
+draft: true
+excerpt: 'Notes on the Le Wagon Active Record Basics Models challenge'
 ---
+
 **Notes on the Le Wagon Active Record Basics Models challenge**
 
 We will go through how a small terminal application links together with active record. For this, please refer to the challenge above.
@@ -19,6 +20,7 @@ The model is simply where you keep the data and is as simple as defining our cla
 class Post < ActiveRecord::Base
 end
 ```
+
 The controller is what connects the views to the model. The controller know about the model and knows which views to display. The controller will take information from the view which it gets from the user and then be able to update the database. It acts as the middle man between the views (user) and the model (database).
 
 The views is how the user interacts with the application and where information from the database is displayed.

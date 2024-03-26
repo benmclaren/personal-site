@@ -1,9 +1,9 @@
 ---
-title: "Analyzing databases"
+title: 'Analyzing databases'
 date: 2020-01-19T14:58:14Z
 author: Ben McLaren
-draft: false
-excerpt: "Notes on the Le Wagon Regular Expressions Provider Grouping exercise"
+draft: true
+excerpt: 'Notes on the Le Wagon Regular Expressions Provider Grouping exercise'
 ---
 
 **Notes on the Le Wagon Regular Expressions Provider Grouping exercise**
@@ -25,6 +25,7 @@ def group_mails(emails)
   end
 end
 ```
+
 1. To start we need to make a regex that will check to see if the email is valid. We have also specified a goup name of `<domain>`. This refers to the group inside the `()`. This will match any string with `@` then any characters and a `.`.
 
 2. We define a method of `group_mails` which takes one parameter of `emails`.
@@ -44,6 +45,7 @@ def provider?(email, provider)
   end
 end
 ```
+
 To return true if an email is of a given provider, we can define a new method of `provider?` and this willtake two arguments; an `email` and a `provider`
 
 1. Firstly, we assign the result of calling `.match` on the `MAIL_REGEX` to the variable `match`.

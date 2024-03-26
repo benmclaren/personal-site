@@ -1,9 +1,9 @@
 ---
-title: "Translation"
+title: 'Translation'
 date: 2020-01-19T16:36:01Z
 author: Ben McLaren
-draft: false
-excerpt: "Notes on the Le Wagon Regular Expressions A Translation Story exercise"
+draft: true
+excerpt: 'Notes on the Le Wagon Regular Expressions A Translation Story exercise'
 ---
 
 We are going to build a simple tool that will be able handle translations by checking to see if they are stored in the hash.
@@ -67,19 +67,3 @@ end
 3. We can now iterate over our new created array, `keys` using `.each`. For each `key` we say `translation` (our hash) is equal to adding a key to the hash and calling `.to_sym` to transform it into a symbol. We return `""` if `translation` is not found. In other words, it does not have a relevant key.
 
 4. Finally, we return one of two options. Option one being it was able to find a translation for the key. Or we return option 2 which is no key was found and therefore it will revert back to english.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

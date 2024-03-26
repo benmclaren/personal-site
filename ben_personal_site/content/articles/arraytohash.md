@@ -1,9 +1,9 @@
 ---
-title: "An Array to a Hash"
+title: 'An Array to a Hash'
 date: 2020-01-14T10:19:32Z
 author: Ben McLaren
-draft: false
-excerpt: "Notes on the Le Wagon Hash & Symbols Array to Hash exercise"
+draft: true
+excerpt: 'Notes on the Le Wagon Hash & Symbols Array to Hash exercise'
 ---
 
 **Notes on the Le Wagon Hash & Symbols Array to Hash exercise**
@@ -16,6 +16,7 @@ Our method should do the following:
 - If a block is given, call it, passing the array index and use what’s returned as the hash key.
 
 This the code that we would need to perform this.
+
 ```ruby
 def array_to_hash(array)
   hash = {}                                        *create empty hash*
@@ -26,9 +27,10 @@ def array_to_hash(array)
   return hash                                      *return built hash*
 end
 ```
+
 Lets go through it step by step.
 
-1. Firstly,  we define our method `array_to_hash` which takes one parameter, an array.
+1. Firstly, we define our method `array_to_hash` which takes one parameter, an array.
 
 2. We create our hash variable and set it to an empty hash with the `{}`
 

@@ -1,9 +1,9 @@
 ---
-title: "Terminal games"
+title: 'Terminal games'
 date: 2020-01-20T21:02:01Z
 author: Ben McLaren
-draft: false
-excerpt: "Notes on the Le Wagon Parsing Numbers and Letters exercise"
+draft: true
+excerpt: 'Notes on the Le Wagon Parsing Numbers and Letters exercise'
 ---
 
 **Notes on the Le Wagon Parsing Numbers and Letters exercise**
@@ -118,7 +118,6 @@ We then make three variables
 
 - `end_time` which is equal to the time after this process has finished.
 
-
 **Check to see if letters are included and if its an english word**
 
 ```ruby
@@ -186,10 +185,10 @@ puts "Message: #{result[:message]}"
 
 puts "*****************************************************"
 ```
+
 We set `result` as equal to running the `run_game` method and passing in the required variables.
 
 We lastly have four `puts` statements which return the information from `result` by interpolating the arguments and selecting the relevant keys.
-
 
 **Final code for `longest_word.rb`**
 

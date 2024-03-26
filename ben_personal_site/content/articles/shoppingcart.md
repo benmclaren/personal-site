@@ -1,9 +1,9 @@
 ---
-title: "Making a terminal based shopping cart application"
+title: 'Making a terminal based shopping cart application'
 date: 2020-01-14T16:56:57Z
 author: Ben McLaren
 draft: true
-excerpt: "Notes on the Le Wagon Hash & Symbols Shopping Cart exercise"
+excerpt: 'Notes on the Le Wagon Hash & Symbols Shopping Cart exercise'
 ---
 
 **Notes on the Le Wagon Symbols & Hash Shopping Cart exercise**
@@ -93,8 +93,8 @@ The `total` is then returned.
 
 # Store
 
-*This file contains methods related to your store and its supplies.*
-*You should complete it according to the instructions in the TODO comments*
+_This file contains methods related to your store and its supplies._
+_You should complete it according to the instructions in the TODO comments_
 
 ```ruby
 def store_items
@@ -126,6 +126,7 @@ def store_items_to_s
   items.join("\n")
 end
 ```
+
 - `store_items` is a method that will simply return the items in the store and their prices. It is stored as a hash. This is called in the interface when it lists the items out.
 
 - `product_in_store?` takes one parameter of product, being the item the user types in. It then checks this against the hash to see if it exists. This is done with the `.key?` method.

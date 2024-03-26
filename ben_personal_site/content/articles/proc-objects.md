@@ -1,9 +1,9 @@
 ---
-title: "What are Proc Objects?"
+title: 'What are Proc Objects?'
 date: 2020-01-14T11:23:38Z
 author: Ben McLaren
-draft: false
-excerpt: "Notes on the Le Wagon Iteratros & Blocks Storing Blocks in Procs exercise"
+draft: true
+excerpt: 'Notes on the Le Wagon Iteratros & Blocks Storing Blocks in Procs exercise'
 ---
 
 **Notes on the Le Wagon Iteratros & Blocks Storing Blocks in Procs exercise**
@@ -22,7 +22,6 @@ end
 
 In this method we give it two arguments, `who` and `&message_blk`. The **&** creates a Proc Object meaning that it will now store the infromation of a block passed to it. The method returns a string with `who` interpolated as well as the block of code which has been called using the `.call` method.
 
-
 ```ruby
 def tell_mum(&message_blk)
   tell("mum", &message_blk)
@@ -38,12 +37,13 @@ def tell_with_proc(who, message_blk)
   "#{who}, #{message_blk.call}!"
 end
 ```
-The message is now passed as a block as has been previously defined and subseqneutly it can return a string by calling `.call` on `message_block`.
 
+The message is now passed as a block as has been previously defined and subseqneutly it can return a string by calling `.call` on `message_block`.
 
 ```ruby
 def tell_mum_with_proc(message_blk)
   tell_with_proc("mum", message_blk)
 end
 ```
+
 This final method takes the single `message_block` parameter and calls the `tell_with_proc` method. It passes in the two required arguments "mum" and the block defined by `message_block`.

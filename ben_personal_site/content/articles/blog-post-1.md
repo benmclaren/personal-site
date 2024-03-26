@@ -1,9 +1,9 @@
 ---
-title: "Why why why?"
+title: 'Why why why?'
 date: 2018-12-11T11:34:23Z
 author: Ben McLaren
 draft: false
-excerpt: "A problem which faces many young people is the path they choose to take after leaving school."
+excerpt: 'A problem which faces many young people is the path they choose to take after leaving school.'
 ---
 
 **_The best decison I could have made_**

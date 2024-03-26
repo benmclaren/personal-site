@@ -1,9 +1,9 @@
 ---
-title: "How to iterate over a text file and return specific information"
+title: 'How to iterate over a text file and return specific information'
 date: 2020-01-19T12:47:29Z
 author: Ben McLaren
 draft: true
-excerpt: "Notes on the Le Wagon Regular Expressions Word Frequency exercise"
+excerpt: 'Notes on the Le Wagon Regular Expressions Word Frequency exercise'
 ---
 
 **Notes on the Le Wagon Regular Expressions Word Frequency exercise**
@@ -21,11 +21,12 @@ def load_stop_words(stop_words_filename)
   end
 end
 ```
+
 1. To begin with we define our method which takes one parameter which is `stop_words_filename`, the name of the file we want to read through.
 
 2. Next, we can use `File.open(stop_words_filename, "r")`. This is going to simply allow the method to read this file and access the data inside. `"r"` stands for 'read'. We also call `.reduce` on this, passing it an `[]` as an argument. It then takes two parameters of `stop_words, line`. Lets go ove how this works as it can be confusing.
 
--  `.reduce` requires an inital value and will take two arguments in the block. The `[]` in `.reduce([])` sets the initial value. If we do not set a value, it defaults to zero. After that, we have two parameters in the method `|stop_words, line|`. The first parameter, which we call `stop_words` is the total that will eventually be returned. The second parameter, which we call `line` is the current number as we iterate through the document line by line. In other words `stop_words` is representing our empty array and `line` is each line in the file that its iterating over.
+- `.reduce` requires an inital value and will take two arguments in the block. The `[]` in `.reduce([])` sets the initial value. If we do not set a value, it defaults to zero. After that, we have two parameters in the method `|stop_words, line|`. The first parameter, which we call `stop_words` is the total that will eventually be returned. The second parameter, which we call `line` is the current number as we iterate through the document line by line. In other words `stop_words` is representing our empty array and `line` is each line in the file that its iterating over.
 
 3. This block then simply adds each line to the array with `.chomp` cutting off unnecessary characters such as white space and line breaks.
 
@@ -46,6 +47,7 @@ def most_common_words(filename, stop_words_filename, number_of_word)
   Hash[counter.sort_by { |_, v| v }.reverse[0..(number_of_word - 1)]]
 end
 ```
+
 1. We begin with defining our method with three arguments. `filename, stop_words_filename, number_of_word`.
 
 2. We set a variable of `counter`. This is equal to creating a new hash with `Hash.new`. The default value of any key in this hash is set to `0`.

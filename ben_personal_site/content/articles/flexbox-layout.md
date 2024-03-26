@@ -1,9 +1,9 @@
 ---
-title: "Flexbox grid layouts"
+title: 'Flexbox grid layouts'
 date: 2019-02-14T10:56:16Z
 author: Ben McLaren
 draft: false
-excerpt: "Flexbox is a very powerful tool and it is one that can be used to create layouts as well as responsive navigation bars."
+excerpt: 'Flexbox is a very powerful tool and it is one that can be used to create layouts as well as responsive navigation bars.'
 ---
 
 Flexbox is a very powerful tool and it is one that can be used to create many different layouts.
@@ -16,7 +16,7 @@ Firstly, ensure that all the images you wish to be formatted this way are groupe
 
 Now we can target the photos with a few key properties.
 
-``` css
+```css
 display: flex;
 flex-wrap: wrap;
 align-items: center;

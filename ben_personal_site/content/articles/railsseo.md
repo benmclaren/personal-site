@@ -1,9 +1,9 @@
 ---
-title: "SEO in Rails"
+title: 'SEO in Rails'
 date: 2020-02-04T17:48:45Z
 author: Ben McLaren
 draft: false
-excerpt: "Some pointers for better SEO with Rails"
+excerpt: 'Some pointers for better SEO with Rails'
 ---
 
 SEO is an important but often overlooked aspect of web development. It is essential in ensuring the maximum exposure for your website and good SEO can really improve traffic to your sites.
@@ -36,7 +36,6 @@ At the top of your view we need another erb (embed ruby) tag. Note that we do no
 
 Then we have our helper of `content_for :page_title` which we wrote earlier followed by a comma. This is where we put what is is we want the title to be. In our case, in our review website we have a title for each review so we want to display this. We can say `@review.title.` This is relating to our model of `Review` and we are grabbing the `title` information for this particular page. Of course this needs to be adapted depending on what content it is you are displaying. Now, each of our review pages will have a title of the specific review in the tab.
 
-
 ### Improved URL's
 
 Have a look at these two urls for two different music review sites. One is a lot clearer than the other.
@@ -58,11 +57,12 @@ def to_param
   #code to override will go here
 end
 ```
+
 In our example of the review website we can take the `id` of the review and convert it to a string so that we can use it in the url.
 
 Next, we want to add some information. We can do this by using a '+' sign and we are going to have a "-" here. Then we can have the title of the page we are on. We can get this using the word `title` which we are able to access as we are inside the model.
 
-Now, as it stands the url will change to include the title but the spaces will be filled with '%' and it does not look that great. To change this we can change it into a parameter by using  `.parameterize` on the title. What this will do is get rid of the spaces, uppercased letters, slashes etc which makes the URL hard to read and will convert it into a much more friendly and cleaner URL.
+Now, as it stands the url will change to include the title but the spaces will be filled with '%' and it does not look that great. To change this we can change it into a parameter by using `.parameterize` on the title. What this will do is get rid of the spaces, uppercased letters, slashes etc which makes the URL hard to read and will convert it into a much more friendly and cleaner URL.
 
 ```Ruby
 def to_param

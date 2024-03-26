@@ -1,9 +1,9 @@
 ---
-title: "Iterating over a CSV file to return specific information"
+title: 'Iterating over a CSV file to return specific information'
 date: 2020-01-20T19:17:57Z
 author: Ben McLaren
 draft: true
-Excerpt: "Notes on the Le Wagon Parsing CSV Parsing exercise"
+Excerpt: 'Notes on the Le Wagon Parsing CSV Parsing exercise'
 ---
 
 For this challenge we want to implement a `most_successful` method that returns the movies (a certain number passed as a parameter) published prior to a given year and with their associated earnings. The returned list should be an array of movies. Each movie should be represented by a hash with keys: name, year and earnings. Ex: `{ name: "Avatar", year: 2009, earnings: 760505847 }`
@@ -53,6 +53,7 @@ def most_successful(number, max_year, file_path)
   all_movies.max_by(number) { |movie| movie[:earnings] }
 end
 ```
+
 1. We start by creating a new variable called `all_movies`. This is equal to calling the `load_movies` method with its required arguments.
 
 2. We can now use the method `.max_by`. This method will return the the object with the maximum value that is specified in the block. We say for every `movie` grab the earnings using the notation `movie[:earnings]`.

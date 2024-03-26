@@ -1,9 +1,9 @@
 ---
-title: "Playing with Regex"
+title: 'Playing with Regex'
 date: 2020-01-18T18:50:03Z
 author: Ben McLaren
-draft: false
-excerpt: "Notes on Le Wagon Regular Expressions Anagrams exercise"
+draft: true
+excerpt: 'Notes on Le Wagon Regular Expressions Anagrams exercise'
 ---
 
 **Notes on Le Wagon Regular Expressions Anagrams exercise**
@@ -41,11 +41,9 @@ To demonstrate how this works lets take the example of the word POST and the wor
 
 This is am anagram because both results have returned in the same order.
 
-
 **What if we wanted to make our method faster by improving its Time Complexity?** (Time taken to complete a method)
 
 To do this we might want to use a `hash`. Lets create a method that will create our hash which we can use to store data inside.
-
 
 ```ruby
 def create_hash(word)
@@ -86,6 +84,6 @@ Here, we are setting up two variables and calling our `create_hash` method insid
 
 The flow of this can be confusing so to recap:
 
-- If we give the word 'POST' as an argument into `create_hash` then as its  run for the first time it will reach the `if` statement and will not be able to find a key of `post` as the hash is currently empty. It will therefore create a new key of `opst`. However when `create_hash` is run a second time with the word `SPOT` then it will see that there is in fact a key of opst in the hash and it therfore increments its value by 1.
+- If we give the word 'POST' as an argument into `create_hash` then as its run for the first time it will reach the `if` statement and will not be able to find a key of `post` as the hash is currently empty. It will therefore create a new key of `opst`. However when `create_hash` is run a second time with the word `SPOT` then it will see that there is in fact a key of opst in the hash and it therfore increments its value by 1.
 
 - When `new_hash.values` is called then it will display an array with the group of values.

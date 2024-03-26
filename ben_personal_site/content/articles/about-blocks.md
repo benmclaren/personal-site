@@ -1,9 +1,9 @@
 ---
-title: "Using blocks with yield"
+title: 'Using blocks with yield'
 date: 2020-01-13T12:07:53Z
 author: Ben McLaren
-draft: false
-excerpt: "Notes on the Le Wagon Iteratros & Blocks About Blocks exercise"
+draft: true
+excerpt: 'Notes on the Le Wagon Iteratros & Blocks About Blocks exercise'
 ---
 
 **Notes on the Le Wagon Iteratros & Blocks About Blocks exercise**
@@ -11,6 +11,7 @@ excerpt: "Notes on the Le Wagon Iteratros & Blocks About Blocks exercise"
 Intoduction to blocks and using yield.
 
 # Timer
+
 Yield is a Ruby keyword executing the block. It tells the method to execute a block now.
 
 Lets start with a timer method which will simply return the time taken to execute a given block.
@@ -33,10 +34,9 @@ end
 
 4. Assign the calculation of end_time - start_time to time_taken and return it to get the total time taken.
 
-
 # Achieving `.map` behaviour without using `.map`
 
-``` ruby
+```ruby
 def my_map(array)
   new_array = []
   array.each do |name|
@@ -64,15 +64,17 @@ def tag(tag_name, attributes = nil)
   "<#{open_tag}>#{content}</#{tag_name}>"
 end
 ```
+
 This method takes two parameters `tag_name` and `attributes`. `= nil` means that if no parameter is given then it will assign it to nil. You can think of it as being an optionl parameter.
 
 We start by calling `nil?` on atrributes to check if it is nil or if a parameter has been given. It returns a boolean value. We use a ternary operator which says if the value is true ( meaning it is nil) then keep it as nil otherwise grab the first element. The same logic is applied to `attr_value` but we take the last element instead.
 
 Then we define an `open_tag` which also makes use of a ternary operator. It states that if the attribute is nil then return the `tag_name` only but if not then build the following:
 
-``` ruby
+```ruby
 "#{tag_name} #{attr_name}=\"#{attr_value}\""
 ```
+
 We have interploated the tag name and then the attirbute (for example "style"). Then we have an `=` and an interpolation of the attibute value (for example "color: red"). We require the use of the \ in order to use " in the middle of the string. It just means it ignores the character and does not treat it as the end of the string.
 
 Then we say that content is = to running the block (yield). Finally we build our HTML code.
@@ -80,20 +82,5 @@ Then we say that content is = to running the block (yield). Finally we build our
 ```ruby
 "<#{open_tag}>#{content}</#{tag_name}>"
 ```
+
 We interpoloate each part to make the HTML code, adding in essential characters where needed.This is returned as a string.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
