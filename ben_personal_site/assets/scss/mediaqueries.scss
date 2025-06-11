@@ -3,7 +3,8 @@
 
   .main-wrapper,
   .nav-wrapper {
-    margin: 0 32px;
+    margin-left: 32px;
+    margin-right: 32px;
   }
 
   .button-container {
@@ -43,10 +44,8 @@
     align-items: center;
   }
 
-  .main-wrapper,
-  .nav-wrapper {
+  .main-wrapper {
     margin: 0 160px;
-    margin-top: 88px;
   }
 
   .navbar {

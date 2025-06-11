@@ -53,7 +53,8 @@
 }
 
 .nav-wrapper {
-  margin-top: 50px;
+  margin-left: 16px;
+  margin-right: 16px;
 }
 
 // hamburger menu
@@ -170,6 +171,7 @@
 .desktop-nav a:hover,
 .work-title:hover,
 .article-title:hover,
-.project-title:hover {
-  border-bottom: 4px solid var(--main-circle-color);
+.project-title:hover,
+svg:hover {
+  color: #999999;
 }
