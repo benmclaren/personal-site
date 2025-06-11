@@ -1,4 +1,5 @@
 .footer {
+  padding-top: 16px;
   flex-shrink: 0;
 }
 
@@ -10,8 +11,8 @@
 .icon-container {
   display: flex;
   justify-content: space-evenly;
+  z-index: 999;
 
-  // margin-top: 24px;
   a {
     cursor: pointer;
     color: var(--main-text-color);
