@@ -121,41 +121,6 @@
     line-height: 36px;
   }
 
-  .button-container {
-    margin-top: 110px !important;
-  }
-
-  .btn {
-    font-size: 24px;
-    line-height: 36px;
-    max-width: 272px;
-  }
-
-  .btn svg {
-    height: 64px;
-    top: -12px;
-  }
-
-  .btn:hover {
-    rect {
-      stroke-dashoffset: 190;
-    }
-  }
-
-  // .project-title {
-  //   font-size: 48px !important;
-  //   line-height: 48px !important;
-  // }
-  //
-  // .project-container {
-  //   margin-bottom: 128px;
-  // }
-  //
-  // .secondary-grey-spot {
-  //   height: 80px;
-  //   width: 80px;
-  // }
-
   .project-intro {
     max-width: 500px;
     font-size: 32px;
@@ -206,18 +171,3 @@
     font-size: 80px !important;
   }
 }
-
-
-// // Extra large devices (large desktops, 1200px and up)
-// @media (min-width: 1600px) {
-//   .main-wrapper {
-//     margin: 0 144px;
-//   }
-//
-//   .footer {
-//     margin-left: 144px;
-//     margin-right: 144px;
-//   }
-//
-//
-// }
