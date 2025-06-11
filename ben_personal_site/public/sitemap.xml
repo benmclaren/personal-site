@@ -1,163 +1,57 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-
   <url>
-    <loc>https://benmclaren.xyz/</loc>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2023-08-08T16:19:59+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/work/kobras/</loc>
+    <lastmod>2023-08-08T16:19:59+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/work/</loc>
+    <lastmod>2023-08-08T16:19:59+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/work/camillafitness/</loc>
+    <lastmod>2021-03-15T12:25:22+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/contact/</loc>
     <lastmod>2020-11-16T11:30:13+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://benmclaren.xyz/contact/contact/</loc>
-    <lastmod>2020-11-16T11:30:13+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://benmclaren.xyz/contact/</loc>
-    <lastmod>2020-11-16T11:30:13+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://benmclaren.xyz/work/remotecards/</loc>
+  </url><url>
+    <loc>http://localhost:1313/work/remotecards/</loc>
     <lastmod>2020-11-11T14:49:01+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://benmclaren.xyz/work/</loc>
-    <lastmod>2020-11-11T14:49:01+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://benmclaren.xyz/work/flamingo/</loc>
-    <lastmod>2020-11-11T14:48:54+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://benmclaren.xyz/work/wrcdesign/</loc>
+  </url><url>
+    <loc>http://localhost:1313/work/wrcdesign/</loc>
     <lastmod>2020-11-11T14:48:40+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://benmclaren.xyz/work/chalkandsteel/</loc>
+  </url><url>
+    <loc>http://localhost:1313/work/chalkandsteel/</loc>
     <lastmod>2020-11-11T14:48:17+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://benmclaren.xyz/work/snowsquad/</loc>
-    <lastmod>2020-11-11T14:47:53+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://benmclaren.xyz/articles/</loc>
+  </url><url>
+    <loc>http://localhost:1313/articles/</loc>
+    <lastmod>2020-07-20T14:24:01+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/articles/horizontal-scrollbars/</loc>
     <lastmod>2020-02-08T15:31:11+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://benmclaren.xyz/articles/horizontal-scrollbars/</loc>
-    <lastmod>2020-02-08T15:31:11+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://benmclaren.xyz/articles/seo-in-rails/</loc>
+  </url><url>
+    <loc>http://localhost:1313/articles/seo-in-rails/</loc>
     <lastmod>2020-02-04T17:48:45+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://benmclaren.xyz/articles/working-with-active-record/</loc>
-    <lastmod>2020-01-31T16:23:47+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://benmclaren.xyz/articles/terminal-games/</loc>
-    <lastmod>2020-01-20T21:02:01+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://benmclaren.xyz/articles/translation/</loc>
-    <lastmod>2020-01-19T16:36:01+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://benmclaren.xyz/articles/analyzing-databases/</loc>
-    <lastmod>2020-01-19T14:58:14+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://benmclaren.xyz/articles/playing-with-regex/</loc>
-    <lastmod>2020-01-18T18:50:03+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://benmclaren.xyz/articles/roman-numeral-translation/</loc>
-    <lastmod>2020-01-14T14:09:27+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://benmclaren.xyz/articles/what-are-proc-objects/</loc>
-    <lastmod>2020-01-14T11:23:38+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://benmclaren.xyz/articles/an-array-to-a-hash/</loc>
-    <lastmod>2020-01-14T10:19:32+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://benmclaren.xyz/articles/parisian-slang-translator/</loc>
-    <lastmod>2020-01-13T15:00:56+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://benmclaren.xyz/articles/how-to-split-arrays/</loc>
-    <lastmod>2020-01-13T14:16:58+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://benmclaren.xyz/articles/using-blocks-with-yield/</loc>
-    <lastmod>2020-01-13T12:07:53+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://benmclaren.xyz/articles/ruby-hash-basics/</loc>
-    <lastmod>2020-01-13T11:25:35+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://benmclaren.xyz/articles/the-paralax-effect/</loc>
-    <lastmod>2019-02-19T11:00:16+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://benmclaren.xyz/articles/image-overlays/</loc>
+  </url><url>
+    <loc>http://localhost:1313/articles/image-overlays/</loc>
     <lastmod>2019-02-17T10:58:45+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://benmclaren.xyz/articles/flexbox-grid-layouts/</loc>
+  </url><url>
+    <loc>http://localhost:1313/articles/flexbox-grid-layouts/</loc>
     <lastmod>2019-02-14T10:56:16+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://benmclaren.xyz/articles/an-inline-navigation-bar/</loc>
+  </url><url>
+    <loc>http://localhost:1313/articles/an-inline-navigation-bar/</loc>
     <lastmod>2019-02-10T13:07:09+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://benmclaren.xyz/articles/making-responsive-text/</loc>
+  </url><url>
+    <loc>http://localhost:1313/articles/making-responsive-text/</loc>
     <lastmod>2019-01-29T11:35:33+00:00</lastmod>
-  </url>
-
-  <url>
-    <loc>https://benmclaren.xyz/articles/why-why-why/</loc>
+  </url><url>
+    <loc>http://localhost:1313/articles/why-why-why/</loc>
     <lastmod>2018-12-11T11:34:23+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
   </url>
-
-  <url>
-    <loc>https://benmclaren.xyz/categories/</loc>
-  </url>
-
-  <url>
-    <loc>https://benmclaren.xyz/tags/</loc>
-  </url>
-
 </urlset>
