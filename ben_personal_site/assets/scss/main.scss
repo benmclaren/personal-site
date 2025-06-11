@@ -4,7 +4,6 @@
 @import "footer.scss";
 @import "single_page.scss";
 @import "list_page.scss";
-@import "button.scss";
 @import "work_list.scss";
 @import "work_single_page.scss";
 @import "mediaqueries.scss";
@@ -53,6 +52,8 @@ body {
   box-sizing: border-box;
   height: 100%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 * {
@@ -67,6 +68,7 @@ html {
   // overflow-y: scroll;
   height: 100%;
   width: 100%;
+  margin: 0;
 }
 
 pre {
@@ -76,7 +78,7 @@ pre {
 }
 
 h1,
-{
-margin: 0;
-padding: 0;
+p {
+  margin: 0;
+  padding: 0;
 }

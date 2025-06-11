@@ -1,8 +1,6 @@
 .footer {
-  border-top: 1px solid #000;
-  height: 120px;
-  margin: 0 16px;
-  margin-top: 64px;
+  padding-top: 16px;
+  flex-shrink: 0;
 }
 
 .icon-container svg {
@@ -13,14 +11,12 @@
 .icon-container {
   display: flex;
   justify-content: space-evenly;
-  // margin-top: 24px;
+  z-index: 999;
+
   a {
     cursor: pointer;
     color: var(--main-text-color);
     text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
   }
 }
 

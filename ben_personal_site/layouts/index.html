@@ -8,55 +8,60 @@
           <h1>Hello, I'm Ben.</h1>
           <p>a <strong>Full-stack Developer</strong> and <strong>Designer</strong> in London</p>
         </div>
-        <p class="bio-text">I specialize in front-end development, UX/UI Design and drinking vast quantities of tea. I love working on the web and creating beautiful, accessible experiences.</p>
-        <p class="bio-text">On the side, I teach at <a href="https://www.lewagon.com/london" target="_blank">Le Wagon</a> where I help aspiring new developers realise their potential. </p>
-      </div>
-      <div class="hero-image">
-        <!-- <img id ="imageme" class="cld-responsive" data-src="https://res.cloudinary.com/dy35n8sog/image/upload/v1605022078/me_qtidgc.jpg" alt=""/> -->
-
-        <img id ="imageme"
-            sizes="(max-width: 500px) 181px, 100vw"
-            srcset="https://res.cloudinary.com/dy35n8sog/image/upload/f_auto,q_100,w_200/v1605022078/me_qtidgc.jpg 256w,
-                    https://res.cloudinary.com/dy35n8sog/image/upload/f_auto,q_100,w_250/v1605022078/me_qtidgc.jpg 512w,
-                    https://res.cloudinary.com/dy35n8sog/image/upload/f_auto,q_100,w_322/v1605022078/me_qtidgc.jpg 900w"
-            src="https://res.cloudinary.com/dy35n8sog/image/upload/f_auto,q_100,w_512/v1605022078/me_qtidgc.jpg"
-            alt="Image of Ben"/>
+        <p class="hero-text">I specialize in front-end development, UX/UI Design and animation.</p>
       </div>
     </div>
   </div>
     <div class="home-sub-section">
       <div class="main-wrapper">
-        <h2 class="home-sub-heading">About me</h2>
         <div class="about">
           <div class="about-section-1">
-            <p class="about-title">Development</p>
-            <p class="about-description">I like to work with the core technologies: HTML, CSS and Javascript. I am comfortable with, but not limited to, tools such as Ruby on Rails, Tailwind, React, Node and Hugo. I have had to learn new technolgies quickly in the past and I will again in the future. </p>
-            <p class="about-title">Design</p>
-            <p class="about-description">As a UX/UI designer I love to experiement with new systems and designs. I use Figma (proud owner of a figma hoodie) and post my work to <a href="https://dribbble.com/bybenmclaren">Dribble</a> or it can be found in my side <a href="/work">projects</a>.</p>
+            <div class="skill-card">
+              {{ partial "svg/terminal.svg" . }}
+              <p class="about-title">Development</p>
+              <p class="about-description">Progressive web applications and Static websites</p>
+            </div>
+            <div class="skill-card">
+              {{ partial "svg/palette.svg" . }}
+              <p class="about-title">Design</p>
+              <p class="about-description">UX/UI Services</p>
+            </div>
           </div>
           <div class="about-section-2">
-            <p class="about-title">Teaching</p>
-            <p class="about-description">I have found that helping others really helps fuel my passion for code. Teaching at <a href="https://www.lewagon.com/london" target="_blank">Le Wagon</a> means I am able to work with students from all over the world and help them towards their goals. I have run workshops at <a href="https://www.kcl.ac.uk/" target="_blank">KCL</a> for their students on topics including Code and Design.</p>
-            <p class="about-title">What else?</p>
-            <p class="about-description">One of my favourite things to do is play football and run my teams instagram account which you can <a href="https://www.instagram.com/kobrasfc/" target="_blank">follow here</a>. I also love cars, star wars, cake and lego. I am always happy to chat about any of these topics on my <a href="https://x.com/bybenmclaren">X</a>.</p>
+            <div class="skill-card">
+              {{ partial "svg/school.svg" . }}
+              <p class="about-title">Teaching</p>
+              <p class="about-description">Helping students to reach their goals in tech.</p>
+            </div>
+            <div class="skill-card">
+              {{ partial "svg/edit.svg" . }}
+              <p class="about-title">Writing</p>
+              <p class="about-description">Articles & Tips / Tricks</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- <div class="button-container">
-      <div class="button">
-        <a href="##">My CV</a>
-      </div>
-    </div> -->
-    {{/*  <div class="button-container">
-      <a href="https://res.cloudinary.com/dy35n8sog/image/upload/v1691424508/CV-august-23_umwppg.pdf" target="_blank" class="btn">
-        <svg>
-          <rect x="0" y="0" fill="none" width="100%" height="100%"/>
-        </svg>
-        CV
-      </a>
-    </div>  */}}
+    <svg 
+ viewBox="0 0 2 1" 
+ preserveAspectRatio="none">
+  <defs>
+    <path id="w" 
+      d="
+      m0 1v-.5 
+      q.5.5 1 0
+      t1 0 1 0 1 0
+      v.5z" />
+  </defs>
+  <g>
+   <use href="#w" y=".0" fill="#2d55aa" />
+   <use href="#w" y=".1" fill="#3461c1" />
+   <use href="#w" y=".2" fill="#4579e2" />
+  </g>
+ </svg>
+
+    
 </div>
 
 {{ end }}

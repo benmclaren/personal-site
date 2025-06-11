@@ -4,7 +4,7 @@
 
 .hero-text {
   margin-top: 40px;
-  max-width: 230px;
+  max-width: 75vw;
 }
 
 .hero-text h1 {
@@ -17,10 +17,29 @@
   color: transparent;
 }
 
-.hero-text p {
+.hero-intro p {
   margin-top: 8px;
-  font-size: 18px;
-  line-height: 21.6px;
+  font-size: 16px;
+}
+
+.skill-card {
+  background-color: #F7F7F9;
+  border-radius: 24px;
+  padding: 16px 24px;
+  margin-top: 24px;
+  max-width: 500px;
+  transition: .2s;
+  cursor: pointer;
+
+  svg {
+    height: 40px;
+    width: 40px;
+    color: #D3D4D6;
+  }
+}
+
+.skill-card:hover {
+  scale: 1.02;
 }
 
 #imageme {
@@ -55,12 +74,11 @@
   line-height: var(--mobile-sub-heading-line-height);
 }
 
-// .home-sub-section {
-//   background-color: var(--secondary-color);
-// }
+.about {
+  margin-top: 40px;
+}
 
 .about-title {
-  margin-top: 48px;
   margin-bottom: 16px;
   font-weight: 700;
 }
@@ -69,3 +87,39 @@
   font-size: var(--mobile-body-text);
   line-height: var(--mobile-body-line-height);
 }
+
+use {
+  animation: move-forever 100s linear infinite;
+
+  &:nth-child(2) {
+    animation-duration: 80s;
+    animation-delay: -3s;
+  }
+
+  &:nth-child(1) {
+    animation-duration: 70s
+  }
+}
+
+@keyframes move-forever {
+  0% {
+    transform: translate(-2px, 0)
+  }
+
+  100% {
+    transform: translate(0px, 0)
+  }
+}
+
+
+// /* layout only*/
+// body {
+//   margin: 0;
+//   overflow: hidden;
+//   background-color: #123;
+// }
+
+// svg {
+//   width: 100vw;
+//   height: 100vh
+// }
