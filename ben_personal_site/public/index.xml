@@ -6,8 +6,15 @@
     <description>Recent content on Ben McLaren - bybenmclaren</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 08 Aug 2023 16:19:59 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 11 Jun 2025 11:47:55 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Wed, 11 Jun 2025 11:47:55 +0100</pubDate>
+      <guid>http://localhost:1313/about/</guid>
+      <description>Coming soon</description>
+    </item>
     <item>
       <title>Kobra Kards</title>
       <link>http://localhost:1313/work/kobras/</link>
@@ -21,6 +28,13 @@
       <pubDate>Mon, 15 Mar 2021 12:25:22 +0000</pubDate>
       <guid>http://localhost:1313/work/camillafitness/</guid>
       <description>A static Hugo site designed and built from scratch. The main objective is to increase online presence and have a centralised location where potential clients can complete questionires before signing up for sessions. This is a content driven site that allows the client to show the services they offer as well as pricing and contact information.&#xA;This is built using HTML, CSS and Javascript and the static site generator Hugo. It also features a content management system (CMS) that the client can log on to and make changes to the site as and when they need to.</description>
+    </item>
+    <item>
+      <title>Contact</title>
+      <link>http://localhost:1313/contact/</link>
+      <pubDate>Mon, 16 Nov 2020 11:30:13 +0000</pubDate>
+      <guid>http://localhost:1313/contact/</guid>
+      <description>Coming soon</description>
     </item>
     <item>
       <title>Remote cards</title>
