@@ -132,7 +132,7 @@
   position: relative;
   z-index: 3;
   background-color: #fff;
-  min-height: 100vh;
+  flex: 1 0 auto;
   transition: 375ms cubic-bezier(0.46, 0.03, 0.52, 0.96);
   ;
   // box-shadow: 0px 1px 0px rgba(17,17,26,0.1), 0px 8px 24px rgba(17,17,26,0.1), 0px 16px 48px rgba(17,17,26,0.1);
@@ -172,6 +172,7 @@
 .work-title:hover,
 .article-title:hover,
 .project-title:hover,
+.icon-container a:hover,
 svg:hover {
   color: #999999;
 }

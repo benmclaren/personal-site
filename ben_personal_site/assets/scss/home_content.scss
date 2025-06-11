@@ -19,8 +19,27 @@
 
 .hero-intro p {
   margin-top: 8px;
-  font-size: 32px;
-  line-height: 38.4px;
+  font-size: 16px;
+}
+
+.skill-card {
+  background-color: #F7F7F9;
+  border-radius: 24px;
+  padding: 16px 24px;
+  margin-top: 24px;
+  max-width: 500px;
+  transition: .2s;
+  cursor: pointer;
+
+  svg {
+    height: 40px;
+    width: 40px;
+    color: #D3D4D6;
+  }
+}
+
+.skill-card:hover {
+  scale: 1.02;
 }
 
 #imageme {
@@ -55,12 +74,11 @@
   line-height: var(--mobile-sub-heading-line-height);
 }
 
-// .home-sub-section {
-//   background-color: var(--secondary-color);
-// }
+.about {
+  margin-top: 40px;
+}
 
 .about-title {
-  margin-top: 48px;
   margin-bottom: 16px;
   font-weight: 700;
 }
