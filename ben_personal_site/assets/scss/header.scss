@@ -10,11 +10,11 @@
   position: relative;
 }
 
-.logo {
-  position: absolute;
-  top: 12px;
-  left: 24px;
-  font-weight: 600;
+#logo-image {
+  height: 70px;
+  border-radius: 50%;
+  margin-right: 16px;
+  border: 2px solid #fff;
 }
 
 @media(hover: hover) and (pointer: fine) {
@@ -27,7 +27,13 @@
   text-decoration: none;
   font-size: 18px;
   color: var(--main-text-color);
-  transition: 500ms cubic-bezier(0.68,-0.55,0.27,1.55);
+  transition: 500ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.desktop-nav-link {
+  display: flex;
+  align-items: center;
+  margin-left: 48px;
 }
 
 .navbar {
@@ -35,8 +41,19 @@
   justify-content: space-between;
   align-items: center;
   position: relative;
-  padding-left: 16px;
-  padding-top: 16px;
+  margin-top: 16px;
+  padding: 0 16px;
+  background-color: var(--background-color);
+  border-radius: 24px;
+  height: 80px;
+}
+
+.nav-icon {
+  margin-right: 8px;
+}
+
+.nav-wrapper {
+  margin-top: 50px;
 }
 
 // hamburger menu
@@ -54,27 +71,32 @@
 .hamRotate.active {
   transform: rotate(45deg);
 }
+
 .hamRotate180.active {
   transform: rotate(0deg);
 }
+
 .line {
-  fill:none;
+  fill: none;
   transition: stroke-dasharray 800ms, stroke-dashoffset 800ms;
-  stroke:#000;
-  stroke-width:5.5;
-  stroke-linecap:round;
+  stroke: #000;
+  stroke-width: 5.5;
+  stroke-linecap: round;
 }
 
 .ham5 .top {
   stroke-dasharray: 40 82;
 }
+
 .ham5 .bottom {
   stroke-dasharray: 40 82;
 }
+
 .ham5.active .top {
   stroke-dasharray: 14 82;
   stroke-dashoffset: -72px;
 }
+
 .ham5.active .bottom {
   stroke-dasharray: 14 82;
   stroke-dashoffset: -72px;
@@ -87,7 +109,6 @@
   right: 0;
   width: 100vw;
   height: 100vh;
-  background-color: var(--main-circle-color);
   color: #fff;
   font-size: 24px;
   display: flex;
@@ -111,7 +132,8 @@
   z-index: 3;
   background-color: #fff;
   min-height: 100vh;
-  transition: 375ms cubic-bezier(0.46,0.03,0.52,0.96);;
+  transition: 375ms cubic-bezier(0.46, 0.03, 0.52, 0.96);
+  ;
   // box-shadow: 0px 1px 0px rgba(17,17,26,0.1), 0px 8px 24px rgba(17,17,26,0.1), 0px 16px 48px rgba(17,17,26,0.1);
 }
 
@@ -127,6 +149,11 @@
 .desktop-nav {
   display: none;
   transition: 0.2s !important;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
 }
 
 .desktop-nav a {

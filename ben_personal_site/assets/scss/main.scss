@@ -1,4 +1,3 @@
-
 @import "header.scss";
 @import "landing_page.scss";
 @import "home_content.scss";
@@ -33,8 +32,9 @@ html.is-leaving .transition-fade {
 
 :root {
   // --main-text-color: #303030;
-  --main-text-color: #254E3B;
+  --main-text-color: #232323;
   --main-circle-color: #fff75e;
+  --background-color: #F5F5F7;
   --secondary-color: #F7F7FF;
   --mobile-body-text: 16px;
   --mobile-heading-text: 36px;
@@ -76,7 +76,7 @@ pre {
 }
 
 h1,
- {
-  margin: 0;
-  padding: 0;
+{
+margin: 0;
+padding: 0;
 }

@@ -1,6 +1,8 @@
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
-  .main-wrapper {
+
+  .main-wrapper,
+  .nav-wrapper {
     margin: 0 32px;
   }
 
@@ -20,9 +22,9 @@
     margin-right: 32px;
   }
 
-  .navbar {
-    padding-left: 32px;
-  }
+  // .navbar {
+  //   padding-left: 32px;
+  // }
 
   .skills-text {
     font-size: 48px !important;
@@ -33,7 +35,7 @@
 }
 
 // Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
+@media (min-width: 1094px) {
   .hero-section {
     display: flex;
     width: 100%;
@@ -41,20 +43,20 @@
     align-items: center;
   }
 
-  .main-wrapper {
+  .main-wrapper,
+  .nav-wrapper {
     margin: 0 160px;
     margin-top: 88px;
   }
 
   .navbar {
-    padding-left: 160px;
-    padding-right: 160px;
-    padding-top: 16px;
+    margin-left: 160px;
+    margin-right: 160px;
   }
 
-  .desktop-work {
-    margin-right: 96px;
-  }
+  // .desktop-work {
+  //   margin-right: 96px;
+  // }
 
   .about {
     display: flex;
@@ -80,7 +82,7 @@
   }
 
   .desktop-nav {
-    display: block;
+    display: flex;
   }
 
   .skills-text {
@@ -192,7 +194,7 @@
   .date {
     font-size: 14px;
   }
-  
+
   .blurb {
     font-size: 24px;
   }

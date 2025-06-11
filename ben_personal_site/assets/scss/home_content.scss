@@ -1,4 +1,5 @@
-.main-wrapper {
+.main-wrapper,
+.nav-wrapper {
   margin: 0px 16px;
 }
 
@@ -38,7 +39,7 @@
   margin-right: 8px;
 }
 
-.bio-text:nth-of-type(1){
+.bio-text:nth-of-type(1) {
   margin-top: 24px;
 }
 

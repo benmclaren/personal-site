@@ -1,26 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Contacts on Ben McLaren - Freelance Developer</title>
-    <link>https://benmclaren.xyz/contact/</link>
-    <description>Recent content in Contacts on Ben McLaren - Freelance Developer</description>
+    <title>Contacts on Ben McLaren - bybenmclaren</title>
+    <link>http://localhost:1313/contact/</link>
+    <description>Recent content in Contacts on Ben McLaren - bybenmclaren</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 16 Nov 2020 11:30:13 +0000</lastBuildDate>
-    
-	<atom:link href="https://benmclaren.xyz/contact/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Contact</title>
-      <link>https://benmclaren.xyz/contact/contact/</link>
-      <pubDate>Mon, 16 Nov 2020 11:30:13 +0000</pubDate>
-      
-      <guid>https://benmclaren.xyz/contact/contact/</guid>
-      <description>Work with me, or just say Hi What do I do? Front-end + Design
-I design and build websites from the ground up. My focus lies within front-end development and content driven static sites. I also love animating things and bringing content to life to create a beautiful and seamless user experience.
-My tools of choice for this lie in the realm of “Jamstack” utilizing HTML, CSS and Javascript. I will often pair this with a static site generator such as Hugo as I have done for this site.</description>
-    </item>
-    
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="http://localhost:1313/contact/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

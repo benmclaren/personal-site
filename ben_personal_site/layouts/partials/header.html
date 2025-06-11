@@ -1,9 +1,10 @@
-  <header class="navbar">
+  <header class="navbar nav-wrapper">
     <div class="logo-wrapper">
       <div class="logo">
-        <a href="/">@bybenmclaren</a>
-      </div>
-      <div class="main-yellow-spot">
+        <img id="logo-image"
+        src="https://res.cloudinary.com/dy35n8sog/image/upload/f_auto,q_100,w_512/v1605022078/me_qtidgc.jpg"
+        alt="Image of Ben"/>
+        <a href="/">bybenmclaren</a>
       </div>
     </div>
     <svg class="ham hamRotate180 ham5" viewBox="0 0 100 100" width="50" onclick="this.classList.toggle('active')">
@@ -18,7 +19,21 @@
             d="m 30,67 h 40 c 0,0 8.5,0.68551 8.5,-10.375 0,-8.292653 -6.122707,-9.002293 -8.5,-6.625 l -11.071429,11.071429" />
     </svg>
     <div class="desktop-nav">
-      <a class="desktop-work" href="/work">Projects</a>
-      <a class="desktop-articles" href="/articles">Writing</a>
+      <a class="desktop-nav-link desktop-work" href="/work">
+        {{ partial "svg/computer.svg" . }}
+        Projects
+      </a>
+      <a class="desktop-nav-link desktop-articles" href="/about">
+        {{ partial "svg/person.svg" . }}
+        About
+      </a>
+      <a class="desktop-nav-link desktop-articles" href="/articles">
+        {{ partial "svg/edit.svg" . }}
+        Blog
+      </a>
+      <a class="desktop-nav-link desktop-articles" href="/contact">
+        {{ partial "svg/mail.svg" . }}
+        Contact
+      </a>
     </div>
   </header>
