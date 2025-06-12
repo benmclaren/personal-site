@@ -6,8 +6,36 @@
     <description>Recent content on Ben McLaren - bybenmclaren</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 11 Jun 2025 11:47:55 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 12 Jun 2025 12:25:41 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>IAFGG</title>
+      <link>http://localhost:1313/work/iafgg/</link>
+      <pubDate>Thu, 12 Jun 2025 12:25:41 +0100</pubDate>
+      <guid>http://localhost:1313/work/iafgg/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AIN</title>
+      <link>http://localhost:1313/work/ain/</link>
+      <pubDate>Thu, 12 Jun 2025 12:25:34 +0100</pubDate>
+      <guid>http://localhost:1313/work/ain/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Steezsupply</title>
+      <link>http://localhost:1313/work/steezsupply/</link>
+      <pubDate>Wed, 11 Jun 2025 17:06:59 +0100</pubDate>
+      <guid>http://localhost:1313/work/steezsupply/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Jimgrundy</title>
+      <link>http://localhost:1313/work/jimgrundy/</link>
+      <pubDate>Wed, 11 Jun 2025 17:05:27 +0100</pubDate>
+      <guid>http://localhost:1313/work/jimgrundy/</guid>
+      <description></description>
+    </item>
     <item>
       <title>About</title>
       <link>http://localhost:1313/about/</link>
@@ -51,13 +79,6 @@
       <description>A piece of concept art I designed relating to a potential new and fresh design for the WRC website. This was created using Figma, my preferred piece of design software. All my designs are hosted over on my dribble account.</description>
     </item>
     <item>
-      <title>Chalk and Steel</title>
-      <link>http://localhost:1313/work/chalkandsteel/</link>
-      <pubDate>Wed, 11 Nov 2020 14:48:17 +0000</pubDate>
-      <guid>http://localhost:1313/work/chalkandsteel/</guid>
-      <description>A static site designed and built from the ground up with the main objective of increasing the clients reach online. This is a content driven site that allows the client to show the services they offer as well as pricing and contact information.&#xA;This is crafted using HTML, CSS and Javascript with simplicity and speed being key points identified by the client. The desire was for a &amp;lsquo;strong&amp;rsquo; looking website that reflected the clients own personality and this therefore informed the design decision to go with the darker colour scheme and bold typography.</description>
-    </item>
-    <item>
       <title>Horizontal scrollbars</title>
       <link>http://localhost:1313/articles/horizontal-scrollbars/</link>
       <pubDate>Sat, 08 Feb 2020 15:31:11 +0000</pubDate>
@@ -98,13 +119,6 @@
       <pubDate>Tue, 29 Jan 2019 11:35:33 +0000</pubDate>
       <guid>http://localhost:1313/articles/making-responsive-text/</guid>
       <description>Websites need to look good across a multitude of screens and therfore it is essential that a site is responsive so that a user&amp;rsquo;s experience is not affected by their choice of screen size. I encountered a problem whilst building this site that was causing some of my headers to be cut off of the page when the browser size was reduced. I had previously tried using margins and padding to try and fix this issue however, some research led me to media queries.</description>
-    </item>
-    <item>
-      <title>Why why why?</title>
-      <link>http://localhost:1313/articles/why-why-why/</link>
-      <pubDate>Tue, 11 Dec 2018 11:34:23 +0000</pubDate>
-      <guid>http://localhost:1313/articles/why-why-why/</guid>
-      <description>The best decison I could have made&#xA;One of the most common questions children are asked is &amp;lsquo;What do you want to be when you are older?&amp;rsquo;. In my opinion this is quite a difficult question to answer. Not many people have a firm idea of what they really want to do. There are of course those who know exactly which career direction they wish to pursue, medicine for example. However, for most of us, finding that one thing that is going to spark your interest and kickstart your career is quite hard to discover.</description>
     </item>
   </channel>
 </rss>

@@ -6,6 +6,7 @@ draft: false
 excerpt: 'To design and build a bespoke website for a local professional looking to expand their business'
 link: https://camilla.fitness/
 image: ''
+status: 'past'
 ---
 
 A static Hugo site designed and built from scratch. The main objective is to increase online presence and have a centralised location where potential clients can complete questionires before signing up for sessions. This is a content driven site that allows the client to show the services they offer as well as pricing and contact information.

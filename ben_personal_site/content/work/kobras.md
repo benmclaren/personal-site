@@ -5,6 +5,7 @@ author: Ben McLaren
 draft: false
 link: https://next-ecomerce-alpha.vercel.app/
 excerpt: 'My latest project and work in progress online store. Ecommerce platform to sell collectable cards that I have made for my football team.'
+status: 'active'
 ---
 
 An e-commerce platform that will be used to sell the football cards that I have designed and made for my team, the Outgoing Kobras.

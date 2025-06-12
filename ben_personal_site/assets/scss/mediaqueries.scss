@@ -23,16 +23,9 @@
     margin-right: 32px;
   }
 
-  // .navbar {
-  //   padding-left: 32px;
-  // }
-
   .skills-text {
     font-size: 48px !important;
   }
-
-
-
 }
 
 // Large devices (desktops, 992px and up)
@@ -90,7 +83,7 @@
   }
 
   .projects {
-    margin-top: 144px;
+    margin-top: 64px;
   }
 
   .hero-text {
@@ -127,8 +120,13 @@
     margin-top: 96px;
   }
 
-  .project-title {
-    font-size: 48px !important;
+  .project-container {
+    height: 150px;
+    width: 150px;
+  }
+
+  .circle {
+    font-size: 1.2rem;
   }
 
   .project-content {
@@ -162,7 +160,7 @@
   }
 
   .articles-item {
-    margin-top: 96px;
+    margin-top: 40px;
   }
 }
 
