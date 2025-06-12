@@ -29,7 +29,6 @@
   margin-top: 24px;
   max-width: 500px;
   transition: .2s;
-  cursor: pointer;
 
   svg {
     height: 40px;
@@ -110,16 +109,3 @@ use {
     transform: translate(0px, 0)
   }
 }
-
-
-// /* layout only*/
-// body {
-//   margin: 0;
-//   overflow: hidden;
-//   background-color: #123;
-// }
-
-// svg {
-//   width: 100vw;
-//   height: 100vh
-// }
