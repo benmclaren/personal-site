@@ -34,6 +34,7 @@
   display: flex;
   align-items: center;
   margin-left: 48px;
+  color: var(--main-text-color);
 }
 
 .navbar {
@@ -111,7 +112,6 @@
   right: 0;
   width: 100vw;
   height: 100vh;
-  color: #fff;
   font-size: 24px;
   display: flex;
   flex-direction: column;

@@ -3,12 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2025-06-11T17:06:59+01:00</lastmod>
+    <lastmod>2025-06-12T12:25:41+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/work/steezsupply/</loc>
-    <lastmod>2025-06-11T17:06:59+01:00</lastmod>
+    <loc>http://localhost:1313/work/iafgg/</loc>
+    <lastmod>2025-06-12T12:25:41+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/work/</loc>
+    <lastmod>2025-06-12T12:25:41+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/work/ain/</loc>
+    <lastmod>2025-06-12T12:25:34+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/work/steezsupply/</loc>
     <lastmod>2025-06-11T17:06:59+01:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/work/jimgrundy/</loc>
@@ -32,9 +38,6 @@
     <loc>http://localhost:1313/work/wrcdesign/</loc>
     <lastmod>2020-11-11T14:48:40+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/work/chalkandsteel/</loc>
-    <lastmod>2020-11-11T14:48:17+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/articles/</loc>
     <lastmod>2020-07-20T14:24:01+01:00</lastmod>
   </url><url>
@@ -55,9 +58,6 @@
   </url><url>
     <loc>http://localhost:1313/articles/making-responsive-text/</loc>
     <lastmod>2019-01-29T11:35:33+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/articles/why-why-why/</loc>
-    <lastmod>2018-12-11T11:34:23+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
   </url><url>
