@@ -5,20 +5,41 @@
     <h1>Work</h1>
   </div>
 
-  <div class="blog-format">
-    {{ range .Pages}}
-
-    <div class="projects">
-      <div class="project-container">
-        <a class="project-title" href="{{.Permalink}}">{{ .Title }}</a>
-      </div>
+  <div class="watch-grid">
+    {{ $projects := .Pages }}
+    {{ $row1 := first 3 $projects }}
+    {{ $row2 := first 3 (after 3 $projects) }}
+    {{ $row3 := first 2 (after 6 $projects) }}
+  
+    <div class="row">
+      {{ range $row1 }}
+      <a class="project-title" href="{{ .Permalink }}">
+        <div class="project-container circle">
+          {{ .Title }}
+        </div>
+      </a>
+      {{ end }}
     </div>
-    <div class="blurb date">
-      {{ .Params.Excerpt }}
+  
+    <div class="row">
+      {{ range $row2 }}
+      <a class="project-title" href="{{ .Permalink }}">
+        <div class="project-container circle">
+          {{ .Title }}
+        </div>
+      </a>
+      {{ end }}
     </div>
-
-
-    {{ end }}
+  
+    <div class="row">
+      {{ range $row3 }}
+      <a class="project-title" href="{{ .Permalink }}">
+        <div class="project-container circle">
+          {{ .Title }}
+        </div>
+      </a>
+      {{ end }}
+    </div>
   </div>
 
   </div>

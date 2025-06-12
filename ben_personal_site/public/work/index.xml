@@ -6,8 +6,36 @@
     <description>Recent content in Works on Ben McLaren - bybenmclaren</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 08 Aug 2023 16:19:59 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 12 Jun 2025 12:25:41 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/work/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>IAFGG</title>
+      <link>http://localhost:1313/work/iafgg/</link>
+      <pubDate>Thu, 12 Jun 2025 12:25:41 +0100</pubDate>
+      <guid>http://localhost:1313/work/iafgg/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AIN</title>
+      <link>http://localhost:1313/work/ain/</link>
+      <pubDate>Thu, 12 Jun 2025 12:25:34 +0100</pubDate>
+      <guid>http://localhost:1313/work/ain/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Steezsupply</title>
+      <link>http://localhost:1313/work/steezsupply/</link>
+      <pubDate>Wed, 11 Jun 2025 17:06:59 +0100</pubDate>
+      <guid>http://localhost:1313/work/steezsupply/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Jimgrundy</title>
+      <link>http://localhost:1313/work/jimgrundy/</link>
+      <pubDate>Wed, 11 Jun 2025 17:05:27 +0100</pubDate>
+      <guid>http://localhost:1313/work/jimgrundy/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Kobra Kards</title>
       <link>http://localhost:1313/work/kobras/</link>
@@ -35,13 +63,6 @@
       <pubDate>Wed, 11 Nov 2020 14:48:40 +0000</pubDate>
       <guid>http://localhost:1313/work/wrcdesign/</guid>
       <description>A piece of concept art I designed relating to a potential new and fresh design for the WRC website. This was created using Figma, my preferred piece of design software. All my designs are hosted over on my dribble account.</description>
-    </item>
-    <item>
-      <title>Chalk and Steel</title>
-      <link>http://localhost:1313/work/chalkandsteel/</link>
-      <pubDate>Wed, 11 Nov 2020 14:48:17 +0000</pubDate>
-      <guid>http://localhost:1313/work/chalkandsteel/</guid>
-      <description>A static site designed and built from the ground up with the main objective of increasing the clients reach online. This is a content driven site that allows the client to show the services they offer as well as pricing and contact information.&#xA;This is crafted using HTML, CSS and Javascript with simplicity and speed being key points identified by the client. The desire was for a &amp;lsquo;strong&amp;rsquo; looking website that reflected the clients own personality and this therefore informed the design decision to go with the darker colour scheme and bold typography.</description>
     </item>
   </channel>
 </rss>

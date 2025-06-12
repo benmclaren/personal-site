@@ -50,12 +50,5 @@
       <guid>http://localhost:1313/articles/making-responsive-text/</guid>
       <description>Websites need to look good across a multitude of screens and therfore it is essential that a site is responsive so that a user&amp;rsquo;s experience is not affected by their choice of screen size. I encountered a problem whilst building this site that was causing some of my headers to be cut off of the page when the browser size was reduced. I had previously tried using margins and padding to try and fix this issue however, some research led me to media queries.</description>
     </item>
-    <item>
-      <title>Why why why?</title>
-      <link>http://localhost:1313/articles/why-why-why/</link>
-      <pubDate>Tue, 11 Dec 2018 11:34:23 +0000</pubDate>
-      <guid>http://localhost:1313/articles/why-why-why/</guid>
-      <description>The best decison I could have made&#xA;One of the most common questions children are asked is &amp;lsquo;What do you want to be when you are older?&amp;rsquo;. In my opinion this is quite a difficult question to answer. Not many people have a firm idea of what they really want to do. There are of course those who know exactly which career direction they wish to pursue, medicine for example. However, for most of us, finding that one thing that is going to spark your interest and kickstart your career is quite hard to discover.</description>
-    </item>
   </channel>
 </rss>
